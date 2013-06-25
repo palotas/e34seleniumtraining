@@ -6,7 +6,7 @@ import org.testng.annotations.Test;
 
 public class TestngBasicTests {
 	
-	@Test(invocationCount=5)
+	@Test(invocationCount=3)
 	public void myFirstTestngTest() {
 		int a = 1;
 		int b = 2;
