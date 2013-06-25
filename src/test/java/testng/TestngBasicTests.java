@@ -6,7 +6,7 @@ import org.testng.annotations.Test;
 
 public class TestngBasicTests {
 	
-	@Test(threadPoolSize=10, invocationCount=20)
+	@Test(threadPoolSize=10, invocationCount=10)
 	public void myFirstTestngTest() {
 		int a = 1;
 		int b = 2;
