@@ -1,0 +1,19 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+  
+<suite name="TestNG Reporting with Listener" verbose="1" >
+ 
+  <test name="Listener Tests">
+	
+	<classes>
+	      <class name="reporting.ReportingTest"/>
+	</classes>
+	
+	 <listeners>
+ 		<listener class-name="listeners.MyListener"/>
+ 	</listeners>
+	
+  </test>
+</suite>
+
+
+

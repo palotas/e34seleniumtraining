@@ -1,0 +1,591 @@
+<html>
+<head>
+<title>TestNG:  Command line test</title>
+<link href="../testng.css" rel="stylesheet" type="text/css" />
+<link href="../my-testng.css" rel="stylesheet" type="text/css" />
+
+<style type="text/css">
+.log { display: none;} 
+.stack-trace { display: none;} 
+</style>
+<script type="text/javascript">
+<!--
+function flip(e) {
+  current = e.style.display;
+  if (current == 'block') {
+    e.style.display = 'none';
+    return 0;
+  }
+  else {
+    e.style.display = 'block';
+    return 1;
+  }
+}
+
+function toggleBox(szDivId, elem, msg1, msg2)
+{
+  var res = -1;  if (document.getElementById) {
+    res = flip(document.getElementById(szDivId));
+  }
+  else if (document.all) {
+    // this is the way old msie versions work
+    res = flip(document.all[szDivId]);
+  }
+  if(elem) {
+    if(res == 0) elem.innerHTML = msg1; else elem.innerHTML = msg2;
+  }
+
+}
+
+function toggleAllBoxes() {
+  if (document.getElementsByTagName) {
+    d = document.getElementsByTagName('div');
+    for (i = 0; i < d.length; i++) {
+      if (d[i].className == 'log') {
+        flip(d[i]);
+      }
+    }
+  }
+}
+
+// -->
+</script>
+
+</head>
+<body>
+<h2 align='center'>Command line test</h2><table border='1' align="center">
+<tr>
+<td>Tests passed/Failed/Skipped:</td><td>53/3/1</td>
+</tr><tr>
+<td>Started on:</td><td>Sun Jun 09 12:15:00 PDT 2013</td>
+</tr>
+<tr><td>Total time:</td><td>33 seconds (33427 ms)</td>
+</tr><tr>
+<td>Included groups:</td><td></td>
+</tr><tr>
+<td>Excluded groups:</td><td></td>
+</tr>
+</table><p/>
+<small><i>(Hover the method name to see the test class name)</i></small><p/>
+<table width='100%' border='1' class='invocation-failed'>
+<tr><td colspan='4' align='center'><b>FAILED TESTS</b></td></tr>
+<tr><td><b>Test method</b></td>
+<td width="30%"><b>Exception</b></td>
+<td width="10%"><b>Time (seconds)</b></td>
+<td><b>Instance</b></td>
+</tr>
+<tr>
+<td title='reporting.ReportingTest.fireFoxTestWithScreenshotReport()'><b>fireFoxTestWithScreenshotReport</b><br>Test class: reporting.ReportingTest</td>
+<td><div><pre>org.openqa.selenium.remote.UnreachableBrowserException: Could not start a new session. Possible causes are invalid address of the remote server or browser start-up failure.
+Build info: version: &apos;2.33.0&apos;, revision: &apos;4ecaf82108b2a6cc6f006aae81961236eba93358&apos;, time: &apos;2013-05-22 12:00:17&apos;
+System info: os.name: &apos;Linux&apos;, os.arch: &apos;i386&apos;, os.version: &apos;3.5.0-17-generic&apos;, java.version: &apos;1.7.0_15&apos;
+Driver info: driver.version: RemoteWebDriver
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:548)
+	at org.openqa.selenium.remote.RemoteWebDriver.startSession(RemoteWebDriver.java:216)
+	at org.openqa.selenium.remote.RemoteWebDriver.&lt;init&gt;(RemoteWebDriver.java:111)
+	at org.openqa.selenium.remote.RemoteWebDriver.&lt;init&gt;(RemoteWebDriver.java:129)
+	at reporting.ReportingTest.fireFoxTestWithScreenshotReport(ReportingTest.java:51)
+	at org.apache.maven.surefire.testng.TestNGExecutor.run(TestNGExecutor.java:70)
+	at org.apache.maven.surefire.testng.TestNGDirectoryTestSuite.executeMulti(TestNGDirectoryTestSuite.java:158)
+	at org.apache.maven.surefire.testng.TestNGDirectoryTestSuite.execute(TestNGDirectoryTestSuite.java:98)
+	at org.apache.maven.surefire.testng.TestNGProvider.invoke(TestNGProvider.java:111)
+	at org.apache.maven.surefire.util.ReflectionUtils.invokeMethodWithArray(ReflectionUtils.java:164)
+	at org.apache.maven.surefire.booter.ProviderFactory$ProviderProxy.invoke(ProviderFactory.java:110)
+	at org.apache.maven.surefire.booter.SurefireStarter.invokeProvider(SurefireStarter.java:175)
+	at org.apache.maven.surefire.booter.SurefireStarter.runSuitesInProcessWhenForked(SurefireStarter.java:107)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:68)
+Caused by: org.apache.http.conn.HttpHostConnectException: Connection to http://localhost:4444 refused
+	at org.apache.http.impl.conn.DefaultClientConnectionOperator.openConnection(DefaultClientConnectionOperator.java:190)
+	at org.apache.http.impl.conn.AbstractPoolEntry.open(AbstractPoolEntry.java:151)
+	at org.apache.http.impl.conn.AbstractPooledConnAdapter.open(AbstractPooledConnAdapter.java:125)
+	at org.apache.http.impl.client.DefaultRequestDirector.tryConnect(DefaultRequestDirector.java:640)
+	at org.apache.http.impl.client.DefaultRequestDirector.execute(DefaultRequestDirector.java:479)
+	at org.apache.http.impl.client.AbstractHttpClient.execute(AbstractHttpClient.java:906)
+	at org.openqa.selenium.remote.HttpCommandExecutor.fallBackExecute(HttpCommandExecutor.java:316)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:295)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:527)
+	... 38 more
+Caused by: java.net.ConnectException: Connection refused
+	at java.net.PlainSocketImpl.socketConnect(Native Method)
+	at java.net.AbstractPlainSocketImpl.doConnect(AbstractPlainSocketImpl.java:339)
+	at java.net.AbstractPlainSocketImpl.connectToAddress(AbstractPlainSocketImpl.java:200)
+	at java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:182)
+	at java.net.SocksSocketImpl.connect(SocksSocketImpl.java:391)
+	at java.net.Socket.connect(Socket.java:579)
+	at org.apache.http.conn.scheme.PlainSocketFactory.connectSocket(PlainSocketFactory.java:127)
+	at org.apache.http.impl.conn.DefaultClientConnectionOperator.openConnection(DefaultClientConnectionOperator.java:180)
+	... 46 more
+... Removed 25 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace9407917", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace9407917'><pre>org.openqa.selenium.remote.UnreachableBrowserException: Could not start a new session. Possible causes are invalid address of the remote server or browser start-up failure.
+Build info: version: &apos;2.33.0&apos;, revision: &apos;4ecaf82108b2a6cc6f006aae81961236eba93358&apos;, time: &apos;2013-05-22 12:00:17&apos;
+System info: os.name: &apos;Linux&apos;, os.arch: &apos;i386&apos;, os.version: &apos;3.5.0-17-generic&apos;, java.version: &apos;1.7.0_15&apos;
+Driver info: driver.version: RemoteWebDriver
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:548)
+	at org.openqa.selenium.remote.RemoteWebDriver.startSession(RemoteWebDriver.java:216)
+	at org.openqa.selenium.remote.RemoteWebDriver.&lt;init&gt;(RemoteWebDriver.java:111)
+	at org.openqa.selenium.remote.RemoteWebDriver.&lt;init&gt;(RemoteWebDriver.java:129)
+	at reporting.ReportingTest.fireFoxTestWithScreenshotReport(ReportingTest.java:51)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:601)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:80)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:714)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:901)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1231)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:127)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:111)
+	at org.testng.TestRunner.privateRun(TestRunner.java:767)
+	at org.testng.TestRunner.run(TestRunner.java:617)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:334)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:329)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:291)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:240)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1198)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1123)
+	at org.testng.TestNG.run(TestNG.java:1031)
+	at org.apache.maven.surefire.testng.TestNGExecutor.run(TestNGExecutor.java:70)
+	at org.apache.maven.surefire.testng.TestNGDirectoryTestSuite.executeMulti(TestNGDirectoryTestSuite.java:158)
+	at org.apache.maven.surefire.testng.TestNGDirectoryTestSuite.execute(TestNGDirectoryTestSuite.java:98)
+	at org.apache.maven.surefire.testng.TestNGProvider.invoke(TestNGProvider.java:111)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:601)
+	at org.apache.maven.surefire.util.ReflectionUtils.invokeMethodWithArray(ReflectionUtils.java:164)
+	at org.apache.maven.surefire.booter.ProviderFactory$ProviderProxy.invoke(ProviderFactory.java:110)
+	at org.apache.maven.surefire.booter.SurefireStarter.invokeProvider(SurefireStarter.java:175)
+	at org.apache.maven.surefire.booter.SurefireStarter.runSuitesInProcessWhenForked(SurefireStarter.java:107)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:68)
+Caused by: org.apache.http.conn.HttpHostConnectException: Connection to http://localhost:4444 refused
+	at org.apache.http.impl.conn.DefaultClientConnectionOperator.openConnection(DefaultClientConnectionOperator.java:190)
+	at org.apache.http.impl.conn.AbstractPoolEntry.open(AbstractPoolEntry.java:151)
+	at org.apache.http.impl.conn.AbstractPooledConnAdapter.open(AbstractPooledConnAdapter.java:125)
+	at org.apache.http.impl.client.DefaultRequestDirector.tryConnect(DefaultRequestDirector.java:640)
+	at org.apache.http.impl.client.DefaultRequestDirector.execute(DefaultRequestDirector.java:479)
+	at org.apache.http.impl.client.AbstractHttpClient.execute(AbstractHttpClient.java:906)
+	at org.openqa.selenium.remote.HttpCommandExecutor.fallBackExecute(HttpCommandExecutor.java:316)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:295)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:527)
+	... 38 more
+Caused by: java.net.ConnectException: Connection refused
+	at java.net.PlainSocketImpl.socketConnect(Native Method)
+	at java.net.AbstractPlainSocketImpl.doConnect(AbstractPlainSocketImpl.java:339)
+	at java.net.AbstractPlainSocketImpl.connectToAddress(AbstractPlainSocketImpl.java:200)
+	at java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:182)
+	at java.net.SocksSocketImpl.connect(SocksSocketImpl.java:391)
+	at java.net.Socket.connect(Socket.java:579)
+	at org.apache.http.conn.scheme.PlainSocketFactory.connectSocket(PlainSocketFactory.java:127)
+	at org.apache.http.impl.conn.DefaultClientConnectionOperator.openConnection(DefaultClientConnectionOperator.java:180)
+	... 46 more
+</pre></div></td>
+<td>0</td>
+<td>reporting.ReportingTest@151e824</td></tr>
+<tr>
+<td title='testng.TestngDependency.mytest1()'><b>mytest1</b><br>Test class: testng.TestngDependency</td>
+<td><div><pre>java.lang.AssertionError: expected [true] but found [false]
+	at testng.TestngDependency.mytest1(TestngDependency.java:15)
+	at org.apache.maven.surefire.testng.TestNGExecutor.run(TestNGExecutor.java:70)
+	at org.apache.maven.surefire.testng.TestNGDirectoryTestSuite.executeMulti(TestNGDirectoryTestSuite.java:158)
+	at org.apache.maven.surefire.testng.TestNGDirectoryTestSuite.execute(TestNGDirectoryTestSuite.java:98)
+	at org.apache.maven.surefire.testng.TestNGProvider.invoke(TestNGProvider.java:111)
+	at org.apache.maven.surefire.util.ReflectionUtils.invokeMethodWithArray(ReflectionUtils.java:164)
+	at org.apache.maven.surefire.booter.ProviderFactory$ProviderProxy.invoke(ProviderFactory.java:110)
+	at org.apache.maven.surefire.booter.SurefireStarter.invokeProvider(SurefireStarter.java:175)
+	at org.apache.maven.surefire.booter.SurefireStarter.runSuitesInProcessWhenForked(SurefireStarter.java:107)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:68)
+... Removed 29 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace21048344", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace21048344'><pre>java.lang.AssertionError: expected [true] but found [false]
+	at org.testng.Assert.fail(Assert.java:94)
+	at org.testng.Assert.failNotEquals(Assert.java:494)
+	at org.testng.Assert.assertTrue(Assert.java:42)
+	at org.testng.Assert.assertTrue(Assert.java:52)
+	at testng.TestngDependency.mytest1(TestngDependency.java:15)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:601)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:80)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:714)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:901)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1231)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:127)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:111)
+	at org.testng.TestRunner.privateRun(TestRunner.java:767)
+	at org.testng.TestRunner.run(TestRunner.java:617)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:334)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:329)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:291)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:240)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1198)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1123)
+	at org.testng.TestNG.run(TestNG.java:1031)
+	at org.apache.maven.surefire.testng.TestNGExecutor.run(TestNGExecutor.java:70)
+	at org.apache.maven.surefire.testng.TestNGDirectoryTestSuite.executeMulti(TestNGDirectoryTestSuite.java:158)
+	at org.apache.maven.surefire.testng.TestNGDirectoryTestSuite.execute(TestNGDirectoryTestSuite.java:98)
+	at org.apache.maven.surefire.testng.TestNGProvider.invoke(TestNGProvider.java:111)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:601)
+	at org.apache.maven.surefire.util.ReflectionUtils.invokeMethodWithArray(ReflectionUtils.java:164)
+	at org.apache.maven.surefire.booter.ProviderFactory$ProviderProxy.invoke(ProviderFactory.java:110)
+	at org.apache.maven.surefire.booter.SurefireStarter.invokeProvider(SurefireStarter.java:175)
+	at org.apache.maven.surefire.booter.SurefireStarter.runSuitesInProcessWhenForked(SurefireStarter.java:107)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:68)
+</pre></div></td>
+<td>0</td>
+<td>testng.TestngDependency@18bd37a</td></tr>
+</table><p>
+<table width='100%' border='1' class='invocation-passed'>
+<tr><td colspan='4' align='center'><b>PASSED TESTS</b></td></tr>
+<tr><td><b>Test method</b></td>
+<td width="30%"><b>Exception</b></td>
+<td width="10%"><b>Time (seconds)</b></td>
+<td><b>Instance</b></td>
+</tr>
+<tr>
+<td title='pageobjects.BasicFlightSearchTest.flightSearch()'><b>flightSearch</b><br>Test class: pageobjects.BasicFlightSearchTest</td>
+<td></td>
+<td>27</td>
+<td>pageobjects.BasicFlightSearchTest@893a4a</td></tr>
+<tr>
+<td title='pageobjects.FlightSearchPageTest.flightSearchTest()'><b>flightSearchTest</b><br>Test class: pageobjects.FlightSearchPageTest</td>
+<td></td>
+<td>5</td>
+<td>pageobjects.FlightSearchPageTest@5fadce</td></tr>
+<tr>
+<td title='testng.TestngInvocationCount.invocationCountTest()'><b>invocationCountTest</b><br>Test class: testng.TestngInvocationCount</td>
+<td></td>
+<td>0</td>
+<td>testng.TestngInvocationCount@d8f55c</td></tr>
+<tr>
+<td title='testng.TestngInvocationCount.invocationCountTest()'><b>invocationCountTest</b><br>Test class: testng.TestngInvocationCount</td>
+<td></td>
+<td>0</td>
+<td>testng.TestngInvocationCount@d8f55c</td></tr>
+<tr>
+<td title='testng.TestngInvocationCount.invocationCountTest()'><b>invocationCountTest</b><br>Test class: testng.TestngInvocationCount</td>
+<td></td>
+<td>0</td>
+<td>testng.TestngInvocationCount@d8f55c</td></tr>
+<tr>
+<td title='testng.TestngInvocationCount.invocationCountTest()'><b>invocationCountTest</b><br>Test class: testng.TestngInvocationCount</td>
+<td></td>
+<td>0</td>
+<td>testng.TestngInvocationCount@d8f55c</td></tr>
+<tr>
+<td title='testng.TestngInvocationCount.invocationCountTest()'><b>invocationCountTest</b><br>Test class: testng.TestngInvocationCount</td>
+<td></td>
+<td>0</td>
+<td>testng.TestngInvocationCount@d8f55c</td></tr>
+<tr>
+<td title='testng.TestngInvocationCount.invocationCountTest()'><b>invocationCountTest</b><br>Test class: testng.TestngInvocationCount</td>
+<td></td>
+<td>0</td>
+<td>testng.TestngInvocationCount@d8f55c</td></tr>
+<tr>
+<td title='testng.TestngInvocationCount.invocationCountTest()'><b>invocationCountTest</b><br>Test class: testng.TestngInvocationCount</td>
+<td></td>
+<td>0</td>
+<td>testng.TestngInvocationCount@d8f55c</td></tr>
+<tr>
+<td title='testng.TestngInvocationCount.invocationCountTest()'><b>invocationCountTest</b><br>Test class: testng.TestngInvocationCount</td>
+<td></td>
+<td>0</td>
+<td>testng.TestngInvocationCount@d8f55c</td></tr>
+<tr>
+<td title='testng.TestngInvocationCount.invocationCountTest()'><b>invocationCountTest</b><br>Test class: testng.TestngInvocationCount</td>
+<td></td>
+<td>0</td>
+<td>testng.TestngInvocationCount@d8f55c</td></tr>
+<tr>
+<td title='testng.TestngInvocationCount.invocationCountTest()'><b>invocationCountTest</b><br>Test class: testng.TestngInvocationCount</td>
+<td></td>
+<td>0</td>
+<td>testng.TestngInvocationCount@d8f55c</td></tr>
+<tr>
+<td title='testng.TestngBasicTests.myFirstTestngTest()'><b>myFirstTestngTest</b><br>Test class: testng.TestngBasicTests</td>
+<td></td>
+<td>0</td>
+<td>testng.TestngBasicTests@c51089</td></tr>
+<tr>
+<td title='testng.TestngBasicTests.myFirstTestngTest()'><b>myFirstTestngTest</b><br>Test class: testng.TestngBasicTests</td>
+<td></td>
+<td>0</td>
+<td>testng.TestngBasicTests@c51089</td></tr>
+<tr>
+<td title='testng.TestngBasicTests.myFirstTestngTest()'><b>myFirstTestngTest</b><br>Test class: testng.TestngBasicTests</td>
+<td></td>
+<td>0</td>
+<td>testng.TestngBasicTests@c51089</td></tr>
+<tr>
+<td title='testng.TestngBasicTests.myFirstTestngTest()'><b>myFirstTestngTest</b><br>Test class: testng.TestngBasicTests</td>
+<td></td>
+<td>0</td>
+<td>testng.TestngBasicTests@c51089</td></tr>
+<tr>
+<td title='testng.TestngBasicTests.myFirstTestngTest()'><b>myFirstTestngTest</b><br>Test class: testng.TestngBasicTests</td>
+<td></td>
+<td>0</td>
+<td>testng.TestngBasicTests@c51089</td></tr>
+<tr>
+<td title='testng.TestngBasicTests.myFirstTestngTest()'><b>myFirstTestngTest</b><br>Test class: testng.TestngBasicTests</td>
+<td></td>
+<td>0</td>
+<td>testng.TestngBasicTests@c51089</td></tr>
+<tr>
+<td title='testng.TestngBasicTests.myFirstTestngTest()'><b>myFirstTestngTest</b><br>Test class: testng.TestngBasicTests</td>
+<td></td>
+<td>0</td>
+<td>testng.TestngBasicTests@c51089</td></tr>
+<tr>
+<td title='testng.TestngBasicTests.myFirstTestngTest()'><b>myFirstTestngTest</b><br>Test class: testng.TestngBasicTests</td>
+<td></td>
+<td>0</td>
+<td>testng.TestngBasicTests@c51089</td></tr>
+<tr>
+<td title='testng.TestngBasicTests.myFirstTestngTest()'><b>myFirstTestngTest</b><br>Test class: testng.TestngBasicTests</td>
+<td></td>
+<td>0</td>
+<td>testng.TestngBasicTests@c51089</td></tr>
+<tr>
+<td title='testng.TestngBasicTests.myFirstTestngTest()'><b>myFirstTestngTest</b><br>Test class: testng.TestngBasicTests</td>
+<td></td>
+<td>0</td>
+<td>testng.TestngBasicTests@c51089</td></tr>
+<tr>
+<td title='testng.TestngBasicTests.myFirstTestngTest()'><b>myFirstTestngTest</b><br>Test class: testng.TestngBasicTests</td>
+<td></td>
+<td>0</td>
+<td>testng.TestngBasicTests@c51089</td></tr>
+<tr>
+<td title='testng.TestngBasicTests.myFirstTestngTest()'><b>myFirstTestngTest</b><br>Test class: testng.TestngBasicTests</td>
+<td></td>
+<td>0</td>
+<td>testng.TestngBasicTests@c51089</td></tr>
+<tr>
+<td title='testng.TestngBasicTests.myFirstTestngTest()'><b>myFirstTestngTest</b><br>Test class: testng.TestngBasicTests</td>
+<td></td>
+<td>0</td>
+<td>testng.TestngBasicTests@c51089</td></tr>
+<tr>
+<td title='testng.TestngBasicTests.myFirstTestngTest()'><b>myFirstTestngTest</b><br>Test class: testng.TestngBasicTests</td>
+<td></td>
+<td>0</td>
+<td>testng.TestngBasicTests@c51089</td></tr>
+<tr>
+<td title='testng.TestngBasicTests.myFirstTestngTest()'><b>myFirstTestngTest</b><br>Test class: testng.TestngBasicTests</td>
+<td></td>
+<td>0</td>
+<td>testng.TestngBasicTests@c51089</td></tr>
+<tr>
+<td title='testng.TestngBasicTests.myFirstTestngTest()'><b>myFirstTestngTest</b><br>Test class: testng.TestngBasicTests</td>
+<td></td>
+<td>0</td>
+<td>testng.TestngBasicTests@c51089</td></tr>
+<tr>
+<td title='testng.TestngBasicTests.myFirstTestngTest()'><b>myFirstTestngTest</b><br>Test class: testng.TestngBasicTests</td>
+<td></td>
+<td>0</td>
+<td>testng.TestngBasicTests@c51089</td></tr>
+<tr>
+<td title='testng.TestngBasicTests.myFirstTestngTest()'><b>myFirstTestngTest</b><br>Test class: testng.TestngBasicTests</td>
+<td></td>
+<td>0</td>
+<td>testng.TestngBasicTests@c51089</td></tr>
+<tr>
+<td title='testng.TestngBasicTests.myFirstTestngTest()'><b>myFirstTestngTest</b><br>Test class: testng.TestngBasicTests</td>
+<td></td>
+<td>0</td>
+<td>testng.TestngBasicTests@c51089</td></tr>
+<tr>
+<td title='testng.TestngBasicTests.myFirstTestngTest()'><b>myFirstTestngTest</b><br>Test class: testng.TestngBasicTests</td>
+<td></td>
+<td>0</td>
+<td>testng.TestngBasicTests@c51089</td></tr>
+<tr>
+<td title='testng.TestngBasicTests.mySecondTestngTest()'><b>mySecondTestngTest</b><br>Test class: testng.TestngBasicTests</td>
+<td></td>
+<td>0</td>
+<td>testng.TestngBasicTests@c51089</td></tr>
+<tr>
+<td title='testng.TestngBasicTests.myThirdTestngTest()'><b>myThirdTestngTest</b><br>Test class: testng.TestngBasicTests</td>
+<td></td>
+<td>0</td>
+<td>testng.TestngBasicTests@c51089</td></tr>
+<tr>
+<td title='testng.TestngDataProvider.mytest1()'><b>mytest1</b><br>Test class: testng.TestngDataProvider<br>Parameters: Switzerland</td>
+<td></td>
+<td>0</td>
+<td>testng.TestngDataProvider@156f14c</td></tr>
+<tr>
+<td title='testng.TestngDataProvider.mytest1()'><b>mytest1</b><br>Test class: testng.TestngDataProvider<br>Parameters: United States</td>
+<td></td>
+<td>0</td>
+<td>testng.TestngDataProvider@156f14c</td></tr>
+<tr>
+<td title='testng.TestngDataProvider.mytest1()'><b>mytest1</b><br>Test class: testng.TestngDataProvider<br>Parameters: China</td>
+<td></td>
+<td>0</td>
+<td>testng.TestngDataProvider@156f14c</td></tr>
+<tr>
+<td title='testng.TestngDataProvider.mytest1()'><b>mytest1</b><br>Test class: testng.TestngDataProvider<br>Parameters: Germany</td>
+<td></td>
+<td>0</td>
+<td>testng.TestngDataProvider@156f14c</td></tr>
+<tr>
+<td title='testng.TestngGroups.mytest1()'><b>mytest1</b><br>Test class: testng.TestngGroups</td>
+<td></td>
+<td>0</td>
+<td>testng.TestngGroups@e90906</td></tr>
+<tr>
+<td title='testng.TestngAnnotationsBeforeAfter.mytest1()'><b>mytest1</b><br>Test class: testng.TestngAnnotationsBeforeAfter</td>
+<td></td>
+<td>0</td>
+<td>testng.TestngAnnotationsBeforeAfter@746d23</td></tr>
+<tr>
+<td title='testng.TestngDataProvider.mytest2()'><b>mytest2</b><br>Test class: testng.TestngDataProvider<br>Parameters: Switzerland, .ch</td>
+<td></td>
+<td>0</td>
+<td>testng.TestngDataProvider@156f14c</td></tr>
+<tr>
+<td title='testng.TestngDataProvider.mytest2()'><b>mytest2</b><br>Test class: testng.TestngDataProvider<br>Parameters: United States, .com</td>
+<td></td>
+<td>0</td>
+<td>testng.TestngDataProvider@156f14c</td></tr>
+<tr>
+<td title='testng.TestngDataProvider.mytest2()'><b>mytest2</b><br>Test class: testng.TestngDataProvider<br>Parameters: China, .cn</td>
+<td></td>
+<td>0</td>
+<td>testng.TestngDataProvider@156f14c</td></tr>
+<tr>
+<td title='testng.TestngGroups.mytest2()'><b>mytest2</b><br>Test class: testng.TestngGroups</td>
+<td></td>
+<td>0</td>
+<td>testng.TestngGroups@e90906</td></tr>
+<tr>
+<td title='testng.TestngAnnotationsBeforeAfter.mytest2()'><b>mytest2</b><br>Test class: testng.TestngAnnotationsBeforeAfter</td>
+<td></td>
+<td>0</td>
+<td>testng.TestngAnnotationsBeforeAfter@746d23</td></tr>
+<tr>
+<td title='testng.TestngDependency.mytest3()'><b>mytest3</b><br>Test class: testng.TestngDependency</td>
+<td></td>
+<td>0</td>
+<td>testng.TestngDependency@18bd37a</td></tr>
+<tr>
+<td title='testng.TestngGroups.mytest3()'><b>mytest3</b><br>Test class: testng.TestngGroups</td>
+<td></td>
+<td>0</td>
+<td>testng.TestngGroups@e90906</td></tr>
+<tr>
+<td title='testng.TestngAnnotationsBeforeAfter.mytest3()'><b>mytest3</b><br>Test class: testng.TestngAnnotationsBeforeAfter</td>
+<td></td>
+<td>0</td>
+<td>testng.TestngAnnotationsBeforeAfter@746d23</td></tr>
+<tr>
+<td title='testng.TestngDependency.mytest4()'><b>mytest4</b><br>Test class: testng.TestngDependency</td>
+<td></td>
+<td>0</td>
+<td>testng.TestngDependency@18bd37a</td></tr>
+<tr>
+<td title='testng.TestngGroups.mytest4()'><b>mytest4</b><br>Test class: testng.TestngGroups</td>
+<td></td>
+<td>0</td>
+<td>testng.TestngGroups@e90906</td></tr>
+<tr>
+<td title='testng.TestngGroups.mytest5()'><b>mytest5</b><br>Test class: testng.TestngGroups</td>
+<td></td>
+<td>0</td>
+<td>testng.TestngGroups@e90906</td></tr>
+<tr>
+<td title='reporting.ReportingTest.reportingTestWithMessage()'><b>reportingTestWithMessage</b><br>Test class: reporting.ReportingTest<br/>
+<a href="#Output-10378033" onClick='toggleBox("Output-10378033", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-10378033" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-10378033">
+This is some <b>bold</b> and <i>italic</i> text<br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>reporting.ReportingTest@151e824</td></tr>
+<tr>
+<td title='reporting.ReportingTest.simpleReportingTest()'><b>simpleReportingTest</b><br>Test class: reporting.ReportingTest</td>
+<td></td>
+<td>0</td>
+<td>reporting.ReportingTest@151e824</td></tr>
+</table><p>
+<table width='100%' border='1' class='invocation-skipped'>
+<tr><td colspan='4' align='center'><b>SKIPPED TESTS</b></td></tr>
+<tr><td><b>Test method</b></td>
+<td width="30%"><b>Exception</b></td>
+<td width="10%"><b>Time (seconds)</b></td>
+<td><b>Instance</b></td>
+</tr>
+<tr>
+<td title='seleniumTests.TestNGBrowserParameter.browserParameters()'><b>browserParameters</b><br>Test class: seleniumTests.TestNGBrowserParameter</td>
+<td><div><pre>org.testng.TestNGException: 
+Parameter &apos;browser&apos; is required by @Test on method browserParameters but has not been marked @Optional or defined
+
+	at org.apache.maven.surefire.testng.TestNGExecutor.run(TestNGExecutor.java:70)
+	at org.apache.maven.surefire.testng.TestNGDirectoryTestSuite.executeMulti(TestNGDirectoryTestSuite.java:158)
+	at org.apache.maven.surefire.testng.TestNGDirectoryTestSuite.execute(TestNGDirectoryTestSuite.java:98)
+	at org.apache.maven.surefire.testng.TestNGProvider.invoke(TestNGProvider.java:111)
+	at org.apache.maven.surefire.util.ReflectionUtils.invokeMethodWithArray(ReflectionUtils.java:164)
+	at org.apache.maven.surefire.booter.ProviderFactory$ProviderProxy.invoke(ProviderFactory.java:110)
+	at org.apache.maven.surefire.booter.SurefireStarter.invokeProvider(SurefireStarter.java:175)
+	at org.apache.maven.surefire.booter.SurefireStarter.runSuitesInProcessWhenForked(SurefireStarter.java:107)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:68)
+... Removed 23 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace14453589", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace14453589'><pre>org.testng.TestNGException: 
+Parameter &apos;browser&apos; is required by @Test on method browserParameters but has not been marked @Optional or defined
+
+	at org.testng.internal.Parameters.createParameters(Parameters.java:155)
+	at org.testng.internal.Parameters.createParameters(Parameters.java:355)
+	at org.testng.internal.Parameters.handleParameters(Parameters.java:447)
+	at org.testng.internal.Invoker.handleParameters(Invoker.java:1383)
+	at org.testng.internal.Invoker.createParameters(Invoker.java:1075)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1180)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:127)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:111)
+	at org.testng.TestRunner.privateRun(TestRunner.java:767)
+	at org.testng.TestRunner.run(TestRunner.java:617)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:334)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:329)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:291)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:240)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1198)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1123)
+	at org.testng.TestNG.run(TestNG.java:1031)
+	at org.apache.maven.surefire.testng.TestNGExecutor.run(TestNGExecutor.java:70)
+	at org.apache.maven.surefire.testng.TestNGDirectoryTestSuite.executeMulti(TestNGDirectoryTestSuite.java:158)
+	at org.apache.maven.surefire.testng.TestNGDirectoryTestSuite.execute(TestNGDirectoryTestSuite.java:98)
+	at org.apache.maven.surefire.testng.TestNGProvider.invoke(TestNGProvider.java:111)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:601)
+	at org.apache.maven.surefire.util.ReflectionUtils.invokeMethodWithArray(ReflectionUtils.java:164)
+	at org.apache.maven.surefire.booter.ProviderFactory$ProviderProxy.invoke(ProviderFactory.java:110)
+	at org.apache.maven.surefire.booter.SurefireStarter.invokeProvider(SurefireStarter.java:175)
+	at org.apache.maven.surefire.booter.SurefireStarter.runSuitesInProcessWhenForked(SurefireStarter.java:107)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:68)
+</pre></div></td>
+<td>0</td>
+<td>seleniumTests.TestNGBrowserParameter@1d479cf</td></tr>
+<tr>
+<td title='testng.TestngDependency.mytest2()'><b>mytest2</b><br>Test class: testng.TestngDependency</td>
+<td></td>
+<td>0</td>
+<td>null</td></tr>
+</table><p>
+</body>
+</html>

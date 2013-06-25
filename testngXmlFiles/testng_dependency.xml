@@ -1,0 +1,11 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+  
+<suite name="TestNG Dependency" verbose="1" >
+ 
+  <test name="Dependency Tests">
+	
+	<classes>
+	      <class name="testng.TestngDependency"/>
+	</classes>	
+  </test>
+</suite>

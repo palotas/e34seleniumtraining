@@ -1,0 +1,11 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+  
+<suite name="Browser Parameters" verbose="1" >
+ 
+  <test name="Browser Parameters Tests ">
+    <classes>
+      <class name="seleniumTests.TestNGBrowserParameter"/>
+    </classes>
+    <parameter name="browser" value="FIREFOX"></parameter>
+  </test>
+</suite>

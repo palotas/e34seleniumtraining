@@ -1,0 +1,11 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+  
+<suite name="TestNG Basic Tests" verbose="1" >
+ 
+  <test name="Annotations Before After Test Suite">
+	<classes>
+	      <class name="testng.TestngAnnotationsBeforeAfter"/>
+	</classes>
+
+  </test>
+</suite>

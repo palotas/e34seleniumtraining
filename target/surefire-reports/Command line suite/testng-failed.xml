@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite verbose="0" name="Failed suite [Command line suite]">
+  <test name="Command line test(failed)">
+    <classes>
+      <class name="testng.TestngAnnotationsBeforeAfter">
+        <methods>
+          <include name="beforeMethod"/>
+          <include name="beforeSuite"/>
+          <include name="AfterSuite"/>
+        </methods>
+      </class> <!-- testng.TestngAnnotationsBeforeAfter -->
+      <class name="seleniumTests.TestNGBrowserParameter">
+        <methods>
+          <include name="browserParameters"/>
+        </methods>
+      </class> <!-- seleniumTests.TestNGBrowserParameter -->
+      <class name="reporting.ReportingTest">
+        <methods>
+          <include name="fireFoxTestWithScreenshotReport"/>
+        </methods>
+      </class> <!-- reporting.ReportingTest -->
+      <class name="testng.TestngDependency">
+        <methods>
+          <include name="mytest1"/>
+          <include name="mytest2"/>
+        </methods>
+      </class> <!-- testng.TestngDependency -->
+    </classes>
+  </test> <!-- Command line test(failed) -->
+</suite> <!-- Failed suite [Command line suite] -->

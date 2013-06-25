@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<testsuite failures="2" time="33.977" errors="0" skipped="2" tests="57" name="TestSuite">
+  <properties>
+    <property name="java.runtime.name" value="OpenJDK Runtime Environment"/>
+    <property name="sun.boot.library.path" value="/usr/lib/jvm/java-7-openjdk-i386/jre/lib/i386"/>
+    <property name="java.vm.version" value="23.7-b01"/>
+    <property name="java.vm.vendor" value="Oracle Corporation"/>
+    <property name="java.vendor.url" value="http://java.oracle.com/"/>
+    <property name="path.separator" value=":"/>
+    <property name="java.vm.name" value="OpenJDK Client VM"/>
+    <property name="file.encoding.pkg" value="sun.io"/>
+    <property name="user.country" value="US"/>
+    <property name="sun.java.launcher" value="SUN_STANDARD"/>
+    <property name="sun.os.patch.level" value="unknown"/>
+    <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
+    <property name="user.dir" value="/home/gridfusion/SeleniumTraining/Workspace/selenium"/>
+    <property name="java.runtime.version" value="1.7.0_15-b20"/>
+    <property name="java.awt.graphicsenv" value="sun.awt.X11GraphicsEnvironment"/>
+    <property name="java.endorsed.dirs" value="/usr/lib/jvm/java-7-openjdk-i386/jre/lib/endorsed"/>
+    <property name="os.arch" value="i386"/>
+    <property name="java.io.tmpdir" value="/tmp"/>
+    <property name="line.separator" value="
+"/>
+    <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
+    <property name="os.name" value="Linux"/>
+    <property name="classworlds.conf" value="/usr/share/maven2/bin/m2.conf"/>
+    <property name="sun.jnu.encoding" value="UTF-8"/>
+    <property name="java.library.path" value="/usr/java/packages/lib/i386:/usr/lib/jni:/lib:/usr/lib"/>
+    <property name="java.specification.name" value="Java Platform API Specification"/>
+    <property name="java.class.version" value="51.0"/>
+    <property name="sun.management.compiler" value="HotSpot Client Compiler"/>
+    <property name="os.version" value="3.5.0-17-generic"/>
+    <property name="user.home" value="/home/gridfusion"/>
+    <property name="user.timezone" value="America/Los_Angeles"/>
+    <property name="java.awt.printerjob" value="sun.print.PSPrinterJob"/>
+    <property name="file.encoding" value="UTF-8"/>
+    <property name="java.specification.version" value="1.7"/>
+    <property name="user.name" value="gridfusion"/>
+    <property name="java.class.path" value="/usr/share/maven2/boot/classworlds.jar"/>
+    <property name="java.vm.specification.version" value="1.7"/>
+    <property name="sun.arch.data.model" value="32"/>
+    <property name="java.home" value="/usr/lib/jvm/java-7-openjdk-i386/jre"/>
+    <property name="sun.java.command" value="org.codehaus.classworlds.Launcher &quot;test&quot;"/>
+    <property name="java.specification.vendor" value="Oracle Corporation"/>
+    <property name="user.language" value="en"/>
+    <property name="awt.toolkit" value="sun.awt.X11.XToolkit"/>
+    <property name="java.vm.info" value="mixed mode, sharing"/>
+    <property name="java.version" value="1.7.0_15"/>
+    <property name="java.ext.dirs" value="/usr/lib/jvm/java-7-openjdk-i386/jre/lib/ext:/usr/java/packages/lib/ext"/>
+    <property name="securerandom.source" value="file:/dev/./urandom"/>
+    <property name="sun.boot.class.path" value="/usr/lib/jvm/java-7-openjdk-i386/jre/lib/resources.jar:/usr/lib/jvm/java-7-openjdk-i386/jre/lib/rt.jar:/usr/lib/jvm/java-7-openjdk-i386/jre/lib/sunrsasign.jar:/usr/lib/jvm/java-7-openjdk-i386/jre/lib/jsse.jar:/usr/lib/jvm/java-7-openjdk-i386/jre/lib/jce.jar:/usr/lib/jvm/java-7-openjdk-i386/jre/lib/charsets.jar:/usr/lib/jvm/java-7-openjdk-i386/jre/lib/netx.jar:/usr/lib/jvm/java-7-openjdk-i386/jre/lib/plugin.jar:/usr/lib/jvm/java-7-openjdk-i386/jre/lib/rhino.jar:/usr/lib/jvm/java-7-openjdk-i386/jre/lib/jfr.jar:/usr/lib/jvm/java-7-openjdk-i386/jre/classes"/>
+    <property name="java.vendor" value="Oracle Corporation"/>
+    <property name="maven.home" value="/usr/share/maven2"/>
+    <property name="file.separator" value="/"/>
+    <property name="java.vendor.url.bug" value="http://bugreport.sun.com/bugreport/"/>
+    <property name="sun.cpu.endian" value="little"/>
+    <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
+    <property name="sun.desktop" value="gnome"/>
+    <property name="sun.cpu.isalist" value=""/>
+  </properties>
+  <testcase time="0.001" classname="testng.TestngBasicTests" name="myFirstTestngTest"/>
+  <testcase time="0" classname="testng.TestngBasicTests" name="myFirstTestngTest"/>
+  <testcase time="0" classname="testng.TestngBasicTests" name="myFirstTestngTest"/>
+  <testcase time="0" classname="testng.TestngBasicTests" name="myFirstTestngTest"/>
+  <testcase time="0" classname="testng.TestngBasicTests" name="myFirstTestngTest"/>
+  <testcase time="0.001" classname="testng.TestngBasicTests" name="myFirstTestngTest"/>
+  <testcase time="0" classname="testng.TestngBasicTests" name="myFirstTestngTest"/>
+  <testcase time="0.001" classname="testng.TestngBasicTests" name="myFirstTestngTest"/>
+  <testcase time="0.001" classname="testng.TestngBasicTests" name="myFirstTestngTest"/>
+  <testcase time="0" classname="testng.TestngBasicTests" name="myFirstTestngTest"/>
+  <testcase time="0" classname="testng.TestngBasicTests" name="myFirstTestngTest"/>
+  <testcase time="0" classname="testng.TestngBasicTests" name="myFirstTestngTest"/>
+  <testcase time="0.001" classname="testng.TestngBasicTests" name="myFirstTestngTest"/>
+  <testcase time="0" classname="testng.TestngBasicTests" name="myFirstTestngTest"/>
+  <testcase time="0" classname="testng.TestngBasicTests" name="myFirstTestngTest"/>
+  <testcase time="0" classname="testng.TestngBasicTests" name="myFirstTestngTest"/>
+  <testcase time="0" classname="testng.TestngBasicTests" name="myFirstTestngTest"/>
+  <testcase time="0.001" classname="testng.TestngBasicTests" name="myFirstTestngTest"/>
+  <testcase time="0.001" classname="testng.TestngBasicTests" name="myFirstTestngTest"/>
+  <testcase time="0.001" classname="testng.TestngBasicTests" name="myFirstTestngTest"/>
+  <testcase time="0" classname="testng.TestngBasicTests" name="mySecondTestngTest"/>
+  <testcase time="0" classname="testng.TestngBasicTests" name="myThirdTestngTest"/>
+  <testcase time="0.001" classname="testng.TestngDependency" name="mytest1">
+    <failure message="expected [true] but found [false]" type="java.lang.AssertionError">java.lang.AssertionError: expected [true] but found [false]
+	at org.testng.Assert.fail(Assert.java:94)
+	at org.testng.Assert.failNotEquals(Assert.java:494)
+	at org.testng.Assert.assertTrue(Assert.java:42)
+	at org.testng.Assert.assertTrue(Assert.java:52)
+	at testng.TestngDependency.mytest1(TestngDependency.java:15)
+</failure>
+  </testcase>
+  <testcase time="0" classname="testng.TestngDependency" name="mytest3"/>
+  <testcase time="0" classname="testng.TestngDependency" name="mytest4"/>
+  <testcase time="0.001" classname="testng.TestngInvocationCount" name="invocationCountTest"/>
+  <testcase time="0.004" classname="testng.TestngInvocationCount" name="invocationCountTest"/>
+  <testcase time="0" classname="testng.TestngInvocationCount" name="invocationCountTest"/>
+  <testcase time="0.001" classname="testng.TestngInvocationCount" name="invocationCountTest"/>
+  <testcase time="0" classname="testng.TestngInvocationCount" name="invocationCountTest"/>
+  <testcase time="0" classname="testng.TestngInvocationCount" name="invocationCountTest"/>
+  <testcase time="0.001" classname="testng.TestngInvocationCount" name="invocationCountTest"/>
+  <testcase time="0.001" classname="testng.TestngInvocationCount" name="invocationCountTest"/>
+  <testcase time="0" classname="testng.TestngInvocationCount" name="invocationCountTest"/>
+  <testcase time="0" classname="testng.TestngInvocationCount" name="invocationCountTest"/>
+  <testcase time="27.622" classname="pageobjects.BasicFlightSearchTest" name="flightSearch"/>
+  <testcase time="5.649" classname="pageobjects.FlightSearchPageTest" name="flightSearchTest"/>
+  <testcase time="0.01" classname="reporting.ReportingTest" name="simpleReportingTest"/>
+  <testcase time="0.017" classname="reporting.ReportingTest" name="fireFoxTestWithScreenshotReport">
+    <failure message="Could not start a new session. Possible causes are invalid address of the remote server or browser start-up failure.
+Build info: version: &apos;2.33.0&apos;, revision: &apos;4ecaf82108b2a6cc6f006aae81961236eba93358&apos;, time: &apos;2013-05-22 12:00:17&apos;
+System info: os.name: &apos;Linux&apos;, os.arch: &apos;i386&apos;, os.version: &apos;3.5.0-17-generic&apos;, java.version: &apos;1.7.0_15&apos;
+Driver info: driver.version: RemoteWebDriver" type="org.openqa.selenium.remote.UnreachableBrowserException">org.openqa.selenium.remote.UnreachableBrowserException: Could not start a new session. Possible causes are invalid address of the remote server or browser start-up failure.
+Build info: version: &apos;2.33.0&apos;, revision: &apos;4ecaf82108b2a6cc6f006aae81961236eba93358&apos;, time: &apos;2013-05-22 12:00:17&apos;
+System info: os.name: &apos;Linux&apos;, os.arch: &apos;i386&apos;, os.version: &apos;3.5.0-17-generic&apos;, java.version: &apos;1.7.0_15&apos;
+Driver info: driver.version: RemoteWebDriver
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:548)
+	at org.openqa.selenium.remote.RemoteWebDriver.startSession(RemoteWebDriver.java:216)
+	at org.openqa.selenium.remote.RemoteWebDriver.&lt;init&gt;(RemoteWebDriver.java:111)
+	at org.openqa.selenium.remote.RemoteWebDriver.&lt;init&gt;(RemoteWebDriver.java:129)
+	at reporting.ReportingTest.fireFoxTestWithScreenshotReport(ReportingTest.java:51)
+Caused by: org.apache.http.conn.HttpHostConnectException: Connection to http://localhost:4444 refused
+	at org.apache.http.impl.conn.DefaultClientConnectionOperator.openConnection(DefaultClientConnectionOperator.java:190)
+	at org.apache.http.impl.conn.AbstractPoolEntry.open(AbstractPoolEntry.java:151)
+	at org.apache.http.impl.conn.AbstractPooledConnAdapter.open(AbstractPooledConnAdapter.java:125)
+	at org.apache.http.impl.client.DefaultRequestDirector.tryConnect(DefaultRequestDirector.java:640)
+	at org.apache.http.impl.client.DefaultRequestDirector.execute(DefaultRequestDirector.java:479)
+	at org.apache.http.impl.client.AbstractHttpClient.execute(AbstractHttpClient.java:906)
+	at org.openqa.selenium.remote.HttpCommandExecutor.fallBackExecute(HttpCommandExecutor.java:316)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:295)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:527)
+	... 38 more
+Caused by: java.net.ConnectException: Connection refused
+	at java.net.PlainSocketImpl.socketConnect(Native Method)
+	at java.net.AbstractPlainSocketImpl.doConnect(AbstractPlainSocketImpl.java:339)
+	at java.net.AbstractPlainSocketImpl.connectToAddress(AbstractPlainSocketImpl.java:200)
+	at java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:182)
+	at java.net.SocksSocketImpl.connect(SocksSocketImpl.java:391)
+	at java.net.Socket.connect(Socket.java:579)
+	at org.apache.http.conn.scheme.PlainSocketFactory.connectSocket(PlainSocketFactory.java:127)
+	at org.apache.http.impl.conn.DefaultClientConnectionOperator.openConnection(DefaultClientConnectionOperator.java:180)
+	... 46 more
+</failure>
+  </testcase>
+  <testcase time="0.004" classname="reporting.ReportingTest" name="reportingTestWithMessage"/>
+  <testcase time="0.001" classname="testng.TestngDataProvider" name="mytest1"/>
+  <testcase time="0" classname="testng.TestngDataProvider" name="mytest1"/>
+  <testcase time="0.005" classname="testng.TestngDataProvider" name="mytest1"/>
+  <testcase time="0" classname="testng.TestngDataProvider" name="mytest1"/>
+  <testcase time="0.001" classname="testng.TestngDataProvider" name="mytest2"/>
+  <testcase time="0.001" classname="testng.TestngDataProvider" name="mytest2"/>
+  <testcase time="0.003" classname="testng.TestngDataProvider" name="mytest2"/>
+  <testcase time="0.006" classname="testng.TestngGroups" name="mytest3"/>
+  <testcase time="0.005" classname="testng.TestngGroups" name="mytest1"/>
+  <testcase time="0" classname="testng.TestngGroups" name="mytest5"/>
+  <testcase time="0" classname="testng.TestngGroups" name="mytest2"/>
+  <testcase time="0" classname="testng.TestngGroups" name="mytest4"/>
+  <testcase time="0" classname="testng.TestngAnnotationsBeforeAfter" name="mytest1"/>
+  <testcase time="0" classname="testng.TestngAnnotationsBeforeAfter" name="mytest2"/>
+  <testcase time="0" classname="testng.TestngAnnotationsBeforeAfter" name="mytest3"/>
+  <testcase time="0.005" classname="seleniumTests.TestNGBrowserParameter" name="browserParameters">
+    <skipped/>
+  </testcase>
+  <testcase time="0.019" classname="testng.TestngDependency" name="mytest2">
+    <skipped/>
+  </testcase>
+</testsuite>

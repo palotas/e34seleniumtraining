@@ -1,0 +1,10 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+  
+<suite name="TestNG Annotations Before After" verbose="1" >
+ 
+  <test name="Regression Test 1">
+    <classes>
+      <class name="testng.TestngAnnotationsBeforeAfter"/>
+    </classes>
+  </test>
+</suite>

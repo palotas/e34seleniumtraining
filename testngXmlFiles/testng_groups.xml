@@ -1,0 +1,16 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+  
+<suite name="TestNG Groups" verbose="1" >
+ 
+  <test name="Regression Test 1">
+	<groups>
+		<run>
+			<include name="regression"/>
+		</run>
+	</groups>
+	
+	<classes>
+	      <class name="testng.TestngGroups"/>
+	</classes>
+  </test>
+</suite>
