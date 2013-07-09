@@ -15,7 +15,7 @@ public class RemoteWebdriverTests2 {
 	/*
 	 * For these tests, the Selenium server needs to run 
 	 */
-	@Test
+	@Test(invocationCount=10, threadPoolSize=5)
 	public void remoteWebdriverFireFoxTest() throws IOException {
 
 		//create DesiredCapabilities object and set browser to Firefox
@@ -32,50 +32,23 @@ public class RemoteWebdriverTests2 {
 		 * navigate to URL http://gridfusion.net
 		 * close browser
 		 */
-		WebDriver driver = new RemoteWebDriver(new URL("http://192.168.1.108:4444/wd/hub"), capability);
-		driver.get("http://gridfusion.net");
+		WebDriver driver = new RemoteWebDriver(new URL("http://192.168.1.104:4444/wd/hub"), capability);
+		driver.get("http://ebay.com");
 		driver.quit();
 		
 	}
 
 	
-/*
- * this can be deleted
- 
-	@Test
-	public void remoteWebdriverFireFoxTestWithScreenshot() throws IOException {
-		DesiredCapabilities capability = DesiredCapabilities.firefox();
-		WebDriver driver = new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"), capability);
-		
-		driver.get("http://gridfusion.net");
 
-		  try {
-		        WebDriver augmentedDriver = new Augmenter().augment(driver);
-		        File source = ((TakesScreenshot)augmentedDriver).getScreenshotAs(OutputType.FILE);
-		        FileUtils.copyFile(source, new File("/home/gridfusion/SeleniumTraining/screenshots/" + source.getName())); 
-
-		        
-				Reporter.log("<a href=" + "/home/gridfusion/SeleniumTraining/screenshots/" + source.getName() + " target='_blank' >" +  "</a>");
-
-		  	}
-		    catch(IOException e) {
-		    	System.out.println(e.getMessage());
-		    }
-
-		driver.quit();
-		
-	}
-*/
-	
 	
 
 	/*
 	 * same test as above just with Chrome browser
 	 */
-	@Test
+	@Test(invocationCount=10)
 	public void remoteWebdriverChromeTest() throws MalformedURLException {
 		DesiredCapabilities capability = DesiredCapabilities.chrome();
-		WebDriver driver = new RemoteWebDriver(new URL("http://192.168.1.108:4444/wd/hub"), capability);
+		WebDriver driver = new RemoteWebDriver(new URL("http://192.168.1.104:4444/wd/hub"), capability);
 		
 		driver.get("http://gridfusion.net");
 		driver.quit();
@@ -89,7 +62,7 @@ public class RemoteWebdriverTests2 {
 	@Test
 	public void remoteWebdriverInternetExplorerTest() throws MalformedURLException, InterruptedException {
 		DesiredCapabilities capability = DesiredCapabilities.internetExplorer();
-		WebDriver driver = new RemoteWebDriver(new URL("http://192.168.1.108/4444/wd/hub"), capability);
+		WebDriver driver = new RemoteWebDriver(new URL("http://192.168.1.104/4444/wd/hub"), capability);
 		
 		driver.get("http://gridfusion.net");
 		Thread.sleep(5000);
