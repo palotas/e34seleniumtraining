@@ -3,6 +3,7 @@ package seleniumTests;
 import java.net.URL;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.remote.DesiredCapabilities;
@@ -32,7 +33,7 @@ public class RemoteSetupAbraxas {
     		Assert.assertEquals("Home :: abraxas.ch", driver.getTitle());
 
         }
-        catch (Exception e) {
+        catch (AssertionError e) { 
     		//util.Screenshot.takeScreenshot(driver);
         	//System.out.println(e.getMessage());
         }
@@ -44,7 +45,7 @@ public class RemoteSetupAbraxas {
 	
 	
 	@Test
-	public void testAbraxas2() throws Exception {
+	public void testAbraxas2() throws Throwable {
 	
 		WebDriver driver;
 		
@@ -61,15 +62,22 @@ public class RemoteSetupAbraxas {
         	Reporter.log("Entering homepage now");
     		driver.get("http://www.abraxas.ch");
     		Reporter.log("making the assertion now");
-    		Assert.assertEquals("Home :: abraxas.ch", driver.getTitle());
+    		Assert.assertEquals("Home :: abraxas.c", driver.getTitle());
   
-    		WebElement el=driver.findElement(By.id("test")); //will throw exception
+    		//WebElement el=driver.findElement(By.id("test")); //will throw exception
     		
 
         }
-        catch (Exception e) {
+        
+        //use AssertionError or Throwable to be able to catch the assertion error
+        catch (AssertionError e) {
         	util.Screenshot.takeScreenshot(driver);
-        	Assert.fail();
+        	System.out.println("ASSERTION ERROR");
+        	
+        	//Assert.fail(e.getMessage());
+        }
+        catch (NoSuchElementException e) {
+        	System.out.println("NOSUCHELEMENT EXCEPTION");
         }
  
         finally {
@@ -95,8 +103,7 @@ public class RemoteSetupAbraxas {
 
         }
         catch (Exception e) {
-        	//System.out.println("I AM IN THE EXCEPTION");
-        	//System.out.println(e.getMessage());
+
         }
  
         finally {
@@ -122,7 +129,6 @@ public class RemoteSetupAbraxas {
 
         }
         catch (Exception e) {
-        	//System.out.println(e.getMessage());
         }
  
         finally {
