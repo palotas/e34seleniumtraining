@@ -15,6 +15,10 @@ import org.testng.annotations.Test;
 
 
 public class RemoteSetupAbraxas {
+	
+	private final String GRIDURL="http://10.249.240.178:4444/wd/hub";
+	private final String BROWSERNAME="firefox";
+	private final String PLATFORM="MAC";
 		
 	@Test
 	public void testAbraxas1() throws Exception {
@@ -23,13 +27,15 @@ public class RemoteSetupAbraxas {
 		//setup
 		DesiredCapabilities capabilities=new DesiredCapabilities();
 		
-        capabilities.setCapability("platform", "MAC");
-        capabilities.setCapability("browserName", "chrome");
-        driver = new RemoteWebDriver(new URL("http://192.168.1.107:4444/wd/hub"), capabilities);
+        capabilities.setCapability("platform", PLATFORM);
+        capabilities.setCapability("browserName", BROWSERNAME);
+        driver = new RemoteWebDriver(new URL(GRIDURL), capabilities);
+        //driver.manage().window().maximize(); this may not be needed
 		
         
         try {
     		driver.get("http://www.ebay.ch");
+    		util.Screenshot.takeScreenshot(driver);
     		Assert.assertEquals("Home :: abraxas.ch", driver.getTitle());
 
         }
@@ -53,9 +59,9 @@ public class RemoteSetupAbraxas {
 		//setup
 		DesiredCapabilities capabilities=new DesiredCapabilities();
 		
-        capabilities.setCapability("platform", "MAC");
-        capabilities.setCapability("browserName", "chrome");
-        driver = new RemoteWebDriver(new URL("http://192.168.1.107:4444/wd/hub"), capabilities);
+        capabilities.setCapability("platform", PLATFORM);
+        capabilities.setCapability("browserName", BROWSERNAME);
+        driver = new RemoteWebDriver(new URL(GRIDURL), capabilities);
 		
         
         try {
@@ -92,9 +98,9 @@ public class RemoteSetupAbraxas {
 		//setup
 		DesiredCapabilities capabilities=new DesiredCapabilities();
 		
-        capabilities.setCapability("platform", "MAC");
-        capabilities.setCapability("browserName", "chrome");
-        driver = new RemoteWebDriver(new URL("http://192.168.1.107:4444/wd/hub"), capabilities);
+        capabilities.setCapability("platform", PLATFORM);
+        capabilities.setCapability("browserName", BROWSERNAME);
+        driver = new RemoteWebDriver(new URL(GRIDURL), capabilities);
 		
         
         try {
@@ -118,9 +124,9 @@ public class RemoteSetupAbraxas {
 		//setup
 		DesiredCapabilities capabilities=new DesiredCapabilities();
 		
-        capabilities.setCapability("platform", "MAC");
-        capabilities.setCapability("browserName", "chrome");
-        driver = new RemoteWebDriver(new URL("http://192.168.1.107:4444/wd/hub"), capabilities);
+        capabilities.setCapability("platform", PLATFORM);
+        capabilities.setCapability("browserName", BROWSERNAME);
+        driver = new RemoteWebDriver(new URL(GRIDURL), capabilities);
 		
         
         try {
