@@ -18,7 +18,9 @@ public class RemoteSetupAbraxas {
 	
 	private final String GRIDURL="http://192.168.1.104:4444/wd/hub";
 	private final String BROWSERNAME="firefox";
+	private final String BROWSERVERSION="";
 	private final String PLATFORM="MAC";
+	
 		
 	@Test
 	public void testAbraxas1() throws Exception {
@@ -29,9 +31,10 @@ public class RemoteSetupAbraxas {
 		
         capabilities.setCapability("platform", PLATFORM);
         capabilities.setCapability("browserName", BROWSERNAME);
+        capabilities.setCapability("version", BROWSERVERSION);
         driver = new RemoteWebDriver(new URL(GRIDURL), capabilities);
         //driver.manage().window().maximize(); this may not be needed
-		
+        
         
         try {
     		driver.get("http://www.ebay.ch");

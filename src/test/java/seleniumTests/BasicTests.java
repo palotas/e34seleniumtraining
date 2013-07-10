@@ -92,20 +92,23 @@ public class BasicTests {
 	 */
 
 	@Test
-	public void sendKeysTest() {
+	public void sendKeysTest() throws Exception {
 		WebDriver driver = new FirefoxDriver();
-		driver.get("http://www.digicomp.ch");
+		driver.get("http://www.abraxas.ch");
 
-		WebElement searchBox = driver.findElement(By.id("q"));
-		searchBox.sendKeys("Selenium");
+		WebElement searchBox = driver.findElement(By.id("searchField"));
+		searchBox.sendKeys("Java");
 
-		WebElement button = driver.findElement(By.className("submitsearch"));
+		WebElement button = driver.findElement(By.className("searchButton"));
 		button.click();
+		
+		Thread.sleep(10000);
 
 		driver.quit();
 
 	}
 
+	
 
 	/*
 	 * This test: - creates FIREFOX Driver / opens a FIREFOX browser - navigates
@@ -115,16 +118,17 @@ public class BasicTests {
 	 * xpath - get text in td - extract substring from text - assert that it
 	 * says "1-1" meaning that there is only one course - closes the browser
 	 */
+	/*
 	@Test
 	public void onlyOneSeleniumTest() {
 
 		WebDriver driver = new FirefoxDriver();
-		driver.get("http://www.digicomp.ch");
+		driver.get("http://www.abraxas.ch");
 
-		WebElement searchBox = driver.findElement(By.id("q"));
-		searchBox.sendKeys("Selenium");
+		WebElement searchBox = driver.findElement(By.id("searchField"));
+		searchBox.sendKeys("Java");
 
-		WebElement button = driver.findElement(By.className("submitsearch"));
+		WebElement button = driver.findElement(By.className("searchButton"));
 		button.click();
 
 
@@ -139,6 +143,7 @@ public class BasicTests {
 		driver.quit();
 
 	}
+	*/
 
 	/*
 	 * This test: - creates CHROME Driver / opens a CHROME browser - navigates
@@ -147,19 +152,21 @@ public class BasicTests {
 	 * submit button - closes the browser
 	 */
 	@Test
-	public void sendKeysTestWithChrome() {
+	public void sendKeysTestWithChrome() throws Exception {
 
 		System.setProperty("webdriver.chrome.driver",
 				"/home/gridfusion/SeleniumTraining/chromedriver");
 		WebDriver driver = new ChromeDriver();
-		driver.get("http://www.digicomp.ch");
+		driver.get("http://www.abraxas.ch");
 
-		WebElement searchBox = driver.findElement(By.id("q"));
+		WebElement searchBox = driver.findElement(By.id("searchField"));
 
-		searchBox.sendKeys("Selenium");
+		searchBox.sendKeys("Java");
 
-		WebElement button = driver.findElement(By.className("submitsearch"));
+		WebElement button = driver.findElement(By.className("searchButton"));
 		button.click();
+		
+		Thread.sleep(10000);
 
 		driver.quit();
 

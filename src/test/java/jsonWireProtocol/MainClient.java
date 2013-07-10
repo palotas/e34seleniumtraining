@@ -104,7 +104,7 @@ public class MainClient {
 		httpPost.setHeader("Content-Type", "application/json");
 		JSONObject json = new JSONObject();
 		json.put("using", "id");
-		json.put("value", "q");
+		json.put("value", "searchfield");
 		
 		HttpEntity e = new StringEntity(json.toString());
 		httpPost.setEntity(e);
@@ -136,14 +136,11 @@ public class MainClient {
 		httpPost.setHeader("Content-Type", "application/json");
 
 		JSONArray array = new JSONArray();
-		array.put("S");
-		array.put("E");
-		array.put("L");
-		array.put("E");
-		array.put("N");
-		array.put("I");
-		array.put("U");
-		array.put("M");
+		array.put("J");
+		array.put("A");
+		array.put("V");
+		array.put("A");
+
 		
 		JSONObject json = new JSONObject();
 		json.put("value", array);

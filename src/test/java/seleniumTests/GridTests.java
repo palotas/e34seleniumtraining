@@ -39,7 +39,7 @@ public class GridTests {
 		WebDriver driver = new RemoteWebDriver(new URL(
 				"http://localhost:4444/wd/hub"), capability);
 
-		driver.get("http://www.digicomp.ch");
+		driver.get("http://www.abraxas.ch");
 		Reporter.log("Page Title: " + driver.getTitle());
 
 		driver.quit();
@@ -84,7 +84,7 @@ public class GridTests {
 		WebDriver driver = new RemoteWebDriver(new URL(
 				"http://localhost:4444/wd/hub"), capability);
 
-		driver.get("http://www.digicomp.ch");
+		driver.get("http://www.abraxas.ch");
 		Reporter.log("Page Title: " + driver.getTitle());
 
 		driver.quit();
