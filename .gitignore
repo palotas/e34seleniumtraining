@@ -5,4 +5,17 @@
 *.war
 *.ear
 
+# Compiled source #
+###################
+*.com
+*.class
+*.dll
+*.exe
+*.o
+*.so
+
+#directories#
+#############
+**/test-output
+**/target
 
