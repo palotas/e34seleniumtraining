@@ -1,14 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="Failed suite [Abraxas Test Suite]">
-  <test name="Regression1(failed)" parallel="methods">
+<suite thread-count="100" name="Failed suite [Selenium Training]" parallel="methods">
+  <test name="Default test(failed)" parallel="methods">
     <classes>
       <class name="seleniumTests.RemoteSetupAbraxas">
         <methods>
-          <include name="testAbraxas4"/>
-          <include name="testAbraxas3"/>
+          <include name="testAbraxas1"/>
         </methods>
       </class> <!-- seleniumTests.RemoteSetupAbraxas -->
     </classes>
-  </test> <!-- Regression1(failed) -->
-</suite> <!-- Failed suite [Abraxas Test Suite] -->
+  </test> <!-- Default test(failed) -->
+</suite> <!-- Failed suite [Selenium Training] -->

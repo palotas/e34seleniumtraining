@@ -17,7 +17,7 @@ import org.testng.annotations.Test;
 public class RemoteSetupAbraxas {
 	
 	private final String GRIDURL="http://10.249.240.178:4444/wd/hub";
-	private final String BROWSERNAME="firefox";
+	private final String BROWSERNAME="chrome";
 	private final String PLATFORM="MAC";
 		
 	@Test
@@ -40,7 +40,6 @@ public class RemoteSetupAbraxas {
 
         }
         catch (AssertionError e) { 
-    		//util.Screenshot.takeScreenshot(driver);
         	//System.out.println(e.getMessage());
         }
  

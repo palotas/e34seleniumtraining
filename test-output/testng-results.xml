@@ -1,59 +1,46 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="0" failed="2" total="4" passed="2">
+<testng-results skipped="0" failed="1" total="1" passed="0">
   <reporter-output>
-    <line>
-      <![CDATA[Entering homepage now]]>
-    </line>
-    <line>
-      <![CDATA[making the assertion now]]>
-    </line>
-    <line>
-      <![CDATA[Screenshot of page: <b>Home :: abraxas.ch</b> at http://www.abraxas.ch/]]>
-    </line>
-    <line>
-      <![CDATA[<br> <img src=/home/gridfusion/SeleniumTraining/screenshots/screenshot6139309109026562766.png width="320" height="240" /> <br>]]>
-    </line>
-    <line>
-      <![CDATA[Screenshot of page: <b>Günstig kaufen & verkaufen bei eBay.ch - dem Schweizer Online-Marktplatz</b> at http://www.ebay.ch/]]>
-    </line>
-    <line>
-      <![CDATA[<br> <img src=/home/gridfusion/SeleniumTraining/screenshots/screenshot2149869453216043422.png width="320" height="240" /> <br>]]>
-    </line>
   </reporter-output>
-  <suite name="Abraxas Test Suite" duration-ms="14397" started-at="2013-07-10T10:53:52Z" finished-at="2013-07-10T10:54:06Z">
+  <suite name="Selenium Training" duration-ms="91851" started-at="2013-07-10T14:36:28Z" finished-at="2013-07-10T14:38:00Z">
     <groups>
     </groups>
-    <test name="Regression1" duration-ms="14397" started-at="2013-07-10T10:53:52Z" finished-at="2013-07-10T10:54:06Z">
+    <test name="Default test" duration-ms="91851" started-at="2013-07-10T14:36:28Z" finished-at="2013-07-10T14:38:00Z">
       <class name="seleniumTests.RemoteSetupAbraxas">
-        <test-method status="PASS" signature="testAbraxas2()[pri:0, instance:seleniumTests.RemoteSetupAbraxas@90affe]" name="testAbraxas2" duration-ms="4476" started-at="2013-07-10T03:53:52Z" finished-at="2013-07-10T03:53:56Z">
-          <reporter-output>
-            <line>
-              <![CDATA[Entering homepage now]]>
-            </line>
-            <line>
-              <![CDATA[making the assertion now]]>
-            </line>
-            <line>
-              <![CDATA[Screenshot of page: <b>Home :: abraxas.ch</b> at http://www.abraxas.ch/]]>
-            </line>
-            <line>
-              <![CDATA[<br> <img src=/home/gridfusion/SeleniumTraining/screenshots/screenshot6139309109026562766.png width="320" height="240" /> <br>]]>
-            </line>
-          </reporter-output>
-        </test-method> <!-- testAbraxas2 -->
-        <test-method status="FAIL" signature="testAbraxas3()[pri:0, instance:seleniumTests.RemoteSetupAbraxas@90affe]" name="testAbraxas3" duration-ms="8496" started-at="2013-07-10T03:53:52Z" finished-at="2013-07-10T03:54:00Z">
-          <exception class="java.lang.AssertionError">
+        <test-method status="FAIL" signature="testAbraxas1()[pri:0, instance:seleniumTests.RemoteSetupAbraxas@72cbb9]" name="testAbraxas1" duration-ms="91833" started-at="2013-07-10T07:36:28Z" finished-at="2013-07-10T07:38:00Z">
+          <exception class="org.openqa.selenium.WebDriverException">
             <message>
-              <![CDATA[expected [Günstig kaufen & verkaufen bei eBay.ch - dem Schweizer Online-Marktplatz] but found [Home :: abraxas.ch]]]>
+              <![CDATA[Unable to either launch or connect to Chrome. Please check that ChromeDriver is up-to-date. Using Chrome binary at: /Applications/Google Chrome.app/Contents/MacOS/Google Chrome (WARNING: The server did not provide any stacktrace information)
+Command duration or timeout: 91.23 seconds
+Build info: version: '2.33.0', revision: '4e90c97', time: '2013-05-22 15:32:38'
+System info: os.name: 'Mac OS X', os.arch: 'x86_64', os.version: '10.6.8', java.version: '1.6.0_31'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command duration or timeout: 91.41 seconds
+Build info: version: '2.33.0', revision: '4ecaf82108b2a6cc6f006aae81961236eba93358', time: '2013-05-22 12:00:17'
+System info: os.name: 'Linux', os.arch: 'i386', os.version: '3.5.0-17-generic', java.version: '1.7.0_15'
+Driver info: org.openqa.selenium.remote.RemoteWebDriver]]>
             </message>
             <full-stacktrace>
-              <![CDATA[java.lang.AssertionError: expected [Günstig kaufen & verkaufen bei eBay.ch - dem Schweizer Online-Marktplatz] but found [Home :: abraxas.ch]
-	at org.testng.Assert.fail(Assert.java:94)
-	at org.testng.Assert.failNotEquals(Assert.java:494)
-	at org.testng.Assert.assertEquals(Assert.java:123)
-	at org.testng.Assert.assertEquals(Assert.java:176)
-	at org.testng.Assert.assertEquals(Assert.java:186)
-	at seleniumTests.RemoteSetupAbraxas.testAbraxas3(RemoteSetupAbraxas.java:108)
+              <![CDATA[org.openqa.selenium.WebDriverException: Unable to either launch or connect to Chrome. Please check that ChromeDriver is up-to-date. Using Chrome binary at: /Applications/Google Chrome.app/Contents/MacOS/Google Chrome (WARNING: The server did not provide any stacktrace information)
+Command duration or timeout: 91.23 seconds
+Build info: version: '2.33.0', revision: '4e90c97', time: '2013-05-22 15:32:38'
+System info: os.name: 'Mac OS X', os.arch: 'x86_64', os.version: '10.6.8', java.version: '1.6.0_31'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command duration or timeout: 91.41 seconds
+Build info: version: '2.33.0', revision: '4ecaf82108b2a6cc6f006aae81961236eba93358', time: '2013-05-22 12:00:17'
+System info: os.name: 'Linux', os.arch: 'i386', os.version: '3.5.0-17-generic', java.version: '1.7.0_15'
+Driver info: org.openqa.selenium.remote.RemoteWebDriver
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:57)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:525)
+	at org.openqa.selenium.remote.ErrorHandler.createThrowable(ErrorHandler.java:191)
+	at org.openqa.selenium.remote.ErrorHandler.throwIfResponseFailed(ErrorHandler.java:145)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:554)
+	at org.openqa.selenium.remote.RemoteWebDriver.startSession(RemoteWebDriver.java:216)
+	at org.openqa.selenium.remote.RemoteWebDriver.<init>(RemoteWebDriver.java:111)
+	at org.openqa.selenium.remote.RemoteWebDriver.<init>(RemoteWebDriver.java:129)
+	at seleniumTests.RemoteSetupAbraxas.testAbraxas1(RemoteSetupAbraxas.java:32)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -67,55 +54,47 @@
 	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
 	at java.lang.Thread.run(Thread.java:722)
+Caused by: org.openqa.selenium.WebDriverException: Unable to either launch or connect to Chrome. Please check that ChromeDriver is up-to-date. Using Chrome binary at: /Applications/Google Chrome.app/Contents/MacOS/Google Chrome (WARNING: The server did not provide any stacktrace information)
+Command duration or timeout: 91.23 seconds
+Build info: version: '2.33.0', revision: '4e90c97', time: '2013-05-22 15:32:38'
+System info: os.name: 'Mac OS X', os.arch: 'x86_64', os.version: '10.6.8', java.version: '1.6.0_31'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Build info: version: '2.33.0', revision: '4ecaf82108b2a6cc6f006aae81961236eba93358', time: '2013-05-22 12:00:17'
+System info: os.name: 'Linux', os.arch: 'i386', os.version: '3.5.0-17-generic', java.version: '1.7.0_15'
+Driver info: driver.version: ChromeDriver
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:39)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:27)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:513)
+	at org.openqa.selenium.remote.ErrorHandler.createThrowable(ErrorHandler.java:191)
+	at org.openqa.selenium.remote.ErrorHandler.throwIfResponseFailed(ErrorHandler.java:145)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:554)
+	at org.openqa.selenium.remote.RemoteWebDriver.startSession(RemoteWebDriver.java:216)
+	at org.openqa.selenium.remote.RemoteWebDriver.<init>(RemoteWebDriver.java:111)
+	at org.openqa.selenium.remote.RemoteWebDriver.<init>(RemoteWebDriver.java:115)
+	at org.openqa.selenium.chrome.ChromeDriver.<init>(ChromeDriver.java:150)
+	at org.openqa.selenium.chrome.ChromeDriver.<init>(ChromeDriver.java:129)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:39)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:27)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:513)
+	at org.openqa.selenium.remote.server.DefaultDriverFactory.callConstructor(DefaultDriverFactory.java:62)
+	at org.openqa.selenium.remote.server.DefaultDriverFactory.newInstance(DefaultDriverFactory.java:56)
+	at org.openqa.selenium.remote.server.DefaultSession$BrowserCreator.call(DefaultSession.java:215)
+	at org.openqa.selenium.remote.server.DefaultSession$BrowserCreator.call(DefaultSession.java:1)
+	at java.util.concurrent.FutureTask$Sync.innerRun(FutureTask.java:303)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:138)
+	at org.openqa.selenium.remote.server.DefaultSession$1.run(DefaultSession.java:169)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.runTask(ThreadPoolExecutor.java:886)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:908)
+	at java.lang.Thread.run(Thread.java:680)
 ]]>
             </full-stacktrace>
-          </exception> <!-- java.lang.AssertionError -->
+          </exception> <!-- org.openqa.selenium.WebDriverException -->
           <reporter-output>
-          </reporter-output>
-        </test-method> <!-- testAbraxas3 -->
-        <test-method status="PASS" signature="testAbraxas1()[pri:0, instance:seleniumTests.RemoteSetupAbraxas@90affe]" name="testAbraxas1" duration-ms="14374" started-at="2013-07-10T03:53:52Z" finished-at="2013-07-10T03:54:06Z">
-          <reporter-output>
-            <line>
-              <![CDATA[Screenshot of page: <b>Günstig kaufen & verkaufen bei eBay.ch - dem Schweizer Online-Marktplatz</b> at http://www.ebay.ch/]]>
-            </line>
-            <line>
-              <![CDATA[<br> <img src=/home/gridfusion/SeleniumTraining/screenshots/screenshot2149869453216043422.png width="320" height="240" /> <br>]]>
-            </line>
           </reporter-output>
         </test-method> <!-- testAbraxas1 -->
-        <test-method status="FAIL" signature="testAbraxas4()[pri:0, instance:seleniumTests.RemoteSetupAbraxas@90affe]" name="testAbraxas4" duration-ms="11058" started-at="2013-07-10T03:53:52Z" finished-at="2013-07-10T03:54:03Z">
-          <exception class="java.lang.AssertionError">
-            <message>
-              <![CDATA[expected [Günstig kaufen & verkaufen bei eBay.ch - dem Schweizer Online-Marktplatz] but found [Home :: abraxas.ch]]]>
-            </message>
-            <full-stacktrace>
-              <![CDATA[java.lang.AssertionError: expected [Günstig kaufen & verkaufen bei eBay.ch - dem Schweizer Online-Marktplatz] but found [Home :: abraxas.ch]
-	at org.testng.Assert.fail(Assert.java:94)
-	at org.testng.Assert.failNotEquals(Assert.java:494)
-	at org.testng.Assert.assertEquals(Assert.java:123)
-	at org.testng.Assert.assertEquals(Assert.java:176)
-	at org.testng.Assert.assertEquals(Assert.java:186)
-	at seleniumTests.RemoteSetupAbraxas.testAbraxas4(RemoteSetupAbraxas.java:134)
-	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.lang.reflect.Method.invoke(Method.java:601)
-	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:80)
-	at org.testng.internal.Invoker.invokeMethod(Invoker.java:714)
-	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:901)
-	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1231)
-	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:127)
-	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:111)
-	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
-	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
-	at java.lang.Thread.run(Thread.java:722)
-]]>
-            </full-stacktrace>
-          </exception> <!-- java.lang.AssertionError -->
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- testAbraxas4 -->
       </class> <!-- seleniumTests.RemoteSetupAbraxas -->
-    </test> <!-- Regression1 -->
-  </suite> <!-- Abraxas Test Suite -->
+    </test> <!-- Default test -->
+  </suite> <!-- Selenium Training -->
 </testng-results>
