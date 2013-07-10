@@ -72,11 +72,11 @@ public class BasicTests {
 	public void pageTitleTestWithException() {
 		WebDriver driver = new FirefoxDriver();
 		try {
-			driver.get("http://digicomp.ch");
+			driver.get("http://www.abraxas.ch");
 			Assert.assertEquals(driver.getTitle(), "GRIDFUSION.net - Home");	
 		}
-		catch (Exception e) {
-			System.out.println("Exception message: " + e.getMessage());
+		catch (Error e) {
+			System.out.println("Error message: " + e.getMessage());
 		}
 		finally {
 			driver.quit();

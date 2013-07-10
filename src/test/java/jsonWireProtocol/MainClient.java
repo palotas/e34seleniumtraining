@@ -18,21 +18,7 @@ import org.json.JSONObject;
 import org.testng.annotations.Test;
 
 public class MainClient {
-	
-	
-	/*
-	@Test
-	public void getSessions() throws ClientProtocolException, IOException {
-		DefaultHttpClient httpclient = new DefaultHttpClient();
-		HttpResponse response = httpclient.execute(new HttpGet("http://localhost:4444/wd/hub/sessions"));
-		HttpEntity entity = response.getEntity();
-		String responseString = EntityUtils.toString(entity, "UTF-8");
-		System.out.println(responseString);
 		
-		
-	}
-	*/
-	
 	/*
 	 * first step is to create a session with the server
 	 * the server will respond with a session ID which needs to be used in 

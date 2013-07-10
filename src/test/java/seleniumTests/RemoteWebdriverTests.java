@@ -39,34 +39,7 @@ public class RemoteWebdriverTests {
 	}
 
 	
-/*
- * this can be deleted
- 
-	@Test
-	public void remoteWebdriverFireFoxTestWithScreenshot() throws IOException {
-		DesiredCapabilities capability = DesiredCapabilities.firefox();
-		WebDriver driver = new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"), capability);
-		
-		driver.get("http://gridfusion.net");
 
-		  try {
-		        WebDriver augmentedDriver = new Augmenter().augment(driver);
-		        File source = ((TakesScreenshot)augmentedDriver).getScreenshotAs(OutputType.FILE);
-		        FileUtils.copyFile(source, new File("/home/gridfusion/SeleniumTraining/screenshots/" + source.getName())); 
-
-		        
-				Reporter.log("<a href=" + "/home/gridfusion/SeleniumTraining/screenshots/" + source.getName() + " target='_blank' >" +  "</a>");
-
-		  	}
-		    catch(IOException e) {
-		    	System.out.println(e.getMessage());
-		    }
-
-		driver.quit();
-		
-	}
-*/
-	
 	
 
 	/*
