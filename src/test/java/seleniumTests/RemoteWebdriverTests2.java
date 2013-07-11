@@ -12,10 +12,7 @@ import org.testng.annotations.Test;
 
 public class RemoteWebdriverTests2 {
 
-	/*
-	 * For these tests, the Selenium server needs to run 
-	 */
-	@Test(invocationCount=10, threadPoolSize=5)
+	@Test
 	public void remoteWebdriverFireFoxTest() throws IOException {
 
 		//create DesiredCapabilities object and set browser to Firefox
@@ -23,7 +20,7 @@ public class RemoteWebdriverTests2 {
 		capability.setBrowserName("firefox");
 		
 	
-		/*alternatively the browser can be set like this as well
+		/*alternatively the browser can be set like this as well:
 		 *DesiredCapabilities capability = new DesiredCapabilities().firefox();
 		 */
 		 

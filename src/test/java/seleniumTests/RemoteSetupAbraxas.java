@@ -32,7 +32,7 @@ public class RemoteSetupAbraxas {
         capabilities.setCapability("browserName", BROWSERNAME);
         capabilities.setCapability("version", BROWSERVERSION);
         driver = new RemoteWebDriver(new URL(GRIDURL), capabilities);
-        driver.manage().window().maximize(); //this may not be needed
+        //driver.manage().window().maximize(); //this may not be needed
         
         
         try {
@@ -54,16 +54,7 @@ public class RemoteSetupAbraxas {
 	@Test
 	public void testAbraxas2() throws Throwable {
 	
-		WebDriver driver;
-		
-		
-		//setup
-		DesiredCapabilities capabilities=new DesiredCapabilities();
-		
-        capabilities.setCapability("platform", PLATFORM);
-        capabilities.setCapability("browserName", BROWSERNAME);
-        driver = new RemoteWebDriver(new URL(GRIDURL), capabilities);
-		
+		WebDriver driver=util.setupDriver.setup("http://192.168.1.104:4444/wd/hub", "firefox", "ANY", "");
         
         try {
         	Reporter.log("Entering homepage now");
