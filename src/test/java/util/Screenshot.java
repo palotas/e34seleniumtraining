@@ -19,7 +19,7 @@ public class Screenshot {
 	    //take screenshot
 	  	File source = ((TakesScreenshot)augmentedDriver).getScreenshotAs(OutputType.FILE);
 	    //copy file to final destination
-	  	FileUtils.copyFile(source, new File("file:///home/gridfusion/SeleniumTraining/screenshots/" + source.getName())); 
+	  	FileUtils.copyFile(source, new File("/home/gridfusion/SeleniumTraining/screenshots/" + source.getName())); 
 
 	    Reporter.log("Screenshot of page: " + "<b>" + driver.getTitle() + "</b>" + " at " + driver.getCurrentUrl());
 	    Reporter.log("<br> <img src=/home/gridfusion/SeleniumTraining/screenshots/"+ source.getName() + " " + "width=\"320\" height=\"240\" /> <br>");

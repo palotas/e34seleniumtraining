@@ -110,45 +110,12 @@ public class BasicTests {
 
 	
 
-	/*
-	 * This test: - creates FIREFOX Driver / opens a FIREFOX browser - navigates
-	 * to http://www.digicomp.ch - locates element with ID "q" - types
-	 * "Selenium" into the searchbox - locates submit button - clicks on the
-	 * submit button$ - locate DOM node "result" - locate td with result set via
-	 * xpath - get text in td - extract substring from text - assert that it
-	 * says "1-1" meaning that there is only one course - closes the browser
-	 */
-	/*
-	@Test
-	public void onlyOneSeleniumTest() {
 
-		WebDriver driver = new FirefoxDriver();
-		driver.get("http://www.abraxas.ch");
-
-		WebElement searchBox = driver.findElement(By.id("searchField"));
-		searchBox.sendKeys("Java");
-
-		WebElement button = driver.findElement(By.className("searchButton"));
-		button.click();
-
-
-		// access the desired text via xpath
-		WebElement td = driver.findElement(By.xpath("//table[@id='result']/tbody/tr[2]/td"));
-		String text = td.getText();
-		System.out.println(text);
-		
-		String substring = text.substring(11, 16);
-		Assert.assertEquals(substring, "1 - 1");
-
-		driver.quit();
-
-	}
-	*/
 
 	/*
 	 * This test: - creates CHROME Driver / opens a CHROME browser - navigates
-	 * to http://www.digicomp.ch - locates element with ID "q" - types
-	 * "Selenium" into the searchbox - locates submit button - clicks on the
+	 * to http://www.abraxas.ch - locates element with ID "searchField" - types
+	 * "Java" into the searchbox - locates submit button - clicks on the
 	 * submit button - closes the browser
 	 */
 	@Test

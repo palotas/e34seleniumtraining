@@ -18,6 +18,7 @@ import org.json.JSONObject;
 import org.testng.annotations.Test;
 
 public class MainClient {
+	
 		
 	/*
 	 * first step is to create a session with the server
@@ -62,10 +63,10 @@ public class MainClient {
 	public void navigateToUrl() throws ClientProtocolException, IOException, JSONException {
 		
 		DefaultHttpClient httpclient = new DefaultHttpClient();
-		HttpPost httpPost = new HttpPost("http://localhost:4444/wd/hub/session/9e7bb2bf-fa0c-444d-82c7-c273434694b8/url");
+		HttpPost httpPost = new HttpPost("http://localhost:4444/wd/hub/session/324dc87d-1868-4f35-82f6-a1d4ca50717d/url");
 		httpPost.setHeader("Content-Type", "application/json");			
 		JSONObject json = new JSONObject();
-		json.put("url", "http://www.digicomp.ch");
+		json.put("url", "http://www.abraxas.ch");
 		HttpEntity e = new StringEntity(json.toString());
 		httpPost.setEntity(e);
 	    HttpResponse response = httpclient.execute(httpPost);
@@ -80,7 +81,7 @@ public class MainClient {
 	@Test
 	public void getCurrentURL() throws ClientProtocolException, IOException {
 		DefaultHttpClient httpclient = new DefaultHttpClient();
-		HttpResponse response = httpclient.execute(new HttpGet("http://localhost:4444/wd/hub/session/fb28f2ba-0a41-4d54-a7b9-e3d8d721b0f4/url"));
+		HttpResponse response = httpclient.execute(new HttpGet("http://localhost:4444/wd/hub/session/324dc87d-1868-4f35-82f6-a1d4ca50717d/url"));
 
 		HttpEntity entity = response.getEntity();
 		String responseString = EntityUtils.toString(entity, "UTF-8");
@@ -96,15 +97,15 @@ public class MainClient {
 	 * find an element that the user wants to interact with 
 	 */
 	@Test
-	public void findElementQ() throws ClientProtocolException, IOException, JSONException {
+	public void findElementSearchField() throws ClientProtocolException, IOException, JSONException {
 
 		DefaultHttpClient httpclient = new DefaultHttpClient();
 		
-		HttpPost httpPost = new HttpPost("http://localhost:4444/wd/hub/session/9e7bb2bf-fa0c-444d-82c7-c273434694b8/element");
+		HttpPost httpPost = new HttpPost("http://localhost:4444/wd/hub/session/324dc87d-1868-4f35-82f6-a1d4ca50717d/element");
 		httpPost.setHeader("Content-Type", "application/json");
 		JSONObject json = new JSONObject();
 		json.put("using", "id");
-		json.put("value", "searchfield");
+		json.put("value", "searchField");
 		
 		HttpEntity e = new StringEntity(json.toString());
 		httpPost.setEntity(e);
@@ -129,10 +130,10 @@ public class MainClient {
 	 * findElementQ() method
 	 */
 	@Test
-	public void typeSelenium() throws ClientProtocolException, IOException, JSONException {
+	public void typeJava() throws ClientProtocolException, IOException, JSONException {
 		DefaultHttpClient httpclient = new DefaultHttpClient();
 		
-		HttpPost httpPost = new HttpPost("http://localhost:4444/wd/hub/session/9e7bb2bf-fa0c-444d-82c7-c273434694b8/element/0/value");
+		HttpPost httpPost = new HttpPost("http://localhost:4444/wd/hub/session/324dc87d-1868-4f35-82f6-a1d4ca50717d/0/value");
 		httpPost.setHeader("Content-Type", "application/json");
 
 		JSONArray array = new JSONArray();

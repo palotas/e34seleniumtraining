@@ -17,9 +17,9 @@ import org.testng.annotations.Test;
 public class RemoteSetupAbraxas {
 	
 	private final String GRIDURL="http://192.168.1.104:4444/wd/hub";
-	private final String BROWSERNAME="firefox";
+	private final String BROWSERNAME="internet explorer";
 	private final String BROWSERVERSION="";
-	private final String PLATFORM="MAC";
+	private final String PLATFORM="WIN8";
 	
 		
 	@Test
@@ -33,7 +33,7 @@ public class RemoteSetupAbraxas {
         capabilities.setCapability("browserName", BROWSERNAME);
         capabilities.setCapability("version", BROWSERVERSION);
         driver = new RemoteWebDriver(new URL(GRIDURL), capabilities);
-        //driver.manage().window().maximize(); this may not be needed
+        driver.manage().window().maximize(); //this may not be needed
         
         
         try {
