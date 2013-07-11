@@ -26,7 +26,6 @@ public class RemoteSetupAbraxas {
 	public void testAbraxas1() throws Exception {
 	
 		WebDriver driver;
-		//setup
 		DesiredCapabilities capabilities=new DesiredCapabilities();
 		
         capabilities.setCapability("platform", PLATFORM);
