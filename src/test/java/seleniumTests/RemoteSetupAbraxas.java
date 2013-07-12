@@ -54,7 +54,7 @@ public class RemoteSetupAbraxas {
 	@Test
 	public void testAbraxas2() throws Throwable {
 	
-		WebDriver driver=util.setupDriver.setup("http://192.168.1.104:4444/wd/hub", "firefox", "ANY", "");
+		WebDriver driver=util.SetupDriver.setup();
         
         try {
         	Reporter.log("Entering homepage now");
