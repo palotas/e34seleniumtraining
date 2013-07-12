@@ -63,8 +63,6 @@ public class RemoteSetupAbraxas {
     		Assert.assertEquals("Home :: abraxas.c", driver.getTitle());
   
     		//WebElement el=driver.findElement(By.id("test")); //will throw exception
-    		
-
         }
         
         //use AssertionError or Throwable to be able to catch the assertion error
