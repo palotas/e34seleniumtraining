@@ -2,10 +2,8 @@ package seleniumTests;
 
 import java.net.URL;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.testng.Assert;
@@ -16,14 +14,14 @@ import org.testng.annotations.Test;
 
 public class RemoteSetupAbraxas {
 	
-	private final String GRIDURL="http://192.168.1.104:4444/wd/hub";
-	private final String BROWSERNAME="internet explorer";
+	private final String GRIDURL="http://10.249.240.178:4444/wd/hub";
+	private final String BROWSERNAME="chrome";
 	private final String BROWSERVERSION="";
-	private final String PLATFORM="WIN8";
+	private final String PLATFORM="MAC";
 	
 		
 	@Test
-	public void testAbraxas1() throws Exception {
+	public void regularSetup() throws Exception {
 	
 		WebDriver driver;
 		DesiredCapabilities capabilities=new DesiredCapabilities();
@@ -52,15 +50,16 @@ public class RemoteSetupAbraxas {
 	
 	
 	@Test
-	public void testAbraxas2() throws Throwable {
+	public void setupWithPropertyFile() throws Throwable {
 	
+		//use the setup method that reads the config from a property file
 		WebDriver driver=util.SetupDriver.setup();
         
         try {
         	Reporter.log("Entering homepage now");
     		driver.get("http://www.abraxas.ch");
     		Reporter.log("making the assertion now");
-    		Assert.assertEquals("Home :: abraxas.c", driver.getTitle());
+    		Assert.assertEquals(driver.getTitle(), "Home :: abraxas.c");
   
     		//WebElement el=driver.findElement(By.id("test")); //will throw exception
         }
@@ -70,14 +69,14 @@ public class RemoteSetupAbraxas {
         	util.Screenshot.takeScreenshot(driver);
         	System.out.println("ASSERTION ERROR");
         	
-        	//Assert.fail(e.getMessage());
+        	Assert.fail(e.getMessage());
         }
         catch (NoSuchElementException e) {
         	System.out.println("NOSUCHELEMENT EXCEPTION");
         }
  
         finally {
-    		driver.quit();	
+    		util.SetupDriver.teardown(driver);
         }		
 	}
 	
@@ -94,12 +93,12 @@ public class RemoteSetupAbraxas {
 		
         
         try {
-    		driver.get("http://www.ebay.ch");
-    		Assert.assertEquals("Home :: abraxas.ch", driver.getTitle());
+    		driver.get("http://www.homegate.ch");
+    		Assert.assertEquals(driver.getTitle(), "Home :: abraxas.ch");
 
         }
-        catch (Exception e) {
-
+        catch (AssertionError e) {
+        	util.Screenshot.takeScreenshot(driver);
         }
  
         finally {
@@ -120,11 +119,12 @@ public class RemoteSetupAbraxas {
 		
         
         try {
-    		driver.get("http://www.ebay.ch");
-    		Assert.assertEquals("Home :: abraxas.ch", driver.getTitle());
+    		driver.get("http://www.swissq.it");
+    		Assert.assertEquals(driver.getTitle(), "Home :: abraxas.ch");
 
         }
-        catch (Exception e) {
+        catch (AssertionError e) {
+        	util.Screenshot.takeScreenshot(driver);
         }
  
         finally {

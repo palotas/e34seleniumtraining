@@ -63,7 +63,7 @@ public class MainClient {
 	public void navigateToUrl() throws ClientProtocolException, IOException, JSONException {
 		
 		DefaultHttpClient httpclient = new DefaultHttpClient();
-		HttpPost httpPost = new HttpPost("http://localhost:4444/wd/hub/session/324dc87d-1868-4f35-82f6-a1d4ca50717d/url");
+		HttpPost httpPost = new HttpPost("http://localhost:4444/wd/hub/session/682b07a1-80cb-4110-9b9e-921aae5730d3/url");
 		httpPost.setHeader("Content-Type", "application/json");			
 		JSONObject json = new JSONObject();
 		json.put("url", "http://www.abraxas.ch");
@@ -81,7 +81,7 @@ public class MainClient {
 	@Test
 	public void getCurrentURL() throws ClientProtocolException, IOException {
 		DefaultHttpClient httpclient = new DefaultHttpClient();
-		HttpResponse response = httpclient.execute(new HttpGet("http://localhost:4444/wd/hub/session/324dc87d-1868-4f35-82f6-a1d4ca50717d/url"));
+		HttpResponse response = httpclient.execute(new HttpGet("http://localhost:4444/wd/hub/session/682b07a1-80cb-4110-9b9e-921aae5730d3/url"));
 
 		HttpEntity entity = response.getEntity();
 		String responseString = EntityUtils.toString(entity, "UTF-8");
@@ -101,11 +101,11 @@ public class MainClient {
 
 		DefaultHttpClient httpclient = new DefaultHttpClient();
 		
-		HttpPost httpPost = new HttpPost("http://localhost:4444/wd/hub/session/324dc87d-1868-4f35-82f6-a1d4ca50717d/element");
+		HttpPost httpPost = new HttpPost("http://localhost:4444/wd/hub/session/682b07a1-80cb-4110-9b9e-921aae5730d3/element");
 		httpPost.setHeader("Content-Type", "application/json");
 		JSONObject json = new JSONObject();
 		json.put("using", "id");
-		json.put("value", "searchField");
+		json.put("value", "searchFiel");
 		
 		HttpEntity e = new StringEntity(json.toString());
 		httpPost.setEntity(e);
@@ -133,7 +133,7 @@ public class MainClient {
 	public void typeJava() throws ClientProtocolException, IOException, JSONException {
 		DefaultHttpClient httpclient = new DefaultHttpClient();
 		
-		HttpPost httpPost = new HttpPost("http://localhost:4444/wd/hub/session/324dc87d-1868-4f35-82f6-a1d4ca50717d/0/value");
+		HttpPost httpPost = new HttpPost("http://localhost:4444/wd/hub/session/682b07a1-80cb-4110-9b9e-921aae5730d3/0/value");
 		httpPost.setHeader("Content-Type", "application/json");
 
 		JSONArray array = new JSONArray();

@@ -3,9 +3,7 @@ package util;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.net.MalformedURLException;
 import java.net.URL;
-import java.util.List;
 import java.util.Properties;
 
 import org.openqa.selenium.WebDriver;
@@ -32,5 +30,9 @@ public  class SetupDriver {
 
 	    return driver;
 		
+	}
+	
+	public static void teardown(WebDriver driver) {
+		driver.quit();
 	}
 }
