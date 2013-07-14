@@ -21,12 +21,7 @@ public class RemoteWebdriverTests {
 		//create DesiredCapabilities object and set browser to Firefox
 		DesiredCapabilities capability = new DesiredCapabilities();
 		capability.setBrowserName("firefox");
-		
-	
-		/*alternatively the browser can be set like this as well
-		 *DesiredCapabilities capability = new DesiredCapabilities().firefox();
-		 */
-		 
+				 
 		/*
 		 * create new RemoteWebdriver using the capabilities defined above
 		 * navigate to URL http://gridfusion.net
@@ -61,7 +56,9 @@ public class RemoteWebdriverTests {
 	 */
 	@Test
 	public void remoteWebdriverInternetExplorerTest() throws MalformedURLException, InterruptedException {
-		DesiredCapabilities capability = DesiredCapabilities.internetExplorer();
+		DesiredCapabilities capability = new DesiredCapabilities();
+		capability.setBrowserName("internet explorer");
+
 		WebDriver driver = new RemoteWebDriver(new URL("http://localhost/4444/wd/hub"), capability);
 		
 		driver.get("http://gridfusion.net");

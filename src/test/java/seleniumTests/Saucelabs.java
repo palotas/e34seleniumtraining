@@ -18,11 +18,11 @@ public class Saucelabs {
 	
 	@BeforeTest
 	public void setup() throws Exception {
-		DesiredCapabilities capabillities = DesiredCapabilities.firefox();
-        capabillities.setCapability("platform", Platform.MAC);
+		DesiredCapabilities capabilities = DesiredCapabilities.firefox();
+        capabilities.setCapability("platform", Platform.MAC);
         this.driver = new RemoteWebDriver(
 					  new URL("http://gridfusion:21fa5bb6-d54f-4efd-9c9b-31e4f899d7b2@ondemand.saucelabs.com:80/wd/hub"),
-					  capabillities);
+					  capabilities);
 	}
 	
 	@Test

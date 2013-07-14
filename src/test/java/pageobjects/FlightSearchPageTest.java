@@ -11,9 +11,7 @@ public class FlightSearchPageTest {
 	public void flightSearchTest() throws InterruptedException {
 		WebDriver driver = new FirefoxDriver();
 		driver.get("http://www.kayak.com/flights");
-		
-		Assert.assertEquals(driver.getTitle(), "KAYAK - Cheap Flights - Deals on Airline Tickets - Airfare - Compare Hundreds of Travel Sites");
-		
+				
 		FlightSearchPage flightSearchPage = new FlightSearchPage(driver);
 		flightSearchPage.selectRoundtrip();
 		flightSearchPage.enterOrigin();

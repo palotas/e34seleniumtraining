@@ -1,5 +1,7 @@
 package pageobjects;
 
+import junit.framework.Assert;
+
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -35,11 +37,13 @@ public class FlightSearchPage {
 	private WebElement findButton;
 	
 	//constructor
-	public FlightSearchPage(WebDriver driver){
-		this.driver = driver;
+	public FlightSearchPage(WebDriver d){
+		this.driver = d;
 		
 		//if you comment this line out, you will get a nullpointer exception
 		PageFactory.initElements(driver, this);
+		
+		Assert.assertEquals("KAYAK - Cheap Flights - Deals on Airline Tickets - Airfare - Compare Hundreds of Travel Sites", driver.getTitle());
 
 	}
 	

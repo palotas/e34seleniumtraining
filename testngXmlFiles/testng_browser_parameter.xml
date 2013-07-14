@@ -6,6 +6,6 @@
     <classes>
       <class name="seleniumTests.TestNGBrowserParameter"/>
     </classes>
-    <parameter name="browser" value="FIREFOX"></parameter>
+    <parameter name="browser" value="CHROME"></parameter>
   </test>
 </suite>

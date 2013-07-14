@@ -14,8 +14,8 @@ import org.testng.annotations.Test;
 
 public class RemoteSetupAbraxas {
 	
-	private final String GRIDURL="http://10.249.240.178:4444/wd/hub";
-	private final String BROWSERNAME="chrome";
+	private final String GRIDURL="http://192.168.1.109:4444/wd/hub";
+	private final String BROWSERNAME="firefox";
 	private final String BROWSERVERSION="";
 	private final String PLATFORM="MAC";
 	
@@ -41,6 +41,7 @@ public class RemoteSetupAbraxas {
         }
         catch (AssertionError e) { 
         	//System.out.println(e.getMessage());
+        	Assert.fail();
         }
  
         finally {
@@ -84,7 +85,6 @@ public class RemoteSetupAbraxas {
 	public void testAbraxas3() throws Exception {
 	
 		WebDriver driver;
-		//setup
 		DesiredCapabilities capabilities=new DesiredCapabilities();
 		
         capabilities.setCapability("platform", PLATFORM);
@@ -119,7 +119,7 @@ public class RemoteSetupAbraxas {
 		
         
         try {
-    		driver.get("http://www.swissq.it");
+    		driver.get("http://www.swiss.com");
     		Assert.assertEquals(driver.getTitle(), "Home :: abraxas.ch");
 
         }

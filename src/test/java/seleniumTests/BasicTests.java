@@ -77,6 +77,10 @@ public class BasicTests {
 		}
 		catch (Error e) {
 			System.out.println("Error message: " + e.getMessage());
+			/*
+			 * note: the test passes because we caught the exception
+			 * to make it fail add: Assert.fail();
+			 */
 		}
 		finally {
 			driver.quit();
@@ -86,8 +90,8 @@ public class BasicTests {
 
 	/*
 	 * This test: - creates Firefox Driver / opens a Firefox browser - navigates
-	 * to http://www.digicomp.ch - locates element with ID "q" - types
-	 * "Selenium" into the searchbox - locates submit button - clicks on the
+	 * to http://www.abraxas.ch - locates element with ID "searchField" - types
+	 * "Java" into the searchbox - locates submit button - clicks on the
 	 * submit button - closes the browser
 	 */
 
@@ -102,7 +106,7 @@ public class BasicTests {
 		WebElement button = driver.findElement(By.className("searchButton"));
 		button.click();
 		
-		Thread.sleep(10000);
+		Thread.sleep(5000);
 
 		driver.quit();
 
@@ -113,7 +117,7 @@ public class BasicTests {
 
 
 	/*
-	 * This test: - creates CHROME Driver / opens a CHROME browser - navigates
+	 * This test: opens a CHROME browser - navigates
 	 * to http://www.abraxas.ch - locates element with ID "searchField" - types
 	 * "Java" into the searchbox - locates submit button - clicks on the
 	 * submit button - closes the browser
@@ -133,7 +137,7 @@ public class BasicTests {
 		WebElement button = driver.findElement(By.className("searchButton"));
 		button.click();
 		
-		Thread.sleep(10000);
+		Thread.sleep(5000);
 
 		driver.quit();
 
