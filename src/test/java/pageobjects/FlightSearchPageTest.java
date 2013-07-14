@@ -2,7 +2,6 @@ package pageobjects;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
-import org.testng.Assert;
 import org.testng.annotations.Test;
 
 public class FlightSearchPageTest {
