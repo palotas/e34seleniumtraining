@@ -53,13 +53,14 @@ public class RemoteWebdriverTests {
 	/*
 	 * example for a remote test with IE
 	 * if IE is not installed (like in this case) --> test fails
+	 * if no grid is used then the "next best" match is picked i.e. Chrome
 	 */
 	@Test
 	public void remoteWebdriverInternetExplorerTest() throws MalformedURLException, InterruptedException {
 		DesiredCapabilities capability = new DesiredCapabilities();
 		capability.setBrowserName("internet explorer");
 
-		WebDriver driver = new RemoteWebDriver(new URL("http://localhost/4444/wd/hub"), capability);
+		WebDriver driver = new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"), capability);
 		
 		driver.get("http://gridfusion.net");
 		Thread.sleep(5000);

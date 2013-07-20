@@ -4,7 +4,7 @@
  
   <test name="Regression1" parallel="methods">
     <classes>
-      <class name="seleniumTests.RemoteSetupAbraxas"/>
+      <class name="seleniumTests.RemoteWebdriverAbraxas"/>
     </classes>
   </test>
 </suite>

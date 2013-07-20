@@ -125,8 +125,7 @@ public class BasicTests {
 	@Test
 	public void sendKeysTestWithChrome() throws Exception {
 
-		System.setProperty("webdriver.chrome.driver",
-				"/home/gridfusion/SeleniumTraining/chromedriver");
+		System.setProperty("webdriver.chrome.driver", "/home/gridfusion/SeleniumTraining/chromedriver");
 		WebDriver driver = new ChromeDriver();
 		driver.get("http://www.abraxas.ch");
 
