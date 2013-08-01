@@ -22,6 +22,7 @@ public class ReportingTest {
 
 	@Test
 	public void simpleReportingTest() {
+		
 		int a = 1;
 		int b = 2;
 		int c;

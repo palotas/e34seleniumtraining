@@ -58,7 +58,7 @@ public class BasicTests {
 	public void pageTitleTestWithAssert() {
 		WebDriver driver = new FirefoxDriver();
 		driver.get("http://gridfusion.net");
-		Assert.assertEquals(driver.getTitle(), "GRIDFUSION.net - Home");
+		Assert.assertEquals(driver.getTitle(), "GRIDFUSION.net - Hom");
 		driver.quit();
 	}
 	
@@ -81,6 +81,7 @@ public class BasicTests {
 			 * note: the test passes because we caught the exception
 			 * to make it fail add: Assert.fail();
 			 */
+			Assert.fail();
 		}
 		finally {
 			driver.quit();
@@ -104,7 +105,7 @@ public class BasicTests {
 		searchBox.sendKeys("Java");
 
 		WebElement button = driver.findElement(By.className("searchButton"));
-		button.click();
+		button.sendKeys("test");
 		
 		Thread.sleep(5000);
 

@@ -3,7 +3,8 @@
       [
         {
           "browserName": "firefox",
-          "maxInstances": 5
+          "maxInstances": 5,
+          "version": "10.3"
         }
       ],
     "configuration":
@@ -12,7 +13,7 @@
         "port":5555,
 
         "hubPort":4444,
-        "hubHost":"192.168.1.104",
+        "hubHost":"localhost",
 
         "nodePolling":2000,
 

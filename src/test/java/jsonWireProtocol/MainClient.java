@@ -63,7 +63,7 @@ public class MainClient {
 	public void navigateToUrl() throws ClientProtocolException, IOException, JSONException {
 		
 		DefaultHttpClient httpclient = new DefaultHttpClient();
-		HttpPost httpPost = new HttpPost("http://localhost:4444/wd/hub/session/2c97220f-942c-4ffe-8b4f-fde73354ea94/url");
+		HttpPost httpPost = new HttpPost("http://localhost:4444/wd/hub/session/3e58ec2a-584f-4009-904e-e43730a47aeb/url");
 		httpPost.setHeader("Content-Type", "application/json");			
 		JSONObject json = new JSONObject();
 		json.put("url", "http://www.abraxas.ch");
@@ -101,7 +101,7 @@ public class MainClient {
 
 		DefaultHttpClient httpclient = new DefaultHttpClient();
 		
-		HttpPost httpPost = new HttpPost("http://localhost:4444/wd/hub/session/2c97220f-942c-4ffe-8b4f-fde73354ea94/element");
+		HttpPost httpPost = new HttpPost("http://localhost:4444/wd/hub/session/3e58ec2a-584f-4009-904e-e43730a47aeb/element");
 		httpPost.setHeader("Content-Type", "application/json");
 		JSONObject json = new JSONObject();
 		json.put("using", "id");

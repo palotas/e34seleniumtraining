@@ -27,7 +27,7 @@ public class RemoteWebdriverTests {
 		 * navigate to URL http://gridfusion.net
 		 * close browser
 		 */
-		WebDriver driver = new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"), capability);
+		WebDriver driver = new RemoteWebDriver(new URL("http://10.2.2.35:4444/wd/hub"), capability);
 		driver.get("http://gridfusion.net");
 		driver.quit();
 		
@@ -43,7 +43,7 @@ public class RemoteWebdriverTests {
 	@Test
 	public void remoteWebdriverChromeTest() throws MalformedURLException {
 		DesiredCapabilities capability = DesiredCapabilities.chrome();
-		WebDriver driver = new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"), capability);
+		WebDriver driver = new RemoteWebDriver(new URL("http://10.2.2.35:4444/wd/hub"), capability);
 		
 		driver.get("http://gridfusion.net");
 		driver.quit();
@@ -60,7 +60,7 @@ public class RemoteWebdriverTests {
 		DesiredCapabilities capability = new DesiredCapabilities();
 		capability.setBrowserName("internet explorer");
 
-		WebDriver driver = new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"), capability);
+		WebDriver driver = new RemoteWebDriver(new URL("http://10.2.2.35:4444/wd/hub"), capability);
 		
 		driver.get("http://gridfusion.net");
 		Thread.sleep(5000);

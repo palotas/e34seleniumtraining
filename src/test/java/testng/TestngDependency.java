@@ -12,8 +12,8 @@ public class TestngDependency {
 		int b=2;
 		int c;
 		c=a + b;
-		Assert.assertTrue(c==4); //this test will fail
 		System.out.println("mytest1...");		
+		Assert.assertTrue(c==4); //this test will fail
 
 	}
 	
