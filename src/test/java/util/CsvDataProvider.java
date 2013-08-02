@@ -24,7 +24,7 @@ public class CsvDataProvider {
     public static Iterator<Object[]> createData(){ 
             List<Object[]> myEntries = new ArrayList<Object[]>(); 
             try { 
-                    CSVReader reader = new CSVReader(new FileReader("/home/gridfusion/SeleniumTraining/data.csv")); 
+                    CSVReader reader = new CSVReader(new FileReader("/home/gridfusion/SeleniumTraining/workspace/selenium/data.csv")); 
                     String[] nextLine = null; 
                     while ((nextLine = reader.readNext()) != null){ 
                             myEntries.add(new Object [] {nextLine}); 
