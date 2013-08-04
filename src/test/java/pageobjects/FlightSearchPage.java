@@ -64,6 +64,11 @@ public class FlightSearchPage {
 		origin.clear();
 		origin.sendKeys("ZRH");
 	}
+
+	public void enterOriginDataProvider(String s) {
+		origin.clear();
+		origin.sendKeys(s);
+	}
 	
 	public void enterDestination() {
 		destination.clear();
@@ -80,8 +85,14 @@ public class FlightSearchPage {
 		returnDate.sendKeys("08/31/2013");
 	}
 	
-	public void pressFindButton() {
+	/*
+	 * returns a FlightsResultPage as by pressing the submit button 
+	 * we navigate to a new page
+	 */
+	
+	public FlightsResultPage pressFindButton() {
 		findButton.click();
+		return new FlightsResultPage(driver);
 	}
 	
 }
