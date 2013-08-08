@@ -7,6 +7,7 @@ import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.remote.Augmenter;
+import org.openqa.selenium.remote.RemoteWebDriver;
 import org.testng.Reporter;
 
 public class Screenshot {
@@ -26,6 +27,22 @@ public class Screenshot {
 
 	}
 	
+	/*this version of the screenshot utility does not open the blank window
+	 * this can be achieved by casting the augmented driver to RemoteWebDriver
+	 */
+	
+	public static void takeScreenshot2(WebDriver driver) throws Exception {
+		
+	    //create augmented driver
+	  	RemoteWebDriver newDriver = (RemoteWebDriver)driver;
+	    //take screenshot
+	  	File source = ((TakesScreenshot)newDriver).getScreenshotAs(OutputType.FILE);
+	    //copy file to final destination
+	  	FileUtils.copyFile(source, new File("/home/gridfusion/SeleniumTraining/screenshots/" + source.getName())); 
 
+	    Reporter.log("Screenshot of page: " + "<b>" + driver.getTitle() + "</b>" + " at " + driver.getCurrentUrl());
+	    Reporter.log("<br> <img src=/home/gridfusion/SeleniumTraining/screenshots/"+ source.getName() + " " + "width=\"320\" height=\"240\" /> <br>");
+
+	}
 
 }
