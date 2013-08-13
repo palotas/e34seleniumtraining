@@ -12,6 +12,7 @@ public class FlightSearchPage {
 	
 	private final WebDriver driver;
 	
+	
 	@FindBy(id= "roundtrip-label")
 	private WebElement roundtrip;
 
@@ -92,6 +93,7 @@ public class FlightSearchPage {
 	
 	public FlightsResultPage pressFindButton() {
 		findButton.click();
+		
 		return new FlightsResultPage(driver);
 	}
 	
