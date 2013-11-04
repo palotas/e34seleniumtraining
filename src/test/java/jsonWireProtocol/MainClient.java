@@ -18,7 +18,6 @@ import org.json.JSONObject;
 import org.testng.annotations.Test;
 
 public class MainClient {
-	
 		
 	/*
 	 * first step is to create a session with the server
