@@ -21,9 +21,10 @@ public class Saucelabs {
 		DesiredCapabilities capabilities = DesiredCapabilities.firefox();
         capabilities.setCapability("platform", Platform.MAC);
         this.driver = new RemoteWebDriver(
-					  new URL("http://gridfusion:21fa5bb6-d54f-4efd-9c9b-31e4f899d7b2@ondemand.saucelabs.com:80/wd/hub"),
+					  new URL("http://palotas:c69edf87-0701-41d3-8222-2268084734f1@ondemand.saucelabs.com:80/wd/hub"),
 					  capabilities);
 	}
+	
 	
 	@Test
 	public void mytest() {
