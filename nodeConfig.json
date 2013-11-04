@@ -20,7 +20,7 @@
         "port":5555,
 
         "hubPort":4444,
-        "hubHost":"192.168.1.111",
+        "hubHost":"localhost",
 
         "nodePolling":2000,
 
