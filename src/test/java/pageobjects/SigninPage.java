@@ -19,7 +19,7 @@ public class SigninPage {
 	private WebElement signinButton;
 	
 	public SigninPage(WebDriver driver) {
-		driver.get("https://signin.ebay.com.au/ws/eBayISAPI.dll?SignIn");
+		driver.get("https://signin.ebay.de/ws/eBayISAPI.dll?SignIn");
 	    PageFactory.initElements(driver, this);
 	}
 	

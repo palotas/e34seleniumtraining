@@ -22,7 +22,7 @@ public class WebTests {
 		WebDriver driver = new FirefoxDriver();
 		
 		//open the ebay homepage
-		driver.get("http://www.ebay.com.au");
+		driver.get("http://www.ebay.de");
 		
 		//close browser
 		driver.quit();
@@ -35,7 +35,7 @@ public class WebTests {
 		WebDriver driver = new FirefoxDriver();
 		
 		//go to signin URL
-		driver.get("https://signin.ebay.com.au/ws/eBayISAPI.dll?SignIn");
+		driver.get("https://signin.ebay.de/ws/eBayISAPI.dll?SignIn");
 		
 		//find userid element and type username
 		WebElement userid = driver.findElement(By.id("userid"));
@@ -64,7 +64,7 @@ public class WebTests {
 		
 	
 		//go to signin URL
-		driver.get("https://signin.ebay.com.au/ws/eBayISAPI.dll?SignIn");
+		driver.get("https://signin.ebay.de/ws/eBayISAPI.dll?SignIn");
 		
 		//find userid element and type username
 		WebElement userid = driver.findElement(By.id("userid"));
@@ -94,7 +94,7 @@ public class WebTests {
 		WebDriver driver = new FirefoxDriver();
 		
 		//go to signin URL
-		driver.get("https://signin.ebay.com.au/ws/eBayISAPI.dll?SignIn");
+		driver.get("https://signin.ebay.de/ws/eBayISAPI.dll?SignIn");
 		
 		//find userid element and type username
 		WebElement userid = driver.findElement(By.id("userid"));
