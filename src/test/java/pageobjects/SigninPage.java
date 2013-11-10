@@ -1,10 +1,8 @@
 package pageobjects;
-
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-
 
 public class SigninPage {
 	
@@ -22,8 +20,7 @@ public class SigninPage {
 		driver.get("https://signin.ebay.de/ws/eBayISAPI.dll?SignIn");
 	    PageFactory.initElements(driver, this);
 	}
-	
-	
+		
 	public void enterUsername() {
 		userid.sendKeys(Utils.getUsername());
 	}
@@ -36,14 +33,11 @@ public class SigninPage {
 		signinButton.click();
 	}
 	
-	
 	public MyEbayPage signIn(WebDriver driver) {
 		enterUsername();
 		enterPassword();
 		clickSigninButton();
 		return new MyEbayPage(driver);
-	}
-	
-	
+	}	
 }
 

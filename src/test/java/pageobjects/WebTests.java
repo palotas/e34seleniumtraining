@@ -49,12 +49,13 @@ public class WebTests {
 		WebElement signinButton = driver.findElement(By.id("sgnBt"));
 		signinButton.click();
 	
-		
 		Thread.sleep(10000);
 		//close browser
 		driver.quit();
 		
 	}
+	
+	
 
 	
 	@Test
