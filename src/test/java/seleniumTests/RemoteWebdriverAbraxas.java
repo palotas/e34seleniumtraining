@@ -131,7 +131,6 @@ public class RemoteWebdriverAbraxas {
 	
 	/*
 	 * use try/finally but no catch
-	 * if i.e. you want to take screenshot upon failure it is not possible in this case
 	 */
 	@Test
 	public void remoteTestWithTryFinally() throws MalformedURLException

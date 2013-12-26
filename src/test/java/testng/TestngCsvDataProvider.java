@@ -14,7 +14,7 @@ import au.com.bytecode.opencsv.CSVReader;
 
 public class TestngCsvDataProvider {
 	   
-    @Test(dataProvider="myDataProvider1")
+    @Test(dataProvider="myDataProvider")
     public void mytest(String[] line) {
       	System.out.println(line[0] + " " + line[1] + " " + line[2] + " " + line[3] + " " + line[4]);				
     }
