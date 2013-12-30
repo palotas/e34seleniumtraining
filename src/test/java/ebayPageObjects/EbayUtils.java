@@ -16,12 +16,4 @@ public class  EbayUtils {
 		return itemid;
 	}
 	
-	public static void setUsername(String username) {
-		EbayUtils.username = username;
-	}
-	public static void setPassword(String password) {
-		EbayUtils.password = password;
-	}
-	
-
 }

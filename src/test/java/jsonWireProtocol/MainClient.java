@@ -47,10 +47,6 @@ public class MainClient {
 		HttpEntity e = new StringEntity(json.toString());
 		httpPost.setEntity(e);
 	    HttpResponse response = httpclient.execute(httpPost);
-	    
-	    //print server response
-	    System.out.println(response.getStatusLine());
-	    System.out.println(response.getFirstHeader("Location"));
 	}
 
 	

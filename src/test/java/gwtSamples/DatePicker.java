@@ -46,17 +46,7 @@ public class DatePicker {
 		WebElement div=cell31.findElement(By.tagName("div"));
 		div.click();
 		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
+		Thread.sleep(5000);
 		
 	}
 	

@@ -5,6 +5,6 @@ import java.util.List;
 
 public class ExpectedData {
 	
-	static List<String> expectedLinks = Arrays.asList("Jobs", "Gruppen", "Events");
+	public static List<String> expectedLinks = Arrays.asList("Jobs", "Gruppen", "Events");
 	
 }

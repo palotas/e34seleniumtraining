@@ -1,4 +1,4 @@
-package seleniumTests;
+package remoteWebdriver;
 
 import java.io.IOException;
 import java.net.MalformedURLException;
@@ -16,7 +16,7 @@ public class RemoteWebdriverTests {
 	 * For these tests, the Selenium server needs to run 
 	 */
 	@Test
-	public void remoteWebdriverFireFoxTest() throws IOException {
+	public void remoteWebdriverFireFoxTest() throws IOException, InterruptedException {
 
 		//create DesiredCapabilities object and set browser to Firefox
 		DesiredCapabilities capability = new DesiredCapabilities();
@@ -30,6 +30,7 @@ public class RemoteWebdriverTests {
 		 */
 		WebDriver driver = new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"), capability);
 		driver.get("http://gridfusion.net");
+		Thread.sleep(5000);
 		driver.quit();
 		
 	}
@@ -42,11 +43,12 @@ public class RemoteWebdriverTests {
 	 * same test as above just with Chrome browser
 	 */
 	@Test
-	public void remoteWebdriverChromeTest() throws MalformedURLException {
+	public void remoteWebdriverChromeTest() throws MalformedURLException, InterruptedException {
 		DesiredCapabilities capability = DesiredCapabilities.chrome();
 		WebDriver driver = new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"), capability);
 		
 		driver.get("http://gridfusion.net");
+		Thread.sleep(5000);
 		driver.quit();
 		
 	}

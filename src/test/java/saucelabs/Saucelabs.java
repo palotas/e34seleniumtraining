@@ -1,4 +1,4 @@
-package seleniumTests;
+package saucelabs;
 
 import java.net.URL;
 

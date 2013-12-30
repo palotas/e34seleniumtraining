@@ -30,10 +30,11 @@ public class DropDown {
 		
 		Select dropDown=new Select(driver.findElement(By.id("gwt-debug-cwListBox-dropBox")));
 		dropDown.selectByVisibleText("Sports");
-		
+			
 		Thread.sleep(2000);
 		driver.quit();
 	}
+	
 	
 	/*
 	 * selects the Sports entry in the dropdown via Action Builder

@@ -1,4 +1,4 @@
-package seleniumTests;
+package grid;
 
 import java.io.IOException;
 import java.net.URL;

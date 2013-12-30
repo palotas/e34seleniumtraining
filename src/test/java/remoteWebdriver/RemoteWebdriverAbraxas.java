@@ -1,4 +1,4 @@
-package seleniumTests;
+package remoteWebdriver;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;

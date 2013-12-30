@@ -59,7 +59,7 @@ public class SigninTests {
 		
 	
 		//go to signin URL
-		driver.get("https://signin.ebay.de/ws/eBayISAPI.dll?SignIn");
+		driver.get("https://signin.ebay.ch/ws/eBayISAPI.dll?SignIn");
 		
 		//find userid element and type username
 		WebElement userid = driver.findElement(By.id("userid"));
