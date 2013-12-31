@@ -22,6 +22,7 @@ import org.testng.Assert;
 import com.google.common.base.Function;
 
 import util.ExpectedData;
+import util.Screenshot;
 
 public class WebDriverActions {
 	
@@ -37,8 +38,9 @@ public class WebDriverActions {
 		WebElement fileMenu=driver.findElement(By.id("gwt-debug-cwMenuBar-item0"));
 		fileMenu.click();
 		Thread.sleep(2000);
-	    Actions builder = new Actions(driver);
-	    builder.moveToElement(driver.findElement(By.id("gwt-debug-cwMenuBar-item0-item4"))).click().build().perform();
+				
+	    Actions act = new Actions(driver);
+	    act.moveToElement(driver.findElement(By.id("gwt-debug-cwMenuBar-item0-item4"))).click().build().perform();
 	    
 	    Thread.sleep(2000);
 	    driver.quit();
@@ -104,11 +106,11 @@ public class WebDriverActions {
 		}
 		
 		
-		for(String s : ExpectedData.expectedLinks) {
+		for(String s : util.ExpectedData.expectedLinks) {
 			Assert.assertTrue(stringList.contains(s));			
 		}
 				
-		util.Screenshot.takeScreenshot2(driver); 
+		Screenshot.takeScreenshot2(driver); 
 		try {
 			Thread.sleep(2000);
 		} catch (InterruptedException e) {

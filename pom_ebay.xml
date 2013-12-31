@@ -21,7 +21,7 @@
         <version>2.15</version>
         <configuration>
           <suiteXmlFiles>
-            <suiteXmlFile>testngXmlFiles/testng_ebayAddItemTests.xml</suiteXmlFile>
+            <suiteXmlFile>testngXmlFiles/testng_ebaySigninTests.xml</suiteXmlFile>
           </suiteXmlFiles>
         </configuration>
       </plugin>
