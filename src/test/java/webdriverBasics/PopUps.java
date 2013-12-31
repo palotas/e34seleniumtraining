@@ -1,4 +1,4 @@
-package seleniumTests;
+package webdriverBasics;
 
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;

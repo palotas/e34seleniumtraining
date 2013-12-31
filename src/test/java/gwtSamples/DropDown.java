@@ -28,8 +28,8 @@ public class DropDown {
 		
 		Thread.sleep(2000);
 		
-		Select dropDown=new Select(driver.findElement(By.id("gwt-debug-cwListBox-dropBox")));
-		dropDown.selectByVisibleText("Sports");
+		Select select=new Select(driver.findElement(By.id("gwt-debug-cwListBox-dropBox")));
+		select.selectByVisibleText("Sports");
 			
 		Thread.sleep(2000);
 		driver.quit();
@@ -43,8 +43,8 @@ public class DropDown {
 	@Test
 	public void listBoxActionBuilderSelection() throws InterruptedException {
 		System.setProperty("webdriver.chrome.driver", "/home/gridfusion/SeleniumTraining/chromedriver");
-		//WebDriver wd = new ChromeDriver();
-		WebDriver wd = new FirefoxDriver();
+		WebDriver wd = new ChromeDriver();
+		//WebDriver wd = new FirefoxDriver();
 		
 	    EventFiringWebDriver driver = new EventFiringWebDriver(wd);        
 
@@ -58,13 +58,11 @@ public class DropDown {
 		
 		Thread.sleep(2000);
 		
-	    Actions builder = new Actions(driver);
-	    builder.moveToElement(driver.findElement(By.id("gwt-debug-cwListBox-dropBox-item2"))).click().build().perform();
+	    Actions act = new Actions(driver);
+	    act.moveToElement(driver.findElement(By.id("gwt-debug-cwListBox-dropBox-item2"))).click().build().perform();
 
 		Thread.sleep(2000);
 		driver.quit();
-		
-
 	}
 
 }

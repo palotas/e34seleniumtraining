@@ -22,7 +22,7 @@ public class DatePicker {
 	
 		driver.get("http://gwt.googleusercontent.com/samples/Showcase/Showcase.html#!CwDatePicker");
 		
-		//option 1
+		//option 1 - use direct xpath
 		/*
 		WebElement datePickerTextBox=driver.findElement(By.className("gwt-DateBox"));
 		datePickerTextBox.click();	
@@ -30,7 +30,7 @@ public class DatePicker {
 		cell.click();
 		*/
 		
-		//option 2
+		//option 2 - get table body, get 2nd tr (where the dates start), get row 7, get 3rd date (31) 
 		WebElement datePickerTextBox=driver.findElement(By.className("gwt-DateBox"));
 		datePickerTextBox.click();
 		
@@ -47,6 +47,7 @@ public class DatePicker {
 		div.click();
 		
 		Thread.sleep(5000);
+		driver.quit();
 		
 	}
 	

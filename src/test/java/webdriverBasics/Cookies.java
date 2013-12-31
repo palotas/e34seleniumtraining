@@ -1,4 +1,4 @@
-package seleniumTests;
+package webdriverBasics;
 
 import java.util.Set;
 

@@ -42,55 +42,18 @@ public class CustomWait {
 	}
 	
 	
+	
 	@Test
-	public void dropdownFields() throws InterruptedException {
+	public void implicitWaitTest() throws InterruptedException {
+		
 		WebDriver driver=new FirefoxDriver();
-		driver.get("http://samples.genexus.com/ajaxsample/client.aspx?INS,0");	
-		
-		WebElement first=driver.findElement(By.id("CLIENTFIRSTNAME"));
-		WebElement last=driver.findElement(By.id("CLIENTLASTNAME"));
-		
-		WebElement select=driver.findElement(By.id("COUNTRYID"));
-		//wrap webelement into Select helper
-		Select dropdown=new Select(select); 
-		//System.out.println("selected option: " + dropdown.getFirstSelectedOption().getText());
-		
-		first.sendKeys("michael");
-		last.sendKeys("palotas");
-		dropdown.selectByValue("430"); //value for "USA"
-		
-		//check if proper cities are are populated in the city field
-		//first set up the expected data
-		ArrayList<String>expectedCities=new ArrayList<String>();
-		expectedCities.add("California");
-		expectedCities.add("Chicago");
-		expectedCities.add("Kansas");
-		expectedCities.add("montevideo");
-		expectedCities.add("New York");
-		expectedCities.add("Washington");
-		
-		Select citydropdown=new Select(driver.findElement(By.id("CITYID"))); 
-		ArrayList<String> options = new ArrayList<String>();
+		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 
-		for(WebElement element : citydropdown.getOptions()) {
-			//System.out.println(element.getText());
-			options.add(element.getText());
-		}
-		for(String s : options) {
-			System.out.println(s);
-		}
-		//check if populated city list is as expected
-		Assert.assertTrue(options.equals(expectedCities));
-			
+		driver.get("http://www.google.com");
+		WebElement searchfield=driver.findElement(By.id("gbqfq"));
+		searchfield.sendKeys("michael palotas");
+		
 		Thread.sleep(5000);
-		driver.quit();		
+		driver.quit();
 	}
-	
-	
-	
-
-	
-	
-	
-
 }

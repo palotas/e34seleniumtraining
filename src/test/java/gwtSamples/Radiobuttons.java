@@ -22,8 +22,13 @@ public class Radiobuttons {
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 		driver.get("http://gwt.googleusercontent.com/samples/Showcase/Showcase.html#!CwRadioButton");
 		
+		//verify that 10 buttons are on the page
 		List<WebElement> radioButtons=driver.findElements(By.className("gwt-RadioButton"));
 		Assert.assertEquals(10, radioButtons.size());
+		
+		//click the "blue" radio button
+		WebElement radioButton=driver.findElement(By.id("gwt-debug-cwRadioButton-color-blue-input"));
+		radioButton.click();
 				
 		Thread.sleep(3000);
 		driver.quit();
