@@ -58,7 +58,7 @@ public class MainClient {
 	public void navigateToUrl() throws ClientProtocolException, IOException, JSONException {
 		
 		DefaultHttpClient httpclient = new DefaultHttpClient();
-		HttpPost httpPost = new HttpPost("http://localhost:4444/wd/hub/session/f27a078a-8b71-4bb8-9eb1-e8743fe12d35/url");
+		HttpPost httpPost = new HttpPost("http://localhost:4444/wd/hub/session/da7a9f63-525b-409f-b073-cd5a5176e14f/url");
 		httpPost.setHeader("Content-Type", "application/json");			
 		JSONObject json = new JSONObject();
 		json.put("url", "http://www.abraxas.ch");
@@ -96,7 +96,7 @@ public class MainClient {
 
 		DefaultHttpClient httpclient = new DefaultHttpClient();
 		
-		HttpPost httpPost = new HttpPost("http://localhost:4444/wd/hub/session/ce929fb1-ab08-4063-b602-bdaf66ff1f78/element");
+		HttpPost httpPost = new HttpPost("http://localhost:4444/wd/hub/session/da7a9f63-525b-409f-b073-cd5a5176e14f/element");
 		httpPost.setHeader("Content-Type", "application/json");
 		JSONObject json = new JSONObject();
 		json.put("using", "id");
@@ -128,7 +128,7 @@ public class MainClient {
 	public void typeJava() throws ClientProtocolException, IOException, JSONException {
 		DefaultHttpClient httpclient = new DefaultHttpClient();
 		
-		HttpPost httpPost = new HttpPost("http://localhost:4444/wd/hub/session/ce929fb1-ab08-4063-b602-bdaf66ff1f78/element/0/value");
+		HttpPost httpPost = new HttpPost("http://localhost:4444/wd/hub/session/da7a9f63-525b-409f-b073-cd5a5176e14f/element/0/value");
 		httpPost.setHeader("Content-Type", "application/json");
 
 		JSONArray array = new JSONArray();

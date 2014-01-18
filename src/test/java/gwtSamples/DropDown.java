@@ -43,8 +43,8 @@ public class DropDown {
 	@Test
 	public void listBoxActionBuilderSelection() throws InterruptedException {
 		System.setProperty("webdriver.chrome.driver", "/home/gridfusion/SeleniumTraining/chromedriver");
-		WebDriver wd = new ChromeDriver();
-		//WebDriver wd = new FirefoxDriver();
+		//WebDriver wd = new ChromeDriver();
+		WebDriver wd = new FirefoxDriver();
 		
 	    EventFiringWebDriver driver = new EventFiringWebDriver(wd);        
 

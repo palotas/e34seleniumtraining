@@ -1,6 +1,7 @@
 package ajaxSamples;
 
 import java.util.ArrayList;
+import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -15,6 +16,8 @@ public class AjaxSelectSample {
 	@Test
 	public void dropdownFields() throws InterruptedException {
 		WebDriver driver=new FirefoxDriver();
+		//first try without implicit wait
+		//driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 		driver.get("http://samples.genexus.com/ajaxsample/client.aspx?INS,0");	
 		
 		WebElement first=driver.findElement(By.id("CLIENTFIRSTNAME"));

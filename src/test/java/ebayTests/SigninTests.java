@@ -74,7 +74,7 @@ public class SigninTests {
 		signinButton.click();
 		
 		//verify that page title is correct
-		Assert.assertEquals(driver.getTitle(), "Zusammenfassung");
+		Assert.assertEquals("Zusammenfassung", driver.getTitle());
 		
 		Thread.sleep(5000);
 		
