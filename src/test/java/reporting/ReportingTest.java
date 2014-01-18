@@ -18,7 +18,16 @@ import org.testng.annotations.Test;
 
 
 public class ReportingTest {
-	
+
+	@Test
+	public void failingTest() {
+		
+		Reporter.log("adding screenshot");
+	    Reporter.log("<div class='screenshot'><a href='/home/gridfusion/SeleniumTraining/screenshots/screenshot.png'> <img src=/home/gridfusion/SeleniumTraining/screenshots/screenshot.png" + " " + "width=\"300\" height=\"240\" /></a></div></br>");
+		Reporter.log("adding another screenshot");
+	    Reporter.log("<div class='screenshot'><img src=/home/gridfusion/SeleniumTraining/screenshots/screenshot.png" + " " + "width=\"300\" height=\"240\" /></div>");
+		Assert.assertTrue(false);	
+	}
 
 	@Test
 	public void simpleReportingTest() {
@@ -33,12 +42,14 @@ public class ReportingTest {
 	
 	@Test
 	public void reportingTestWithMessage() {
+		Reporter.log("starting the test");
 		int a = 1;
 		int b = 2;
 		int c;
 		c = a + b;
 		Assert.assertTrue(c==3);
 		Reporter.log("This is some " + "<b>bold</b> " + "and " + "<i>italic</i>" + " text");
+		Reporter.log("ending the test");
 	}
 	
 		
@@ -46,7 +57,7 @@ public class ReportingTest {
 	 * take screenshot with augmented driver
 	 * insert screenshot into report
 	 */
-	@Test
+	@Test(enabled=false)
 	public void fireFoxTestWithScreenshotReport() throws IOException {
 		DesiredCapabilities capability = DesiredCapabilities.firefox();
 		WebDriver driver = new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"), capability);

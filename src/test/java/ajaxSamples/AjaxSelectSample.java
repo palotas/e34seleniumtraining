@@ -14,7 +14,7 @@ import org.testng.annotations.Test;
 public class AjaxSelectSample {
 	
 	@Test
-	public void dropdownFields() throws InterruptedException {
+	public void mytest() throws InterruptedException {
 		WebDriver driver=new FirefoxDriver();
 		//first try without implicit wait
 		//driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
