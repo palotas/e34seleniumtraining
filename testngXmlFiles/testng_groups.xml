@@ -12,5 +12,9 @@
 	<classes>
 	      <class name="testng.TestngGroups"/>
 	</classes>
+	
+	<listeners>
+ 		<listener class-name="reporting.CustomReporter"/>
+ 	</listeners>
   </test>
 </suite>

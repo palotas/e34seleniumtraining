@@ -10,6 +10,7 @@
 	
 	 <listeners>
  		<listener class-name="listeners.MyListener"/>
+ 		<listener class-name="reporting.CustomReporter"/>
  	</listeners>
 	
   </test>
