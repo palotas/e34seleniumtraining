@@ -21,7 +21,6 @@ public class MyEbayPage {
 	    PageFactory.initElements(driver, this);
 	}
 	
-	
 	public void enterItemNumber() {
 		searchBox.sendKeys(EbayUtils.getItemid());
 	}
