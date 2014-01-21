@@ -2,12 +2,21 @@ package ebayFlows;
 
 public class UserObject {
 
+	private String userName;
 	private String firstName;
 	private String lastName;
 	private String email;
 	private String password;
 	private String repeatPassword;
+
 	
+	public String getUserName() {
+		return userName;
+	}
+	public void setUserName(String userName) {
+		this.userName = userName;
+	}
+
 	public String getFirstName() {
 		return firstName;
 	}
