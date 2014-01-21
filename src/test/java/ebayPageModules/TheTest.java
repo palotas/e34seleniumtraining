@@ -18,6 +18,8 @@ public class TheTest {
 		SigninPageWithModules page=new SigninPageWithModules(driver, user);
 		page.moduleUsernamePassword.enterUsername();
 		page.moduleUsernamePassword.enterPassword();
+		page.clickSigninButton();
+		
 		
 	}
 

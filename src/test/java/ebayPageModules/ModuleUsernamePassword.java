@@ -31,7 +31,7 @@ public class ModuleUsernamePassword {
 	}
 	
 	public void enterPassword() {
-		userid.clear();
+		password.clear();
 		password.sendKeys(pass);		
 	}
 
