@@ -1,5 +1,6 @@
 package webdriverBasics;
 
+import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
@@ -89,6 +90,7 @@ public class FindElement {
 		// navigate to the URL 
 		driver.get("http://www.20min.ch/");
 		WebElement link=driver.findElement(By.linkText("Tarife & Mediadaten"));
+				
 		link.click();
 		
 		Thread.sleep(5000);

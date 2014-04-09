@@ -10,7 +10,8 @@
 	<dependency>
 	  <groupId>org.testng</groupId>
 	  <artifactId>testng</artifactId>
-	  <version>6.8</version>	  
+	  <version>6.8</version>	
+	  <scope>test</scope>  
 	</dependency>
 
 	<dependency>
@@ -66,13 +67,13 @@
         <artifactId>maven-surefire-plugin</artifactId>
         <version>2.15</version>
  
-<!-- 
+ 
         <configuration>
           <suiteXmlFiles>
-            <suiteXmlFile>testngXmlFiles/testng_abraxas.xml</suiteXmlFile>
+            <suiteXmlFile>testngXmlFiles/testng_verbose.xml</suiteXmlFile>
           </suiteXmlFiles>
         </configuration>
--->
+
       </plugin>
 
     </plugins>   

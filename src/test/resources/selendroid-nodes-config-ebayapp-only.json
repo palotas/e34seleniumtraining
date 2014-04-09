@@ -1,0 +1,16 @@
+{
+  "capabilities": [{
+      "browserName": "selendroid",
+      "maxInstances": 1,
+      "locale": "en_GB",
+      "aut": "com.ebay.mobile:2.4.0.15"
+  }],
+  "configuration": {
+      "maxSession": 1,
+      "register": true,
+      "hubHost": "localhost",
+      "hubPort": 4444,
+      "remoteHost": "http://localhost:6666",
+      "proxy": "io.selendroid.grid.SelendroidSessionProxy"
+  }
+}
