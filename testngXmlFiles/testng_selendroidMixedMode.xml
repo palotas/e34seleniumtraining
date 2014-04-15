@@ -2,7 +2,7 @@
   
 <suite name="Abraxas Test Suite" verbose="1" >
  
-  <test name="Regression1" parallel="false">
+  <test name="Regression1" parallel="method">
     <classes>
       <class name="selendroid.MixedWebAndroid"/>
     </classes>
