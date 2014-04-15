@@ -30,7 +30,7 @@ public class MixedWebAndroid {
 		capability.setBrowserName("firefox");
 
 		WebDriver driver = new RemoteWebDriver(new URL(
-				"http://IPADDRESS:4444/wd/hub"), capability);
+				"http://"+ IPADDRESS + ":4444/wd/hub"), capability);
 
 		driver.get("http://www.bbv.ch");
 		DoScreenshot.remoteWebDriverScreenshot(driver);
@@ -48,7 +48,7 @@ public class MixedWebAndroid {
 		capability.setBrowserName("chrome");
 
 		WebDriver driver = new RemoteWebDriver(new URL(
-				"http://IPADDRESS:4444/wd/hub"), capability);
+				"http://"+ IPADDRESS + ":4444/wd/hub"), capability);
 
 		driver.get("http://www.bbv.ch");
 		Reporter.log("Page Title: " + driver.getTitle());
@@ -66,7 +66,7 @@ public class MixedWebAndroid {
 	    capability.setCapability(SelendroidCapabilities.EMULATOR,false);
 
 		WebDriver driver = new RemoteWebDriver(new URL(
-				"http://IPADDRESS:4444/wd/hub"), capability);
+				"http://"+ IPADDRESS + ":4444/wd/hub"), capability);
 		
 		try {
 			driver.get("http://www.bbv.ch");
@@ -93,7 +93,7 @@ public class MixedWebAndroid {
 	    capability.setCapability(SelendroidCapabilities.EMULATOR,false);
 
 		WebDriver driver = new RemoteWebDriver(new URL(
-				"http://IPADDRESS:4444/wd/hub"), capability);
+				"http://"+ IPADDRESS + ":4444/wd/hub"), capability);
 		
 		try {
 			driver.get("http://www.bbv.ch");
