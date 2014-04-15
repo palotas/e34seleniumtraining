@@ -21,14 +21,16 @@ import screenshot.DoScreenshot;
 
 public class MixedWebAndroid {
 	
-	@Test
+	public final String IPADDRESS = "191.168.1.117";
+	
+	@Test(enabled=true)
 	public void FirefoxWebBbv() throws Exception {
 
 		DesiredCapabilities capability = new DesiredCapabilities();
 		capability.setBrowserName("firefox");
 
 		WebDriver driver = new RemoteWebDriver(new URL(
-				"http://192.168.1.117:4444/wd/hub"), capability);
+				"http://IPADDRESS:4444/wd/hub"), capability);
 
 		driver.get("http://www.bbv.ch");
 		DoScreenshot.remoteWebDriverScreenshot(driver);
@@ -39,14 +41,14 @@ public class MixedWebAndroid {
 	}
 	
 	
-	@Test
+	@Test(enabled=true)
 	public void ChromeWebBbv() throws IOException, InterruptedException {
 
 		DesiredCapabilities capability = new DesiredCapabilities();
 		capability.setBrowserName("chrome");
 
 		WebDriver driver = new RemoteWebDriver(new URL(
-				"http://192.168.1.117:4444/wd/hub"), capability);
+				"http://IPADDRESS:4444/wd/hub"), capability);
 
 		driver.get("http://www.bbv.ch");
 		Reporter.log("Page Title: " + driver.getTitle());
@@ -56,7 +58,7 @@ public class MixedWebAndroid {
 		driver.quit();
 	}
 	
-	@Test
+	@Test(enabled=true)
 	public void AndroidWebBbv() throws IOException, InterruptedException {
 		
 		
@@ -64,7 +66,7 @@ public class MixedWebAndroid {
 	    capability.setCapability(SelendroidCapabilities.EMULATOR,false);
 
 		WebDriver driver = new RemoteWebDriver(new URL(
-				"http://192.168.1.117:4444/wd/hub"), capability);
+				"http://IPADDRESS:4444/wd/hub"), capability);
 		
 		try {
 			driver.get("http://www.bbv.ch");
@@ -83,7 +85,7 @@ public class MixedWebAndroid {
 		}
 }
 	
-	@Test
+	@Test(enabled=true)
 	public void AndroidWebBbvDevice() throws IOException, InterruptedException {
 		
 		
@@ -91,7 +93,7 @@ public class MixedWebAndroid {
 	    capability.setCapability(SelendroidCapabilities.EMULATOR,false);
 
 		WebDriver driver = new RemoteWebDriver(new URL(
-				"http://192.168.1.117:4444/wd/hub"), capability);
+				"http://IPADDRESS:4444/wd/hub"), capability);
 		
 		try {
 			driver.get("http://www.bbv.ch");
