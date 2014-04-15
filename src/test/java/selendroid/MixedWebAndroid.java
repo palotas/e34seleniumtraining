@@ -15,28 +15,14 @@ import org.testng.Assert;
 import org.testng.Reporter;
 import org.testng.annotations.Test;
 
+import screenshot.DoScreenshot;
+
+
+
 public class MixedWebAndroid {
-
-	@Test
-	public void FirefoxWebGridfusion() throws IOException, InterruptedException {
-
-		DesiredCapabilities capability = new DesiredCapabilities();
-		capability.setBrowserName("firefox");
-
-		WebDriver driver = new RemoteWebDriver(new URL(
-				"http://localhost:4444/wd/hub"), capability);
-
-		driver.get("http://www.ebay.com");
-
-		Thread.sleep(2000);
-
-		driver.quit();
-	}
-	
-	
 	
 	@Test
-	public void FirefoxWebBbv() throws IOException, InterruptedException {
+	public void FirefoxWebBbv() throws Exception {
 
 		DesiredCapabilities capability = new DesiredCapabilities();
 		capability.setBrowserName("firefox");
@@ -45,7 +31,8 @@ public class MixedWebAndroid {
 				"http://localhost:4444/wd/hub"), capability);
 
 		driver.get("http://www.bbv.ch");
-
+		DoScreenshot.remoteWebDriverScreenshot(driver);
+		
 		Thread.sleep(2000);
 
 		driver.quit();
@@ -63,53 +50,95 @@ public class MixedWebAndroid {
 
 		driver.get("http://www.bbv.ch");
 		Reporter.log("Page Title: " + driver.getTitle());
+		
+		DoScreenshot.remoteWebDriverScreenshot(driver);
 
 		driver.quit();
 	}
 	
 	@Test
 	public void AndroidWebBbv() throws IOException, InterruptedException {
-
-		DesiredCapabilities capability = new DesiredCapabilities();
-		capability.setBrowserName("android");
-		//capability.setEmulator(false);
-
+		
+		
+		DesiredCapabilities capability = DesiredCapabilities.android();
+	    capability.setCapability(SelendroidCapabilities.EMULATOR,false);
 
 		WebDriver driver = new RemoteWebDriver(new URL(
 				"http://localhost:4444/wd/hub"), capability);
-
-		driver.get("http://www.bbv.ch");
-		Reporter.log("Page Title: " + driver.getTitle());
 		
-		WebElement link = driver.findElement(By.linkText("Industries"));
-		link.click();
-		Assert.assertEquals(driver.getTitle(), "bbv Software Services AG | Willkommen");
-		Thread.sleep(5000);
-
-		driver.quit();
-	}
-	
-	
-	
+		try {
+			driver.get("http://www.bbv.ch");
+			Reporter.log("Page Title: " + driver.getTitle());
+			
+			WebElement link = driver.findElement(By.linkText("Industries"));
+			link.click();
+			Thread.sleep(2000);
+			Assert.assertEquals(driver.getTitle(), "bbv Software Services AG | Industries");
+			DoScreenshot.remoteWebDriverScreenshot(driver);
+			//Thread.sleep(5000);
+			
+		}
+		finally {
+			driver.quit();
+		}
+}
 	
 	@Test
-	public void testShouldBeAbleToRegisterUser() throws Exception {
+	public void AndroidWebBbvDevice() throws IOException, InterruptedException {
+		
+		
+		DesiredCapabilities capability = DesiredCapabilities.android();
+	    capability.setCapability(SelendroidCapabilities.EMULATOR,false);
+
+		WebDriver driver = new RemoteWebDriver(new URL(
+				"http://localhost:4444/wd/hub"), capability);
+		
+		try {
+			driver.get("http://www.bbv.ch");
+			Reporter.log("Page Title: " + driver.getTitle());
+			
+			WebElement link = driver.findElement(By.linkText("Industries"));
+			link.click();
+			Thread.sleep(2000);
+			Assert.assertEquals(driver.getTitle(), "bbv Software Services AG | Industries");
+			DoScreenshot.remoteWebDriverScreenshot(driver);
+			Thread.sleep(5000);
+			
+		}
+		finally {
+			driver.quit();
+		}
+}
+	
+	
+	
+	
+	@Test(enabled=true)
+	public void androidAppTest() throws Exception {
 	  SelendroidCapabilities capa =
-	      new SelendroidCapabilities(
-	          "io.selendroid.testapp:0.9.0");
-	  capa.setLocale("en_GB");
+	      new SelendroidCapabilities("io.selendroid.testapp:0.9.0");
 	  capa.setEmulator(false);
 	  WebDriver driver = new SelendroidDriver(capa);
-	  driver.findElement(By.id("startUserRegistration")).click();
+	  
+	  try {
+		  driver.findElement(By.id("startUserRegistration")).click();
 
-	  // Enter user name
-	  WebElement username = driver.findElement(By.id("inputUsername"));
-	  username.sendKeys("johndoe");
-	  driver.quit();
+		  // Enter user name
+		  WebElement username = driver.findElement(By.id("inputUsername"));
+		  username.sendKeys("johndoe");
+		  DoScreenshot.remoteWebDriverScreenshot(driver);
+
+		  
+	  }
+	  finally {
+		  driver.quit();		  
+	  }
+
+
 	}
 	
 	
-	@Test(invocationCount=1)
+	@Test(enabled=false)
 	public void openEbayApp() throws Exception {
 	  SelendroidCapabilities capa =
 	      new SelendroidCapabilities(
@@ -122,23 +151,5 @@ public class MixedWebAndroid {
 	}
 	
 	
-	//does not work currently in GRID
-	/*
-	@Test
-	public void selendroidMobileWebTest() throws Exception{
-
-	    DesiredCapabilities capa = new SelendroidCapabilities();
-	    capa.setCapability("emulator", true);
-		capa.setBrowserName("android");
-		//capa.setCapability("locale", "en_GB");
-		WebDriver driver = new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"), capa);
-
-
-		driver.get("http://www.google.com");
-		System.out.println(driver.getTitle());
-		Thread.sleep(5000);
-		driver.quit();
-	}
-	*/
 	
 }
