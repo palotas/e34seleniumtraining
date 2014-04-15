@@ -115,12 +115,11 @@ public class MixedWebAndroid {
 	
 	
 	
-	@Test(enabled=false)
+	@Test(enabled=true)
 	public void androidAppTest() throws Exception {
-	  SelendroidCapabilities capa =
-	      new SelendroidCapabilities("io.selendroid.testapp:0.9.0");
+	  SelendroidCapabilities capa = new SelendroidCapabilities("io.selendroid.testapp:0.9.0");
 	  capa.setEmulator(false);
-	  WebDriver driver = new SelendroidDriver(capa);
+	  WebDriver driver = new SelendroidDriver(new URL("http://"+ IPADDRESS + ":4444/wd/hub"),capa);
 	  
 	  try {
 		  driver.findElement(By.id("startUserRegistration")).click();
@@ -128,7 +127,7 @@ public class MixedWebAndroid {
 		  // Enter user name
 		  WebElement username = driver.findElement(By.id("inputUsername"));
 		  username.sendKeys("johndoe");
-		  DoScreenshot.remoteWebDriverScreenshot(driver);
+		  //DoScreenshot.remoteWebDriverScreenshot(driver);
 
 		  
 	  }
