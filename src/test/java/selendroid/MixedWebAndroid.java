@@ -17,8 +17,6 @@ import org.testng.annotations.Test;
 
 import screenshot.DoScreenshot;
 
-
-
 public class MixedWebAndroid {
 	
 	public final String IPADDRESS = "192.168.1.117";
