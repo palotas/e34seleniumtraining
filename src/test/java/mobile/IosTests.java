@@ -1,9 +1,11 @@
 package mobile;
 
+import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.Platform;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
@@ -12,40 +14,47 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 import org.uiautomation.ios.IOSCapabilities;
 
+import screenshot.DoScreenshot;
 import util.UserData;
 
 public class IosTests {
 	
-	public final String OSXIP = "192.168.1.117";
+	public final String OSXIP = "192.168.1.114";
 
 	
+	@Test
+	public void safariWebTest() throws MalformedURLException, InterruptedException {
+		DesiredCapabilities capability = new DesiredCapabilities();
+		capability.setBrowserName("safari");
+		capability.setPlatform(Platform.MAC);
+		RemoteWebDriver driver = new RemoteWebDriver(new URL("http://" + OSXIP + ":4444/wd/hub"), capability);
+
+        driver.get("http://www.maibornwolff.de");
+		WebElement link = driver.findElement(By.linkText("Was wir tun"));
+		link.click();
+
+        Thread.sleep(5000);
+        driver.quit();
+	}
 	
-	
-	//IOS TEST - Grid is currently on OSX VM
+
 		@Test
-		public void mobileSafariTest() throws MalformedURLException, InterruptedException {
+		public void mobileSafariTest() throws InterruptedException, IOException {
 	        
-			DesiredCapabilities safari = IOSCapabilities.iphone("Safari");
-			
-			
-	        //DesiredCapabilities safari = new DesiredCapabilities();
-	        //safari.setCapability("simulator", true);
-	        //safari.setCapability("CFBundleName", "Safari");
-	        //safari.setCapability("locale", "en_GB");
-	        //safari.setCapability("device", "iphone");
-	        //safari.setCapability("language", "en");
-	        
-	        //System.out.println(safari.asMap());
-	        //DesiredCapabilities safari = IOSCapabilities.ipad("Safari");
-	        //RemoteWebDriver driver = new RemoteWebDriver(new URL("http://192.168.113.122:1111/wd/hub"), safari);
+		    IOSCapabilities safari = IOSCapabilities.iphone("Safari");
+		    safari.setCapability(IOSCapabilities.SIMULATOR, false);
+
 	        RemoteWebDriver driver = new RemoteWebDriver(new URL("http://" + OSXIP + ":4444/wd/hub"), safari);
 
-	        driver.get("http://www.bbv.ch");
-
-	        System.out.println(driver.getTitle());
+	        driver.get("http://www.maibornwolff.de");
+			WebElement link = driver.findElement(By.linkText("Was wir tun"));
+			link.click();
+	        
+	        Thread.sleep(2000);
+	        DoScreenshot.remoteWebDriverScreenshot(driver);
 	        
 	        
-	        Thread.sleep(3000);
+	        Thread.sleep(1000);
 	        driver.quit();
 		}
 		
@@ -99,13 +108,6 @@ public class IosTests {
 		    Assert.assertTrue(userBadge.getAttribute("name").contains("100%"));
 
 		    
-		    /*
-		    // take a screenshot using the normal selenium api.
-		    TakesScreenshot screen =(TakesScreenshot)new Augmenter().augment(driver);
-		    File ss = new File("screenshot.png");
-		    screen.getScreenshotAs(OutputType.FILE).renameTo(ss);
-		    System.out.println("screenshot taken :"+ss.getAbsolutePath());
-		    */
 		    
 		    Thread.sleep(5000);
 		    
@@ -113,18 +115,7 @@ public class IosTests {
 
 		}
 		
-		@Test
-		public void safariWebTest() throws MalformedURLException, InterruptedException {
-			DesiredCapabilities capability = new DesiredCapabilities();
-			capability.setBrowserName("safari");
-			RemoteWebDriver driver = new RemoteWebDriver(new URL("http://" + OSXIP + ":4444/wd/hub"), capability);
 
-	        driver.get("http://www.bbv.ch");
-
-	        System.out.println(driver.getTitle());
-	        Thread.sleep(5000);
-	        driver.quit();
-		}
 
 
 }

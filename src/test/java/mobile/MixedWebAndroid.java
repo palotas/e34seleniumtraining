@@ -8,6 +8,7 @@ import java.net.MalformedURLException;
 import java.net.URL;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.Platform;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.remote.DesiredCapabilities;
@@ -23,105 +24,84 @@ import util.UserData;
 
 public class MixedWebAndroid {
 	
-	public final String ANDROIDIP = "192.168.113.255";
+	public final String IP = "192.168.1.114";
 	
 	@Test(enabled=true)
-	public void FirefoxWebBbv() throws Exception {
+	public void firefoxWebMaibornWolff() throws Exception {
 
 		DesiredCapabilities capability = new DesiredCapabilities();
 		capability.setBrowserName("firefox");
+		capability.setPlatform(Platform.LINUX);
 
 		WebDriver driver = new RemoteWebDriver(new URL(
-				"http://"+ ANDROIDIP + ":4444/wd/hub"), capability);
+				"http://"+ IP + ":4444/wd/hub"), capability);
 
-		driver.get("http://www.bbv.ch");
-		DoScreenshot.remoteWebDriverScreenshot(driver);
 		
+		driver.get("http://www.maibornwolff.de");
+		WebElement link = driver.findElement(By.linkText("Was wir tun"));
+		link.click();
+		
+		
+		DoScreenshot.remoteWebDriverScreenshot(driver);
 		Thread.sleep(2000);
-
 		driver.quit();
 	}
 	
+
+	
 	
 	@Test(enabled=true)
-	public void ChromeWebBbv() throws IOException, InterruptedException {
+	public void chromeWebMaibornWolff() throws IOException, InterruptedException {
 
 		DesiredCapabilities capability = new DesiredCapabilities();
 		capability.setBrowserName("chrome");
+		capability.setPlatform(Platform.LINUX);
+
 
 		WebDriver driver = new RemoteWebDriver(new URL(
-				"http://"+ ANDROIDIP + ":4444/wd/hub"), capability);
+				"http://"+ IP + ":4444/wd/hub"), capability);
 
-		driver.get("http://www.bbv.ch");
-		Reporter.log("Page Title: " + driver.getTitle());
+		driver.get("http://www.maibornwolff.de");
+		WebElement link = driver.findElement(By.linkText("Was wir tun"));
+		link.click();
 		
 		DoScreenshot.remoteWebDriverScreenshot(driver);
-
+		Thread.sleep(2000);
 		driver.quit();
 	}
 	
-	@Test(enabled=true)
-	public void AndroidWebBbv() throws IOException, InterruptedException {
-		
-		
-		DesiredCapabilities capability = DesiredCapabilities.android();
-	    capability.setCapability(SelendroidCapabilities.EMULATOR,true);
-
-		WebDriver driver = new RemoteWebDriver(new URL(
-				"http://"+ ANDROIDIP + ":4444/wd/hub"), capability);
-		
-		try {
-			driver.get("http://www.bbv.ch");
-			Reporter.log("Page Title: " + driver.getTitle());
-			
-			WebElement link = driver.findElement(By.linkText("Industries"));
-			link.click();
-			Thread.sleep(2000);
-			Assert.assertEquals(driver.getTitle(), "bbv Software Services AG | Industries");
-			DoScreenshot.remoteWebDriverScreenshot(driver);
-			//Thread.sleep(5000);
-			
-		}
-		finally {
-			driver.quit();
-		}
-}
+	
+	
 	
 	@Test(enabled=true)
-	public void AndroidWebBbvDevice() throws IOException, InterruptedException {
-		
-		
+	public void androidWebMaibornWolff() throws Exception {
+
 		DesiredCapabilities capability = DesiredCapabilities.android();
 	    capability.setCapability(SelendroidCapabilities.EMULATOR,false);
 
 		WebDriver driver = new RemoteWebDriver(new URL(
-				"http://"+ ANDROIDIP + ":4444/wd/hub"), capability);
+				"http://"+ IP + ":4444/wd/hub"), capability);
+
 		
-		try {
-			driver.get("http://www.bbv.ch");
-			Reporter.log("Page Title: " + driver.getTitle());
-			
-			WebElement link = driver.findElement(By.linkText("Industries"));
-			link.click();
-			Thread.sleep(2000);
-			Assert.assertEquals(driver.getTitle(), "bbv Software Services AG | Industries");
-			DoScreenshot.remoteWebDriverScreenshot(driver);
-			Thread.sleep(5000);
-			
-		}
-		finally {
-			driver.quit();
-		}
-}
+		driver.get("http://www.maibornwolff.de");
+		WebElement link = driver.findElement(By.linkText("Was wir tun"));
+		link.click();
+		
+		
+		DoScreenshot.remoteWebDriverScreenshot(driver);
+		Thread.sleep(2000);
+		driver.quit();
+	}
 	
 	
-	
+
 	
 	@Test(enabled=true)
-	public void androidAppTest() throws Exception {
+	public void nativeAndroidAppTest() throws Exception {
 	  SelendroidCapabilities capa = new SelendroidCapabilities("io.selendroid.testapp:0.9.0");
 	  capa.setEmulator(false);
-	  WebDriver driver = new SelendroidDriver(new URL("http://"+ ANDROIDIP + ":4444/wd/hub"),capa);
+	  capa.setBrowserName("selendroid");
+	  WebDriver driver = new SelendroidDriver(new URL("http://"+ IP + ":4444/wd/hub"),capa);
 	  
 	  try {
 		  driver.findElement(By.id("startUserRegistration")).click();
@@ -129,15 +109,10 @@ public class MixedWebAndroid {
 		  // Enter user name
 		  WebElement username = driver.findElement(By.id("inputUsername"));
 		  username.sendKeys("johndoe");
-		  //DoScreenshot.remoteWebDriverScreenshot(driver);
-
-		  
 	  }
 	  finally {
 		  driver.quit();		  
 	  }
-
-
 	}
 	
 	

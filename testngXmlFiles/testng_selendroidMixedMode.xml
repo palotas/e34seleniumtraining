@@ -4,8 +4,8 @@
  
   <test name="Mixed Mode Suite" parallel="methods">
     <classes>
-      <class name="selendroid.MixedWebAndroid"/>
-      <class name="iosdriver.IosTests"/>
+      <class name="mobile.MixedWebAndroid"/>
+      <!--<class name="iosdriver.IosTests"/>-->
       </classes>
   </test>
 </suite>
