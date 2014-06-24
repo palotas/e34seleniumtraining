@@ -13,6 +13,7 @@ import org.openqa.selenium.remote.RemoteWebDriver;
 import org.testng.Assert;
 import org.testng.Reporter;
 import org.testng.annotations.Test;
+
 import static util.SetupDriver.*;
 
 public class RemoteWebdriverAbraxas {
@@ -32,6 +33,7 @@ public class RemoteWebdriverAbraxas {
 	@Test
 	public void simpleRemoteTest() throws MalformedURLException
 	{
+			
 		WebDriver driver;
 		DesiredCapabilities capabilities=new DesiredCapabilities();
 		

@@ -113,26 +113,6 @@ public class MixedWebAndroid {
 	  finally {
 		  driver.quit();		  
 	  }
-	}
-	
-	
-	
-	
-	
-	/*
-	@Test(enabled=false)
-	public void openEbayApp() throws Exception {
-	  SelendroidCapabilities capa =
-	      new SelendroidCapabilities(
-	          "com.ebay.mobile:2.4.0.15");
-	  capa.setEmulator(true);
-	  WebDriver driver = new SelendroidDriver(new URL("http://localhost:4444/wd/hub"), capa);
-	
-	  Thread.sleep(5000);
-	  driver.quit();
-	}
-	*/
-	
-	
+	}	
 	
 }

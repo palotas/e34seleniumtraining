@@ -30,15 +30,16 @@ public class AjaxSelectSample {
 		
 		first.sendKeys("michael");
 		last.sendKeys("palotas");
-		dropdown.selectByValue("430"); //value for "USA"
+		dropdown.selectByValue("480"); //value for "USA"
 		
 		//check if proper cities are are populated in the city field
 		//first set up the expected data
 		ArrayList<String>expectedCities=new ArrayList<String>();
+		expectedCities.add("Boston");
 		expectedCities.add("California");
 		expectedCities.add("Chicago");
 		expectedCities.add("Kansas");
-		expectedCities.add("montevideo");
+		expectedCities.add("New York");
 		expectedCities.add("New York");
 		expectedCities.add("Washington");
 		
