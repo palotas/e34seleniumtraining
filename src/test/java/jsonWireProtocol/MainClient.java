@@ -58,7 +58,7 @@ public class MainClient {
 	public void navigateToUrl() throws ClientProtocolException, IOException, JSONException {
 		
 		DefaultHttpClient httpclient = new DefaultHttpClient();
-		HttpPost httpPost = new HttpPost("http://localhost:4444/wd/hub/session/da7a9f63-525b-409f-b073-cd5a5176e14f/url");
+		HttpPost httpPost = new HttpPost("http://localhost:4444/wd/hub/session/d983075b-4e1b-4783-99f1-01b39db02d91/url");
 		httpPost.setHeader("Content-Type", "application/json");			
 		JSONObject json = new JSONObject();
 		json.put("url", "http://www.abraxas.ch");
@@ -76,7 +76,7 @@ public class MainClient {
 	@Test
 	public void getCurrentURL() throws ClientProtocolException, IOException {
 		DefaultHttpClient httpclient = new DefaultHttpClient();
-		HttpResponse response = httpclient.execute(new HttpGet("http://localhost:4444/wd/hub/session/ce929fb1-ab08-4063-b602-bdaf66ff1f78/url"));
+		HttpResponse response = httpclient.execute(new HttpGet("http://localhost:4444/wd/hub/session/d983075b-4e1b-4783-99f1-01b39db02d91/url"));
 
 		HttpEntity entity = response.getEntity();
 		String responseString = EntityUtils.toString(entity, "UTF-8");
@@ -96,7 +96,7 @@ public class MainClient {
 
 		DefaultHttpClient httpclient = new DefaultHttpClient();
 		
-		HttpPost httpPost = new HttpPost("http://localhost:4444/wd/hub/session/da7a9f63-525b-409f-b073-cd5a5176e14f/element");
+		HttpPost httpPost = new HttpPost("http://localhost:4444/wd/hub/session/d983075b-4e1b-4783-99f1-01b39db02d91/element");
 		httpPost.setHeader("Content-Type", "application/json");
 		JSONObject json = new JSONObject();
 		json.put("using", "id");
@@ -128,7 +128,7 @@ public class MainClient {
 	public void typeJava() throws ClientProtocolException, IOException, JSONException {
 		DefaultHttpClient httpclient = new DefaultHttpClient();
 		
-		HttpPost httpPost = new HttpPost("http://localhost:4444/wd/hub/session/da7a9f63-525b-409f-b073-cd5a5176e14f/element/0/value");
+		HttpPost httpPost = new HttpPost("http://localhost:4444/wd/hub/session/d983075b-4e1b-4783-99f1-01b39db02d91/element/0/value");
 		httpPost.setHeader("Content-Type", "application/json");
 
 		JSONArray array = new JSONArray();

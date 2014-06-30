@@ -3,8 +3,8 @@ package util;
 public class UserData {
 	
 	
-		private static String username = "tulipberlin";
-		private static String password = "Loripal$25";
+		private static String username = "";
+		private static String password = "";
 		
 		public static String getUsername() {
 			return username;

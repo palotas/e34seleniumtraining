@@ -10,6 +10,7 @@ import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.remote.Augmenter;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
@@ -18,16 +19,6 @@ import org.testng.annotations.Test;
 
 
 public class ReportingTest {
-
-	@Test
-	public void failingTest() {
-		
-		Reporter.log("adding screenshot");
-	    Reporter.log("<div class='screenshot'><a href='/home/gridfusion/SeleniumTraining/screenshots/screenshot.png'> <img src=/home/gridfusion/SeleniumTraining/screenshots/screenshot.png" + " " + "width=\"300\" height=\"240\" /></a></div></br>");
-		Reporter.log("adding another screenshot");
-	    Reporter.log("<div class='screenshot'><img src=/home/gridfusion/SeleniumTraining/screenshots/screenshot.png" + " " + "width=\"300\" height=\"240\" /></div>");
-		Assert.assertTrue(false);	
-	}
 
 	@Test
 	public void simpleReportingTest() {
@@ -57,7 +48,7 @@ public class ReportingTest {
 	 * take screenshot with augmented driver
 	 * insert screenshot into report
 	 */
-	@Test(enabled=false)
+	@Test(enabled=true)
 	public void fireFoxTestWithScreenshotReport() throws IOException {
 		DesiredCapabilities capability = DesiredCapabilities.firefox();
 		WebDriver driver = new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"), capability);
