@@ -29,7 +29,7 @@ public class Saucelabs {
 	@Test
 	public void mytest() {
 		
-		driver.get("http://www.abraxas.ch");
+		driver.get("http://www.imbus.de");
 		Assert.assertEquals("Home :: abraxas.ch", driver.getTitle());
 	}
 

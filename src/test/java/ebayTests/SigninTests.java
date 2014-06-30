@@ -74,7 +74,7 @@ public class SigninTests {
 		signinButton.click();
 		
 		//verify that page title is correct
-		Assert.assertEquals("Zusammenfassung", driver.getTitle());
+		Assert.assertEquals("Elektronik, Autos, Mode, Sammlerstücke, Gutscheine und mehr Online-Shopping | eBay", driver.getTitle());
 		
 		Thread.sleep(5000);
 		
