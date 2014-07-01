@@ -55,8 +55,6 @@ public class RemoteWebdriverTests {
 	
 	/*
 	 * example for a remote test with IE
-	 * if no Grid and IE is not installed (like in this case) --> test fails
-	 * if no grid is used then the "next best" match is picked i.e. Chrome
 	 */
 	@Test
 	public void remoteWebdriverInternetExplorerTest() throws MalformedURLException, InterruptedException {
