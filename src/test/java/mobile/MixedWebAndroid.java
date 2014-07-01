@@ -24,21 +24,21 @@ import util.UserData;
 
 public class MixedWebAndroid {
 	
-	public final String IP = "192.168.1.114";
+	public final String IP = "localhost";
 	
 	@Test(enabled=true)
-	public void firefoxWebMaibornWolff() throws Exception {
+	public void firefoxWebImbus() throws Exception {
 
 		DesiredCapabilities capability = new DesiredCapabilities();
 		capability.setBrowserName("firefox");
 		capability.setPlatform(Platform.LINUX);
 
 		WebDriver driver = new RemoteWebDriver(new URL(
-				"http://"+ IP + ":4444/wd/hub"), capability);
+				"http://"+ IP + ":6666/wd/hub"), capability);
 
 		
-		driver.get("http://www.maibornwolff.de");
-		WebElement link = driver.findElement(By.linkText("Was wir tun"));
+		driver.get("http://www.imbus.de");
+		WebElement link = driver.findElement(By.linkText("BERATUNG"));
 		link.click();
 		
 		
@@ -51,7 +51,7 @@ public class MixedWebAndroid {
 	
 	
 	@Test(enabled=true)
-	public void chromeWebMaibornWolff() throws IOException, InterruptedException {
+	public void chromeWebImbus() throws IOException, InterruptedException {
 
 		DesiredCapabilities capability = new DesiredCapabilities();
 		capability.setBrowserName("chrome");
@@ -59,10 +59,10 @@ public class MixedWebAndroid {
 
 
 		WebDriver driver = new RemoteWebDriver(new URL(
-				"http://"+ IP + ":4444/wd/hub"), capability);
+				"http://"+ IP + ":6666/wd/hub"), capability);
 
-		driver.get("http://www.maibornwolff.de");
-		WebElement link = driver.findElement(By.linkText("Was wir tun"));
+		driver.get("http://www.imbus.de");
+		WebElement link = driver.findElement(By.linkText("BERATUNG"));
 		link.click();
 		
 		DoScreenshot.remoteWebDriverScreenshot(driver);
@@ -74,17 +74,19 @@ public class MixedWebAndroid {
 	
 	
 	@Test(enabled=true)
-	public void androidWebMaibornWolff() throws Exception {
+	public void androidWebImbus() throws Exception {
 
 		DesiredCapabilities capability = DesiredCapabilities.android();
 	    capability.setCapability(SelendroidCapabilities.EMULATOR,false);
 
 		WebDriver driver = new RemoteWebDriver(new URL(
-				"http://"+ IP + ":4444/wd/hub"), capability);
+				"http://"+ IP + ":6666/wd/hub"), capability);
 
 		
-		driver.get("http://www.maibornwolff.de");
-		WebElement link = driver.findElement(By.linkText("Was wir tun"));
+		driver.get("http://www.imbus.de");
+		
+		Thread.sleep(5000);
+		WebElement link = driver.findElement(By.linkText("BERATUNG"));
 		link.click();
 		
 		
@@ -101,7 +103,7 @@ public class MixedWebAndroid {
 	  SelendroidCapabilities capa = new SelendroidCapabilities("io.selendroid.testapp:0.9.0");
 	  capa.setEmulator(false);
 	  capa.setBrowserName("selendroid");
-	  WebDriver driver = new SelendroidDriver(new URL("http://"+ IP + ":4444/wd/hub"),capa);
+	  WebDriver driver = new SelendroidDriver(new URL("http://"+ IP + ":6666/wd/hub"),capa);
 	  
 	  try {
 		  driver.findElement(By.id("startUserRegistration")).click();
