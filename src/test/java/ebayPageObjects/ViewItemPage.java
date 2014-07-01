@@ -9,7 +9,7 @@ import org.openqa.selenium.support.PageFactory;
 public class ViewItemPage {
 	
 	
-	@FindBy(id="atl_btn_lnk")
+	@FindBy(className="vi-atw-txt")
 	private WebElement addToWatchListButton;
 	
 	@FindBy(id="msgPanel")
