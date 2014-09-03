@@ -19,7 +19,10 @@ import util.UserData;
 
 public class IosTests {
 	
-	public final String OSXIP = "192.168.1.114";
+	
+	//Imbus training: start server with java -jar ios-server-standalone-0.6.6-SNAPSHOT.jar -port 4444 
+	
+	public final String OSXIP = "192.168.1.123";
 
 	
 	@Test
@@ -42,7 +45,7 @@ public class IosTests {
 		public void mobileSafariTest() throws InterruptedException, IOException {
 	        
 		    IOSCapabilities safari = IOSCapabilities.iphone("Safari");
-		    safari.setCapability(IOSCapabilities.SIMULATOR, false);
+		    safari.setCapability(IOSCapabilities.SIMULATOR, true);
 
 	        RemoteWebDriver driver = new RemoteWebDriver(new URL("http://" + OSXIP + ":4444/wd/hub"), safari);
 

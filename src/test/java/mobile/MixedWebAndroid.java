@@ -24,6 +24,8 @@ import util.UserData;
 
 public class MixedWebAndroid {
 	
+	//Imbus training: start server with java -jar selendroid-standalone-0.9.0-with-dependencies.jar -aut selendroid-test-app-0.9.0.apk
+	
 	public final String IP = "localhost";
 	
 	@Test(enabled=true)
@@ -34,7 +36,7 @@ public class MixedWebAndroid {
 		capability.setPlatform(Platform.LINUX);
 
 		WebDriver driver = new RemoteWebDriver(new URL(
-				"http://"+ IP + ":6666/wd/hub"), capability);
+				"http://"+ IP + ":4444/wd/hub"), capability);
 
 		
 		driver.get("http://www.imbus.de");
@@ -77,10 +79,10 @@ public class MixedWebAndroid {
 	public void androidWebImbus() throws Exception {
 
 		DesiredCapabilities capability = DesiredCapabilities.android();
-	    capability.setCapability(SelendroidCapabilities.EMULATOR,false);
+	    capability.setCapability(SelendroidCapabilities.EMULATOR,true);
 
 		WebDriver driver = new RemoteWebDriver(new URL(
-				"http://"+ IP + ":6666/wd/hub"), capability);
+				"http://"+ IP + ":5555/wd/hub"), capability);
 
 		
 		driver.get("http://www.imbus.de");
@@ -100,10 +102,10 @@ public class MixedWebAndroid {
 	
 	@Test(enabled=true)
 	public void nativeAndroidAppTest() throws Exception {
-	  SelendroidCapabilities capa = new SelendroidCapabilities("io.selendroid.testapp:0.9.0");
-	  capa.setEmulator(false);
+	  SelendroidCapabilities capa = new SelendroidCapabilities("io.selendroid.testapp:0.10.0");
+	  capa.setEmulator(true);
 	  capa.setBrowserName("selendroid");
-	  WebDriver driver = new SelendroidDriver(new URL("http://"+ IP + ":6666/wd/hub"),capa);
+	  WebDriver driver = new SelendroidDriver(new URL("http://"+ IP + ":5555/wd/hub"),capa);
 	  
 	  try {
 		  driver.findElement(By.id("startUserRegistration")).click();

@@ -19,7 +19,7 @@ public class AjaxGridfusionSample {
 	public void implicitWait() throws InterruptedException {
 		WebDriver driver=new FirefoxDriver();
 		//first try without implicit wait
-		//driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+		//driver.manage().timeouts().implicitlyWait(100, TimeUnit.MILLISECONDS);
 		driver.get("http://gridfusion.net/ajax.html");
 		
 		WebElement button = driver.findElement(By.tagName("button"));
@@ -37,7 +37,7 @@ public class AjaxGridfusionSample {
 	@Test
 	public void explicitWait() throws InterruptedException {
 		WebDriver driver=new FirefoxDriver();
-		WebDriverWait wait = new WebDriverWait(driver, 10);
+		WebDriverWait wait = new WebDriverWait(driver, 1);
 		
 		
 		driver.get("http://gridfusion.net/ajax.html");
@@ -45,7 +45,8 @@ public class AjaxGridfusionSample {
 		WebElement button = driver.findElement(By.tagName("button"));
 		button.click();
 		
-		//wait.until((ExpectedConditions.visibilityOfElementLocated(By.id("newdiv"))));
+		//first try without explicit wait
+		wait.until((ExpectedConditions.visibilityOfElementLocated(By.id("newdiv"))));
 		WebElement newDiv = driver.findElement(By.id("newdiv"));
 		System.out.println(newDiv.getText());
 		

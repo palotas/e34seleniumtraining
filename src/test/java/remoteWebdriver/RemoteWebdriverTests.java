@@ -21,7 +21,6 @@ public class RemoteWebdriverTests {
 		//create DesiredCapabilities object and set browser to Firefox
 		DesiredCapabilities capability = new DesiredCapabilities();
 		capability.setBrowserName("firefox");
-
 				 
 		/*
 		 * create new RemoteWebdriver using the capabilities defined above
