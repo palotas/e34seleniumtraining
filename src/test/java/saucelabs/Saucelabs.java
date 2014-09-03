@@ -19,7 +19,7 @@ public class Saucelabs {
 	@BeforeTest
 	public void setup() throws Exception {
 		DesiredCapabilities capabilities = DesiredCapabilities.firefox();
-        capabilities.setCapability("platform", Platform.MAC);
+        capabilities.setCapability("platform", Platform.LINUX);
         this.driver = new RemoteWebDriver(
 					  new URL("http://palotas:c69edf87-0701-41d3-8222-2268084734f1@ondemand.saucelabs.com:80/wd/hub"),
 					  capabilities);

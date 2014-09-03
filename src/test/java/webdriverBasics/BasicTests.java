@@ -62,5 +62,6 @@ public class BasicTests {
 		driver.get("http://gridfusion.net");
 		Assert.assertEquals(driver.getTitle(), "GRIDFUSION.net - Home");
 		driver.quit();
+		
 	}
 }
