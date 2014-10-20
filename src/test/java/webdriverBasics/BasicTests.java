@@ -59,9 +59,14 @@ public class BasicTests {
 	@Test
 	public void pageTitleTestWithAssert() {
 		WebDriver driver = new FirefoxDriver();
-		driver.get("http://gridfusion.net");
-		Assert.assertEquals(driver.getTitle(), "GRIDFUSION.net - Home");
-		driver.quit();
+		try {
+			driver.get("http://gridfusion.net");
+			Assert.assertEquals(driver.getTitle(), "GRIDFUSION.net - Home");			
+		}
+		finally {
+			driver.quit();			
+		}
+
 		
 	}
 }

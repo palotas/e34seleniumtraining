@@ -26,8 +26,6 @@ public class CreateProductPageObjectTest {
 		capability.setBrowserName("chrome");
 		
 		WebDriver driver = new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"), capability);
-		//WebDriver driver = new RemoteWebDriver(new URL("http://palotas:c69edf87-0701-41d3-8222-2268084734f1@ondemand.saucelabs.com:80/wd/hub"),capability);
-
 		
 		driver.get("http://cando:melius@postauto-test-web.cando-image.com/user");
 		
