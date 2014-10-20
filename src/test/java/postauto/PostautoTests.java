@@ -18,6 +18,36 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 
 public class PostautoTests {
+	
+	
+	@Test
+	public void findElementTest() throws InterruptedException {
+		
+		WebDriver driver=new FirefoxDriver();
+		
+		try{
+			driver.get("http://www.postauto.ch");
+			WebElement searchField=driver.findElement(By.id("query"));
+			searchField.sendKeys("Grindelwald");
+			
+			WebElement button=driver.findElement(By.className("submit"));
+			button.click();
+			
+			WebElement link=driver.findElement(By.linkText("Grosse Scheidegg Rundfahrt"));
+		}
+		finally{
+			Thread.sleep(5000);
+			driver.quit();
+		}
+		
+		
+	}
+	
+	
+	
+	
+	
+	
 
 	@Test
 	public void myFirstTest() throws InterruptedException, MalformedURLException {
@@ -25,8 +55,7 @@ public class PostautoTests {
 		DesiredCapabilities capability = new DesiredCapabilities();
 		capability.setBrowserName("chrome");
 		
-//		WebDriver driver = new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"), capability);
-		WebDriver driver = new RemoteWebDriver(new URL("http://palotas:c69edf87-0701-41d3-8222-2268084734f1@ondemand.saucelabs.com:80/wd/hub"),capability);
+		WebDriver driver = new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"), capability);
 
 		driver.get("http://cando:melius@postauto-test-web.cando-image.com/user");
 		
@@ -57,6 +86,9 @@ public class PostautoTests {
 		
 		WebElement editor = driver.findElement(By.xpath("//*[@id='cke_contents_edit-body-und-0-value']/iframe"));
 		editor.sendKeys("my edited text");
+		
+		WebElement button=driver.findElement(By.id("edit-field-product-und-actions-ief-add"));
+		button.click();
 		
 		
 		// close the Browser

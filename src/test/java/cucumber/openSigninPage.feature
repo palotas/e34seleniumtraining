@@ -5,4 +5,4 @@ Given I open a firefox browser
 When I type http://www.ebay.com in the browser
 When I type ipad in the search
 When I hit search
-Then the URL should be http://www.ebay.de
+Then the URL should be http://www.ebay.com

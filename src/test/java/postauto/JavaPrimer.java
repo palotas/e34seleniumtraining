@@ -5,9 +5,10 @@ public class JavaPrimer {
 	public static void main(String[] args) {
 		
 		System.out.println("Hello World");
-		
+				
 		Utils myUtil=new Utils();
 		myUtil.superComplexCalculations(1, 2, 3);
+		myUtil.printMyVariables();
 
 	}
 	

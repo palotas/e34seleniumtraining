@@ -19,7 +19,6 @@ public class SigninPage {
 	
 	
 	public SigninPage(WebDriver driver) {
-		//driver.get("https://signin.ebay.de/ws/eBayISAPI.dll?SignIn");
 	    PageFactory.initElements(driver, this);
 	}
 	
@@ -34,8 +33,5 @@ public class SigninPage {
 	public void clickLoginButton() {
 		loginButton.click();
 	}
-	
-	
-	
 }
 
