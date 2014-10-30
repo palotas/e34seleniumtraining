@@ -14,14 +14,14 @@ public class DataProviderTest {
 	@DataProvider(name = "nameprovider")
 	public Object[][] createData2() {
 	 return new Object[][] {
-	   {"Michael", "Palotas", "13"},
-	   {"Lori", "Palotas", "11"},
-	   {"Alex", "Palotas", "11"}
+	   {"1", "Michael", "Palotas", "13"},
+	   {"2", "Lori", "Palotas", "11"},
+	   {"3", "Alex", "Palotas", "11"}
 	 };
 	}
 
 	@Test(dataProvider="nameprovider")
-	public void dataproviderTest(String first, String last, CharSequence length) throws InterruptedException {
+	public void dataproviderTest(String testcaseId, String first, String last, CharSequence length) throws InterruptedException {
 
 		WebDriver driver = new FirefoxDriver();
 		try{
