@@ -40,12 +40,14 @@ public class BasicTests {
 	 * are done
 	 */
 	@Test
-	public void pageTitleTest() {
+	public void pageTitleTest() throws InterruptedException {
 
 		WebDriver driver = new FirefoxDriver();
 		driver.get("http://gridfusion.net");
 		String pageTitle = driver.getTitle();
 		System.out.println("Page Title: " + pageTitle);
+		
+		Thread.sleep(2000);
 		driver.quit();
 	}
 
@@ -57,8 +59,14 @@ public class BasicTests {
 	@Test
 	public void pageTitleTestWithAssert() {
 		WebDriver driver = new FirefoxDriver();
-		driver.get("http://gridfusion.net");
-		Assert.assertEquals(driver.getTitle(), "GRIDFUSION.net - Hom");
-		driver.quit();
+		try {
+			driver.get("http://gridfusion.net");
+			Assert.assertEquals(driver.getTitle(), "GRIDFUSION.net - Home");			
+		}
+		finally {
+			driver.quit();			
+		}
+
+		
 	}
 }

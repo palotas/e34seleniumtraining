@@ -1,0 +1,16 @@
+{
+  "capabilities": [{
+      "browserName": "selendroid",
+      "maxInstances": 1,
+      "locale": "en_GB",
+      "aut": "io.selendroid.testapp:0.9.0"
+  }],
+  "configuration": {
+      "maxSession": 1,
+      "register": true,
+      "hubHost": "localhost",
+      "hubPort": 4444,
+      "remoteHost": "http://localhost:5555",
+      "proxy": "io.selendroid.grid.SelendroidSessionProxy"
+  }
+}

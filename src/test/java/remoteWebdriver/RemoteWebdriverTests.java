@@ -21,7 +21,6 @@ public class RemoteWebdriverTests {
 		//create DesiredCapabilities object and set browser to Firefox
 		DesiredCapabilities capability = new DesiredCapabilities();
 		capability.setBrowserName("firefox");
-
 				 
 		/*
 		 * create new RemoteWebdriver using the capabilities defined above
@@ -55,8 +54,6 @@ public class RemoteWebdriverTests {
 	
 	/*
 	 * example for a remote test with IE
-	 * if no Grid and IE is not installed (like in this case) --> test fails
-	 * if no grid is used then the "next best" match is picked i.e. Chrome
 	 */
 	@Test
 	public void remoteWebdriverInternetExplorerTest() throws MalformedURLException, InterruptedException {

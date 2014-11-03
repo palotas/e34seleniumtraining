@@ -22,6 +22,7 @@ public class SigninPage {
 	}
 		
 	public void enterUsername() {
+		userid.clear();
 		userid.sendKeys(EbayUtils.getUsername());
 	}
 	

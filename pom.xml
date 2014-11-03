@@ -10,7 +10,28 @@
 	<dependency>
 	  <groupId>org.testng</groupId>
 	  <artifactId>testng</artifactId>
-	  <version>6.8</version>	  
+	  <version>6.8</version>	
+	  <scope>test</scope>  
+	</dependency>
+	
+	<dependency>
+    	<groupId>io.selendroid</groupId>
+    	<version>0.9.0</version>
+    	<artifactId>selendroid-standalone</artifactId>
+	</dependency>
+
+	<!-- 
+	<dependency>
+    	<groupId>org.uiautomation.iosdriver</groupId>
+    	<version>0.0</version>
+    	<artifactId>iosdrivercustom</artifactId>
+	</dependency>	
+	 -->
+	 
+	<dependency>
+    	<groupId>io.selendroid</groupId>
+    	<version>0.9.0</version>
+    	<artifactId>selendroid-client</artifactId>
 	</dependency>
 
 	<dependency>
@@ -66,13 +87,13 @@
         <artifactId>maven-surefire-plugin</artifactId>
         <version>2.15</version>
  
-<!-- 
+ 
         <configuration>
           <suiteXmlFiles>
-            <suiteXmlFile>testngXmlFiles/testng_abraxas.xml</suiteXmlFile>
+            <suiteXmlFile>testngXmlFiles/testng_verbose.xml</suiteXmlFile>
           </suiteXmlFiles>
         </configuration>
--->
+
       </plugin>
 
     </plugins>   
