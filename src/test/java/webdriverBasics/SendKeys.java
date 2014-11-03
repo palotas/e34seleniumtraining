@@ -25,7 +25,7 @@ public class SendKeys {
 		searchBox.sendKeys("Java");
 
 		WebElement button = driver.findElement(By.className("searchButton"));
-		button.sendKeys("test");
+		button.click();
 		
 		Thread.sleep(5000);
 

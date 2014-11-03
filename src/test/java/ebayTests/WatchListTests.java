@@ -32,7 +32,7 @@ public class WatchListTests {
 		signinButton.click();
 		
 		//verify that page title is correct
-		Assert.assertEquals(driver.getTitle(), "Zusammenfassung");
+		Assert.assertEquals(driver.getTitle(), "Elektronik, Autos, Mode, Sammlerstücke, Gutscheine und mehr Online-Shopping | eBay");
 		
 		//search for an item
 		//now without defining the WebElement first
@@ -41,7 +41,7 @@ public class WatchListTests {
 
 		
 		//add item to watchlist
-		driver.findElement(By.id("atl_btn_lnk")).click();
+		driver.findElement(By.className("vi-atw-txt")).click();
 		WebElement msgPad = driver.findElement(By.className("msgPad"));
 		Assert.assertTrue(msgPad.getText().contains("Hinzugefügt zu Ihrer Beobachtungsliste"));
 		

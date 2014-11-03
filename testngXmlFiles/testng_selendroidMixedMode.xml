@@ -1,0 +1,11 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+  
+<suite name="Web Android IOS Tests" verbose="1" >
+ 
+  <test name="Mixed Mode Suite" parallel="methods">
+    <classes>
+      <class name="mobile.MixedWebAndroid"/>
+      <!--<class name="iosdriver.IosTests"/>-->
+      </classes>
+  </test>
+</suite>

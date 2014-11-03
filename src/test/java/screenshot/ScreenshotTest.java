@@ -11,7 +11,7 @@ public class ScreenshotTest {
 		
 		WebDriver driver = new FirefoxDriver();
 		driver.get("http://gridfusion.net");
-		Screenshot.takeScreenshotNoReport(driver);
+		DoScreenshot.takeScreenshotNoReport(driver);
 		driver.quit();
 	}
 	
@@ -21,7 +21,7 @@ public class ScreenshotTest {
 		
 		WebDriver driver = new FirefoxDriver();
 		driver.get("http://gridfusion.net");
-		Screenshot.takeScreenshotWithReport(driver);
+		DoScreenshot.takeScreenshotWithReport(driver);
 		driver.quit();
 	}
 	

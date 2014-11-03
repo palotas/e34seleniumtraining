@@ -1,0 +1,10 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+  
+<suite name="TestNG Basic Tests" verbose="2" >
+ 
+  <test name="Basic Test Suite">
+	<classes>
+	      <class name="testng.TestngVerboseReporting"/>
+	</classes>
+  </test>
+</suite>
