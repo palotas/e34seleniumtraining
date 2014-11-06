@@ -17,6 +17,8 @@ import org.openqa.selenium.remote.RemoteWebDriver;
 import org.testng.Reporter;
 import org.testng.annotations.Test;
 
+import screenshot.DoScreenshot;
+
 
 public class ReportingTest {
 
@@ -43,11 +45,34 @@ public class ReportingTest {
 		Reporter.log("ending the test");
 	}
 	
+	
+	@Test(enabled=true)
+	public void fireFoxTestWithScreenshotReport() throws Exception {
 		
+		Reporter.log("<h1>Creating driver</h1>");
+		WebDriver driver = new FirefoxDriver();
+		
+		driver.get("http://gridfusion.net");
+
+		  try {
+		       DoScreenshot.takeScreenshotWithReport(driver);
+
+		  	}
+		    catch(IOException e) {
+		    	System.out.println(e.getMessage());
+		    }
+		  
+		  finally {
+				driver.quit();			  
+		  }
+	}
+	
+	
 	/*
 	 * take screenshot with augmented driver
 	 * insert screenshot into report
 	 */
+	/*
 	@Test(enabled=true)
 	public void fireFoxTestWithScreenshotReport() throws IOException {
 		DesiredCapabilities capability = DesiredCapabilities.firefox();
@@ -75,8 +100,8 @@ public class ReportingTest {
 		  finally {
 				driver.quit();			  
 		  }
-
-		
 	}
+	*/
+	
 
 }
