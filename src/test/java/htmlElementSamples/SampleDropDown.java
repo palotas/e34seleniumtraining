@@ -43,15 +43,13 @@ public class SampleDropDown {
 			for (WebElement option : options) {
 				Assert.assertEquals(expectedEntries.get(x), option.getText());
 				x++;
-			}
-			
+			}	
 			Thread.sleep(2000);
 		}
 		finally {
 			
 			driver.quit();
 		}
-				
 	}
-	
 }
+
