@@ -1,4 +1,4 @@
-package HtmlElementSamples;
+package htmlElementSamples;
 
 import java.util.List;
 
