@@ -84,7 +84,7 @@ public class FindElement {
 
 		// navigate to the URL 
 		driver.get("http://www.20min.ch/");
-		WebElement link=driver.findElement(By.linkText("Tarife & Mediadaten"));
+		WebElement link=driver.findElement(By.linkText("Sport"));
 				
 		link.click();
 		
@@ -92,9 +92,6 @@ public class FindElement {
 		// close the Browser
 		driver.quit();
 	}
-	
-	
-
 	
 	
 	@Test
@@ -112,8 +109,4 @@ public class FindElement {
 		// close the Browser
 		driver.quit();
 	}
-	
-
-	
-	
 }

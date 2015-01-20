@@ -26,34 +26,43 @@ import com.google.common.base.Function;
 
 public class CustomWait {
 	
+	
 	@Test
-	public void explicitWaitTest() throws InterruptedException {
-		
+	public void implicitWait() throws InterruptedException {
 		WebDriver driver=new FirefoxDriver();
-		driver.get("http://www.google.com");
-		WebDriverWait wait = new WebDriverWait(driver,10); 
-		 
-		wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("gbqfq")));	
-		WebElement searchfield=driver.findElement(By.id("gbqfq"));
-		searchfield.sendKeys("michael palotas");
+		//first try without implicit wait
+		//driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+		driver.get("http://gridfusion.net/ajax.html");
 		
-		Thread.sleep(5000);
+		WebElement button = driver.findElement(By.tagName("button"));
+		button.click();
+		
+		WebElement newDiv = driver.findElement(By.id("newdiv"));
+		System.out.println(newDiv.getText());
+		
 		driver.quit();
+
 	}
 	
 	
 	
 	@Test
-	public void implicitWaitTest() throws InterruptedException {
-		
+	public void explicitWait() throws InterruptedException {
 		WebDriver driver=new FirefoxDriver();
-		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-
-		driver.get("http://www.google.com");
-		WebElement searchfield=driver.findElement(By.id("gbqfq"));
-		searchfield.sendKeys("michael palotas");
+		WebDriverWait wait = new WebDriverWait(driver, 1);
 		
-		Thread.sleep(5000);
+		
+		driver.get("http://gridfusion.net/ajax.html");
+		
+		WebElement button = driver.findElement(By.tagName("button"));
+		button.click();
+		
+		//first try without explicit wait
+		wait.until((ExpectedConditions.visibilityOfElementLocated(By.id("newdiv"))));
+		WebElement newDiv = driver.findElement(By.id("newdiv"));
+		System.out.println(newDiv.getText());
+		
 		driver.quit();
+
 	}
 }

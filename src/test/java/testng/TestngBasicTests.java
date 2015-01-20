@@ -13,7 +13,7 @@ public class TestngBasicTests {
 		int b = 2;
 		int c;
 		c = a + b;
-		Assert.assertTrue(c==4);
+		Assert.assertTrue(c==3);
 		System.out.println("myFirstTestngTest...");	
 	}
 
