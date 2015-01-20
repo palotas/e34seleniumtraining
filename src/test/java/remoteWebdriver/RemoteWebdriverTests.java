@@ -27,9 +27,9 @@ public class RemoteWebdriverTests {
 		 * navigate to URL http://gridfusion.net
 		 * close browser
 		 */
-		WebDriver driver = new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"), capability);
+		WebDriver driver = new RemoteWebDriver(new URL("http://ec2-54-149-90-159.us-west-2.compute.amazonaws.com:4444/wd/hub"), capability);
 		driver.get("http://gridfusion.net");
-		Thread.sleep(5000);
+		Thread.sleep(1000);
 		driver.quit();
 		
 	}
