@@ -1,4 +1,4 @@
-package HtmlElementSamples;
+package htmlElementSamples;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -37,7 +37,7 @@ public class SampleRadioButton {
 			
 			for (WebElement radioButton : radioButtons) {
 				Assert.assertEquals(expectedEntries.get(x), radioButton.getAttribute("value"));
-				System.out.println("Button text: " + radioButton.getText());
+				System.out.println("Button text: " + radioButton.getAttribute("value"));
 				x++;
 			}
 			

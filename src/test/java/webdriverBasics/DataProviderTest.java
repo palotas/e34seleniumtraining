@@ -25,7 +25,7 @@ public class DataProviderTest {
 
 		WebDriver driver = new FirefoxDriver();
 		try{
-			driver.get("http://192.168.1.6:8080/tmf2/");
+			driver.get("http://localhost:8080/tmf2/");
 			WebElement firstName=driver.findElement(By.id("firstname"));
 			WebElement lastName=driver.findElement(By.id("lastname"));
 			WebElement submitButton=driver.findElement(By.id("submitbutton"));

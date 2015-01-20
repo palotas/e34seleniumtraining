@@ -50,23 +50,28 @@ public class BasicTests {
 		Thread.sleep(2000);
 		driver.quit();
 	}
+	
+	
+	
+	@Test
+	public void pageTitleTestWithAssertNoTryCatch() {
+		WebDriver driver = new FirefoxDriver();
+		driver.get("http://gridfusion.net");
+		Assert.assertEquals(driver.getTitle(), "Gridfusion-Technology & Management Consulting");
+		driver.quit();
+	}
+	
 
-	/*
-	 * This test: - creates Firefox Driver / opens a Firefox browser - navigates
-	 * to http://gridfusion.net - assert that page title is
-	 * "GRIDFUSION.net - Home" - closes the browser
-	 */
 	@Test
 	public void pageTitleTestWithAssert() {
 		WebDriver driver = new FirefoxDriver();
 		try {
 			driver.get("http://gridfusion.net");
-			Assert.assertEquals(driver.getTitle(), "GRIDFUSION.net - Home");			
+			Assert.assertEquals(driver.getTitle(), "ridfusion-Technology & Management Consulting");			
 		}
 		finally {
 			driver.quit();			
 		}
-
-		
 	}
 }
+

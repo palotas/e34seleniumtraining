@@ -3,7 +3,7 @@ package ebayPageObjects;
 public class  EbayUtils {
 	private static String username="gridfusion";
 	private static String password="SeleniumRocks$1";
-	private static String itemid="181449098495";
+	private static String itemid="281506700567";
 	
 	
 	public static String getUsername() {

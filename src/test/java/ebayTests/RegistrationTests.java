@@ -27,6 +27,7 @@ public class RegistrationTests {
 		RegistrationFlow regFlow=new RegistrationFlow(driver);
 		regFlow.fillInUserInformation(user, driver);
 		
+		
 	}
 	
 	

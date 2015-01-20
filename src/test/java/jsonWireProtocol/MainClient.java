@@ -58,7 +58,7 @@ public class MainClient {
 	public void navigateToUrl() throws ClientProtocolException, IOException, JSONException {
 		
 		DefaultHttpClient httpclient = new DefaultHttpClient();
-		HttpPost httpPost = new HttpPost("http://localhost:4444/wd/hub/session/b9af034c-91d7-4131-b497-f9c788fdef2a/url");
+		HttpPost httpPost = new HttpPost("http://localhost:4444/wd/hub/session/b0db29de-fd9a-491a-b060-ad1fc724875a/url");
 		httpPost.setHeader("Content-Type", "application/json");			
 		JSONObject json = new JSONObject();
 		json.put("url", "http://www.abraxas.ch");
@@ -76,7 +76,7 @@ public class MainClient {
 	@Test
 	public void getCurrentURL() throws ClientProtocolException, IOException {
 		DefaultHttpClient httpclient = new DefaultHttpClient();
-		HttpResponse response = httpclient.execute(new HttpGet("http://localhost:4444/wd/hub/session/f3dbdab5-e945-4283-9241-8836316cb7e9/url"));
+		HttpResponse response = httpclient.execute(new HttpGet("http://localhost:4444/wd/hub/session/d983075b-4e1b-4783-99f1-01b39db02d91/url"));
 
 		HttpEntity entity = response.getEntity();
 		String responseString = EntityUtils.toString(entity, "UTF-8");

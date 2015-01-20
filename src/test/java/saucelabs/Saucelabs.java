@@ -1,11 +1,14 @@
 package saucelabs;
 
 import java.net.URL;
+import java.util.List;
 
 import junit.framework.Assert;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.Platform;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.testng.annotations.AfterTest;
@@ -26,11 +29,34 @@ public class Saucelabs {
 	}
 	
 	
-	@Test
-	public void mytest() {
+
+	
+	@Test 
+	public void checkboxTest() throws InterruptedException {
 		
-		driver.get("http://www.imbus.de");
-		Assert.assertEquals("Home :: abraxas.ch", driver.getTitle());
+		try {
+			driver.get("http://gridfusion.net/testpage.html");
+			
+			WebElement checkBoxForm = driver.findElement(By.id("checkboxform"));
+			
+			//check how many checkboxes there are
+			List<WebElement> checkBoxes = checkBoxForm.findElements(By.tagName("input"));
+			Assert.assertEquals(3, checkBoxes.size());
+			
+			//Check if Salami (checkbox 1) is checked. If yes uncheck it
+			Thread.sleep(2000);
+			WebElement checkBox = checkBoxes.get(0);
+			
+			if(checkBox.isSelected()) {
+				checkBox.click();				
+			}
+		
+			Thread.sleep(2000);
+		}
+		finally {
+			
+			driver.quit();
+		}
 	}
 
 	

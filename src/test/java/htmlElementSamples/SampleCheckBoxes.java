@@ -1,4 +1,4 @@
-package HtmlElementSamples;
+package htmlElementSamples;
 
 import java.util.List;
 
@@ -29,7 +29,8 @@ public class SampleCheckBoxes {
 			//Check if Salami (checkbox 1) is checked. If yes uncheck it
 			Thread.sleep(2000);
 			WebElement checkBox = checkBoxes.get(0);
-			if(checkBox.getAttribute("checked").contentEquals("true")) {
+			
+			if(checkBox.isSelected()) {
 				checkBox.click();				
 			}
 		

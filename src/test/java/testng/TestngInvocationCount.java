@@ -15,8 +15,5 @@ public class TestngInvocationCount {
 		c = a + b;
 		Assert.assertTrue(c==3);
 		System.out.println("invocationCountTest...");	
-	}
-
-
-	
+	}	
 }

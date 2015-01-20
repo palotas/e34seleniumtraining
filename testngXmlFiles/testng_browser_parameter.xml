@@ -4,7 +4,7 @@
  
   <test name="Browser Parameters Tests ">
     <classes>
-      <class name="seleniumTests.TestNGBrowserParameter"/>
+      <class name="webdriverBasics.TestNGBrowserParameter"/>
     </classes>
     <parameter name="browser" value="CHROME"></parameter>
   </test>
