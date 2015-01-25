@@ -9,11 +9,13 @@ import junit.framework.Assert;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
@@ -37,7 +39,7 @@ public class SwiTests {
 		WebElement searchField = driver.findElement(By.name("query"));
 		searchField.sendKeys("Davos");
 		searchField.sendKeys(Keys.ENTER);
-		Thread.sleep(5000);
+		Thread.sleep(3000);
 		driver.quit();
 		
 	}
@@ -78,8 +80,33 @@ public class SwiTests {
 			}			
 		}
 		finally {
-			Thread.sleep(5000);
+			Thread.sleep(3000);
 			driver.quit();
 		}
 	}
+	
+	@Test (dataProvider = "environments", expectedExceptions=NoSuchElementException.class)
+	public void hideMenu(DesiredCapabilities caps) throws InterruptedException, MalformedURLException {
+		
+
+		WebDriver driver = new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"), caps);
+		WebDriverWait wait = new WebDriverWait(driver, 10);
+
+		
+		try {
+			driver.get("http://www.swissinfo.ch");
+			//hide menu
+			wait.until((ExpectedConditions.visibilityOfElementLocated(By.cssSelector("div.menu-wrapper.row > span.box-shadow-menu"))));
+		    driver.findElement(By.cssSelector("div.menu-wrapper.row > span.box-shadow-menu")).click();
+				
+		    //verify that main menu bar is NOT displayed -- exception should be thrown
+		    driver.findElement(By.className("topicsLists"));
+		}
+		finally {
+			Thread.sleep(3000);
+			driver.quit();
+		}
+	}
+	
+	
 }
