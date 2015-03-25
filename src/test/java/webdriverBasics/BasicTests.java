@@ -25,7 +25,7 @@ public class BasicTests {
 
 		// create the driver and open Firefox
 		WebDriver driver = new FirefoxDriver();
-
+		
 		// navigate to the URL 
 		driver.get("http://gridfusion.net");
 
