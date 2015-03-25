@@ -1,6 +1,5 @@
 package screenshot;
 
-import io.selendroid.SelendroidDriver;
 
 import java.io.File;
 import java.io.IOException;
