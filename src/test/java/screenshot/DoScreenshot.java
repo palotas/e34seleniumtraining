@@ -23,24 +23,14 @@ public class DoScreenshot {
 	  	FileUtils.copyFile(source, new File("/home/gridfusion/SeleniumTraining/screenshots/" + source.getName())); 
 	}
 
-	public static void takeScreenshotWithReport(WebDriver driver) throws Exception {
-		
-	  	RemoteWebDriver newDriver = (RemoteWebDriver)driver;
-	    //take screenshot
-	  	File source = ((TakesScreenshot)newDriver).getScreenshotAs(OutputType.FILE);
-	    //copy file to final destination
-	  	FileUtils.copyFile(source, new File("/home/gridfusion/SeleniumTraining/screenshots/" + source.getName())); 
-
-	    Reporter.log("Screenshot of page: " + "<b>" + driver.getTitle() + "</b>" + " at " + driver.getCurrentUrl());
-	    Reporter.log("<br> <img src=/home/gridfusion/SeleniumTraining/screenshots/"+ source.getName() + " " + "width=\"320\" height=\"240\" /> <br>");
-
-	}
 	
 	public static void remoteWebDriverScreenshot(WebDriver driver) throws IOException {
 		
 		 WebDriver augmentedDriver = new Augmenter().augment(driver);
 		 File screenshot = ((TakesScreenshot)augmentedDriver).
 		 getScreenshotAs(OutputType.FILE);
+	     Reporter.setEscapeHtml(false);
+
 		 FileUtils.copyFile(screenshot, new File("/home/gridfusion/SeleniumTraining/screenshots/" + screenshot.getName()));
 		    Reporter.log("Screenshot of page: " + "<b>" + driver.getTitle() + "</b>" + " at " + driver.getCurrentUrl());
 		    Reporter.log("<br> <img src=/home/gridfusion/SeleniumTraining/screenshots/"+ screenshot.getName() + " " + "width=\"320\" height=\"240\" /> <br>");
