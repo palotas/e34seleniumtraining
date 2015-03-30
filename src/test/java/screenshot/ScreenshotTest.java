@@ -1,7 +1,12 @@
 package screenshot;
 
+import java.net.URL;
+
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.remote.RemoteWebDriver;
+import org.testng.Reporter;
 import org.testng.annotations.Test;
 
 public class ScreenshotTest {
@@ -14,15 +19,18 @@ public class ScreenshotTest {
 		DoScreenshot.takeScreenshotNoReport(driver);
 		driver.quit();
 	}
-	
-	
+
+
 	@Test
-	public void testWithScreenshotAndReport() throws Exception {
+	public void testWithScreenshotAndReportRemote() throws Exception {
 		
-		WebDriver driver = new FirefoxDriver();
+		DesiredCapabilities capability = new DesiredCapabilities();
+		capability.setBrowserName("firefox");
+		WebDriver driver = new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"), capability);
+
+		
 		driver.get("http://gridfusion.net");
-		DoScreenshot.takeScreenshotWithReport(driver);
+		DoScreenshot.remoteWebDriverScreenshot(driver);
 		driver.quit();
 	}
-	
 }
