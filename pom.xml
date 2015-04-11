@@ -14,18 +14,6 @@
 	  <scope>test</scope>  
 	</dependency>
 	
-	<dependency>
-    	<groupId>io.selendroid</groupId>
-    	<version>0.9.0</version>
-    	<artifactId>selendroid-standalone</artifactId>
-	</dependency>
-
-	 
-	<dependency>
-    	<groupId>io.selendroid</groupId>
-    	<version>0.9.0</version>
-    	<artifactId>selendroid-client</artifactId>
-	</dependency>
 
 	<dependency>
 	  <groupId>junit</groupId>
@@ -33,10 +21,6 @@
 	  <version>4.10</version>
 	  <scope>test</scope>	  
 	</dependency>
-
-
-    
-    
     
         <dependency>
             <groupId>info.cukes</groupId>
