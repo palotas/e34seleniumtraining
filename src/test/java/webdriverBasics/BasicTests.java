@@ -2,6 +2,8 @@ package webdriverBasics;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.firefox.FirefoxProfile;
+import org.openqa.selenium.firefox.internal.ProfilesIni;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -20,8 +22,18 @@ public class BasicTests {
 	@Test
 	public void myFirstTest() {
 
+	    ProfilesIni profile = new ProfilesIni();
+        FirefoxProfile ffprofile = profile.getProfile("proxyauth");
+
+        //ffprofile.setPreference("network.proxy.type", 1); //1=manual config, 2=pac file
+        //ffprofile.setPreference("network.proxy.http", "localhost"); //2 for pac file
+        //ffprofile.setPreference("network.proxy.http_port", 3128); 
+        //ffprofile.setPreference("signon.autologin.proxy", true); 
+                
+        WebDriver driver = new FirefoxDriver(ffprofile);
+        
 		// create the driver and open Firefox
-		WebDriver driver = new FirefoxDriver();
+		//WebDriver driver = new FirefoxDriver();
 		
 		// navigate to the URL 
 		driver.get("http://gridfusion.net");
