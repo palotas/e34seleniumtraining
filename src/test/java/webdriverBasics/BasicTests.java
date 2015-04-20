@@ -25,10 +25,10 @@ public class BasicTests {
 	    ProfilesIni profile = new ProfilesIni();
         FirefoxProfile ffprofile = profile.getProfile("proxyauth");
 
-        //ffprofile.setPreference("network.proxy.type", 1); //1=manual config, 2=pac file
-        //ffprofile.setPreference("network.proxy.http", "localhost"); //2 for pac file
+        ffprofile.setPreference("signon.autologin.proxy", true); 
+        ffprofile.setPreference("network.proxy.type", 1); //1=manual config, 2=pac file
+        //ffprofile.setPreference("network.proxy.http", "localhost");
         //ffprofile.setPreference("network.proxy.http_port", 3128); 
-        //ffprofile.setPreference("signon.autologin.proxy", true); 
                 
         WebDriver driver = new FirefoxDriver(ffprofile);
         
