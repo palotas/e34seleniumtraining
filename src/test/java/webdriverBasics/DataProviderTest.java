@@ -1,9 +1,11 @@
 package webdriverBasics;
 
+import java.io.FileNotFoundException;
+import java.io.IOException;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
@@ -20,9 +22,9 @@ public class DataProviderTest {
 	}
 
 	@Test(dataProvider="nameprovider")
-	public void dataproviderTest(String testcaseId, String first, String last, CharSequence length) throws InterruptedException {
+	public void dataproviderTest(String testcaseId, String first, String last, CharSequence length) throws InterruptedException, FileNotFoundException, IOException {
 
-		WebDriver driver = new FirefoxDriver();
+		WebDriver driver = util.AxaDriverFactory.createAxaFirefoxDriver();
 		try{
 			driver.get("http://localhost:8080/tmf2/");
 			WebElement firstName=driver.findElement(By.id("firstname"));

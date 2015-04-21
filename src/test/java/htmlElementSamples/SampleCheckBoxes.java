@@ -1,5 +1,7 @@
 package htmlElementSamples;
 
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.List;
 
 import junit.framework.Assert;
@@ -8,14 +10,13 @@ import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.firefox.FirefoxDriver;
 
 public class SampleCheckBoxes {
 
 		
 	@Test
-	public void checkboxTest() throws InterruptedException {
-		WebDriver driver = new FirefoxDriver();
+	public void checkboxTest() throws InterruptedException, FileNotFoundException, IOException {
+		WebDriver driver = util.AxaDriverFactory.createAxaFirefoxDriver();
 		
 		try {
 			driver.get("http://gridfusion.net/testpage.html");

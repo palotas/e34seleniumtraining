@@ -27,7 +27,7 @@ public class RemoteWebdriverTests {
 		 * navigate to URL http://gridfusion.net
 		 * close browser
 		 */
-		WebDriver driver = new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"), capability);
+		WebDriver driver = util.AxaDriverFactory.createAxaRemoteFirefoxDriver();
 		driver.get("http://gridfusion.net");
 		Thread.sleep(1000);
 		driver.quit();
