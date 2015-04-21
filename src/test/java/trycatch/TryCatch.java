@@ -1,7 +1,9 @@
 package trycatch;
 
+import java.io.FileNotFoundException;
+import java.io.IOException;
+
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -9,8 +11,8 @@ public class TryCatch {
 	
 	
 	@Test
-	public void pageTitleTestFailNoTryCatch() {
-		WebDriver driver = new FirefoxDriver();
+	public void pageTitleTestFailNoTryCatch() throws FileNotFoundException, IOException {
+		WebDriver driver = util.AxaDriverFactory.createAxaFirefoxDriver();
 
 		driver.get("http://www.abraxas.ch");
 		Assert.assertEquals(driver.getTitle(), "GRIDFUSION.net - Home");	
@@ -26,8 +28,8 @@ public class TryCatch {
 	 * add try/catch/finally to fix this
 	 */
 	@Test
-	public void pageTitleTestFailWithTryCatch() {
-		WebDriver driver = new FirefoxDriver();
+	public void pageTitleTestFailWithTryCatch() throws FileNotFoundException, IOException {
+		WebDriver driver = util.AxaDriverFactory.createAxaFirefoxDriver();
 		try {
 			driver.get("http://www.abraxas.ch");
 			Assert.assertEquals(driver.getTitle(), "GRIDFUSION.net - Home");	

@@ -37,6 +37,8 @@ public class Saucelabs {
 		try {
 			driver.get("http://gridfusion.net/testpage.html");
 			
+			Thread.sleep(10000);
+			
 			WebElement checkBoxForm = driver.findElement(By.id("checkboxform"));
 			
 			//check how many checkboxes there are
