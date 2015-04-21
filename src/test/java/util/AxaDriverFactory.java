@@ -24,7 +24,9 @@ public  class AxaDriverFactory {
 	/* local SQUID3 proxy settings */
 	static String proxy_http = "localhost";
 	static int http_port = 3128;
-	static boolean share_proxy_settings = true;
+	
+	
+	static boolean share_proxy_settings = true; //--> needs to potentially be set to false!!!
 	
 		
 public static WebDriver createAxaFirefoxDriver() throws FileNotFoundException, IOException {
