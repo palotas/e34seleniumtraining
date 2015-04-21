@@ -39,7 +39,7 @@ public class BasicTests {
 		WebDriver driver = util.AxaDriverFactory.createAxaFirefoxDriver();
 
 		// navigate to the URL 
-		driver.get("http://www.axa.ch");
+		driver.get("http://gridfusion.net");
 		// close the Browser
 		driver.quit();
 }
