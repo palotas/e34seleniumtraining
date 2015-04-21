@@ -1,5 +1,7 @@
 package actions;
 
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
@@ -25,10 +27,9 @@ import com.google.common.base.Function;
 public class WebDriverActions {
 	
 	@Test
-	public void navigateGwtMenu() throws InterruptedException {
+	public void navigateGwtMenu() throws InterruptedException, FileNotFoundException, IOException {
 		
-		System.setProperty("webdriver.chrome.driver", "/home/gridfusion/SeleniumTraining/chromedriver");
-		WebDriver driver = new ChromeDriver();
+		WebDriver driver = util.AxaDriverFactory.createAxaFirefoxDriver();
 
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 		driver.get("http://gwt.googleusercontent.com/samples/Showcase/Showcase.html#!CwMenuBar");

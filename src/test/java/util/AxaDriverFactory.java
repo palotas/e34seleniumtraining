@@ -15,7 +15,7 @@ import org.openqa.selenium.remote.RemoteWebDriver;
 public  class AxaDriverFactory {
 	
 	static String firefoxProfile = "selenium";
-	static int proxy_type = 1;
+	static int proxy_type = 1;  //1=manual config, 2=pac file, 5=share system proxy settings
 	
 	/* AXA proxy settings */
 	//static String proxy_http = "194.40.39.31";
@@ -32,7 +32,7 @@ public static WebDriver createAxaFirefoxDriver() throws FileNotFoundException, I
 		ProfilesIni profile = new ProfilesIni();
 		FirefoxProfile ffprofile = profile.getProfile(firefoxProfile);
 		ffprofile.setPreference("signon.autologin.proxy", true);
-		ffprofile.setPreference("network.proxy.type", proxy_type); //1=manual config, 2=pac file
+		ffprofile.setPreference("network.proxy.type", proxy_type); 
 		ffprofile.setPreference("network.proxy.http", proxy_http);
 		ffprofile.setPreference("network.proxy.http_port", http_port);
 		ffprofile.setPreference("network.proxy.share_proxy_settings", share_proxy_settings);
@@ -59,9 +59,5 @@ public static WebDriver createAxaFirefoxDriver() throws FileNotFoundException, I
 
 		WebDriver driver = new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"), capabilities);
 	    return driver;
-	}
-	
-	public static void teardown(WebDriver driver) {
-		driver.quit();
 	}
 }

@@ -1,5 +1,7 @@
 package htmlElementSamples;
 
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -9,13 +11,12 @@ import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.firefox.FirefoxDriver;
 
 public class SampleRadioButton {
 	
 	@Test
-	public void radioButtonTest() throws InterruptedException {
-		WebDriver driver = new FirefoxDriver();
+	public void radioButtonTest() throws InterruptedException, FileNotFoundException, IOException {
+		WebDriver driver = util.AxaDriverFactory.createAxaFirefoxDriver();
 		
 		try {
 			driver.get("http://gridfusion.net/testpage.html");

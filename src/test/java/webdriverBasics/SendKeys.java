@@ -4,7 +4,6 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.annotations.Test;
 
 public class SendKeys {
@@ -18,7 +17,7 @@ public class SendKeys {
 
 	@Test
 	public void sendKeysTest() throws Exception {
-		WebDriver driver = new FirefoxDriver();
+		WebDriver driver = util.AxaDriverFactory.createAxaFirefoxDriver();
 		driver.get("http://www.abraxas.ch");
 
 		WebElement searchBox = driver.findElement(By.id("searchField"));

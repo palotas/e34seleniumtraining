@@ -1,22 +1,23 @@
 package ebayTests;
 
+import java.io.FileNotFoundException;
+import java.io.IOException;
+
 import junit.framework.Assert;
 
 import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.firefox.FirefoxDriver;
-
 
 import ebayPageObjects.EbayUtils;
 
 public class SigninTests {
 	
 	@Test
-	public void openEbayHomepage() {
+	public void openEbayHomepage() throws FileNotFoundException, IOException {
 		//create driver and open browser
-		WebDriver driver = new FirefoxDriver();
+		WebDriver driver = util.AxaDriverFactory.createAxaFirefoxDriver();
 		
 		//open the ebay homepage
 		driver.get("http://www.ebay.ch");
@@ -26,9 +27,9 @@ public class SigninTests {
 	}
 
 	@Test
-	public void openEbayHomepageAndSignin() throws InterruptedException {
+	public void openEbayHomepageAndSignin() throws InterruptedException, FileNotFoundException, IOException {
 		//create driver and open browser
-		WebDriver driver = new FirefoxDriver();
+		WebDriver driver = util.AxaDriverFactory.createAxaFirefoxDriver();
 		
 		//go to signin URL
 		driver.get("https://signin.ebay.ch/ws/eBayISAPI.dll?SignIn");
@@ -53,9 +54,9 @@ public class SigninTests {
 	
 	
 	@Test
-	public void openEbayHomepageAndSigninVerifyPageTitle() throws InterruptedException {
+	public void openEbayHomepageAndSigninVerifyPageTitle() throws InterruptedException, FileNotFoundException, IOException {
 		//create driver and open browser
-		WebDriver driver = new FirefoxDriver();
+		WebDriver driver = util.AxaDriverFactory.createAxaFirefoxDriver();
 		
 	
 		//go to signin URL
