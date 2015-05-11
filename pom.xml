@@ -3,7 +3,7 @@
   <groupId>net.gridfusion</groupId>
   <artifactId>Selenium</artifactId>
   <version>0.0.1-SNAPSHOT</version>
-  <packaging>pom</packaging>
+  <packaging>jar</packaging>
   
   
   <dependencies>
