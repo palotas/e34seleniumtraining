@@ -31,15 +31,16 @@ public  class AxaDriverFactory {
 		
 public static WebDriver createAxaFirefoxDriver() throws FileNotFoundException, IOException {
 			
-		ProfilesIni profile = new ProfilesIni();
-		FirefoxProfile ffprofile = profile.getProfile(firefoxProfile);
-		ffprofile.setPreference("signon.autologin.proxy", true);
-		ffprofile.setPreference("network.proxy.type", proxy_type); 
-		ffprofile.setPreference("network.proxy.http", proxy_http);
-		ffprofile.setPreference("network.proxy.http_port", http_port);
-		ffprofile.setPreference("network.proxy.share_proxy_settings", share_proxy_settings);
+		//ProfilesIni profile = new ProfilesIni();
+		//FirefoxProfile ffprofile = profile.getProfile(firefoxProfile);
+		//ffprofile.setPreference("signon.autologin.proxy", true);
+		//ffprofile.setPreference("network.proxy.type", proxy_type); 
+		//ffprofile.setPreference("network.proxy.http", proxy_http);
+		//ffprofile.setPreference("network.proxy.http_port", http_port);
+		//ffprofile.setPreference("network.proxy.share_proxy_settings", share_proxy_settings);
 		
-		WebDriver driver = new FirefoxDriver(ffprofile);
+		//WebDriver driver = new FirefoxDriver(ffprofile);
+		WebDriver driver = new FirefoxDriver();
 	    return driver;
 	}
 	
@@ -48,15 +49,15 @@ public static WebDriver createAxaFirefoxDriver() throws FileNotFoundException, I
 		
 		DesiredCapabilities capabilities = new DesiredCapabilities();
 		
-		ProfilesIni profile = new ProfilesIni();
-		FirefoxProfile ffprofile = profile.getProfile(firefoxProfile);
-		ffprofile.setPreference("signon.autologin.proxy", true);
-		ffprofile.setPreference("network.proxy.type", proxy_type); //1=manual config, 2=pac file
-		ffprofile.setPreference("network.proxy.http", proxy_http);
-		ffprofile.setPreference("network.proxy.http_port", http_port);
-		ffprofile.setPreference("network.proxy.share_proxy_settings", share_proxy_settings);
+		//ProfilesIni profile = new ProfilesIni();
+		//FirefoxProfile ffprofile = profile.getProfile(firefoxProfile);
+		//ffprofile.setPreference("signon.autologin.proxy", true);
+		//ffprofile.setPreference("network.proxy.type", proxy_type); //1=manual config, 2=pac file
+		//ffprofile.setPreference("network.proxy.http", proxy_http);
+		//ffprofile.setPreference("network.proxy.http_port", http_port);
+		//ffprofile.setPreference("network.proxy.share_proxy_settings", share_proxy_settings);
         
-		capabilities.setCapability(FirefoxDriver.PROFILE, ffprofile);
+		//capabilities.setCapability(FirefoxDriver.PROFILE, ffprofile);
 		capabilities.setBrowserName("firefox");
 
 		WebDriver driver = new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"), capabilities);
