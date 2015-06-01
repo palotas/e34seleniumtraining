@@ -17,7 +17,7 @@ public class SampleDropDown {
 	
 	@Test
 	public void dropdownTest() throws InterruptedException, FileNotFoundException, IOException {
-		WebDriver driver = util.AxaDriverFactory.createAxaFirefoxDriver();
+		WebDriver driver = util.AxaDriverFactory.createAxaIEDriver();
 		
 		try {
 			driver.get("http://gridfusion.net/testpage.html");

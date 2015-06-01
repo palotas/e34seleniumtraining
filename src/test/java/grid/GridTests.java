@@ -13,7 +13,7 @@ public class GridTests {
 	@Test
 	public void firefox1() throws IOException, InterruptedException {
 
-		WebDriver driver = util.AxaDriverFactory.createAxaRemoteFirefoxDriver();
+		WebDriver driver = util.AxaDriverFactory.createAxaRemoteIEDriver();
 
 		driver.get("http://gridfusion.net");
 
@@ -27,7 +27,7 @@ public class GridTests {
 	public void firefox2() throws IOException {
 
 
-		WebDriver driver = util.AxaDriverFactory.createAxaRemoteFirefoxDriver();
+		WebDriver driver = util.AxaDriverFactory.createAxaRemoteIEDriver();
 
 		driver.get("http://www.abraxas.ch");
 		Reporter.log("Page Title: " + driver.getTitle());
@@ -39,7 +39,7 @@ public class GridTests {
 	public void firefox3() throws IOException, InterruptedException {
 
 
-		WebDriver driver = util.AxaDriverFactory.createAxaRemoteFirefoxDriver();
+		WebDriver driver = util.AxaDriverFactory.createAxaRemoteIEDriver();
 
 		driver.get("http://gridfusion.net");
 		Reporter.log("Page Title: " + driver.getTitle());
@@ -51,7 +51,7 @@ public class GridTests {
 	public void firefox4() throws IOException, InterruptedException {
 
 
-		WebDriver driver = util.AxaDriverFactory.createAxaRemoteFirefoxDriver();
+		WebDriver driver = util.AxaDriverFactory.createAxaRemoteIEDriver();
 
 		driver.get("http://gridfusion.net");
 		Reporter.log("Page Title: " + driver.getTitle());
@@ -62,7 +62,7 @@ public class GridTests {
 	@Test
 	public void firefox5() throws IOException, InterruptedException {
 
-		WebDriver driver = util.AxaDriverFactory.createAxaRemoteFirefoxDriver();
+		WebDriver driver = util.AxaDriverFactory.createAxaRemoteIEDriver();
 
 		driver.get("http://www.abraxas.ch");
 		Reporter.log("Page Title: " + driver.getTitle());

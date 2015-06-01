@@ -24,7 +24,7 @@ public class DataProviderTest {
 	@Test(dataProvider="nameprovider")
 	public void dataproviderTest(String testcaseId, String first, String last, CharSequence length) throws InterruptedException, FileNotFoundException, IOException {
 
-		WebDriver driver = util.AxaDriverFactory.createAxaFirefoxDriver();
+		WebDriver driver = util.AxaDriverFactory.createAxaIEDriver();
 		try{
 			driver.get("http://localhost:8080/tmf2/");
 			WebElement firstName=driver.findElement(By.id("firstname"));

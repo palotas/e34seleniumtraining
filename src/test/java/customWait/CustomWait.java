@@ -14,7 +14,7 @@ public class CustomWait {
 	@Test(invocationCount=1)
 	public void implicitWaitHeroku() throws InterruptedException, FileNotFoundException, IOException {
 
-		WebDriver driver = util.AxaDriverFactory.createAxaRemoteFirefoxDriver();
+		WebDriver driver = util.AxaDriverFactory.createAxaRemoteIEDriver();
 		
 		try {
 			//first try without implicit wait
@@ -37,7 +37,7 @@ public class CustomWait {
 	public void explicitWait() throws InterruptedException, FileNotFoundException, IOException {
 		//WebDriver driver=new FirefoxDriver();
 		
-		WebDriver driver = util.AxaDriverFactory.createAxaRemoteFirefoxDriver();
+		WebDriver driver = util.AxaDriverFactory.createAxaRemoteIEDriver();
 		
 		WebDriverWait wait = new WebDriverWait(driver, 10);
 		

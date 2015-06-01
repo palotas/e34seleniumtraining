@@ -29,7 +29,7 @@ public class WebDriverActions {
 	@Test
 	public void navigateGwtMenu() throws InterruptedException, FileNotFoundException, IOException {
 		
-		WebDriver driver = util.AxaDriverFactory.createAxaFirefoxDriver();
+		WebDriver driver = util.AxaDriverFactory.createAxaIEDriver();
 
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 		driver.get("http://gwt.googleusercontent.com/samples/Showcase/Showcase.html#!CwMenuBar");
