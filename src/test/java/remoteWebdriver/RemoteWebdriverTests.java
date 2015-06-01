@@ -27,7 +27,7 @@ public class RemoteWebdriverTests {
 		 * navigate to URL http://gridfusion.net
 		 * close browser
 		 */
-		WebDriver driver = util.AxaDriverFactory.createAxaRemoteFirefoxDriver();
+		WebDriver driver = util.AxaDriverFactory.createAxaRemoteIEDriver();
 		driver.get("http://gridfusion.net");
 		Thread.sleep(1000);
 		driver.quit();

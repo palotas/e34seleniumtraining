@@ -8,7 +8,7 @@ public class ScreenshotTest {
 	@Test
 	public void testWithScreenshot() throws Exception {
 		
-		WebDriver driver = util.AxaDriverFactory.createAxaFirefoxDriver();
+		WebDriver driver = util.AxaDriverFactory.createAxaIEDriver();
 		driver.get("http://gridfusion.net");
 		DoScreenshot.takeScreenshotNoReport(driver);
 		driver.quit();
@@ -18,7 +18,7 @@ public class ScreenshotTest {
 	@Test
 	public void testWithScreenshotAndReportRemote() throws Exception {
 
-		WebDriver driver = util.AxaDriverFactory.createAxaRemoteFirefoxDriver();
+		WebDriver driver = util.AxaDriverFactory.createAxaRemoteIEDriver();
 		
 		driver.get("http://gridfusion.net");
 		DoScreenshot.remoteWebDriverScreenshot(driver);

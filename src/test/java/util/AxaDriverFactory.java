@@ -9,6 +9,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxProfile;
 import org.openqa.selenium.firefox.internal.ProfilesIni;
+import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
 
@@ -29,7 +30,7 @@ public  class AxaDriverFactory {
 	static boolean share_proxy_settings = true; //--> needs to potentially be set to false!!!
 	
 		
-public static WebDriver createAxaFirefoxDriver() throws FileNotFoundException, IOException {
+public static WebDriver createAxaIEDriver() throws FileNotFoundException, IOException {
 			
 		//ProfilesIni profile = new ProfilesIni();
 		//FirefoxProfile ffprofile = profile.getProfile(firefoxProfile);
@@ -40,12 +41,14 @@ public static WebDriver createAxaFirefoxDriver() throws FileNotFoundException, I
 		//ffprofile.setPreference("network.proxy.share_proxy_settings", share_proxy_settings);
 		
 		//WebDriver driver = new FirefoxDriver(ffprofile);
-		WebDriver driver = new FirefoxDriver();
+	
+		System.setProperty("webdriver.ie.driver", "IEDriverServer.exe"); //this sets the path to IE driver to seleniumtraining
+		WebDriver driver = new InternetExplorerDriver();
 	    return driver;
 	}
 	
 	
-	public static WebDriver createAxaRemoteFirefoxDriver() throws FileNotFoundException, IOException {
+	public static WebDriver createAxaRemoteIEDriver() throws FileNotFoundException, IOException {
 		
 		DesiredCapabilities capabilities = new DesiredCapabilities();
 		
@@ -58,7 +61,7 @@ public static WebDriver createAxaFirefoxDriver() throws FileNotFoundException, I
 		//ffprofile.setPreference("network.proxy.share_proxy_settings", share_proxy_settings);
         
 		//capabilities.setCapability(FirefoxDriver.PROFILE, ffprofile);
-		capabilities.setBrowserName("firefox");
+		capabilities.setBrowserName("internet explorer");
 
 		WebDriver driver = new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"), capabilities);
 	    return driver;

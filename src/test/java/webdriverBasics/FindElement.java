@@ -15,7 +15,7 @@ public class FindElement {
 	public void findById() throws InterruptedException, FileNotFoundException, IOException {
 
 		// create the driver and open Firefox
-		WebDriver driver = util.AxaDriverFactory.createAxaFirefoxDriver();
+		WebDriver driver = util.AxaDriverFactory.createAxaIEDriver();
 
 		// navigate to the URL 
 		driver.get("https://www.google.ch");
@@ -31,7 +31,7 @@ public class FindElement {
 	public void findByName() throws InterruptedException, FileNotFoundException, IOException {
 
 		// create the driver and open Firefox
-		WebDriver driver = util.AxaDriverFactory.createAxaFirefoxDriver();
+		WebDriver driver = util.AxaDriverFactory.createAxaIEDriver();
 
 		// navigate to the URL 
 		driver.get("https://www.google.ch");
@@ -48,7 +48,7 @@ public class FindElement {
 	public void findByClassName() throws InterruptedException, FileNotFoundException, IOException {
 
 		// create the driver and open Firefox
-		WebDriver driver = util.AxaDriverFactory.createAxaFirefoxDriver();
+		WebDriver driver = util.AxaDriverFactory.createAxaIEDriver();
 
 		// navigate to the URL 
 		driver.get("https://www.google.ch");
@@ -65,7 +65,7 @@ public class FindElement {
 	public void findByXpath() throws InterruptedException, FileNotFoundException, IOException {
 
 		// create the driver and open Firefox
-		WebDriver driver = util.AxaDriverFactory.createAxaFirefoxDriver();
+		WebDriver driver = util.AxaDriverFactory.createAxaIEDriver();
 
 		// navigate to the URL 
 		driver.get("https://www.google.ch/");
@@ -82,7 +82,7 @@ public class FindElement {
 	public void findByLinkText() throws InterruptedException, FileNotFoundException, IOException {
 
 		// create the driver and open Firefox
-		WebDriver driver = util.AxaDriverFactory.createAxaFirefoxDriver();
+		WebDriver driver = util.AxaDriverFactory.createAxaIEDriver();
 
 		// navigate to the URL 
 		driver.get("http://www.20min.ch/");
@@ -100,7 +100,7 @@ public class FindElement {
 	public void findByPartialLinkText() throws InterruptedException, FileNotFoundException, IOException {
 
 		// create the driver and open Firefox
-		WebDriver driver = util.AxaDriverFactory.createAxaFirefoxDriver();
+		WebDriver driver = util.AxaDriverFactory.createAxaIEDriver();
 
 		// navigate to the URL 
 		driver.get("http://www.20min.ch/");
