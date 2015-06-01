@@ -62,6 +62,7 @@ public static WebDriver createAxaIEDriver() throws FileNotFoundException, IOExce
         
 		//capabilities.setCapability(FirefoxDriver.PROFILE, ffprofile);
 		capabilities.setBrowserName("internet explorer");
+		System.setProperty("webdriver.ie.driver", "IEDriverServer.exe"); //this sets the path to IE driver to seleniumtraining
 
 		WebDriver driver = new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"), capabilities);
 	    return driver;
