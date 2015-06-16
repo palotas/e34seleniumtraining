@@ -30,7 +30,7 @@ public class JsonWireP {
 		
 		//build capabilities object
 		JsonObject capabilities = new JsonObject();
-		capabilities.addProperty("browserName", "firefox");
+		capabilities.addProperty("browserName", "internet explorer");
 		
 		JsonObject json = new JsonObject();
 		json.add("desiredCapabilities", capabilities);
