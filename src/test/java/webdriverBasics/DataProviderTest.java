@@ -12,30 +12,23 @@ import org.testng.annotations.Test;
 
 public class DataProviderTest {
 
-	@DataProvider(name = "nameprovider")
+	@DataProvider(name = "urlprovider")
 	public Object[][] createData2() {
 	 return new Object[][] {
-	   {"1", "Michael", "Palotas", "13"},
-	   {"2", "Lori", "Palotas", "11"},
-	   {"3", "Alex", "Palotas", "11"}
+	   {"1", "de", "Home | AXA Winterthur"},
+	   {"2", "en", "Home | AXA Winterthur"},
+	   {"3", "fr", "Home | AXA Winterthur"}
 	 };
 	}
 
-	@Test(dataProvider="nameprovider")
-	public void dataproviderTest(String testcaseId, String first, String last, CharSequence length) throws InterruptedException, FileNotFoundException, IOException {
+	@Test(dataProvider="urlprovider")
+	public void dataproviderTest(String testcaseId, String language, String expectedTitle) throws InterruptedException, FileNotFoundException, IOException {
 
-		WebDriver driver = util.AxaDriverFactory.createAxaIEDriver();
+		WebDriver driver = util.AxaDriverFactory.createAxaRemoteIEDriver();
 		try{
-			driver.get("http://localhost:8080/tmf2/");
-			WebElement firstName=driver.findElement(By.id("firstname"));
-			WebElement lastName=driver.findElement(By.id("lastname"));
-			WebElement submitButton=driver.findElement(By.id("submitbutton"));
-
-			firstName.sendKeys(first);
-			lastName.sendKeys(last);
-			submitButton.click();
-			
-			Assert.assertTrue(driver.getPageSource().contains(length));	
+			driver.get("https://www.axa-winterthur.ch/" + language);	
+			System.out.println(driver.getTitle());
+			Assert.assertEquals(driver.getTitle(), expectedTitle);	
 		}
 		finally{
 			Thread.sleep(2000);

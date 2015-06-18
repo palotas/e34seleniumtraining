@@ -8,7 +8,7 @@ public class ScreenshotTest {
 	@Test
 	public void testWithScreenshot() throws Exception {
 		
-		WebDriver driver = util.AxaDriverFactory.createAxaIEDriver();
+		WebDriver driver = util.AxaDriverFactory.createAxaRemoteIEDriver();
 		driver.get("http://gridfusion.net");
 		DoScreenshot.takeScreenshotNoReport(driver);
 		driver.quit();

@@ -62,7 +62,7 @@ public  class AxaDriverFactory {
 		
 		DesiredCapabilities capabilities = new DesiredCapabilities();
 		capabilities.setBrowserName("internet explorer");
-		System.setProperty("webdriver.ie.driver", "IEDriverServer.exe"); //this sets the path to IE driver to seleniumtraining
+		//System.setProperty("webdriver.ie.driver", "IEDriverServer.exe"); //not needed if server is started with same options via command line
 
 		WebDriver driver = new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"), capabilities);
 	    return driver;
