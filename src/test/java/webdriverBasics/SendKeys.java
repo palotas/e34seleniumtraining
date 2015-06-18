@@ -17,37 +17,10 @@ public class SendKeys {
 
 	@Test
 	public void sendKeysTest() throws Exception {
-		WebDriver driver = util.AxaDriverFactory.createAxaIEDriver();
+		WebDriver driver = util.AxaDriverFactory.createAxaRemoteIEDriver();
 		driver.get("http://www.abraxas.ch");
 
 		WebElement searchBox = driver.findElement(By.id("searchField"));
-		searchBox.sendKeys("Java");
-
-		WebElement button = driver.findElement(By.className("searchButton"));
-		button.click();
-		
-		Thread.sleep(5000);
-
-		driver.quit();
-
-	}
-
-	
-	/*
-	 * This test: opens a CHROME browser - navigates
-	 * to http://www.abraxas.ch - locates element with ID "searchField" - types
-	 * "Java" into the searchbox - locates submit button - clicks on the
-	 * submit button - closes the browser
-	 */
-	@Test
-	public void sendKeysTestWithChrome() throws Exception {
-
-		System.setProperty("webdriver.chrome.driver", "/home/gridfusion/SeleniumTraining/chromedriver");
-		WebDriver driver = new ChromeDriver();
-		driver.get("http://www.abraxas.ch");
-
-		WebElement searchBox = driver.findElement(By.id("searchField"));
-
 		searchBox.sendKeys("Java");
 
 		WebElement button = driver.findElement(By.className("searchButton"));

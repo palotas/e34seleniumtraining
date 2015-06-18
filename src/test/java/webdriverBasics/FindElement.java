@@ -15,7 +15,7 @@ public class FindElement {
 	public void findById() throws InterruptedException, FileNotFoundException, IOException {
 
 		// create the driver and open Firefox
-		WebDriver driver = util.AxaDriverFactory.createAxaIEDriver();
+		WebDriver driver = util.AxaDriverFactory.createAxaRemoteIEDriver();
 
 		// navigate to the URL 
 		driver.get("https://www.google.ch");
@@ -31,7 +31,7 @@ public class FindElement {
 	public void findByName() throws InterruptedException, FileNotFoundException, IOException {
 
 		// create the driver and open Firefox
-		WebDriver driver = util.AxaDriverFactory.createAxaIEDriver();
+		WebDriver driver = util.AxaDriverFactory.createAxaRemoteIEDriver();
 
 		// navigate to the URL 
 		driver.get("https://www.google.ch");
@@ -48,7 +48,7 @@ public class FindElement {
 	public void findByClassName() throws InterruptedException, FileNotFoundException, IOException {
 
 		// create the driver and open Firefox
-		WebDriver driver = util.AxaDriverFactory.createAxaIEDriver();
+		WebDriver driver = util.AxaDriverFactory.createAxaRemoteIEDriver();
 
 		// navigate to the URL 
 		driver.get("https://www.google.ch");
@@ -65,9 +65,9 @@ public class FindElement {
 	public void findByXpath() throws InterruptedException, FileNotFoundException, IOException {
 
 		// create the driver and open Firefox
-		WebDriver driver = util.AxaDriverFactory.createAxaIEDriver();
+		WebDriver driver = util.AxaDriverFactory.createAxaRemoteIEDriver();
 
-		// navigate to the URL 
+		// navigate to the URL�
 		driver.get("https://www.google.ch/");
 		WebElement searchField=driver.findElement(By.xpath("//*[@id='gbqfq']"));
 		searchField.sendKeys("selenium");
