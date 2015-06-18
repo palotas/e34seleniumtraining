@@ -10,61 +10,49 @@ import org.testng.annotations.Test;
 public class GridTests {
 
 
-	@Test
-	public void firefox1() throws IOException, InterruptedException {
-
-		WebDriver driver = util.AxaDriverFactory.createAxaRemoteFirefoxDriver();
-
-		driver.get("http://gridfusion.net");
-
-		Thread.sleep(2000);
-
-		driver.quit();
-	}
-	
 
 	@Test
-	public void firefox2() throws IOException {
+	public void test1() throws IOException {
 
 
-		WebDriver driver = util.AxaDriverFactory.createAxaRemoteFirefoxDriver();
+		WebDriver driver = util.AxaDriverFactory.createAxaRemoteIEDriver();
 
-		driver.get("http://www.abraxas.ch");
+		driver.get("http://www.axa.ch");
 		Reporter.log("Page Title: " + driver.getTitle());
 
 		driver.quit();
 	}
 
 	@Test
-	public void firefox3() throws IOException, InterruptedException {
+	public void test2() throws IOException, InterruptedException {
 
 
-		WebDriver driver = util.AxaDriverFactory.createAxaRemoteFirefoxDriver();
+		WebDriver driver = util.AxaDriverFactory.createAxaRemoteIEDriver();
 
-		driver.get("http://gridfusion.net");
+		driver.get("http://www.google.com");
 		Reporter.log("Page Title: " + driver.getTitle());
 
 		driver.quit();
 	}
 
 	@Test
-	public void firefox4() throws IOException, InterruptedException {
+	public void test3() throws IOException, InterruptedException {
 
 
-		WebDriver driver = util.AxaDriverFactory.createAxaRemoteFirefoxDriver();
+		WebDriver driver = util.AxaDriverFactory.createAxaRemoteIEDriver();
 
-		driver.get("http://gridfusion.net");
+		driver.get("http://www.20minuten.ch");
 		Reporter.log("Page Title: " + driver.getTitle());
 
 		driver.quit();
 	}
 
 	@Test
-	public void firefox5() throws IOException, InterruptedException {
+	public void test4() throws IOException, InterruptedException {
 
 		WebDriver driver = util.AxaDriverFactory.createAxaRemoteFirefoxDriver();
 
-		driver.get("http://www.abraxas.ch");
+		driver.get("http://www.nzz.ch");
 		Reporter.log("Page Title: " + driver.getTitle());
 
 		driver.quit();
