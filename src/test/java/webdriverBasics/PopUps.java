@@ -14,7 +14,7 @@ public class PopUps {
 
 	@Test
 	public void popUp() throws InterruptedException, FileNotFoundException, IOException {
-		WebDriver driver = util.AxaDriverFactory.createAxaRemoteIEDriver();
+		WebDriver driver = util.AxaDriverFactory.createAxaRemoteFirefoxDriver();
 		driver.get("http://gridfusion.net/popuptest.html");
 		
 		WebElement registerButton = driver.findElement(By.id("registerbutton"));

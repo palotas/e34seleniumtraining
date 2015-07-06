@@ -17,7 +17,7 @@ public class SigninTests {
 	@Test
 	public void openEbayHomepage() throws FileNotFoundException, IOException {
 		//create driver and open browser
-		WebDriver driver = util.AxaDriverFactory.createAxaIEDriver();
+		WebDriver driver = util.AxaDriverFactory.createAxaRemoteFirefoxDriver();
 		
 		//open the ebay homepage
 		driver.get("http://www.ebay.ch");
@@ -29,7 +29,7 @@ public class SigninTests {
 	@Test
 	public void openEbayHomepageAndSignin() throws InterruptedException, FileNotFoundException, IOException {
 		//create driver and open browser
-		WebDriver driver = util.AxaDriverFactory.createAxaIEDriver();
+		WebDriver driver = util.AxaDriverFactory.createAxaRemoteFirefoxDriver();
 		
 		//go to signin URL
 		driver.get("https://signin.ebay.ch/ws/eBayISAPI.dll?SignIn");
@@ -56,7 +56,7 @@ public class SigninTests {
 	@Test
 	public void openEbayHomepageAndSigninVerifyPageTitle() throws InterruptedException, FileNotFoundException, IOException {
 		//create driver and open browser
-		WebDriver driver = util.AxaDriverFactory.createAxaIEDriver();
+		WebDriver driver = util.AxaDriverFactory.createAxaRemoteFirefoxDriver();
 		
 	
 		//go to signin URL

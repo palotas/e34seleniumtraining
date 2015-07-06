@@ -14,7 +14,7 @@ public class Cookies {
 	@Test
 	public void cookies() throws FileNotFoundException, IOException {
 		
-		WebDriver driver = util.AxaDriverFactory.createAxaRemoteIEDriver();
+		WebDriver driver = util.AxaDriverFactory.createAxaRemoteFirefoxDriver();
 
 		// Go to the URL
 		driver.get("http://www.gridfusion.net");

@@ -18,7 +18,7 @@ public class SampleCheckBoxes {
 		
 	@Test
 	public void checkboxTest() throws InterruptedException, FileNotFoundException, IOException {
-		WebDriver driver = util.AxaDriverFactory.createAxaRemoteIEDriver();
+		WebDriver driver = util.AxaDriverFactory.createAxaRemoteFirefoxDriver();
 		
 		try {
 			driver.get("http://gridfusion.net/testpage.html");

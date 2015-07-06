@@ -12,7 +12,7 @@ public class SigninPageObjectTests {
 	
     @Test
     public void signinWithPageObjectSingle() throws InterruptedException, FileNotFoundException, IOException {
-        WebDriver driver = util.AxaDriverFactory.createAxaIEDriver();
+        WebDriver driver = util.AxaDriverFactory.createAxaRemoteFirefoxDriver();
         SigninPage signinpage = new SigninPage(driver);
 
         signinpage.enterUsername();

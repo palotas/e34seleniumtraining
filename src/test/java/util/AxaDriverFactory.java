@@ -42,21 +42,17 @@ public  class AxaDriverFactory {
 	static boolean share_proxy_settings = true; //--> needs to potentially be set to false!!!
 	
 	
-	//local IE driver
-	public static WebDriver createAxaIEDriver() throws FileNotFoundException, IOException {
-		System.setProperty("webdriver.ie.driver", "IEDriverServer.exe"); //this sets the path to IE driver to seleniumtraining
-		WebDriver driver = new InternetExplorerDriver();
+	
+	//remote IE driver
+	public static WebDriver createAxaRemoteFirefoxDriver() throws FileNotFoundException, IOException {
+		
+		DesiredCapabilities capabilities = new DesiredCapabilities();
+		capabilities.setBrowserName("firefox");
+
+		WebDriver driver = new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"), capabilities);
 	    return driver;
 	}
 
-
-	//local Firefox driver
-	public static WebDriver createAxaFirefoxDriver() throws FileNotFoundException, IOException {
-
-	WebDriver driver = new FirefoxDriver();
-    return driver;
-	}
-	
 	//remote IE driver
 	public static WebDriver createAxaRemoteIEDriver() throws FileNotFoundException, IOException {
 		
@@ -67,14 +63,7 @@ public  class AxaDriverFactory {
 		WebDriver driver = new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"), capabilities);
 	    return driver;
 	}
+	
 
-	//remote Firefox driver
-	public static WebDriver createAxaRemoteFirefoxDriver() throws FileNotFoundException, IOException {
-		
-		DesiredCapabilities capabilities = new DesiredCapabilities();
-		capabilities.setBrowserName("firefox");
-		WebDriver driver = new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"), capabilities);
-	    return driver;
-	}
 
 }

@@ -15,7 +15,7 @@ public class GridTests {
 	public void test1() throws IOException {
 
 
-		WebDriver driver = util.AxaDriverFactory.createAxaRemoteIEDriver();
+		WebDriver driver = util.AxaDriverFactory.createAxaRemoteFirefoxDriver();
 
 		driver.get("http://www.axa.ch");
 		Reporter.log("Page Title: " + driver.getTitle());
@@ -27,7 +27,7 @@ public class GridTests {
 	public void test2() throws IOException, InterruptedException {
 
 
-		WebDriver driver = util.AxaDriverFactory.createAxaRemoteIEDriver();
+		WebDriver driver = util.AxaDriverFactory.createAxaRemoteFirefoxDriver();
 
 		driver.get("http://www.google.com");
 		Reporter.log("Page Title: " + driver.getTitle());
@@ -39,7 +39,7 @@ public class GridTests {
 	public void test3() throws IOException, InterruptedException {
 
 
-		WebDriver driver = util.AxaDriverFactory.createAxaRemoteIEDriver();
+		WebDriver driver = util.AxaDriverFactory.createAxaRemoteFirefoxDriver();
 
 		driver.get("http://www.20minuten.ch");
 		Reporter.log("Page Title: " + driver.getTitle());
