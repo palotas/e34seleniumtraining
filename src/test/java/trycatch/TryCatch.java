@@ -12,7 +12,7 @@ public class TryCatch {
 	
 	@Test
 	public void pageTitleTestFailNoTryCatch() throws FileNotFoundException, IOException {
-		WebDriver driver = util.AxaDriverFactory.createAxaIEDriver();
+		WebDriver driver = util.AxaDriverFactory.createAxaRemoteFirefoxDriver();
 
 		driver.get("http://www.abraxas.ch");
 		Assert.assertEquals(driver.getTitle(), "GRIDFUSION.net - Home");	
@@ -29,7 +29,7 @@ public class TryCatch {
 	 */
 	@Test
 	public void pageTitleTestFailWithTryCatch() throws FileNotFoundException, IOException {
-		WebDriver driver = util.AxaDriverFactory.createAxaIEDriver();
+		WebDriver driver = util.AxaDriverFactory.createAxaRemoteFirefoxDriver();
 		try {
 			driver.get("http://www.abraxas.ch");
 			Assert.assertEquals(driver.getTitle(), "GRIDFUSION.net - Home");	

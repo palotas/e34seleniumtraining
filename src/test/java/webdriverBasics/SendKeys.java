@@ -17,7 +17,7 @@ public class SendKeys {
 
 	@Test
 	public void sendKeysTest() throws Exception {
-		WebDriver driver = util.AxaDriverFactory.createAxaRemoteIEDriver();
+		WebDriver driver = util.AxaDriverFactory.createAxaRemoteFirefoxDriver();
 		driver.get("http://www.abraxas.ch");
 
 		WebElement searchBox = driver.findElement(By.id("searchField"));

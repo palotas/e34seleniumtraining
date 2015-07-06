@@ -15,7 +15,7 @@ public class Navigation {
 
 	@Test
 	public void navigate() throws InterruptedException, FileNotFoundException, IOException {
-		WebDriver driver = util.AxaDriverFactory.createAxaRemoteIEDriver();
+		WebDriver driver = util.AxaDriverFactory.createAxaRemoteFirefoxDriver();
 		driver.get("http://www.20min.ch/");
 		
 		WebElement link = driver.findElement(By.linkText("Schweiz"));

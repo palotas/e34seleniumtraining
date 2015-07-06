@@ -15,7 +15,7 @@ public class BasicTests {
 	@Test
 	public void firstFirefoxTest() throws FileNotFoundException, IOException {
                 
-        WebDriver driver = util.AxaDriverFactory.createAxaFirefoxDriver();
+        WebDriver driver = util.AxaDriverFactory.createAxaRemoteFirefoxDriver();
 		
 		// navigate to the URL
 		driver.get("http://gridfusion.net");
@@ -25,22 +25,11 @@ public class BasicTests {
 	}
 	
 
-	@Test
-	public void firstLocalIETest() throws FileNotFoundException, IOException {
-
-		WebDriver driver = util.AxaDriverFactory.createAxaIEDriver();
-		
-		// navigate to the URL 
-		driver.get("http://gridfusion.net");
-		// close the Browser
-		driver.quit();
-}
-
 
 	@Test
 	public void pageTitleTest() throws InterruptedException, FileNotFoundException, IOException {
 
-		WebDriver driver = util.AxaDriverFactory.createAxaRemoteIEDriver();
+		WebDriver driver = util.AxaDriverFactory.createAxaRemoteFirefoxDriver();
 		driver.get("http://gridfusion.net");
 		String pageTitle = driver.getTitle();
 		System.out.println("Page Title: " + pageTitle);
@@ -53,7 +42,7 @@ public class BasicTests {
 	
 	@Test
 	public void pageTitleTestWithAssertNoTryCatch() throws FileNotFoundException, IOException {
-		WebDriver driver = util.AxaDriverFactory.createAxaRemoteIEDriver();
+		WebDriver driver = util.AxaDriverFactory.createAxaRemoteFirefoxDriver();
 		driver.get("http://gridfusion.net");
 		Assert.assertEquals(driver.getTitle(), "GRIDFUSION");
 		driver.quit();
@@ -62,7 +51,7 @@ public class BasicTests {
 
 	@Test
 	public void pageTitleTestWithAssert() throws FileNotFoundException, IOException {
-		WebDriver driver = util.AxaDriverFactory.createAxaRemoteIEDriver();
+		WebDriver driver = util.AxaDriverFactory.createAxaRemoteFirefoxDriver();
 		try {
 			driver.get("http://gridfusion.net");
 			Assert.assertEquals(driver.getTitle(), "ridfusion");			
