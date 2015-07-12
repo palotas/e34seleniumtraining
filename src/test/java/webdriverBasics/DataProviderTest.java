@@ -24,7 +24,7 @@ public class DataProviderTest {
 	@Test(dataProvider="urlprovider")
 	public void dataproviderTest(String testcaseId, String language, String expectedTitle) throws InterruptedException, FileNotFoundException, IOException {
 
-		WebDriver driver = util.AxaDriverFactory.createAxaRemoteFirefoxDriver();
+		WebDriver driver = util.DriverFactory.createRemoteFirefoxDriver();
 		try{
 			driver.get("https://www.axa-winterthur.ch/" + language);	
 			System.out.println(driver.getTitle());
