@@ -1,39 +1,34 @@
 package webdriverBasics;
 
+import java.io.FileNotFoundException;
+import java.io.IOException;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 public class DataProviderTest {
 
-	@DataProvider(name = "nameprovider")
+	@DataProvider(name = "urlprovider")
 	public Object[][] createData2() {
 	 return new Object[][] {
-	   {"1", "Michael", "Palotas", "13"},
-	   {"2", "Lori", "Palotas", "11"},
-	   {"3", "Alex", "Palotas", "11"}
+	   {"1", "de", "Home | AXA Winterthur"},
+	   {"2", "en", "Home | AXA Winterthur"},
+	   {"3", "fr", "Home | AXA Winterthur"}
 	 };
 	}
 
-	@Test(dataProvider="nameprovider")
-	public void dataproviderTest(String testcaseId, String first, String last, CharSequence length) throws InterruptedException {
+	@Test(dataProvider="urlprovider")
+	public void dataproviderTest(String testcaseId, String language, String expectedTitle) throws InterruptedException, FileNotFoundException, IOException {
 
-		WebDriver driver = new FirefoxDriver();
+		WebDriver driver = util.DriverFactory.createRemoteFirefoxDriver();
 		try{
-			driver.get("http://localhost:8080/tmf2/");
-			WebElement firstName=driver.findElement(By.id("firstname"));
-			WebElement lastName=driver.findElement(By.id("lastname"));
-			WebElement submitButton=driver.findElement(By.id("submitbutton"));
-
-			firstName.sendKeys(first);
-			lastName.sendKeys(last);
-			submitButton.click();
-			
-			Assert.assertTrue(driver.getPageSource().contains(length));	
+			driver.get("https://www.axa-winterthur.ch/" + language);	
+			System.out.println(driver.getTitle());
+			Assert.assertEquals(driver.getTitle(), expectedTitle);	
 		}
 		finally{
 			Thread.sleep(2000);

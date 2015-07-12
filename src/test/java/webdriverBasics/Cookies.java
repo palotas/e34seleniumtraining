@@ -1,5 +1,7 @@
 package webdriverBasics;
 
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.Set;
 
 import org.openqa.selenium.Cookie;
@@ -10,14 +12,14 @@ import org.testng.annotations.Test;
 public class Cookies {
 	
 	@Test
-	public void cookies() {
+	public void cookies() throws FileNotFoundException, IOException {
 		
-		WebDriver driver = new FirefoxDriver();
+		WebDriver driver = util.DriverFactory.createRemoteFirefoxDriver();
 
 		// Go to the URL
 		driver.get("http://www.gridfusion.net");
 
-		// Now set the cookie. This one's valid for the entire domain
+		// Now set the cookie. This one is valid for the entire domain
 		Cookie cookie = new Cookie("key", "value");
 		driver.manage().addCookie(cookie);
 

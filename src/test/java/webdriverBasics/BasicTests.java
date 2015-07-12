@@ -1,45 +1,35 @@
 package webdriverBasics;
 
+import java.io.FileNotFoundException;
+import java.io.IOException;
+
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.firefox.FirefoxProfile;
+import org.openqa.selenium.firefox.internal.ProfilesIni;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
 public class BasicTests {
 
-	/*
-	 * This test: - creates a new Firefox Driver / open a Firefox Browser -
-	 * opens the page http://gridfusion.net - closes the browser
-	 * 
-	 * Please note: no actual verification of anything is done
-	 * 
-	 * If you install from scratch: make sure to put selenium jar into classpath
-	 * test runs with local firefox driver selenium server jar does not need to
-	 * run for this
-	 */
 	@Test
-	public void myFirstTest() {
-
-		// create the driver and open Firefox
-		WebDriver driver = new FirefoxDriver();
+	public void firstFirefoxTest() throws FileNotFoundException, IOException {
+                
+        WebDriver driver = util.DriverFactory.createRemoteFirefoxDriver();
 		
-		// navigate to the URL 
+		// navigate to the URL
 		driver.get("http://gridfusion.net");
 
 		// close the Browser
 		driver.quit();
 	}
+	
 
-	/*
-	 * This test: - creates Firefox Driver / opens a Firefox browser - navigates
-	 * to http://gridfusion.net - gets the page title - prints out the page
-	 * title - closes the browser - note: test will always pass, as no asserts
-	 * are done
-	 */
+
 	@Test
-	public void pageTitleTest() throws InterruptedException {
+	public void pageTitleTest() throws InterruptedException, FileNotFoundException, IOException {
 
-		WebDriver driver = new FirefoxDriver();
+		WebDriver driver = util.DriverFactory.createRemoteFirefoxDriver();
 		driver.get("http://gridfusion.net");
 		String pageTitle = driver.getTitle();
 		System.out.println("Page Title: " + pageTitle);
@@ -51,24 +41,25 @@ public class BasicTests {
 	
 	
 	@Test
-	public void pageTitleTestWithAssertNoTryCatch() {
-		WebDriver driver = new FirefoxDriver();
+	public void pageTitleTestWithAssertNoTryCatch() throws FileNotFoundException, IOException {
+		WebDriver driver = util.DriverFactory.createRemoteFirefoxDriver();
 		driver.get("http://gridfusion.net");
-		Assert.assertEquals(driver.getTitle(), "Gridfusion-Technology & Management Consulting");
+		Assert.assertEquals(driver.getTitle(), "GRIDFUSION");
 		driver.quit();
 	}
 	
 
 	@Test
-	public void pageTitleTestWithAssert() {
-		WebDriver driver = new FirefoxDriver();
+	public void pageTitleTestWithAssert() throws FileNotFoundException, IOException {
+		WebDriver driver = util.DriverFactory.createRemoteFirefoxDriver();
 		try {
 			driver.get("http://gridfusion.net");
-			Assert.assertEquals(driver.getTitle(), "ridfusion-Technology & Management Consulting");			
+			Assert.assertEquals(driver.getTitle(), "ridfusion");			
 		}
 		finally {
 			driver.quit();			
 		}
 	}
+	
 }
 

@@ -37,11 +37,13 @@ public class Saucelabs {
 		try {
 			driver.get("http://gridfusion.net/testpage.html");
 			
+			Thread.sleep(10000);
+			
 			WebElement checkBoxForm = driver.findElement(By.id("checkboxform"));
 			
 			//check how many checkboxes there are
 			List<WebElement> checkBoxes = checkBoxForm.findElements(By.tagName("input"));
-			Assert.assertEquals(3, checkBoxes.size());
+			Assert.assertEquals(2, checkBoxes.size());
 			
 			//Check if Salami (checkbox 1) is checked. If yes uncheck it
 			Thread.sleep(2000);
@@ -58,7 +60,7 @@ public class Saucelabs {
 			driver.quit();
 		}
 	}
-
+	
 	
 	@AfterTest
 	public void cleanup() throws Exception {
