@@ -20,7 +20,7 @@ public class DoScreenshot {
 	    //take screenshot
 	  	File source = ((TakesScreenshot)newDriver).getScreenshotAs(OutputType.FILE);
 	    //copy file to final destination
-	  	FileUtils.copyFile(source, new File("/home/gridfusion/SeleniumTraining/screenshots/" + source.getName())); 
+	  	FileUtils.copyFile(source, new File("C:\\Users\\Michael Palotas\\tmp\\" + source.getName())); 
 	}
 
 	
@@ -31,9 +31,11 @@ public class DoScreenshot {
 		 getScreenshotAs(OutputType.FILE);
 	     Reporter.setEscapeHtml(false);
 
-		 FileUtils.copyFile(screenshot, new File("/home/gridfusion/SeleniumTraining/screenshots/" + screenshot.getName()));
+		 FileUtils.copyFile(screenshot, new File("C:\\Users\\Michael Palotas\\tmp\\" + screenshot.getName()));
 		    Reporter.log("Screenshot of page: " + "<b>" + driver.getTitle() + "</b>" + " at " + driver.getCurrentUrl());
-		    Reporter.log("<br> <img src=/home/gridfusion/SeleniumTraining/screenshots/"+ screenshot.getName() + " " + "width=\"320\" height=\"240\" /> <br>");
+		    Reporter.log("<br> <img src=C:\\Users\\Michael Palotas\\tmp\\" + screenshot.getName() + " " + "width=\"320\" height=\"240\" /> <br>");
+		    
+		    System.out.println(screenshot.getName());
 	}
 	
 	

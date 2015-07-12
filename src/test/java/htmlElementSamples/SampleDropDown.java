@@ -1,22 +1,22 @@
 package htmlElementSamples;
 
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-import junit.framework.Assert;
-
-import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.Select;
+import org.testng.Assert;
+import org.testng.annotations.Test;
 
 public class SampleDropDown {
 	
 	@Test
-	public void dropdownTest() throws InterruptedException {
-		WebDriver driver = new FirefoxDriver();
+	public void dropdownTest() throws InterruptedException, FileNotFoundException, IOException {
+		WebDriver driver = util.DriverFactory.createRemoteFirefoxDriver();
 		
 		try {
 			driver.get("http://gridfusion.net/testpage.html");
@@ -26,7 +26,7 @@ public class SampleDropDown {
 			
 			//check how many entries are in dropdown
 			List<WebElement> options = dropdown.getOptions();
-			Assert.assertEquals(4, options.size());
+			Assert.assertEquals(options.size(), 4);
 			
 			//check if they are the correct entries
 			List<String> expectedEntries = new ArrayList<String>();
@@ -37,7 +37,7 @@ public class SampleDropDown {
 			int x = 0;
 			
 			for (WebElement option : options) {
-				Assert.assertEquals(expectedEntries.get(x), option.getText());
+				Assert.assertEquals(option.getText(), expectedEntries.get(x));
 				x++;
 			}	
 			Thread.sleep(2000);
