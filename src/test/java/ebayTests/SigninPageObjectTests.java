@@ -1,7 +1,9 @@
 package ebayTests;
 
+import java.io.FileNotFoundException;
+import java.io.IOException;
+
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.annotations.Test;
 
 import ebayPageObjects.SigninPage;
@@ -9,8 +11,8 @@ import ebayPageObjects.SigninPage;
 public class SigninPageObjectTests {
 	
     @Test
-    public void signinWithPageObjectSingle() throws InterruptedException {
-        WebDriver driver = new FirefoxDriver();
+    public void signinWithPageObjectSingle() throws InterruptedException, FileNotFoundException, IOException {
+        WebDriver driver = util.DriverFactory.createRemoteFirefoxDriver();
         SigninPage signinpage = new SigninPage(driver);
 
         signinpage.enterUsername();
@@ -19,11 +21,7 @@ public class SigninPageObjectTests {
 
         Thread.sleep(5000);
         driver.quit();
-
     }
-    
-
-
 }
 
 

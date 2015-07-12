@@ -1,19 +1,21 @@
 package webdriverBasics;
 
+import java.io.FileNotFoundException;
+import java.io.IOException;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.annotations.Test;
 
 public class FindElement {
 
 
 	@Test
-	public void findById() throws InterruptedException {
+	public void findById() throws InterruptedException, FileNotFoundException, IOException {
 
 		// create the driver and open Firefox
-		WebDriver driver = new FirefoxDriver();
+		WebDriver driver = util.DriverFactory.createRemoteFirefoxDriver();
 
 		// navigate to the URL 
 		driver.get("https://www.google.ch");
@@ -26,10 +28,10 @@ public class FindElement {
 	}
 
 	@Test
-	public void findByName() throws InterruptedException {
+	public void findByName() throws InterruptedException, FileNotFoundException, IOException {
 
 		// create the driver and open Firefox
-		WebDriver driver = new FirefoxDriver();
+		WebDriver driver = util.DriverFactory.createRemoteFirefoxDriver();
 
 		// navigate to the URL 
 		driver.get("https://www.google.ch");
@@ -43,10 +45,10 @@ public class FindElement {
 
 	
 	@Test
-	public void findByClassName() throws InterruptedException {
+	public void findByClassName() throws InterruptedException, FileNotFoundException, IOException {
 
 		// create the driver and open Firefox
-		WebDriver driver = new FirefoxDriver();
+		WebDriver driver = util.DriverFactory.createRemoteFirefoxDriver();
 
 		// navigate to the URL 
 		driver.get("https://www.google.ch");
@@ -60,12 +62,12 @@ public class FindElement {
 	
 	
 	@Test
-	public void findByXpath() throws InterruptedException {
+	public void findByXpath() throws InterruptedException, FileNotFoundException, IOException {
 
 		// create the driver and open Firefox
-		WebDriver driver = new FirefoxDriver();
+		WebDriver driver = util.DriverFactory.createRemoteFirefoxDriver();
 
-		// navigate to the URL 
+		// navigate to the URL�
 		driver.get("https://www.google.ch/");
 		WebElement searchField=driver.findElement(By.xpath("//*[@id='gbqfq']"));
 		searchField.sendKeys("selenium");
@@ -77,10 +79,10 @@ public class FindElement {
 	
 	
 	@Test
-	public void findByLinkText() throws InterruptedException {
+	public void findByLinkText() throws InterruptedException, FileNotFoundException, IOException {
 
 		// create the driver and open Firefox
-		WebDriver driver = new FirefoxDriver();
+		WebDriver driver = util.DriverFactory.createRemoteFirefoxDriver();
 
 		// navigate to the URL 
 		driver.get("http://www.20min.ch/");
@@ -95,10 +97,10 @@ public class FindElement {
 	
 	
 	@Test
-	public void findByPartialLinkText() throws InterruptedException {
+	public void findByPartialLinkText() throws InterruptedException, FileNotFoundException, IOException {
 
 		// create the driver and open Firefox
-		WebDriver driver = new FirefoxDriver();
+		WebDriver driver = util.DriverFactory.createRemoteFirefoxDriver();
 
 		// navigate to the URL 
 		driver.get("http://www.20min.ch/");
