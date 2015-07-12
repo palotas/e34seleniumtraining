@@ -13,7 +13,7 @@ import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
 
-public  class AxaDriverFactory {
+public  class DriverFactory {
 	
 	//static String firefoxProfile = "selenium";
 	//static int proxy_type = 1;  //1=manual config, 2=pac file, 5=share system proxy settings
@@ -44,7 +44,7 @@ public  class AxaDriverFactory {
 	
 	
 	//remote IE driver
-	public static WebDriver createAxaRemoteFirefoxDriver() throws FileNotFoundException, IOException {
+	public static WebDriver createRemoteFirefoxDriver() throws FileNotFoundException, IOException {
 		
 		DesiredCapabilities capabilities = new DesiredCapabilities();
 		capabilities.setBrowserName("firefox");
@@ -54,7 +54,7 @@ public  class AxaDriverFactory {
 	}
 
 	//remote IE driver
-	public static WebDriver createAxaRemoteIEDriver() throws FileNotFoundException, IOException {
+	public static WebDriver createRemoteIEDriver() throws FileNotFoundException, IOException {
 		
 		DesiredCapabilities capabilities = new DesiredCapabilities();
 		capabilities.setBrowserName("internet explorer");
