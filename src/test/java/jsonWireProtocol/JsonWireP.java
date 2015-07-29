@@ -30,7 +30,7 @@ public class JsonWireP {
 		
 		//build capabilities object
 		JsonObject capabilities = new JsonObject();
-		capabilities.addProperty("browserName", "internet explorer");
+		capabilities.addProperty("browserName", "firefox");
 		
 		JsonObject json = new JsonObject();
 		json.add("desiredCapabilities", capabilities);
@@ -63,7 +63,7 @@ public class JsonWireP {
 		HttpClient httpclient = HttpClientBuilder.create().build();
 	
 		//create session
-		HttpPost httpPost = new HttpPost("http://localhost:4444/wd/hub/session/c9ce3053-9fb1-4518-813a-9bb9992df34a/url");
+		HttpPost httpPost = new HttpPost("http://localhost:4444/wd/hub/session/893200ae-98cc-4bbc-824b-331468e749a4/url");
 		httpPost.setHeader("Content-Type", "application/json");			
 		
 		

@@ -5,13 +5,19 @@ import java.io.IOException;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
-import org.openqa.selenium.firefox.FirefoxProfile;
-import org.openqa.selenium.firefox.internal.ProfilesIni;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
 public class BasicTests {
 
+	
+	@Test
+	public void localFirefoxTest() {
+		WebDriver driver = new FirefoxDriver();
+		driver.get("http://gridfusion.net");
+		driver.quit();
+	}
+	
 	@Test
 	public void firstFirefoxTest() throws FileNotFoundException, IOException {
                 
