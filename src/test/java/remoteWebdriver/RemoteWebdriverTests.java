@@ -12,7 +12,7 @@ import org.testng.annotations.Test;
 public class RemoteWebdriverTests {
 
 	@Test
-	public void remoteWebdriverIETest() throws IOException, InterruptedException {
+	public void remoteWebdriverFirefoxTest() throws IOException, InterruptedException {
 
 		//create DesiredCapabilities object and set browser to Firefox
 		DesiredCapabilities capability = new DesiredCapabilities();
