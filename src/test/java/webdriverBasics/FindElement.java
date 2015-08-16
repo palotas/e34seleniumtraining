@@ -6,6 +6,7 @@ import java.io.IOException;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.annotations.Test;
 
 public class FindElement {
@@ -15,7 +16,7 @@ public class FindElement {
 	public void findById() throws InterruptedException, FileNotFoundException, IOException {
 
 		// create the driver and open Firefox
-		WebDriver driver = util.DriverFactory.createRemoteFirefoxDriver();
+		WebDriver driver = new FirefoxDriver();
 
 		// navigate to the URL 
 		driver.get("https://www.google.ch");
@@ -31,7 +32,7 @@ public class FindElement {
 	public void findByName() throws InterruptedException, FileNotFoundException, IOException {
 
 		// create the driver and open Firefox
-		WebDriver driver = util.DriverFactory.createRemoteFirefoxDriver();
+		WebDriver driver = new FirefoxDriver();
 
 		// navigate to the URL 
 		driver.get("https://www.google.ch");
@@ -48,7 +49,7 @@ public class FindElement {
 	public void findByClassName() throws InterruptedException, FileNotFoundException, IOException {
 
 		// create the driver and open Firefox
-		WebDriver driver = util.DriverFactory.createRemoteFirefoxDriver();
+		WebDriver driver = new FirefoxDriver();
 
 		// navigate to the URL 
 		driver.get("https://www.google.ch");
@@ -65,9 +66,9 @@ public class FindElement {
 	public void findByXpath() throws InterruptedException, FileNotFoundException, IOException {
 
 		// create the driver and open Firefox
-		WebDriver driver = util.DriverFactory.createRemoteFirefoxDriver();
+		WebDriver driver = new FirefoxDriver();
 
-		// navigate to the URL�
+		// navigate to the URL�
 		driver.get("https://www.google.ch/");
 		WebElement searchField=driver.findElement(By.xpath("//*[@id='gbqfq']"));
 		searchField.sendKeys("selenium");
@@ -82,7 +83,7 @@ public class FindElement {
 	public void findByLinkText() throws InterruptedException, FileNotFoundException, IOException {
 
 		// create the driver and open Firefox
-		WebDriver driver = util.DriverFactory.createRemoteFirefoxDriver();
+		WebDriver driver = new FirefoxDriver();
 
 		// navigate to the URL 
 		driver.get("http://www.20min.ch/");
@@ -100,7 +101,7 @@ public class FindElement {
 	public void findByPartialLinkText() throws InterruptedException, FileNotFoundException, IOException {
 
 		// create the driver and open Firefox
-		WebDriver driver = util.DriverFactory.createRemoteFirefoxDriver();
+		WebDriver driver = new FirefoxDriver();
 
 		// navigate to the URL 
 		driver.get("http://www.20min.ch/");
