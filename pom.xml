@@ -45,14 +45,6 @@
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-surefire-plugin</artifactId>
         <version>2.15</version>
- 
- 
-        <configuration>
-          <suiteXmlFiles>
-            <suiteXmlFile>testngXmlFiles/testng_verbose.xml</suiteXmlFile>
-          </suiteXmlFiles>
-        </configuration>
-
       </plugin>
 
     </plugins>   
