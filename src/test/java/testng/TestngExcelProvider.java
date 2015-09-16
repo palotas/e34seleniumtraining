@@ -52,34 +52,12 @@ public class TestngExcelProvider{
     @Test(dataProvider = "DP")
     public void mytest(String username, String password) throws InterruptedException {
 
-        System.out.println("here is my output");
+        System.out.println("Output from test: ");
     }
 
 
 
 
-/*
-    public static void main(String[] args) throws Exception {
-        String[][] data;
-        data = excelRead();
-        if (data != null) {
-            int j = 0;
-            String aValue = null;
-            for (int i = 1; i < data.length; i++) {
-                int pageCount = findcount(data[i][1], data[i][2]); //vary depending upon the Excel columns
-                if (pageCount > j) {
-                    j = pageCount;
-                    aValue = data[i][1];
-                }
-                System.out.println("The count of the data[" + i + "][1] is: "
-                        + data[i][1] + " = " + pageCount);
-            }
-            System.out.println("Greater value: " + aValue + " = " + j);
-        } else {
-            System.out.println("No records...");
-        }
-    }
-*/
     public static String cellToString(XSSFCell cell) {
 
         Object result;
