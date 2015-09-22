@@ -1,26 +1,26 @@
 package webdriverBasics;
 
-import java.io.FileNotFoundException;
-import java.io.IOException;
-
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.annotations.Test;
 
+import java.io.FileNotFoundException;
+import java.io.IOException;
+
 public class FindElement {
 
 
 	@Test
-	public void findById() throws InterruptedException, FileNotFoundException, IOException {
+	public void findById() throws FileNotFoundException, InterruptedException {
 
 		// create the driver and open Firefox
 		WebDriver driver = new FirefoxDriver();
 
 		// navigate to the URL 
 		driver.get("https://www.google.ch");
-		WebElement searchField=driver.findElement(By.id("gbqfq"));
+		WebElement searchField=driver.findElement(By.id("lst-ib"));
 		searchField.sendKeys("selenium");
 		
 		Thread.sleep(5000);
@@ -29,7 +29,7 @@ public class FindElement {
 	}
 
 	@Test
-	public void findByName() throws InterruptedException, FileNotFoundException, IOException {
+	public void findByName() throws InterruptedException, IOException {
 
 		// create the driver and open Firefox
 		WebDriver driver = new FirefoxDriver();
@@ -46,7 +46,7 @@ public class FindElement {
 
 	
 	@Test
-	public void findByClassName() throws InterruptedException, FileNotFoundException, IOException {
+	public void findByClassName() throws InterruptedException, IOException {
 
 		// create the driver and open Firefox
 		WebDriver driver = new FirefoxDriver();
@@ -63,7 +63,7 @@ public class FindElement {
 	
 	
 	@Test
-	public void findByXpath() throws InterruptedException, FileNotFoundException, IOException {
+	public void findByXpath() throws InterruptedException, IOException {
 
 		// create the driver and open Firefox
 		WebDriver driver = new FirefoxDriver();
@@ -80,7 +80,7 @@ public class FindElement {
 	
 	
 	@Test
-	public void findByLinkText() throws InterruptedException, FileNotFoundException, IOException {
+	public void findByLinkText() throws InterruptedException, IOException {
 
 		// create the driver and open Firefox
 		WebDriver driver = new FirefoxDriver();
@@ -98,7 +98,7 @@ public class FindElement {
 	
 	
 	@Test
-	public void findByPartialLinkText() throws InterruptedException, FileNotFoundException, IOException {
+	public void findByPartialLinkText() throws InterruptedException, IOException {
 
 		// create the driver and open Firefox
 		WebDriver driver = new FirefoxDriver();
