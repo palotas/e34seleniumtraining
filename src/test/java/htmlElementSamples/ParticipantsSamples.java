@@ -35,6 +35,46 @@ public class ParticipantsSamples {
     }
   */
 
+
+    @Test
+    public void getAllCheckedElementsOnPage() throws InterruptedException {
+        WebDriver driver = new FirefoxDriver();
+        driver.get("http://gridfusion.net/testpage.html");
+        List<WebElement> radioButtons = driver.findElements(By.cssSelector(":checked"));
+        Assert.assertEquals(2, radioButtons.size());
+
+        Thread.sleep(3000);
+        driver.quit();
+    }
+
+
+    @Test
+    public void getAllElementsWithAnAttributeValue() throws InterruptedException {
+        WebDriver driver = new FirefoxDriver();
+        driver.get("http://gridfusion.net/testpage.html");
+        List<WebElement> radioButtons = driver.findElements(By.cssSelector("[value]"));
+        Assert.assertEquals(12, radioButtons.size());
+
+        Thread.sleep(3000);
+        driver.quit();
+    }
+
+
+    @Test
+    public void verify4LinksOnPage() throws InterruptedException {
+        WebDriver driver = new FirefoxDriver();
+        driver.get("http://gridfusion.net/testpage.html");
+
+        List<WebElement> radioButtons = driver.findElements(By.cssSelector("a[href]"));
+        Assert.assertEquals(4, radioButtons.size());
+
+        Thread.sleep(3000);
+        driver.quit();
+    }
+
+
+
+
     @Test
     public void pageHasFiveRadioButtonsCssSelector()
     {
