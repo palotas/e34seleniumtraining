@@ -6,6 +6,7 @@ import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.Test;
 
@@ -48,7 +49,7 @@ public class CustomWait {
 			driver.findElement(By.cssSelector("#start > button")).click();
 			//first try without explicit wait
 			//wait.until((ExpectedConditions.visibilityOfElementLocated(By.cssSelector("#finish"))));
-			System.out.println(driver.findElement(By.cssSelector("#finish")).getText());			
+			System.out.println(driver.findElement(By.cssSelector("#finish")).getText();
 		}
 		finally {
 			driver.quit();
