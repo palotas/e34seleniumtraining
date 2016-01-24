@@ -49,7 +49,7 @@ public class CustomWait {
 			driver.findElement(By.cssSelector("#start > button")).click();
 			//first try without explicit wait
 			//wait.until((ExpectedConditions.visibilityOfElementLocated(By.cssSelector("#finish"))));
-			System.out.println(driver.findElement(By.cssSelector("#finish")).getText();
+			System.out.println(driver.findElement(By.cssSelector("#finish")).getText());
 		}
 		finally {
 			driver.quit();
