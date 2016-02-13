@@ -4,6 +4,9 @@ package testng;
  * Created by gridfusion on 15/09/15.
  */
 
+import java.io.File;
+import java.io.FileInputStream;
+
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.xssf.usermodel.XSSFCell;
 import org.apache.poi.xssf.usermodel.XSSFRow;
@@ -13,9 +16,6 @@ import org.openqa.selenium.WebDriver;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
-import java.io.File;
-import java.io.FileInputStream;
-
 public class TestngExcelProvider{
     private static WebDriver driver;
     private static String baseUrl;
@@ -23,7 +23,7 @@ public class TestngExcelProvider{
 
     @DataProvider(name = "DP")
     public static String[][] excelRead() throws Exception {
-        File excel = new File("/Users/gridfusion/Desktop/tmp/exceldata.xlsx");
+        File excel = new File("/home/gridfusion/SeleniumTraining/Workspace/SeleniumTraining/exceldata.xlsx");
         FileInputStream fis = new FileInputStream(excel);
 
         XSSFWorkbook wb = new XSSFWorkbook(fis);
