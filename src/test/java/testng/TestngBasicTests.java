@@ -9,11 +9,11 @@ public class TestngBasicTests {
 	
 	@Test
 	public void myFirstTestngTest() {
-		int a = 1;
+		int a = 3;
 		int b = 2;
 		int c;
 		c = a + b;
-		Assert.assertTrue(c==3);
+		Assert.assertEquals(c, 3);
 		System.out.println("myFirstTestngTest...");	
 	}
 
