@@ -42,7 +42,7 @@ public class BasicTests {
 	public void pageTitleTestWithAssertNoTryCatch() throws FileNotFoundException, IOException {
 		WebDriver driver = new FirefoxDriver();
 		driver.get("http://gridfusion.net");
-		Assert.assertEquals(driver.getTitle(), "GRIDFUSION");
+		Assert.assertEquals(driver.getTitle(), "GRIDFUSIONhds");
 		driver.quit();
 	}
 	
