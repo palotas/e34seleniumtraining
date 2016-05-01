@@ -1,14 +1,14 @@
 package misc;
 
-import java.io.FileNotFoundException;
-import java.io.IOException;
-
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.Test;
+
+import java.io.FileNotFoundException;
+import java.io.IOException;
 
 public class Scroll {
 
@@ -18,7 +18,7 @@ public class Scroll {
 
 		WebDriver driver = new FirefoxDriver();
 		JavascriptExecutor jse = (JavascriptExecutor)driver;
-		driver.get("http://gridfusion.net");
+		driver.get("http://www.element34.net");
 		jse.executeScript("window.scrollBy(0,1000)", "");
 		
 		Thread.sleep(5000);
