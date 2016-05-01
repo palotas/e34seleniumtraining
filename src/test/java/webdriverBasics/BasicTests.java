@@ -1,12 +1,12 @@
 package webdriverBasics;
 
-import java.io.FileNotFoundException;
-import java.io.IOException;
-
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.Assert;
 import org.testng.annotations.Test;
+
+import java.io.FileNotFoundException;
+import java.io.IOException;
 
 public class BasicTests {
 	
@@ -16,7 +16,7 @@ public class BasicTests {
 		WebDriver driver = new FirefoxDriver();
 		
 		// navigate to the URL
-		driver.get("http://gridfusion.net");
+		driver.get("http://www.element34.net");
 
 		// close the Browser
 		driver.quit();
