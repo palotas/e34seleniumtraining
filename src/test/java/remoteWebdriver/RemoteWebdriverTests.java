@@ -1,12 +1,12 @@
 package remoteWebdriver;
 
-import java.io.IOException;
-import java.net.URL;
-
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.testng.annotations.Test;
+
+import java.io.IOException;
+import java.net.URL;
 
 
 public class RemoteWebdriverTests {
@@ -19,7 +19,7 @@ public class RemoteWebdriverTests {
 		capability.setBrowserName("chrome");				 
 		WebDriver driver = new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"), capability);
 
-		driver.get("http://gridfusion.net");
+		driver.get("http://www.element34.net");
 		Thread.sleep(1000);
 		driver.quit();		
 	}

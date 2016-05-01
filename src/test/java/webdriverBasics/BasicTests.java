@@ -28,7 +28,7 @@ public class BasicTests {
 	public void pageTitleTest() throws InterruptedException, FileNotFoundException, IOException {
 
 		WebDriver driver = new FirefoxDriver();
-		driver.get("http://gridfusion.net");
+		driver.get("http://www.element34.net");
 		String pageTitle = driver.getTitle();
 		System.out.println("Page Title: " + pageTitle);
 		
@@ -41,8 +41,8 @@ public class BasicTests {
 	@Test
 	public void pageTitleTestWithAssertNoTryCatch() throws FileNotFoundException, IOException {
 		WebDriver driver = new FirefoxDriver();
-		driver.get("http://gridfusion.net");
-		Assert.assertEquals(driver.getTitle(), "GRIDFUSIONhds");
+		driver.get("http://www.element34.net");
+		Assert.assertEquals(driver.getTitle(), "Element34 Solutions");
 		driver.quit();
 	}
 	
@@ -51,8 +51,8 @@ public class BasicTests {
 	public void pageTitleTestWithAssert() throws FileNotFoundException, IOException {
 		WebDriver driver = new FirefoxDriver();
 		try {
-			driver.get("http://gridfusion.net");
-			Assert.assertEquals(driver.getTitle(), "ridfusion");			
+			driver.get("http://www.element34.net");
+			Assert.assertEquals(driver.getTitle(), "Element34 Solut");
 		}
 		finally {
 			driver.quit();			
