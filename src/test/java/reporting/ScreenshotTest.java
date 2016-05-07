@@ -1,4 +1,4 @@
-package screenshot;
+package reporting;
 
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.Test;
