@@ -1,9 +1,10 @@
 package pageObjects;
 
-import junit.framework.Assert;
 import org.openqa.selenium.By;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.testng.Assert;
 import org.testng.annotations.Test;
 
 /**
@@ -21,7 +22,8 @@ public class NzzTest {
         loginPage.enterLoginPass();
         loginPage.clickAnmeldenButton();
 
-        Assert.assertTrue(isElementPresent(driver, "message-password-mismatch"));
+        //Assert.assertTrue(isElementPresent(driver, "message-password-mismatch"));
+        Assert.assertTrue(isElementPresent(driver, By.className("message-password-mismatch")));
 
         driver.quit();
 
@@ -29,6 +31,16 @@ public class NzzTest {
 
     public boolean isElementPresent(WebDriver driver, String className) {
         return driver.findElements(By.className(className)).size() != 0;
+    }
+
+    public boolean isElementPresent(WebDriver driver, By by) {
+
+        try {
+            driver.findElement(by);
+            return true;
+        } catch (NoSuchElementException e) {
+            return false;
+        }
     }
 
 }
