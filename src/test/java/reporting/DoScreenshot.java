@@ -15,8 +15,9 @@ import java.io.IOException;
 public class DoScreenshot {
 
 
-    final static String path = "/Users/Gridfusion/tmp/screenshots/";
-		
+	//final static String path = "/Users/Gridfusion/tmp/screenshots/";
+	final static String path = "/home/e34/Workspace/Seleniumtraining/screenshots/";
+
 	public static void takeScreenshotNoReport(WebDriver driver) throws Exception {
 		
 	  	RemoteWebDriver newDriver = (RemoteWebDriver)driver;

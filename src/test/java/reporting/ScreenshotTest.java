@@ -9,7 +9,7 @@ public class ScreenshotTest {
 	public void testWithScreenshot() throws Exception {
 		
 		WebDriver driver = util.DriverFactory.createRemoteFirefoxDriver();
-		driver.get("http://gridfusion.net");
+		driver.get("http://www.element34.net");
 		DoScreenshot.takeScreenshotNoReport(driver);
 		driver.quit();
 	}
@@ -20,7 +20,7 @@ public class ScreenshotTest {
 
 		WebDriver driver = util.DriverFactory.createRemoteFirefoxDriver();
 		
-		driver.get("http://gridfusion.net");
+		driver.get("http://www.element34.net");
 		DoScreenshot.remoteWebDriverScreenshot(driver);
 		driver.quit();
 	}
