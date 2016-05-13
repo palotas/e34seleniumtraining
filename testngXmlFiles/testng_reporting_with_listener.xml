@@ -7,13 +7,12 @@
 	<classes>
 	      <class name="reporting.ReportingTest"/>
 	</classes>
-	
-	 <listeners>
- 		<listener class-name="listeners.MyListener"/>
- 		<listener class-name="reporting.CustomReporter"/>
- 	</listeners>
-	
+
   </test>
+
+    <listeners>
+        <listener class-name="listeners.MyListener"/>
+    </listeners>
 </suite>
 
 
