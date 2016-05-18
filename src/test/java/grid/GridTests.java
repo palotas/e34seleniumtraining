@@ -13,7 +13,7 @@ import org.testng.annotations.Test;
 
 public class GridTests {
 
-	@DataProvider(name = "capabilitiesProvider", parallel = true)
+	@DataProvider(name = "capabilitiesProvider")
 	public Object[][] getCapabilities() {
 		return new Object[][] {
 				{DesiredCapabilities.firefox()},
