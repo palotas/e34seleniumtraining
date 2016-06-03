@@ -12,12 +12,12 @@ import org.testng.annotations.Test;
 
 public class DataProviderTest {
 
-	@DataProvider(name = "urlprovider")
+	@DataProvider(name = "urlprovider", parallel=true)
 	public Object[][] createData2() {
 	 return new Object[][] {
-	   {"1", "de", "Home | AXA Winterthur"},
-	   {"2", "en", "Home | AXA Winterthur"},
-	   {"3", "fr", "Home | AXA Winterthur"}
+	   {"1", "de", "Cloud Logistik Software für Transport Management"},
+	   {"2", "en", "Cloud Logistics Software for Transportation Management"},
+	   {"3", "fr", "TRANSPOREON - TMS Leader en Europe - La plateforme de communication logistique entre chargeurs et transporteurs"}
 	 };
 	}
 
@@ -26,7 +26,7 @@ public class DataProviderTest {
 
 		WebDriver driver = util.DriverFactory.createRemoteFirefoxDriver();
 		try{
-			driver.get("https://www.axa-winterthur.ch/" + language);	
+			driver.get("https://www.transporeon.com/" + language);
 			System.out.println(driver.getTitle());
 			Assert.assertEquals(driver.getTitle(), expectedTitle);	
 		}
