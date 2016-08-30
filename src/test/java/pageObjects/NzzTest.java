@@ -4,6 +4,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.remote.DesiredCapabilities;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -15,7 +16,10 @@ public class NzzTest {
     @Test
     public void loginTest() throws InterruptedException {
 
-        WebDriver driver = new FirefoxDriver();
+        DesiredCapabilities capabilities = DesiredCapabilities.firefox();
+        capabilities.setCapability("marionette", false);
+        WebDriver driver = new FirefoxDriver(capabilities);
+
         NzzLoginPage loginPage = new NzzLoginPage(driver);
 
         loginPage.enterLoginName();

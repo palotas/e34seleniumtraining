@@ -43,11 +43,12 @@ public  class DriverFactory {
 	
 	
 	
-	//remote IE driver
+	//remote FF driver
 	public static WebDriver createRemoteFirefoxDriver() throws FileNotFoundException, IOException {
 		
 		DesiredCapabilities capabilities = new DesiredCapabilities();
 		capabilities.setBrowserName("firefox");
+		capabilities.setCapability("marionette", false);
 
 		WebDriver driver = new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"), capabilities);
 	    return driver;

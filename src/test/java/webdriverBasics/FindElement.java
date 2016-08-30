@@ -4,6 +4,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.remote.DesiredCapabilities;
 import org.testng.annotations.Test;
 
 import java.io.FileNotFoundException;
@@ -16,7 +17,9 @@ public class FindElement {
 	public void findById() throws FileNotFoundException, InterruptedException {
 
 		// create the driver and open Firefox
-		WebDriver driver = new FirefoxDriver();
+		DesiredCapabilities capabilities = DesiredCapabilities.firefox();
+		capabilities.setCapability("marionette", false);
+		WebDriver driver = new FirefoxDriver(capabilities);
 
 		// navigate to the URL 
 		driver.get("https://www.google.ch");
@@ -32,7 +35,9 @@ public class FindElement {
 	public void findByName() throws InterruptedException, IOException {
 
 		// create the driver and open Firefox
-		WebDriver driver = new FirefoxDriver();
+		DesiredCapabilities capabilities = DesiredCapabilities.firefox();
+		capabilities.setCapability("marionette", false);
+		WebDriver driver = new FirefoxDriver(capabilities);
 
 		// navigate to the URL 
 		driver.get("https://www.google.ch");
@@ -49,7 +54,9 @@ public class FindElement {
 	public void findByClassName() throws InterruptedException, IOException {
 
 		// create the driver and open Firefox
-		WebDriver driver = new FirefoxDriver();
+		DesiredCapabilities capabilities = DesiredCapabilities.firefox();
+		capabilities.setCapability("marionette", false);
+		WebDriver driver = new FirefoxDriver(capabilities);
 
 		// navigate to the URL 
 		driver.get("https://www.google.ch");
@@ -66,7 +73,10 @@ public class FindElement {
 	public void findByXpath() throws InterruptedException, IOException {
 
 		// create the driver and open Firefox
-		WebDriver driver = new FirefoxDriver();
+		DesiredCapabilities capabilities = DesiredCapabilities.firefox();
+		capabilities.setCapability("marionette", false);
+		WebDriver driver = new FirefoxDriver(capabilities);
+
 
 		// navigate to the URL�
 		driver.get("https://www.google.ch/");
@@ -83,7 +93,9 @@ public class FindElement {
 	public void findByLinkText() throws InterruptedException, IOException {
 
 		// create the driver and open Firefox
-		WebDriver driver = new FirefoxDriver();
+		DesiredCapabilities capabilities = DesiredCapabilities.firefox();
+		capabilities.setCapability("marionette", false);
+		WebDriver driver = new FirefoxDriver(capabilities);
 
 		// navigate to the URL 
 		driver.get("http://www.20min.ch/");
@@ -101,7 +113,9 @@ public class FindElement {
 	public void findByPartialLinkText() throws InterruptedException, IOException {
 
 		// create the driver and open Firefox
-		WebDriver driver = new FirefoxDriver();
+		DesiredCapabilities capabilities = DesiredCapabilities.firefox();
+		capabilities.setCapability("marionette", false);
+		WebDriver driver = new FirefoxDriver(capabilities);
 
 		// navigate to the URL 
 		driver.get("http://www.20min.ch/");

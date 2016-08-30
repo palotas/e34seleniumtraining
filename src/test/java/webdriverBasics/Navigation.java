@@ -7,6 +7,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.remote.DesiredCapabilities;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -15,7 +16,10 @@ public class Navigation {
 
 	@Test
 	public void navigate() throws InterruptedException, FileNotFoundException, IOException {
-		WebDriver driver = new FirefoxDriver();
+		DesiredCapabilities capabilities = DesiredCapabilities.firefox();
+		capabilities.setCapability("marionette", false);
+		WebDriver driver = new FirefoxDriver(capabilities);
+
 		driver.get("http://www.20min.ch/");
 		
 		WebElement link = driver.findElement(By.linkText("Schweiz"));
