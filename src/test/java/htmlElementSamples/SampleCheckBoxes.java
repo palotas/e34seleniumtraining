@@ -21,15 +21,15 @@ public class SampleCheckBoxes {
 		WebDriver driver = util.DriverFactory.createRemoteFirefoxDriver();
 		
 		try {
-			driver.get("http://gridfusion.net/testpage.html");
+			driver.get("http://www.element34.net/testpage");
 			
 			WebElement checkBoxForm = driver.findElement(By.id("checkboxform"));
 			
 			//check how many checkboxes there are
 			List<WebElement> checkBoxes = checkBoxForm.findElements(By.tagName("input"));
-			Assert.assertEquals(checkBoxes.size(), 3);
+			Assert.assertEquals(checkBoxes.size(), 2);
 			
-			//Check if Salami (checkbox 1) is checked. If yes uncheck it
+			//Check if bike (checkbox 1) is checked. If yes uncheck it
 			Thread.sleep(2000);
 			WebElement checkBox = checkBoxes.get(0);
 			

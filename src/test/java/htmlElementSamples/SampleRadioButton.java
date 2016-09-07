@@ -18,21 +18,20 @@ public class SampleRadioButton {
 		WebDriver driver = util.DriverFactory.createRemoteFirefoxDriver();
 		
 		try {
-			driver.get("http://gridfusion.net/testpage.html");
+			driver.get("http://element34.net/testpage");
 			
 			WebElement radioButtonsForm = driver.findElement(By.id("radiobuttons"));
 			
 			//check how many there are
 			List<WebElement> radioButtons = radioButtonsForm.findElements(By.tagName("input"));
-			Assert.assertEquals(radioButtons.size(), 5);
+			Assert.assertEquals(radioButtons.size(), 3);
 			
 			//check if they are the correct entries
 			List<String> expectedEntries = new ArrayList<String>();
-			expectedEntries.add("katze");
-			expectedEntries.add("hund");
-			expectedEntries.add("loewe");
-			expectedEntries.add("tiger");
-			expectedEntries.add("vogel");
+			expectedEntries.add("male");
+			expectedEntries.add("female");
+			expectedEntries.add("other");
+
 			int x = 0;
 			
 			for (WebElement radioButton : radioButtons) {
@@ -41,7 +40,7 @@ public class SampleRadioButton {
 				x++;
 			}
 			
-			WebElement myRadioButton = driver.findElement(By.id("bird"));
+			WebElement myRadioButton = driver.findElement(By.id("other"));
 			myRadioButton.click();
 			
 			Thread.sleep(2000);
