@@ -1,6 +1,7 @@
 package webdriverBasics;
 
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.testng.Assert;
@@ -24,8 +25,21 @@ public class BasicTests {
 		// close the Browser
 		driver.quit();
 	}
-	
 
+
+	@Test
+	public void firstChromeTest() throws FileNotFoundException, IOException {
+
+		System.setProperty("webdriver.chrome.driver", "/home/e34/Downloads/chromedriver");
+		DesiredCapabilities capabilities = DesiredCapabilities.chrome();
+		WebDriver driver = new ChromeDriver(capabilities);
+
+		// navigate to the URL
+		driver.get("http://www.element34.net");
+
+		// close the Browser
+		driver.quit();
+	}
 
 	@Test
 	public void pageTitleTest() throws InterruptedException, FileNotFoundException, IOException {
