@@ -2,6 +2,7 @@ package pageObjects;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.remote.DesiredCapabilities;
 import org.testng.annotations.Test;
 
 import java.io.FileNotFoundException;
@@ -16,9 +17,11 @@ public class SelectPageObjectTest {
     @Test
     public void testpageTest() throws InterruptedException, FileNotFoundException, IOException {
 
-        WebDriver driver = new FirefoxDriver();
+        DesiredCapabilities capabilities = DesiredCapabilities.firefox();
+        capabilities.setCapability("marionette", false);
+        WebDriver driver = new FirefoxDriver(capabilities);
 
-        driver.get("http://gridfusion.net/testpage.html");
+        driver.get("http://www.element34.net/testpage");
 
         SelectPageObject mypage = new SelectPageObject(driver);
         mypage.selectDropdown();
