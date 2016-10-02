@@ -19,7 +19,7 @@ public class SampleDropDown {
 		WebDriver driver = util.DriverFactory.createRemoteFirefoxDriver();
 		
 		try {
-			driver.get("http://gridfusion.net/testpage.html");
+			driver.get("http://element34.net/testpage");
 			
 			Select dropdown = new Select(driver.findElement(By.id("dropdown")));
 			dropdown.selectByVisibleText("Mercedes");
