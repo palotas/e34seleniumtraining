@@ -5,6 +5,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
+import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
 import java.io.FileNotFoundException;
@@ -12,13 +13,33 @@ import java.io.IOException;
 
 public class FindElement {
 
+	@BeforeTest
+	public void setup() {
+		String OS = System.getProperty("os.name");
+
+		switch (OS) {
+			case "Linux":
+				System.setProperty("webdriver.gecko.driver","/home/e34/Downloads/geckodriver");
+				System.setProperty("webdriver.chrome.driver", "/home/e34/Downloads/chromedriver");
+				break;
+
+			case "Mac OS X":
+				System.setProperty("webdriver.gecko.driver","/Users/gridfusion/Downloads/geckodriver");
+				System.setProperty("webdriver.chrome.driver", "/Users/gridfusion/Downloads/chromedriver");
+				break;
+
+			default:
+				System.out.println(System.getProperty("os.name") + " is not supported ");
+				break;
+		}
+	}
+
 
 	@Test
 	public void findById() throws FileNotFoundException, InterruptedException {
 
 		// create the driver and open Firefox
 		DesiredCapabilities capabilities = DesiredCapabilities.firefox();
-		capabilities.setCapability("marionette", false);
 		WebDriver driver = new FirefoxDriver(capabilities);
 
 		// navigate to the URL 
@@ -36,7 +57,6 @@ public class FindElement {
 
 		// create the driver and open Firefox
 		DesiredCapabilities capabilities = DesiredCapabilities.firefox();
-		capabilities.setCapability("marionette", false);
 		WebDriver driver = new FirefoxDriver(capabilities);
 
 		// navigate to the URL 
@@ -55,7 +75,6 @@ public class FindElement {
 
 		// create the driver and open Firefox
 		DesiredCapabilities capabilities = DesiredCapabilities.firefox();
-		capabilities.setCapability("marionette", false);
 		WebDriver driver = new FirefoxDriver(capabilities);
 
 		// navigate to the URL 
@@ -74,7 +93,6 @@ public class FindElement {
 
 		// create the driver and open Firefox
 		DesiredCapabilities capabilities = DesiredCapabilities.firefox();
-		capabilities.setCapability("marionette", false);
 		WebDriver driver = new FirefoxDriver(capabilities);
 
 
@@ -94,7 +112,6 @@ public class FindElement {
 
 		// create the driver and open Firefox
 		DesiredCapabilities capabilities = DesiredCapabilities.firefox();
-		capabilities.setCapability("marionette", false);
 		WebDriver driver = new FirefoxDriver(capabilities);
 
 		// navigate to the URL 
@@ -114,7 +131,6 @@ public class FindElement {
 
 		// create the driver and open Firefox
 		DesiredCapabilities capabilities = DesiredCapabilities.firefox();
-		capabilities.setCapability("marionette", false);
 		WebDriver driver = new FirefoxDriver(capabilities);
 
 		// navigate to the URL 
