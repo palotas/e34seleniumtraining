@@ -1,0 +1,18 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+  
+<suite name="TestNG Reporting with Listener" verbose="1" parallel="methods" >
+ 
+  <test name="Listener Tests">
+      <parameter name="browserName" value="remote"></parameter>
+      <classes>
+	      <class name="factory.TestsWithListener"/>
+	</classes>
+  </test>
+
+    <listeners>
+        <listener class-name="factory.WebDriverListener"/>
+    </listeners>
+</suite>
+
+
+
