@@ -1,18 +1,12 @@
-package pageObjects;
-
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
-import org.openqa.selenium.remote.DesiredCapabilities;
+package factory;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
-import java.io.FileNotFoundException;
-import java.io.IOException;
-
 /**
- * Created by gridfusion on 07/05/16.
+ * Created by e34 on 01.01.17.
  */
-public class SelectPageObjectTest {
+
+public class ThreadLocalDemo {
 
     @BeforeTest
     public void setup() {
@@ -35,20 +29,25 @@ public class SelectPageObjectTest {
         }
     }
 
+    @Test
+    public void testMethod1() {
+        invokeBrowser("http://www.ndtv.com");
+    }
 
     @Test
-    public void testpageTest() throws InterruptedException, IOException {
+    public void testMethod2() {
+        invokeBrowser("http://www.facebook.com");
 
-        DesiredCapabilities capabilities = DesiredCapabilities.firefox();
-        WebDriver driver = new FirefoxDriver(capabilities);
+    }
 
-        driver.get("http://www.element34.net/testpage");
+    @Test
+    public void test() {
+    }
 
-        SelectPageObject mypage = new SelectPageObject(driver);
-        mypage.selectDropdown();
-
-        Thread.sleep(3000);
-        driver.quit();
+    private void invokeBrowser(String url) {
+        System.out.println("Thread id = " + Thread.currentThread().getId());
+        System.out.println("Hashcode of webDriver instance = " + LocalDriverManager.getDriver().hashCode());
+        LocalDriverManager.getDriver().get(url);
 
     }
 }

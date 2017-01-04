@@ -16,11 +16,11 @@ public class RemoteWebdriverTests {
 
 		//create DesiredCapabilities object and set browser to Firefox
 		DesiredCapabilities capability = new DesiredCapabilities();
-		capability.setBrowserName("chrome");				 
+		capability.setBrowserName("chrome");
 		WebDriver driver = new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"), capability);
 
-		driver.get("http://www.element34.net");
-		Thread.sleep(1000);
-		driver.quit();		
+		driver.get("http://www.google.com");
+		System.out.println(driver.getTitle());
+		driver.quit();
 	}
 }
