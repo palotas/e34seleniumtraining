@@ -13,14 +13,14 @@ import org.testng.annotations.Test;
 @Listeners({WebDriverListener.class, ParallelListener.class})
 public class TestsWithListener {
 
-    @Test(groups = "wip")
+    @Test(groups = {"smoke"})
     public void test1() {
         WebDriver driver = LocalDriverManager.getDriver();
         driver.get("http://www.google.com");
         Assert.assertEquals(driver.getTitle(), "Google");
     }
 
-    @Test(groups = "wip", enabled = true)
+    @Test(groups = {"wip"})
     public void test2() {
         WebDriver driver = LocalDriverManager.getDriver();
         driver.get("http://www.google.com");

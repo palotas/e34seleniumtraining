@@ -14,14 +14,8 @@ public class ParallelListener implements ISuiteListener {
     @Override
     public void onStart(ISuite iSuite) {
 
-        //List<String> excluded = Arrays.asList("wip", "smoke", "off");
-        //Map<String, String> param = new HashMap<String, String>();
-        //param.put("browserName", "firefox");
-
         iSuite.getXmlSuite().setParallel(XmlSuite.ParallelMode.METHODS);
-        //iSuite.getXmlSuite().setName("Listener Tests");
-        //iSuite.getXmlSuite().setExcludedGroups(excluded);
-        //iSuite.getXmlSuite().setParameters(param);
+        iSuite.getXmlSuite().setName("Listener Tests");
 
 
         System.out.println("Thread count: " + iSuite.getXmlSuite().getThreadCount());
