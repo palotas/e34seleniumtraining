@@ -26,3 +26,5 @@ Start Grid Hub:
 Register node:
 - $ docker run -d --link selenium-hub:hub selenium/node-chrome:3.0.1-carbon
 - $ docker run -d --link selenium-hub:hub selenium/node-firefox:3.0.1-carbon
+
+https://rationaleemotions.wordpress.com/2013/07/31/parallel-webdriver-executions-using-testng/
