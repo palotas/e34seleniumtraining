@@ -46,12 +46,12 @@ public class ShadowDom {
 	@Test
 	public void firefoxPolymerShadowDom() throws FileNotFoundException, IOException {
 
-		WebDriver driver = new ChromeDriver();
+		WebDriver driver = new FirefoxDriver();
 
 		System.out.println("Open Online Shop");
 		driver.get("https://shop.polymer-project.org/");
 
-		WebDriverWait wait = new WebDriverWait(driver, 5);
+		WebDriverWait wait = new WebDriverWait(driver,20);
 		By byMenu = By.linkText("Ladies Outerwear");
 		wait.until(ExpectedConditions.visibilityOfElementLocated(byMenu));
 		driver.findElement(byMenu).click();

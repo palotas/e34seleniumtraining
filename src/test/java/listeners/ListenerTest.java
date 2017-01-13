@@ -52,7 +52,7 @@ public class ListenerTest {
 
             driver.get("http://www.spiegel.de");
             System.out.println(driver.getTitle());
-            Assert.assertTrue(true);
+            Assert.assertTrue(false);
 
     }
 
