@@ -28,7 +28,7 @@ Register node:
 - $ docker run -d --link selenium-hub:hub selenium/node-firefox:3.0.1-carbon
 
 ## Stop / remove docker containers
-- Kill all docker containers: docker kill $(docker ps -q)
-- Remove all docker containers: docker rm $(docker ps -a -q)
+- Kill all docker containers: ```docker kill $(docker ps -q)
+- Remove all docker containers: ```docker rm $(docker ps -a -q)```
 
 https://rationaleemotions.wordpress.com/2013/07/31/parallel-webdriver-executions-using-testng/
