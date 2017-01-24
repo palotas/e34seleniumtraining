@@ -31,4 +31,9 @@ Register node:
 - Kill all docker containers: ```docker kill $(docker ps -q)```
 - Remove all docker containers: ```docker rm $(docker ps -a -q)```
 
+## Start Grid with json config
+java -jar selenium-server-standalone-3.0.1.jar -role hub -hubConfig ~/Workspace/Seleniumtraining/nodeconfigs/hubConfig.json
+java -jar selenium-server-standalone-3.0.1.jar -role node -nodeConfig ~/Workspace/Seleniumtraining/nodeconfigs/nodeConfig.json
+
+
 https://rationaleemotions.wordpress.com/2013/07/31/parallel-webdriver-executions-using-testng/
