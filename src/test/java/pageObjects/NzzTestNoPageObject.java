@@ -44,13 +44,13 @@ public class NzzTestNoPageObject {
 
         NzzLoginPage loginPage = new NzzLoginPage(driver);
 
-        WebElement login = driver.findElement(By.id("loginName"));
+        WebElement login = driver.findElement(By.name("loginName"));
         login.sendKeys("testuser1@test.ch");
 
-        WebElement password = driver.findElement(By.id("loginPass"));
+        WebElement password = driver.findElement(By.name("loginPass"));
         password.sendKeys("testpassword");
 
-        driver.findElement(By.name("getSsoTicket")).click();
+        driver.findElement(By.className("btn")).click();
 
 
         //Assert.assertTrue(isElementPresent(driver, "message-password-mismatch"));

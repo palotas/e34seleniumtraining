@@ -5,7 +5,7 @@
   <test name="Regression Test 1">
 	<groups>
 		<run>
-			<exclude name="smoke"/>
+			<include name="smoke"/>
 		</run>
 	</groups>
 	

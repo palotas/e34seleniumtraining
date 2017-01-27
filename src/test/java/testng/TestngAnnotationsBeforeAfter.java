@@ -1,10 +1,7 @@
 package testng;
 
 
-import org.testng.annotations.AfterSuite;
-import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.BeforeSuite;
-import org.testng.annotations.Test;
+import org.testng.annotations.*;
 
 
 public class TestngAnnotationsBeforeAfter {

@@ -46,11 +46,13 @@ public class NzzTest {
 
         NzzLoginPage loginPage = new NzzLoginPage(driver);
 
-        loginPage.enterLoginName();
+        loginPage.enterLoginName("helga@cisco.com");
         loginPage.enterLoginPass();
+        loginPage.clickRememberMe();
+        Thread.sleep(5000);
         loginPage.clickAnmeldenButton();
 
-        Assert.assertTrue(isElementPresent(driver, By.className("message-password-mismatch")));
+        //Assert.assertTrue(isElementPresent(driver, By.className("message-password-mismatch")));
 
         driver.quit();
 

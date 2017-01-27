@@ -47,11 +47,14 @@ public class Navigation {
 		link.click();
 		Thread.sleep(3000);
 		driver.navigate().back();
+
 		Assert.assertEquals(driver.getTitle(), "20 Minuten - News von jetzt!");
 		Thread.sleep(3000);
+
 		driver.navigate().forward();
 		Assert.assertEquals(driver.getTitle(), "20 Minuten - Nachrichten");
 		Thread.sleep(3000);
+
 		driver.quit();		
 	}
 }

@@ -10,14 +10,17 @@ import org.openqa.selenium.support.PageFactory;
  */
 public class NzzLoginPage {
 
-    @FindBy(id="loginName")
+    @FindBy(name="login")
     private WebElement loginName;
 
-    @FindBy(id="loginPass")
+    @FindBy(name="password")
     private WebElement loginPass;
 
-    @FindBy(name="getSsoTicket")
+    @FindBy(className="btn")
     private WebElement button;
+
+    @FindBy(name = "remember_me")
+    private WebElement rememberCheckbox;
 
 
     public NzzLoginPage(WebDriver driver) {
@@ -25,8 +28,9 @@ public class NzzLoginPage {
         PageFactory.initElements(driver, this);
     }
 
-    public void enterLoginName() {
-        loginName.sendKeys("testuser@test.ch");
+    public void enterLoginName(String name) {
+        loginName.clear();
+        loginName.sendKeys(name);
     }
 
     public void enterLoginPass() {
@@ -37,11 +41,11 @@ public class NzzLoginPage {
         button.click();
     }
 
-    public void login() {
-        enterLoginName();
-        enterLoginPass();
-        clickAnmeldenButton();
+    public void clickRememberMe() {
+        rememberCheckbox.click();
     }
+
+
 
 
 }

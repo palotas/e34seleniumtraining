@@ -1,6 +1,9 @@
 package webdriverBasics;
 
+import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
@@ -35,16 +38,31 @@ public class BasicTests {
 	}
 	
 	@Test
-	public void firstFirefoxTest() throws FileNotFoundException, IOException {
+	public void firstFirefoxTest() throws FileNotFoundException, IOException, InterruptedException {
 
 		DesiredCapabilities capabilities = DesiredCapabilities.firefox();
 		WebDriver driver = new FirefoxDriver(capabilities);
 
-		// navigate to the URL
-		driver.get("http://www.element34.net");
+		try {
+			// navigate to the URL
+			driver.get("http://www.google.com");
 
-		// close the Browser
-		driver.quit();
+			WebElement searchbox = driver.findElement(By.id("lst-ib"));
+			searchbox.sendKeys("cisco");
+
+			driver.findElement(By.id("_fZl")).click();
+
+
+
+		}
+		finally {
+			// close the Browser
+			Thread.sleep(3000);
+			driver.quit();
+		}
+
+
+
 	}
 
 
