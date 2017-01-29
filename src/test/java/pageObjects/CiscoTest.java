@@ -45,8 +45,8 @@ public class CiscoTest {
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 
         CiscoLoginPage page  = new CiscoLoginPage(driver);
-        page.enterUsername("HH");
-        page.enterPassword("hh");
+        page.enterUsername("");
+        page.enterPassword("");
         CiscoStartPage startPage = page.clickLogin();
 
         Assert.assertTrue(startPage.getPageTitle().contains("Cisco ServiceGrid"));
