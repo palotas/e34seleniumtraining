@@ -43,26 +43,11 @@ public class BasicTests {
 		DesiredCapabilities capabilities = DesiredCapabilities.firefox();
 		WebDriver driver = new FirefoxDriver(capabilities);
 
-		try {
+
 			// navigate to the URL
 			driver.get("http://www.google.com");
 
-			WebElement searchbox = driver.findElement(By.id("lst-ib"));
-			searchbox.sendKeys("cisco");
-
-			driver.findElement(By.id("_fZl")).click();
-
-
-
-		}
-		finally {
-			// close the Browser
-			Thread.sleep(3000);
 			driver.quit();
-		}
-
-
-
 	}
 
 
