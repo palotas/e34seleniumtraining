@@ -1,4 +1,4 @@
-# Installatin instructions for virtual machine 
+# Installation instructions for virtual machine 
 
 IMPORTANT: even if asked, please DO NOT run any updates (i.e. browsers) on the VM. 
 
