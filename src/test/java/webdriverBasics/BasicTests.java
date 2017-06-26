@@ -43,11 +43,10 @@ public class BasicTests {
 		DesiredCapabilities capabilities = DesiredCapabilities.firefox();
 		WebDriver driver = new FirefoxDriver(capabilities);
 
+		// navigate to the URL
+		driver.get("http://www.google.com");
 
-			// navigate to the URL
-			driver.get("http://www.google.com");
-
-			driver.quit();
+		driver.quit();
 	}
 
 
@@ -77,35 +76,5 @@ public class BasicTests {
 		Thread.sleep(2000);
 		driver.quit();
 	}
-	
-	
-	
-	@Test
-	public void pageTitleTestWithAssertNoTryCatch() throws FileNotFoundException, IOException {
-
-		DesiredCapabilities capabilities = DesiredCapabilities.firefox();
-		WebDriver driver = new FirefoxDriver(capabilities);
-
-		driver.get("http://www.element34.net");
-		Assert.assertEquals(driver.getTitle(), "Element34 Solutions");
-		driver.quit();
-	}
-	
-
-	@Test
-	public void pageTitleTestWithAssert() throws FileNotFoundException, IOException {
-
-		DesiredCapabilities capabilities = DesiredCapabilities.firefox();
-		WebDriver driver = new FirefoxDriver(capabilities);
-
-		try {
-			driver.get("http://www.element34.net");
-			Assert.assertEquals(driver.getTitle(), "Element34 Solut");
-		}
-		finally {
-			driver.quit();			
-		}
-	}
-	
 }
 
