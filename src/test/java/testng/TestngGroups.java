@@ -25,10 +25,4 @@ public class TestngGroups {
 		System.out.println("mytest4...");	
 	}	
 
-	
-	@Test
-	public void mytest5() {
-		System.out.println("mytest5...");	
-	}
-	
 }
