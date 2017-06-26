@@ -1,12 +1,14 @@
 package testng;
 
 
-import org.testng.annotations.*;
+import org.testng.annotations.AfterSuite;
+import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.BeforeSuite;
+import org.testng.annotations.Test;
 
 
 public class TestngBeforeAfter {
 	
-	//before / after methods
 	@BeforeSuite
 	public void beforeSuite() {
 		System.out.println("before suite...");

@@ -7,7 +7,7 @@ import org.testng.annotations.Test;
 public class TestngDataProvider {
 	
 	//data provider with one parameter
-	@DataProvider(name = "dataprovider1")
+	@DataProvider(name = "countryprovider")
 	public Object[][] createData1() {
 	 return new Object[][] {
 	   {"Switzerland"},
@@ -18,7 +18,7 @@ public class TestngDataProvider {
 	}
 
 	//data provider with two parameters
-	@DataProvider(name = "dataprovider2")
+	@DataProvider(name = "urlprovider")
 	public Object[][] createData2() {
 	 return new Object[][] {
 	   {"Switzerland", ".ch"},
@@ -28,14 +28,14 @@ public class TestngDataProvider {
 	}
 	
 	//use dataprovider1 and pass the value as String s
-	@Test(dataProvider="dataprovider1")
+	@Test(dataProvider="countryprovider")
 	public void mytest1(String s) {
 		System.out.println("now testing: "+ s);		
 	}
 	
 	//use dataprovider2 and pass two parameters as Strings site and s
-	@Test(dataProvider="dataprovider2")
+	@Test(dataProvider="urlprovider")
 	public void mytest2(String country, String s) {
-		System.out.println("URL of " + country + ": " + "http://gridfusion" + s);		
+		System.out.println("URL of " + country + ": " + "http://www.element34" + s);
 	}
 }
