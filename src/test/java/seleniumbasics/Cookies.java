@@ -1,12 +1,12 @@
 package seleniumbasics;
 
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.util.Set;
-
 import org.openqa.selenium.Cookie;
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.Test;
+
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.util.Set;
 
 public class Cookies {
 	
