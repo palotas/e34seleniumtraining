@@ -4,7 +4,7 @@ package testng;
 import org.testng.annotations.*;
 
 
-public class TestngAnnotationsBeforeAfter {
+public class TestngBeforeAfter {
 	
 	//before / after methods
 	@BeforeSuite

@@ -13,19 +13,7 @@ public class TestngBasicTests {
 		int b = 2;
 		int c;
 		c = a + b;
-		Assert.assertEquals(c, 4);
-		System.out.println("myFirstTestngTest...");	
+		System.out.println("c =" + c);
 	}
-
-	
-	@Test
-	public void mySecondTestngTest() {
-		System.out.println("mySecondTestngTest...");	
-	}
-
-	@Test
-	public void myThirdTestngTest() {
-		System.out.println("myThirdTestngTest...");	
-	}	
 	
 }
