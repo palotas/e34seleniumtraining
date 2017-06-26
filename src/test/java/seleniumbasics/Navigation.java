@@ -1,8 +1,5 @@
 package seleniumbasics;
 
-import java.io.FileNotFoundException;
-import java.io.IOException;
-
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -11,6 +8,9 @@ import org.openqa.selenium.remote.DesiredCapabilities;
 import org.testng.Assert;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
+
+import java.io.FileNotFoundException;
+import java.io.IOException;
 
 public class Navigation {
 
