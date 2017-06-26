@@ -1,9 +1,12 @@
 package misc;
 
+import com.gargoylesoftware.htmlunit.javascript.host.URL;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
@@ -52,10 +55,11 @@ public class Scroll {
 	
 	@Test(invocationCount=1)
 	public void explicitWait() throws InterruptedException, FileNotFoundException, IOException {
-		//WebDriver driver=new FirefoxDriver();
-		
-		WebDriver driver = util.DriverFactory.createRemoteFirefoxDriver();
-		
+
+		DesiredCapabilities capability = new DesiredCapabilities();
+		capability.setBrowserName("firefox");
+		WebDriver driver = new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"), capability);
+
 		WebDriverWait wait = new WebDriverWait(driver, 10);
 		
 		try {

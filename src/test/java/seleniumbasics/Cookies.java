@@ -1,7 +1,10 @@
 package seleniumbasics;
 
+import com.gargoylesoftware.htmlunit.javascript.host.URL;
 import org.openqa.selenium.Cookie;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.remote.RemoteWebDriver;
 import org.testng.annotations.Test;
 
 import java.io.FileNotFoundException;
@@ -12,8 +15,10 @@ public class Cookies {
 	
 	@Test
 	public void cookies() throws FileNotFoundException, IOException {
-		
-		WebDriver driver = util.DriverFactory.createRemoteFirefoxDriver();
+
+		DesiredCapabilities capability = new DesiredCapabilities();
+		capability.setBrowserName("firefox");
+		WebDriver driver = new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"), capability);
 
 		// Go to the URL
 		driver.get("http://www.gridfusion.net");
