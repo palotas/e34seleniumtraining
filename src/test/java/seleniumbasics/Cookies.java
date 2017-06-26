@@ -1,6 +1,5 @@
 package seleniumbasics;
 
-import com.gargoylesoftware.htmlunit.javascript.host.URL;
 import org.openqa.selenium.Cookie;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
@@ -9,6 +8,7 @@ import org.testng.annotations.Test;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.net.URL;
 import java.util.Set;
 
 public class Cookies {

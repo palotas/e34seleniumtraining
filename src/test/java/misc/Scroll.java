@@ -1,6 +1,5 @@
 package misc;
 
-import com.gargoylesoftware.htmlunit.javascript.host.URL;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
@@ -13,6 +12,7 @@ import org.testng.annotations.Test;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.net.URL;
 
 public class Scroll {
 
