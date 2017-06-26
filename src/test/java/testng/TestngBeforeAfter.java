@@ -15,7 +15,7 @@ public class TestngBeforeAfter {
 	}	
 	
 	@AfterSuite
-	public void AfterSuite() {
+	public void afterSuite() {
 		System.out.println("after suite...");
 	}
 	
