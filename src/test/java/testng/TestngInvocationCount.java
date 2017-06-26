@@ -6,7 +6,6 @@ import org.testng.annotations.Test;
 
 public class TestngInvocationCount {
 	
-	//this test will be executed 10 times 
 	@Test(invocationCount=10)
 	public void invocationCountTest() {
 		int a = 1;
