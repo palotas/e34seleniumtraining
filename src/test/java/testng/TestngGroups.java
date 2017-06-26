@@ -5,12 +5,12 @@ import org.testng.annotations.Test;
 
 public class TestngGroups {
 	
-	@Test(groups= {"regression", "smoke"})
+	@Test(groups= {"regression", "nightly"})
 	public void mytest1() {
 		System.out.println("mytest1...");		
 	}
 	
-	@Test(groups= {"regression"})
+	@Test(groups= {"regression", "smoketest"})
 	public void mytest2() {
 		System.out.println("mytest2...");		
 	}	
