@@ -15,7 +15,6 @@ public class BasicTests {
 	@BeforeTest
 	public void setup() {
 		String OS = System.getProperty("os.name");
-
 		switch (OS) {
 			case "Linux":
 				System.setProperty("webdriver.gecko.driver","/home/e34/Downloads/geckodriver");
@@ -25,6 +24,11 @@ public class BasicTests {
 			case "Mac OS X":
 				System.setProperty("webdriver.gecko.driver","/Users/gridfusion/Downloads/geckodriver");
 				System.setProperty("webdriver.chrome.driver", "/Users/gridfusion/Downloads/chromedriver");
+				break;
+
+			case "Windows 10":
+				System.setProperty("webdriver.gecko.driver","C:\\Users\\mpalotas\\Downloads\\geckodriver");
+				System.setProperty("webdriver.chrome.driver", "C:\\Users\\mpalotas\\Downloads\\chromedriver.exe");
 				break;
 
 			default:
@@ -62,8 +66,8 @@ public class BasicTests {
 	@Test
 	public void pageTitleTest() throws InterruptedException, FileNotFoundException, IOException {
 
-		DesiredCapabilities capabilities = DesiredCapabilities.firefox();
-		WebDriver driver = new FirefoxDriver(capabilities);
+		DesiredCapabilities capabilities = DesiredCapabilities.chrome();
+		WebDriver driver = new ChromeDriver(capabilities);
 
 		driver.get("http://www.element34.net");
 		String pageTitle = driver.getTitle();
