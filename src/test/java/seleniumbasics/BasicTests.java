@@ -37,17 +37,6 @@ public class BasicTests {
 		}
 	}
 	
-	@Test
-	public void firstFirefoxTest() throws FileNotFoundException, IOException, InterruptedException {
-
-		DesiredCapabilities capabilities = DesiredCapabilities.firefox();
-		WebDriver driver = new FirefoxDriver(capabilities);
-
-		// navigate to the URL
-		driver.get("http://www.google.com");
-
-		driver.quit();
-	}
 
 
 	@Test
