@@ -1,4 +1,4 @@
-# seleniumtraining HOWTO
+# seleniumtraining 
 
 ## To start remote selenium server
 - put IEDriverServer.exe into the same directory as selenium-server-standalone-2.46.0.jar
