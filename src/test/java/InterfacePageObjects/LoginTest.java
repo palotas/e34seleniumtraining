@@ -16,7 +16,7 @@ public class LoginTest {
         LoginPage1 mypage = new LoginPage1(driver);
 
         mypage.enterUserName("gridfusion");
-        mypage.enterPassword("SeleniumRocks$2");
+        mypage.enterPassword("");
         mypage.clickLoginButton();
     }
 
@@ -27,7 +27,7 @@ public class LoginTest {
         LoginPage2 mypage = new LoginPage2(driver);
 
         mypage.enterUserName("gridfusion");
-        mypage.enterPassword("SeleniumRocks$2");
+        mypage.enterPassword("");
         mypage.clickLoginButton();
     }
 

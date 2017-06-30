@@ -39,7 +39,7 @@ public class ParticipantsSamples {
     @Test
     public void getAllCheckedElementsOnPage() throws InterruptedException {
         WebDriver driver = new FirefoxDriver();
-        driver.get("http://gridfusion.net/testpage.html");
+        driver.get("http://www.element34.net/testpage");
         List<WebElement> radioButtons = driver.findElements(By.cssSelector(":checked"));
         Assert.assertEquals(2, radioButtons.size());
 
@@ -51,7 +51,7 @@ public class ParticipantsSamples {
     @Test
     public void getAllElementsWithAnAttributeValue() throws InterruptedException {
         WebDriver driver = new FirefoxDriver();
-        driver.get("http://gridfusion.net/testpage.html");
+        driver.get("http://www.element34.net/testpage");
         List<WebElement> radioButtons = driver.findElements(By.cssSelector("[value]"));
         Assert.assertEquals(12, radioButtons.size());
 
@@ -63,7 +63,7 @@ public class ParticipantsSamples {
     @Test
     public void verify4LinksOnPage() throws InterruptedException {
         WebDriver driver = new FirefoxDriver();
-        driver.get("http://gridfusion.net/testpage.html");
+        driver.get("http://www.element34.net/testpage");
 
         List<WebElement> radioButtons = driver.findElements(By.cssSelector("a[href]"));
         Assert.assertEquals(4, radioButtons.size());
@@ -79,7 +79,7 @@ public class ParticipantsSamples {
     public void pageHasFiveRadioButtonsCssSelector()
     {
         WebDriver driver = new FirefoxDriver();
-        driver.get("http://gridfusion.net/testpage.html");
+        driver.get("http://element34.net/testpage");
 
         List<WebElement> radioButtons = driver.findElements(By.cssSelector("input[type='radio']"));
         Assert.assertEquals(5, radioButtons.size());
@@ -92,7 +92,7 @@ public class ParticipantsSamples {
     public void pageHasFiveRadioButtonsXpath()
     {
         WebDriver driver = new FirefoxDriver();
-        driver.get("http://gridfusion.net/testpage.html");
+        driver.get("http://www.element34.net/testpage");
 
         List<WebElement> radioButtons = driver.findElements(By.xpath("//input[@type='radio']"));
         Assert.assertEquals(5, radioButtons.size());
