@@ -14,7 +14,7 @@ import java.util.Set;
 public class Cookies {
 	
 	@Test
-	public void cookies() throws FileNotFoundException, IOException {
+	public void cookies() throws IOException {
 
 		DesiredCapabilities capability = new DesiredCapabilities();
 		capability.setBrowserName("firefox");

@@ -37,7 +37,7 @@ public class Navigation {
 	
 
 	@Test
-	public void navigate() throws InterruptedException, FileNotFoundException, IOException {
+	public void navigate() throws InterruptedException, IOException {
 		DesiredCapabilities capabilities = DesiredCapabilities.firefox();
 		WebDriver driver = new FirefoxDriver(capabilities);
 

@@ -15,7 +15,7 @@ public class CustomWait {
 
 	
 	@Test(invocationCount=1)
-	public void implicitWaitHeroku() throws InterruptedException, FileNotFoundException, IOException {
+	public void implicitWaitHeroku() throws InterruptedException, IOException {
 
 		DesiredCapabilities capability = new DesiredCapabilities();
 		capability.setBrowserName("firefox");
@@ -38,7 +38,7 @@ public class CustomWait {
 	
 	
 	@Test(invocationCount=1)
-	public void explicitWait() throws InterruptedException, FileNotFoundException, IOException {
+	public void explicitWait() throws InterruptedException, IOException {
 
 		DesiredCapabilities capability = new DesiredCapabilities();
 		capability.setBrowserName("firefox");

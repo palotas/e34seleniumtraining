@@ -2,7 +2,6 @@ package seleniumbasics;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
@@ -40,7 +39,7 @@ public class BasicTests {
 
 
 	@Test
-	public void firstChromeTest() throws FileNotFoundException, IOException {
+	public void firstChromeTest() throws IOException {
 
 		DesiredCapabilities capabilities = DesiredCapabilities.chrome();
 		WebDriver driver = new ChromeDriver(capabilities);
@@ -53,7 +52,7 @@ public class BasicTests {
 	}
 
 	@Test
-	public void pageTitleTest() throws InterruptedException, FileNotFoundException, IOException {
+	public void pageTitleTest() throws InterruptedException, IOException {
 
 		DesiredCapabilities capabilities = DesiredCapabilities.chrome();
 		WebDriver driver = new ChromeDriver(capabilities);

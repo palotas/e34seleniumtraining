@@ -43,7 +43,7 @@ public class DataProviderTest {
 	}
 
 	@Test(dataProvider="urlprovider")
-	public void dataproviderTest(String testcaseId, String language, String expectedTitle) throws InterruptedException, FileNotFoundException, IOException {
+	public void dataproviderTest(String testcaseId, String language, String expectedTitle) throws InterruptedException, IOException {
 
 		WebDriver driver = new FirefoxDriver();
 		try{
