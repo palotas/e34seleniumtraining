@@ -14,7 +14,6 @@ public class RemoteWebdriverTests {
 	@Test
 	public void remoteWebdriverFirefoxTest() throws IOException, InterruptedException {
 
-		//create DesiredCapabilities object and set browser to Firefox
 		DesiredCapabilities capability = new DesiredCapabilities();
 		capability.setBrowserName("firefox");
 		WebDriver driver = new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"), capability);
