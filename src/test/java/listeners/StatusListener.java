@@ -27,7 +27,7 @@ public class StatusListener implements ITestListener {
 		Object currentClass = result.getInstance();
 		RemoteWebDriver driver = ((ListenerTest) currentClass).getDriver();
 		try {
-			DoScreenshot.takeScreenshotNoReport(driver);
+			DoScreenshot.remoteWebDriverScreenshot(driver);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
