@@ -1,11 +1,11 @@
-package listeners;
+package com.element34.testng.listener;
 
 import org.testng.IInvokedMethod;
 import org.testng.ISuite;
 import org.testng.ISuiteListener;
 import org.testng.xml.XmlSuite;
 
-import java.util.*;
+import java.util.Iterator;
 
 /**
  * Created by e34 on 31.12.16.

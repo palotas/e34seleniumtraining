@@ -1,14 +1,10 @@
-package listeners;
+package com.element34.testng.listener;
 
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.testng.ITestContext;
 import org.testng.ITestListener;
 import org.testng.ITestResult;
 import reporting.DoScreenshot;
-
-import java.io.IOException;
-import java.util.Objects;
 
 public class StatusListener implements ITestListener {
 
@@ -23,16 +19,8 @@ public class StatusListener implements ITestListener {
 	}
 
 	public void onTestFailure(ITestResult result) {
-		System.out.println("Test failed --> taking screenshot");
-		Object currentClass = result.getInstance();
-		RemoteWebDriver driver = ((ListenerTest) currentClass).getDriver();
-		try {
-			DoScreenshot.remoteWebDriverScreenshot(driver);
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-
-	}
+		System.out.println("[FAILED] - please analyze me");
+			}
 
 	public void onTestSkipped(ITestResult arg0) {
 	}
@@ -42,7 +30,7 @@ public class StatusListener implements ITestListener {
 
 	public void onTestSuccess(ITestResult result) {
 		System.out.println("PASSED: " + result.getName());
-		System.out.println("Duration of " + result.getName() +": "  + (result.getEndMillis() - result.getStartMillis()));
+		System.out.println("Duration " + result.getName() +": "  + (result.getEndMillis() - result.getStartMillis()) + " ms");
 
 
 	}
