@@ -8,7 +8,7 @@ import org.testng.annotations.Test;
 
 /**
  * If a Before config method throws, the after won't run.
- * Try to avoid having steps thatthrow exceptions in the before methods
+ * Try to avoid having steps that throw exceptions in the before methods
  * or you may not cleanup everything.
  *
  * Adding alwaysRun=true forces the teardown to be executed
@@ -19,7 +19,7 @@ public class ConfigurationTest {
   @BeforeClass()
   public void setup() {
     System.out.println("before");
-    // throw new RuntimeException("error");
+    //throw new RuntimeException("error");
   }
 
   @Test
@@ -28,7 +28,7 @@ public class ConfigurationTest {
     throw new SkipException("error");
   }
 
-  @AfterClass// (alwaysRun = true)
+  @AfterClass //(alwaysRun = true)
   public void teardwon() {
     System.out.println("after");
   }
