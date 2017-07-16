@@ -9,10 +9,12 @@ import reporting.DoScreenshot;
 public class StatusListener implements ITestListener {
 
 	public void onFinish(ITestContext arg0) {
+		System.out.println("[FINISHED]");
 
 	}
 
 	public void onStart(ITestContext ctx) {
+		System.out.println("[STARTING EVERYTHING]");
 	}
 
 	public void onTestFailedButWithinSuccessPercentage(ITestResult arg0) {
@@ -26,6 +28,7 @@ public class StatusListener implements ITestListener {
 	}
 
 	public void onTestStart(ITestResult result) {
+		System.out.println("[STARTING] " + result.getName());
 	}
 
 	public void onTestSuccess(ITestResult result) {

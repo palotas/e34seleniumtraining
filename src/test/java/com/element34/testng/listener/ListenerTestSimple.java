@@ -17,7 +17,7 @@ import java.net.URL;
  * Created by e34 on 31.12.16.
  */
 
-@Listeners({StatusListener.class})
+//@Listeners({StatusListener.class})
 public class ListenerTestSimple {
 
     @Test
