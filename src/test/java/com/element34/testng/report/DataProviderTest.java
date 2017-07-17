@@ -8,7 +8,7 @@ import static com.element34.testng.report.Simple.sleepTight;
 
 
 public class DataProviderTest {
-  @DataProvider(name = "data",parallel = true)
+  @DataProvider(name = "data",parallel = false)
   public Object[][] data() {
     return new Object[][]{
         {"A", "A", 1},
