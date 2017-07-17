@@ -1,4 +1,4 @@
-package com.element34.testng.datastruct;
+package com.element34.testng.beforeafter;
 
 import org.testng.annotations.*;
 
@@ -10,11 +10,11 @@ import org.testng.annotations.*;
  *      - method
  *        - method instance
  */
-public class DataStruct {
+public class BeforeAfterTest {
 
 
-  public DataStruct(){
-    System.out.println("constructor");
+  public BeforeAfterTest(){
+    System.out.println("constructor\n");
   }
 
   @BeforeClass

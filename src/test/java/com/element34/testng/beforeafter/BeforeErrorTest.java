@@ -1,4 +1,4 @@
-package com.element34.testng.config;
+package com.element34.testng.beforeafter;
 
 import org.testng.SkipException;
 import org.testng.annotations.AfterClass;
@@ -14,7 +14,7 @@ import org.testng.annotations.Test;
  * Adding alwaysRun=true forces the teardown to be executed
  * It is false by default.
  */
-public class ConfigurationTest {
+public class BeforeErrorTest {
 
   @BeforeClass()
   public void setup() {

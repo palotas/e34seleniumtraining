@@ -18,7 +18,7 @@ public class DependencyTest {
   }
 
 
-  @Test(dependsOnMethods = "dbUp")
+  @Test
   public void login() {
     sleepTight(5000);
 

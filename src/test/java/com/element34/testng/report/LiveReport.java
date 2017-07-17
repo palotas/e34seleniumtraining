@@ -29,7 +29,7 @@ public class LiveReport implements ITestListener {
 
   @Override
   public void onTestSkipped(ITestResult result) {
-    System.out.println("[SKIPPEd]" +name(result));
+    System.out.println("[SKIPPED]" +name(result));
   }
 
   @Override
