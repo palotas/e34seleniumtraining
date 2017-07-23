@@ -11,7 +11,7 @@
 - before / after
     - BeforeAfter: show the sequence of running these methods
     - BeforeErrorTest: show what happens when something goes wrong in BeforeClass
-- groups 
+- groups : package groups > run testng_groups.xml
 - dependencies : package dependency > DependencyTest 
 - Environment finder: annnotation -> TestMetadata
 

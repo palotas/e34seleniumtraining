@@ -14,14 +14,20 @@ public class EnvironmentFinder implements IInvokedMethodListener2 {
       Test test = getAnnotation(method);
       for (String group : test.groups()) {
         if (group.equals("regression")) {
-          // found something that look like an envt.
-          Environment environment = new Environment("http://regression.tpn.nil");
+          // found something that looks like an envt.
+          Environment environment = new Environment("http://regression.element34.com");
           Environment.set(environment);
           return;
         }
         if (group.equals("smoke")) {
-          // found something that look like an envt.
-          Environment environment = new Environment("http://smoke.tpn.nil");
+          // found something that looks like an envt.
+          Environment environment = new Environment("http://smoke.element34.com");
+          Environment.set(environment);
+          return;
+        }
+        if (group.equals("production")) {
+          // found something that looks like an envt.
+          Environment environment = new Environment("http://element34.com");
           Environment.set(environment);
           return;
         }

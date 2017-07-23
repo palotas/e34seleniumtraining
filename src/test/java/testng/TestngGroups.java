@@ -21,8 +21,8 @@ public class TestngGroups {
 	}	
 
 	@Test
-	public void mytest4() {
-		System.out.println("mytest4...");	
-	}	
+	public void mytest4()  {
+		System.out.println("mytest4...");
+	}
 
 }

@@ -16,4 +16,9 @@ public class TestMetadata {
   public void envtAware2() {
     System.out.println("envtAware2 is using "+Environment.env());
   }
+
+  @Test(groups = {"production"})
+  public void envtAware3() {
+    System.out.println("envtAware3 is using "+Environment.env());
+  }
 }
