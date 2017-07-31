@@ -7,7 +7,7 @@
 
 1.
 - Gehen Sie zur Datei: <IHR_FILESYSTEM>\e34seleniumtraining\src\test\java\seleniumbasics\BasicTests.java
-- passen Sie den Pfad in der @BeforeTest Methode unter "Windows 7" oder "Windows 10" entsprechend der tatsächlichen Location des chromedrivers und geckodrivers an
+- passen Sie den Pfad in der @BeforeTest Methode unter "Windows 7" oder "Windows 10" entsprechend der tatsächlichen Location des chromedrivers und geckodrivers an (z.B. <IHR_FILESYSTEM>\e34seleniumtraining\resources\chromedriver.exe)
 - Führen Sie die Methode "firstChromeTest()" aus. Es sollte sich ein Chrome Browser öffnen und zur Element34 Webseite navigieren   
 
 
