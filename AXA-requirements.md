@@ -1,6 +1,6 @@
 # AXA Selenium training requirements
 
-- Eclipse oder IntelliJ
+- IntelliJ (bevorzugt) oder Eclipse 
 - Maven 
 - Firefox und Chrome latest 
 - Projekt auschecken: https://github.com/palotas/e34seleniumtraining.git
