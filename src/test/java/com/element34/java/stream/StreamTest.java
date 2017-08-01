@@ -17,7 +17,7 @@ public class StreamTest {
 
   private final List<String> list = Arrays.asList("one", "two", "three");
 
-  /*
+
   @Test
   public void filter() {
     List<String> res = list.stream().filter(item -> !item.equals("two")).collect(Collectors.toList());
@@ -57,5 +57,5 @@ public class StreamTest {
         return 0;
     }
   }
-  */
+
 }
