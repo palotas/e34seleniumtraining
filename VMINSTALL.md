@@ -1,7 +1,7 @@
 IMPORTANT: even if prompted, please DO NOT run any updates (i.e. browsers) on the VM. 
 
 # Download the virtual machine
-- Download the virtual machine from: xxxxxx
+- Download the virtual machine from: https://s3.amazonaws.com/e34/CAST-Nashville-Selenium-Workshop.ova 
 - Note: the file is 6GB large so depending on your internet connection it may take a while 
 
 # Install Virtual Box and import VM 
