@@ -47,8 +47,7 @@ public class BasicTests {
 	@Test
 	public void firstChromeTest() throws IOException {
 
-		DesiredCapabilities capabilities = DesiredCapabilities.chrome();
-		WebDriver driver = new ChromeDriver(capabilities);
+		WebDriver driver = new ChromeDriver();
 
 		// navigate to the URL
 		driver.get("http://www.element34.net");
