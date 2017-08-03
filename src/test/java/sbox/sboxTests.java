@@ -1,6 +1,7 @@
 package sbox;
 
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
@@ -42,6 +43,23 @@ public class sboxTests {
 		Thread.sleep(5000);
 		driver.quit();
 	}
+
+
+	@Test
+	public void fileDownload() throws IOException, InterruptedException {
+
+		DesiredCapabilities capability = new DesiredCapabilities();
+		capability.setCapability("video", true);
+		capability.setBrowserName("firefox");
+		RemoteWebDriver driver = new RemoteWebDriver(new URL("https://vm-106.element34.net:443/wd/hub"), capability);
+
+		driver.get("http://the-internet.herokuapp.com/download");
+		driver.findElement(By.linkText("some-file.txt")).click();
+		System.out.println("Session ID: " + driver.getSessionId());
+		driver.quit();
+	}
+
+
 
 /*	@WebTest(video = true, browsers = Browsers.TIER1)
 	@Test
