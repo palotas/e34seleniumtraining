@@ -92,30 +92,41 @@ public class sboxTests {
 
 
 	@Test(dataProvider = "chromeVersions")
-	public void sboxTest(String version) throws IOException, InterruptedException {
+	public void chromeWithDifferentVersionsTest(String version) throws IOException, InterruptedException {
 
 		DesiredCapabilities capability = new DesiredCapabilities();
 		capability.setCapability("video", true);
 		capability.setBrowserName("chrome");
 		capability.setVersion(version);
+
+		//replace URL with company specific entry point
 		RemoteWebDriver driver = new RemoteWebDriver(new URL("https://vm-106.element34.net:443/wd/hub"), capability);
 
 		System.out.println("Browser version: " + driver.getCapabilities().getBrowserName() + " " + driver.getCapabilities().getVersion());
+
+		//replace with company specific URL
 		driver.get("http://www.google.com");
 		System.out.println("Video URL: " + "https://vm-106.element34.net/videos/" + driver.getSessionId() + ".mp4");
+
+		//leave browser open for 5 seconds and close browser afterwards
 		Thread.sleep(5000);
 		driver.quit();
 	}
 
-	@Test(dataProvider = "browserProvider")
-	public void multiBrowser(DesiredCapabilities caps) throws IOException, InterruptedException {
+	@Test(dataProvider = "browserProviderWithoutVersions")
+	public void multiBrowserVersionTest(DesiredCapabilities caps) throws IOException, InterruptedException {
 
+		//enable video recording
 		caps.setCapability("video", true);
+
+		//replace URL with company specific entry point
 		RemoteWebDriver driver = new RemoteWebDriver(new URL("https://vm-106.element34.net:443/wd/hub"), caps);
 
-		//add company specific URL here
+		//replace with company specific URL
 		driver.get("http://www.google.com");
 		System.out.println("Video URL - " + driver.getCapabilities().getBrowserName() + " " + driver.getCapabilities().getVersion() + " : " + "https://vm-106.element34.net/videos/" + driver.getSessionId() + ".mp4");
+
+		//leave browser open for 5 seconds and close browser afterwards
 		Thread.sleep(5000);
 		driver.quit();
 	}
