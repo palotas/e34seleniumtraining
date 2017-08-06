@@ -197,8 +197,4 @@ public class sboxTests {
 	private void printLiveViewURL(RemoteWebDriver driver) {
 		System.out.println("Live View URL > http://vm-106.element34.net:4444/ui/liveview?session=" + driver.getSessionId().toString());
 	}
-
-	private void printLiveViewURL2(RemoteWebDriver driver) {
-		System.out.println("Live View URL > http://vm-106.element34.net:4444/ui/liveview?session=" + driver.getSessionId().toString());
-	}
 }
