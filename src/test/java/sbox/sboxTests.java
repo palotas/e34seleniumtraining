@@ -1,8 +1,6 @@
 package sbox;
 
-
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.testng.annotations.DataProvider;
@@ -11,8 +9,14 @@ import org.testng.annotations.Test;
 import java.io.IOException;
 import java.net.URL;
 
-
 public class sboxTests {
+
+	private final String host = "vm-106.element34.net";
+
+	//@BeforeTest
+	//public void setup() {
+	//	Settings.setHubUrl("https://vm-106.element34.net");
+	//}
 
 	//runs Chrome in version LATEST and LATEST-x
 	@DataProvider(name = "chromeVersions", parallel = true)
@@ -121,6 +125,8 @@ public class sboxTests {
 
 		//replace URL with company specific entry point
 		RemoteWebDriver driver = new RemoteWebDriver(new URL("https://vm-106.element34.net:443/wd/hub"), caps);
+		System.out.println("Live View URL > http://vm-106.element34.net:4444/ui/liveview?session=" + driver.getSessionId().toString());
+
 
 		//replace with company specific URL
 		driver.get("http://www.google.com");
@@ -130,6 +136,26 @@ public class sboxTests {
 		Thread.sleep(5000);
 		driver.quit();
 	}
+
+
+	@Test
+	public void singleTest() throws IOException, InterruptedException {
+
+		DesiredCapabilities capability = new DesiredCapabilities();
+		capability.setCapability("video", true);
+		capability.setBrowserName("firefox");
+		RemoteWebDriver driver = new RemoteWebDriver(new URL("https://vm-106.element34.net:443/wd/hub"), capability);
+		printLiveViewURL(driver);
+		printVideoURL(driver);
+
+
+		driver.get("http://www.axa.de");
+		Thread.sleep(5000);
+
+		driver.quit();
+	}
+
+
 
 	@Test
 	public void fileDownload() throws IOException, InterruptedException {
@@ -146,15 +172,29 @@ public class sboxTests {
 	}
 
 
-
-/*	@WebTest(video = true, browsers = Browsers.TIER1)
+/*
+	@WebTest(video = true, browsers = Browsers.TIER1)
 	@Test
 	public void sboxTest() throws IOException, InterruptedException {
 
-		DesiredCapabilities capability = new DesiredCapabilities();
 
-		webdriver().get("http://www.google.com");
-		System.out.println(webdriver().getTitle());
+		for(int i=0 ; i < 10 ; i++ )
+		{
+			webdriver().get("http://www.google.com");
+			screenshot("let's take a screenshot");
+			System.out.println(webdriver().getTitle());
+			Thread.sleep(2000);
+		}
+
 		webdriver().quit();
-	}*/
+	}
+*/
+
+	private void printVideoURL(RemoteWebDriver driver) {
+		System.out.println("Video URL - " + driver.getCapabilities().getBrowserName() + " " + driver.getCapabilities().getVersion() + " : " + "https://vm-106.element34.net/videos/" + driver.getSessionId() + ".mp4");
+	}
+
+	private void printLiveViewURL(RemoteWebDriver driver) {
+		System.out.println("Live View URL > http://vm-106.element34.net:4444/ui/liveview?session=" + driver.getSessionId().toString());
+	}
 }
