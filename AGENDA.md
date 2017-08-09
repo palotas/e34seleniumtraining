@@ -32,7 +32,7 @@
 14.00 - 14.30 
 - implicit wait 
 - explicit wait 
-- fluent wait --> no example yet 
+- fluent wait --> java -> conditions (Francois) 
 
 ## Page Objects 
 14.30 - 15.15 

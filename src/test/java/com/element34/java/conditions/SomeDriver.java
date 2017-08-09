@@ -14,8 +14,7 @@ public class SomeDriver {
   public SomeWebElement findElement() {
     fails++;
     if (fails < maxFails) {
-      System.err.println("HorribleExce"
-          + "ption");
+      System.err.println("HorribleException");
       throw new HorribleException();
     } else if (fails == maxFails) {
       return new SomeWebElement(
