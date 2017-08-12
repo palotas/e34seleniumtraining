@@ -177,7 +177,7 @@ public class sboxTests {
 	}
 
 	@Test
-	public void anaplan() throws MalformedURLException {
+	public void buildFFProfile() throws MalformedURLException {
 
 		DesiredCapabilities capabilities = DesiredCapabilities.firefox();
 		FirefoxProfile localeProfile = new FirefoxProfile();
