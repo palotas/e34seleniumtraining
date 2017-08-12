@@ -1,12 +1,16 @@
 package sbox;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.firefox.FirefoxProfile;
+import org.openqa.selenium.remote.CapabilityType;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 import java.io.IOException;
+import java.net.MalformedURLException;
 import java.net.URL;
 
 public class sboxTests {
@@ -168,7 +172,35 @@ public class sboxTests {
 		driver.get("http://the-internet.herokuapp.com/download");
 		driver.findElement(By.linkText("some-file.txt")).click();
 		System.out.println("Session ID: " + driver.getSessionId());
+		printVideoURL(driver);
 		driver.quit();
+	}
+
+	@Test
+	public void anaplan() throws MalformedURLException {
+
+		DesiredCapabilities capabilities = DesiredCapabilities.firefox();
+		FirefoxProfile localeProfile = new FirefoxProfile();
+		localeProfile.setPreference("general.useragent.locale", "en-GB");
+
+		// turn off antialising
+		// localeProfile.setPreference(
+		// "gfx.font_rendering.cleartype_params.rendering_mode", 1);
+
+		// Turn off stupid 'Allow Pasting' check
+		localeProfile.setPreference("devtools.selfxss.count", 100);
+
+		localeProfile.setPreference("intl.accept_languages", "en-GB");
+		capabilities.setCapability(FirefoxDriver.PROFILE, localeProfile);
+		capabilities.setVersion("47");
+		capabilities.setCapability(CapabilityType.OVERLAPPING_CHECK_DISABLED, true);
+
+		RemoteWebDriver driver = new RemoteWebDriver(new URL("https://vm-106.element34.net:443/wd/hub"), capabilities);
+
+		driver.get("http://www.google.com");
+
+		driver.quit();
+
 	}
 
 
