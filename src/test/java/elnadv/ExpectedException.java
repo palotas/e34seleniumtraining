@@ -1,18 +1,12 @@
 package elnadv;
 
+import elnadv.pageObjects.NzzLoginPage;
 import org.openqa.selenium.By;
-import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import org.testng.Assert;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
-
-import java.util.concurrent.TimeUnit;
-
-import static elnadv.Helpers.isElementPresent;
 
 /**
  * Created by e34 on 13/10/2017.
@@ -53,8 +47,8 @@ public class ExpectedException {
         WebDriverWait wait = new WebDriverWait(driver, 10);
 
         try {
-            NzzLoginPage loginPage = new NzzLoginPage(driver);
-            loginPage.headerSection.clickFAQ();
+
+            driver.get("https://google.com");
             driver.findElement(By.id("abc")); //this element should not be on the page
         }
         finally {
