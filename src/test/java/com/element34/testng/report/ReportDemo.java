@@ -1,6 +1,7 @@
 package com.element34.testng.report;
 
 
+import elnadv.report.JsonReporter;
 import org.testng.ITestNGListener;
 import org.testng.TestNG;
 import org.testng.xml.XmlClass;
