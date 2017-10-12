@@ -11,7 +11,7 @@ import org.testng.annotations.Test;
 
 import java.util.concurrent.TimeUnit;
 
-import static elnadv.pageObjects.Helpers.isElementPresent;
+import static elnadv.Helpers.isElementPresent;
 
 /**
  * Created by gridfusion on 07/05/16.
