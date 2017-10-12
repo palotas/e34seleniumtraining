@@ -74,7 +74,7 @@ public class NzzTest {
         try {
             NzzLoginPage loginPage = new NzzLoginPage(driver);
             loginPage.headerSection.clickFAQ();
-            //wait.until(ExpectedConditions.titleIs("FAQ - abo.nzz.ch"));
+            wait.until(ExpectedConditions.titleIs("FAQ - abo.nzz.ch"));
             Assert.assertEquals(driver.getCurrentUrl(), "https://abo.nzz.ch/faq/");
         }
         finally {
