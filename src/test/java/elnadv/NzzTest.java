@@ -6,6 +6,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
@@ -61,8 +63,24 @@ public class NzzTest {
         finally {
             driver.quit();
         }
-
     }
 
+    @Test
+    public void clickFAQLink() throws InterruptedException {
+
+        WebDriver driver = new ChromeDriver();
+        WebDriverWait wait = new WebDriverWait(driver, 10);
+
+        try {
+            NzzLoginPage loginPage = new NzzLoginPage(driver);
+            loginPage.headerSection.clickFAQ();
+            //wait.until(ExpectedConditions.titleIs("FAQ - abo.nzz.ch"));
+            Assert.assertEquals(driver.getCurrentUrl(), "https://abo.nzz.ch/faq/");
+        }
+        finally {
+            driver.quit();
+        }
+
+    }
 
 }
