@@ -1,4 +1,4 @@
-package com.element34.testng.logging;
+package elnadv.logging;
 
 import ch.qos.logback.classic.spi.ILoggingEvent;
 import ch.qos.logback.core.AppenderBase;

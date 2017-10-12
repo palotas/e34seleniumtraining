@@ -1,16 +1,13 @@
-package com.element34.testng.logging;
+package elnadv.logging;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.slf4j.Marker;
-import org.slf4j.MarkerFactory;
 import org.testng.ITestContext;
 import org.testng.Reporter;
 import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 import org.testng.reporters.EmailableReporter2;
-import org.testng.xml.XmlSuite.ParallelMode;
 
 import static net.logstash.logback.argument.StructuredArguments.keyValue;
 
