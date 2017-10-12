@@ -1,4 +1,4 @@
-package elnadv.pageObjects;
+package elnadv;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
@@ -17,4 +17,13 @@ public class Helpers {
             return false;
         }
     }
+
+
+    public static void sleepTight(int ms) {
+        try {
+            Thread.sleep(ms);
+        } catch (Exception e) {
+        }
+    }
+
 }
