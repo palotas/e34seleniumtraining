@@ -1,10 +1,8 @@
-package com.element34.testng.listener;
+package elnadv.listener;
 
-import org.openqa.selenium.remote.RemoteWebDriver;
 import org.testng.ITestContext;
 import org.testng.ITestListener;
 import org.testng.ITestResult;
-import reporting.DoScreenshot;
 
 public class StatusListener implements ITestListener {
 
