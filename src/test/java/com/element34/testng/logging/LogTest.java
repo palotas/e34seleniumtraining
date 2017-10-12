@@ -2,7 +2,10 @@ package com.element34.testng.logging;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.slf4j.Marker;
+import org.slf4j.MarkerFactory;
 import org.testng.ITestContext;
+import org.testng.Reporter;
 import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
@@ -26,21 +29,21 @@ public class LogTest {
 
   @BeforeSuite
   public void setup(ITestContext context) {
-    context.getCurrentXmlTest().setParallel(ParallelMode.METHODS);
+    //context.getCurrentXmlTest().setParallel(ParallelMode.METHODS);
   }
 
   private final Logger logger = LoggerFactory.getLogger(this.getClass());
 
   @Test
   public void test1() {
-    //Reporter.log("Hello from test1");
+    Reporter.log("Hello from test1");
     System.out.println("sout from test1");
   }
 
 
   @Test
   public void test2() {
-    //Reporter.log("Hello from test2");
+    Reporter.log("Hello from test2");
     System.out.println("sout from test2");
 
   }
@@ -50,6 +53,7 @@ public class LogTest {
      logger.debug("debug from test4");
      logger.info("Hello from test4");
      logger.warn("warn from test4 {} ",keyValue("result","bla"));
+     logger.error("huge error happened");
   }
 }
 
