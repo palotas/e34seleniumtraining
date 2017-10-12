@@ -1,6 +1,6 @@
-package com.element34.testng;
+package elnadv.report;
 
-import com.element34.testng.report.JsonReporter;
+import elnadv.report.JsonReporter;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
@@ -9,7 +9,7 @@ import org.testng.annotations.Test;
  * using the reporter that produces json.
  */
 @Listeners(JsonReporter.class)
-public class Demo {
+public class JsonReporterTest {
 
   @Test
   public void test(){}

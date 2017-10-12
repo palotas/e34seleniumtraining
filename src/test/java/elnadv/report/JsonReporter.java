@@ -1,4 +1,4 @@
-package com.element34.testng.report;
+package elnadv.report;
 
 import com.element34.testng.multiplexer.Metadata;
 import com.google.gson.*;

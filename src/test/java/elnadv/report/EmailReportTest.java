@@ -1,16 +1,16 @@
-package com.element34.testng.reportstart;
+package elnadv.report;
 
 import org.testng.Reporter;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
 
-@Listeners(MyReport.class)
-public class ReportTest {
+@Listeners(EmailReport.class)
+public class EmailReportTest {
 
 
   @Test
-  public  void test(){
+  public  void test1(){
     Reporter.log("Hello");
   }
 }

@@ -1,4 +1,4 @@
-package com.element34.testng.reportstart;
+package elnadv.report;
 
 import org.testng.*;
 import org.testng.collections.Lists;
@@ -16,7 +16,7 @@ import java.util.*;
  * Quick hack to start playing with report :
  * Copy paste {@link EmailableReporter} content and start modifying it.
  */
-public class MyReport implements IReporter {
+public class EmailReport implements IReporter {
 
   private static final Logger L = Logger.getLogger(EmailableReporter.class);
 
@@ -323,7 +323,7 @@ public class MyReport implements IReporter {
         r.add(im);
       }
     }
-    Arrays.sort(r.toArray(new IInvokedMethod[r.size()]), new MyReport.TestSorter());
+    Arrays.sort(r.toArray(new IInvokedMethod[r.size()]), new EmailReport.TestSorter());
     List<ITestNGMethod> result = Lists.newArrayList();
 
     // Add all the invoked methods
