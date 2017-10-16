@@ -1,5 +1,6 @@
-package elnadv;
+package elnadv.eventfiring;
 
+import elnadv.BaseTest;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.remote.DesiredCapabilities;
@@ -15,7 +16,7 @@ import static elnadv.Helpers.sleepTight;
 /**
  * Created by e34 on 13/10/2017.
  */
-public class EventFiring extends BaseTest{
+public class EventFiring extends BaseTest {
 
     @Test
     public void eventFiringDriver() throws MalformedURLException {

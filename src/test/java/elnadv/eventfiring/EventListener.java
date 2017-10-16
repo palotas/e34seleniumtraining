@@ -1,4 +1,4 @@
-package elnadv;
+package elnadv.eventfiring;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
