@@ -6,10 +6,15 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.support.events.WebDriverEventListener;
 
+import java.sql.Time;
+
 /**
  * Created by e34 on 13/10/2017.
  */
 public class EventListener implements WebDriverEventListener{
+
+    long startTime;
+    long endTime;
 
     public EventListener(RemoteWebDriver driver) {
     }
@@ -78,12 +83,14 @@ public class EventListener implements WebDriverEventListener{
 
     @Override
     public void beforeFindBy(By by, WebElement webElement, WebDriver webDriver) {
-
+        startTime = System.currentTimeMillis();
     }
 
     @Override
     public void afterFindBy(By by, WebElement webElement, WebDriver webDriver) {
 
+        endTime = System.currentTimeMillis() - startTime;
+        System.out.println("Findelement took: " + endTime + " ms");
     }
 
     @Override
@@ -121,7 +128,6 @@ public class EventListener implements WebDriverEventListener{
 
     @Override
     public void onException(Throwable throwable, WebDriver webDriver) {
-
-        System.out.println("something went wrong. exception caught");
+        System.out.println("something went wrong. exception caught: " + throwable.getMessage());
     }
 }
