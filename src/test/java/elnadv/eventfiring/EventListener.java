@@ -8,6 +8,8 @@ import org.openqa.selenium.support.events.WebDriverEventListener;
 
 import java.sql.Time;
 
+import static elnadv.Helpers.highlight;
+
 /**
  * Created by e34 on 13/10/2017.
  */
@@ -90,7 +92,7 @@ public class EventListener implements WebDriverEventListener{
     public void afterFindBy(By by, WebElement webElement, WebDriver webDriver) {
 
         endTime = System.currentTimeMillis() - startTime;
-        System.out.println("Findelement took: " + endTime + " ms");
+        System.out.println("findElement() took: " + endTime + " ms");
     }
 
     @Override
@@ -99,6 +101,7 @@ public class EventListener implements WebDriverEventListener{
         System.out.println("about to click on an element");
         //JavascriptExecutor jse = (JavascriptExecutor)webDriver;
         //jse.executeScript("arguments[0].style.border='2px solid red'", webElement);
+        //highlight(webDriver, webElement);
     }
 
     @Override

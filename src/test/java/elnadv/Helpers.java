@@ -1,8 +1,7 @@
 package elnadv;
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.NoSuchElementException;
-import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.*;
+import org.openqa.selenium.remote.RemoteWebDriver;
 
 public class Helpers {
 
@@ -24,6 +23,11 @@ public class Helpers {
             Thread.sleep(ms);
         } catch (Exception e) {
         }
+    }
+
+    public static void highlight(WebDriver driver, WebElement element) {
+        JavascriptExecutor jse = (JavascriptExecutor)driver;
+        jse.executeScript("arguments[0].style.border='2px solid red'", element);
     }
 
 }

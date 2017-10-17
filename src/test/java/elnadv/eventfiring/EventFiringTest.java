@@ -16,7 +16,7 @@ import static elnadv.Helpers.sleepTight;
 /**
  * Created by e34 on 13/10/2017.
  */
-public class EventFiring extends BaseTest {
+public class EventFiringTest extends BaseTest {
 
     @Test
     public void eventFiringDriver() throws MalformedURLException {
