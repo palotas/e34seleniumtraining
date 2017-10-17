@@ -17,25 +17,11 @@ import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
 
-public class sboxTests {
+import static sbox.Helpers.*;
+
+public class SboxTests {
 
 	private final String host = "192.168.1.178";
-
-	//@BeforeTest
-	//public void setup() {
-	//	Settings.setHubUrl("https://vm-106.element34.net");
-	//}
-
-	//runs Chrome in version LATEST and LATEST-x
-	@DataProvider(name = "chromeVersions", parallel = true)
-	public Object[][] createData1() {
-		return new Object[][] {
-				{""},
-				{"n-1"},
-				{"n-2"},
-				{"n-3"}
-		};
-	}
 
 	//browsers and versions are hardcoded on the data provider
 	@DataProvider(name = "browserProvider", parallel = true)
