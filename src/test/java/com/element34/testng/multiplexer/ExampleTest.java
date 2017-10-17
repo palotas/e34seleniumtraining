@@ -1,6 +1,7 @@
 package com.element34.testng.multiplexer;
 
 
+import elnadv.report.JsonReporter;
 import org.testng.ITestContext;
 import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.DataProvider;
