@@ -18,12 +18,9 @@ import java.net.URL;
 import static sbox.Helpers.getDownloadedFileName;
 import static sbox.Helpers.getInternalSessionId;
 import static sbox.Helpers.screenshot;
+import static sbox.Settings.HUB;
 
 public class SboxTests {
-
-	public static final String HUB = "https://vm-105.element34.net";
-	public static final String SCREENSHOT_DIRECTORY = "C:\\Users\\mpalotas\\IdeaProjects\\e34seleniumtraining\\screenshots\\";
-
 
 	@Test(dataProvider = "chromeVersions", dataProviderClass = TestData.class, invocationCount = 1)
 	public void chromeWithDifferentVersionsTest(String version) throws IOException, InterruptedException {
