@@ -10,6 +10,7 @@ import java.util.List;
 
 import static io.restassured.RestAssured.get;
 import static org.hamcrest.Matchers.*;
+import static sbox.SboxTests.HUB;
 
 public class Helpers {
 
@@ -43,7 +44,7 @@ public class Helpers {
                     throw new RuntimeException("Cannot only use FileToBePresent on a remote webdriver");
                 } else {
                     try {
-                        get("https://vm-105.element34.net/e34/api/downloads?session=" + ((RemoteWebDriver) driver).getSessionId())
+                        get(HUB +  "/e34/api/downloads?session=" + ((RemoteWebDriver) driver).getSessionId())
 
                                 .then()
                                 .body("name", hasItems(files));
@@ -54,5 +55,30 @@ public class Helpers {
                 }
             }
         };
+    }
+
+    public static String getDownloadedFileName(RemoteWebDriver driver){
+        String fileName =
+                get(HUB +"/e34/api/downloads?session=" + driver.getSessionId())
+                .then()
+                .statusCode(200)
+                .extract().body().jsonPath().getString("name")
+                .replaceAll("[\\[\\](){}]","");
+        System.out.println("Filename: " + fileName);
+        return fileName;
+    }
+
+    public static String getInternalSessionId(RemoteWebDriver driver) {
+
+        String internalSessionId =
+                 get(HUB + "/e34/api/downloads?session=" + driver.getSessionId())
+                .then()
+                .statusCode(200)
+                .extract().body().jsonPath().getString("internalSessionId")
+                .replaceAll("[\\[\\](){}]","");
+
+        System.out.println("internal session ID: " + internalSessionId);
+        return internalSessionId;
+
     }
 }
