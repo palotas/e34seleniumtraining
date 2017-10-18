@@ -1,16 +1,19 @@
 package sbox;
 
+import org.openqa.selenium.OutputType;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.testng.SkipException;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
 import static io.restassured.RestAssured.get;
 import static org.hamcrest.Matchers.*;
 import static sbox.SboxTests.HUB;
+import static sbox.SboxTests.SCREENSHOT_DIRECTORY;
 
 public class Helpers {
 
@@ -80,5 +83,12 @@ public class Helpers {
         System.out.println("internal session ID: " + internalSessionId);
         return internalSessionId;
 
+    }
+
+    public static void screenshot(RemoteWebDriver driver) {
+        File tmp = driver.getScreenshotAs(OutputType.FILE);
+        File ss = new File( SCREENSHOT_DIRECTORY + System.currentTimeMillis() +  ".png");
+        tmp.renameTo(ss);
+        System.out.println("Screenshot: " + ss.getAbsoluteFile());
     }
 }

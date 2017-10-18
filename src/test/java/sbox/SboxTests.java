@@ -1,9 +1,6 @@
 package sbox;
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.Dimension;
-import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxProfile;
 import org.openqa.selenium.interactions.Actions;
@@ -13,16 +10,19 @@ import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.Test;
 
+import java.io.File;
 import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
 
 import static sbox.Helpers.getDownloadedFileName;
 import static sbox.Helpers.getInternalSessionId;
+import static sbox.Helpers.screenshot;
 
 public class SboxTests {
 
 	public static final String HUB = "https://vm-105.element34.net";
+	public static final String SCREENSHOT_DIRECTORY = "C:\\Users\\mpalotas\\IdeaProjects\\e34seleniumtraining\\screenshots\\";
 
 
 	@Test(dataProvider = "chromeVersions", dataProviderClass = TestData.class, invocationCount = 1)
@@ -115,6 +115,23 @@ public class SboxTests {
 
 		driver.quit();
 	}
+
+	@Test
+	public void screenshotTest() throws IOException, InterruptedException {
+
+		DesiredCapabilities capability = new DesiredCapabilities();
+		capability.setCapability("video", true);
+		capability.setBrowserName("chrome");
+		RemoteWebDriver driver = new RemoteWebDriver(new URL(HUB + ":443/wd/hub"), capability);
+		printVideoURL(driver);
+
+		driver.get("http://the-internet.herokuapp.com/download");
+		screenshot(driver);
+
+		driver.quit();
+	}
+
+
 
 	@Test
 	public void buildFFProfile() throws MalformedURLException {
