@@ -11,9 +11,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 import static io.restassured.RestAssured.get;
-import static org.hamcrest.Matchers.*;
-import static sbox.SboxTests.HUB;
-import static sbox.SboxTests.SCREENSHOT_DIRECTORY;
+import static org.hamcrest.Matchers.hasItems;
+import static sbox.Settings.HUB;
+import static sbox.Settings.SCREENSHOT_DIRECTORY;
 
 public class Helpers {
 
