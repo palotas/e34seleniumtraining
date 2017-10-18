@@ -1,5 +1,6 @@
 package sbox;
 
+import io.restassured.response.Response;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Dimension;
 import org.openqa.selenium.JavascriptExecutor;
@@ -10,6 +11,7 @@ import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.remote.CapabilityType;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
@@ -17,6 +19,9 @@ import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
 
+import static elnadv.Helpers.sleepTight;
+import static io.restassured.RestAssured.get;
+import static io.restassured.RestAssured.when;
 import static sbox.Helpers.*;
 
 public class SboxTests {
@@ -24,68 +29,14 @@ public class SboxTests {
 	private final String host = "192.168.1.178";
 
 	//browsers and versions are hardcoded on the data provider
-	@DataProvider(name = "browserProvider", parallel = true)
-	public Object[][] getDrivers() {
-
-		DesiredCapabilities chrome1 = DesiredCapabilities.chrome();
-		chrome1.setCapability("version", "58");
-
-		DesiredCapabilities chrome2 = DesiredCapabilities.chrome();
-		chrome2.setCapability("version", "57");
-
-		DesiredCapabilities chrome3 = DesiredCapabilities.chrome();
-		chrome3.setCapability("version", "56");
-
-		DesiredCapabilities internetExplorer = DesiredCapabilities.internetExplorer();
-
-		DesiredCapabilities edge = DesiredCapabilities.edge();
-
-
-		return new Object[][]{
-				{chrome1},
-				{chrome2},
-				{chrome3},
-				{internetExplorer},
-				{edge},
-    	};
-	}
-
-
-	//no hardcoded versions. Sliding window depending on what is configured on SBOX as LATEST
-	@DataProvider(name = "browserProviderWithoutVersions", parallel = true)
-	public Object[][] getDriversWithoutVersion() {
-
-		//if no version is set, then latest browser version is used
-		DesiredCapabilities firefox1 = DesiredCapabilities.firefox();
-
-		//use n-1, n-1 etc. to specify non-hardcoded browserversions (sliding window)
-		DesiredCapabilities firefox2 = DesiredCapabilities.firefox();
-		firefox1.setCapability("version", "n-1");
-
-		DesiredCapabilities firefox3 = DesiredCapabilities.firefox();
-		firefox1.setCapability("version", "n-2");
-
-		DesiredCapabilities chrome1 = DesiredCapabilities.chrome();
-
-		DesiredCapabilities chrome2 = DesiredCapabilities.chrome();
-		chrome2.setCapability("version", "n-1");
-
-		DesiredCapabilities chrome3 = DesiredCapabilities.chrome();
-		chrome3.setCapability("version", "n-2");
-
-		return new Object[][]{
-				{firefox1},
-				{firefox2},
-				{firefox3},
-				{chrome1},
-				{chrome2},
-				{chrome3},
-		};
-	}
 
 
 
-	@Test(dataProvider = "chromeVersions", invocationCount = 1)
+
+
+
+
+	@Test(dataProvider = "chromeVersions", dataProviderClass = TestData.class, invocationCount = 1)
 	public void chromeWithDifferentVersionsTest(String version) throws IOException, InterruptedException {
 
 		DesiredCapabilities capability = new DesiredCapabilities();
@@ -108,7 +59,7 @@ public class SboxTests {
 		driver.quit();
 	}
 
-	@Test(dataProvider = "browserProvider", invocationCount = 1)
+	@Test(dataProvider = "browserProvider", dataProviderClass = TestData.class, invocationCount = 1)
 	public void multiBrowserVersionTest(DesiredCapabilities caps) throws IOException, InterruptedException {
 
 		//enable video recording
@@ -168,12 +119,39 @@ public class SboxTests {
 		DesiredCapabilities capability = new DesiredCapabilities();
 		capability.setCapability("video", true);
 		capability.setBrowserName("chrome");
-		RemoteWebDriver driver = new RemoteWebDriver(new URL("https://vm-106.element34.net:443/wd/hub"), capability);
+		RemoteWebDriver driver = new RemoteWebDriver(new URL("https://vm-105.element34.net:443/wd/hub"), capability);
+		System.out.println("Session ID: " + driver.getSessionId());
+		printVideoURL(driver);
+
+
 
 		driver.get("http://the-internet.herokuapp.com/download");
 		driver.findElement(By.linkText("some-file.txt")).click();
-		System.out.println("Session ID: " + driver.getSessionId());
-		printVideoURL(driver);
+
+		WebDriverWait wait = new WebDriverWait(driver, 5);
+		wait.until(Helpers.FileToBePresent("some-file.txt"));
+
+		String fileName = get("https://vm-105.element34.net/e34/api/downloads?session=" + driver.getSessionId())
+				.then()
+				.statusCode(200)
+				.extract().body().jsonPath().getString("name");
+//				.extract().body().jsonPath().getInt("size");
+
+
+		String internalSessionID = get("https://vm-105.element34.net/e34/api/downloads?session=" + driver.getSessionId())
+				.then()
+				.statusCode(200)
+				.extract().body().jsonPath().getString("internalSessionId");
+
+
+		fileName = fileName.replaceAll("[\\[\\](){}]","");
+		internalSessionID = internalSessionID.replaceAll("[\\[\\](){}]","");
+		System.out.println("Filename: " + fileName);
+		System.out.println("Internal Session ID: " + internalSessionID);
+
+
+		driver.get("https://vm-105.element34.net/downloads/" + internalSessionID + "/" + fileName);
+
 		driver.quit();
 	}
 
@@ -224,7 +202,7 @@ public class SboxTests {
 */
 
 	private void printVideoURL(RemoteWebDriver driver) {
-		System.out.println("Video URL - " + driver.getCapabilities().getBrowserName() + " " + driver.getCapabilities().getVersion() + " : " + "https://vm-106.element34.net/videos/" + driver.getSessionId() + ".mp4");
+		System.out.println("Video URL - " + driver.getCapabilities().getBrowserName() + " " + driver.getCapabilities().getVersion() + " : " + "https://vm-105.element34.net/videos/" + driver.getSessionId() + ".mp4");
 	}
 
 	private void printLiveViewURL(RemoteWebDriver driver) {

@@ -1,9 +1,15 @@
 package sbox;
 
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.remote.RemoteWebDriver;
+import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.testng.SkipException;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import static io.restassured.RestAssured.get;
+import static org.hamcrest.Matchers.*;
 
 public class Helpers {
 
@@ -27,5 +33,26 @@ public class Helpers {
         if (versionList.contains(version)) {
             throw new SkipException("unsupported Chrome Version for PKI ");
         }
+    }
+
+    public static ExpectedCondition<Boolean> FileToBePresent(String... files) {
+        return new ExpectedCondition<Boolean>() {
+            @Override
+            public Boolean apply(WebDriver driver) {
+                if (!(driver instanceof RemoteWebDriver)) {
+                    throw new RuntimeException("Cannot only use FileToBePresent on a remote webdriver");
+                } else {
+                    try {
+                        get("https://vm-105.element34.net/e34/api/downloads?session=" + ((RemoteWebDriver) driver).getSessionId())
+
+                                .then()
+                                .body("name", hasItems(files));
+                        return true;
+                    } catch (Throwable t) {
+                        return false;
+                    }
+                }
+            }
+        };
     }
 }
