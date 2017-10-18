@@ -107,6 +107,7 @@ public class SboxTests {
 
 		WebDriverWait wait = new WebDriverWait(driver, 5);
 		wait.until(Helpers.FileToBePresent("some-file.txt"));
+		//wait.until(Helpers.FileToBeSize(307)); this is not working at themoment due to a conflict with restassured "size"
 
 		driver.get(HUB + "/downloads/" + getInternalSessionId(driver) + "/" + getDownloadedFileName(driver));
 

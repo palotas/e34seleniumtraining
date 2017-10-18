@@ -1,5 +1,7 @@
 package sbox;
 
+import io.restassured.response.Response;
+import io.restassured.response.ResponseBody;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.remote.RemoteWebDriver;
@@ -11,7 +13,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 import static io.restassured.RestAssured.get;
+import static org.hamcrest.Matchers.equalTo;
 import static org.hamcrest.Matchers.hasItems;
+import static org.hamcrest.Matchers.is;
 import static sbox.Settings.HUB;
 import static sbox.Settings.SCREENSHOT_DIRECTORY;
 
@@ -51,6 +55,28 @@ public class Helpers {
 
                                 .then()
                                 .body("name", hasItems(files));
+                        return true;
+                    } catch (Throwable t) {
+                        return false;
+                    }
+                }
+            }
+        };
+    }
+
+    //not working due to conflic with restassured "size" element which gives back the size of the json array
+    public static ExpectedCondition<Boolean> FileToBeSize(String... files) {
+        return new ExpectedCondition<Boolean>() {
+            @Override
+            public Boolean apply(WebDriver driver) {
+                if (!(driver instanceof RemoteWebDriver)) {
+                    throw new RuntimeException("Cannot only use FileToBePresent on a remote webdriver");
+                } else {
+                    try {
+                        get(HUB +  "/e34/api/downloads?session=" + ((RemoteWebDriver) driver).getSessionId())
+
+                                .then()
+                                .body("size", is(307));
                         return true;
                     } catch (Throwable t) {
                         return false;
