@@ -1,4 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!--
+  ~ Copyright (c) 2014 - 2017.  Element34 Solutions - All Rights Reserved
+  ~ Unauthorized copying and redistribution of this file or parts thereof,
+  ~ via any medium is strictly prohibited without explicit consent of Element34 Solutions GmbH.
+  -->
+
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="Suite" parallel="false">
     <test name="Test">

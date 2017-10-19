@@ -1,3 +1,9 @@
+/*
+ * Copyright (c) 2014 - 2017.  Element34 Solutions - All Rights Reserved
+ * Unauthorized copying and redistribution of this file or parts thereof,
+ * via any medium is strictly prohibited without explicit consent of Element34 Solutions GmbH.
+ */
+
 package sbox;
 
 import org.openqa.selenium.remote.DesiredCapabilities;
@@ -40,10 +46,10 @@ public class TestData {
 
 
         return new Object[][]{
-                {chrome1},
-                {chrome2},
-                {chrome3},
-                {internetExplorer},
+//                {chrome1},
+//                {chrome2},
+//                {chrome3},
+//                {internetExplorer},
                 {edge},
         };
     }

@@ -1,3 +1,9 @@
+/*
+ * Copyright (c) 2014 - 2017.  Element34 Solutions - All Rights Reserved
+ * Unauthorized copying and redistribution of this file or parts thereof,
+ * via any medium is strictly prohibited without explicit consent of Element34 Solutions GmbH.
+ */
+
 package sbox;
 
 import com.element34.webdriver.DriverAutoLogAugmenter;
@@ -24,7 +30,7 @@ import static sbox.Settings.HUB;
 
 public class SboxTests {
 
-	@Test(dataProvider = "chromeVersions", dataProviderClass = TestData.class, invocationCount = 1)
+	@Test(dataProvider = "chromeVersions", dataProviderClass = TestData.class, invocationCount = 10, threadPoolSize = 20)
 	public void chromeWithDifferentVersionsTest(String version) throws IOException, InterruptedException {
 
 		DesiredCapabilities capability = new DesiredCapabilities();
@@ -37,7 +43,7 @@ public class SboxTests {
 		System.out.println("Browser version: " + driver.getCapabilities().getBrowserName() + " " + driver.getCapabilities().getVersion());
 
 		//replace with company specific URL
-		driver.get("http://www.google.com");
+		driver.get("http://bytesource.net");
 		System.out.println("Video URL: " + HUB + "/videos/" + driver.getSessionId() + ".mp4");
 
 		//leave browser open for 5 seconds and close browser afterwards
@@ -72,7 +78,7 @@ public class SboxTests {
 		DesiredCapabilities capability = new DesiredCapabilities();
 		capability.setCapability("video", true);
 		capability.setBrowserName("chrome");
-		capability.setCapability("l_testName", "test12345");
+		capability.setCapability("l_testName", "SBOX Demo Test");
 		RemoteWebDriver driver = new RemoteWebDriver(new URL(HUB + ":443/wd/hub"), capability);
 		printLiveViewURL(driver);
 		printVideoURL(driver);
@@ -187,7 +193,7 @@ public class SboxTests {
 
 
 	private void printVideoURL(RemoteWebDriver driver) {
-		System.out.println("Video URL - " + driver.getCapabilities().getBrowserName() + " " + driver.getCapabilities().getVersion() + " : " + "https://vm-106.element34.net/videos/" + driver.getSessionId() + ".mp4");
+		System.out.println("Video URL - " + driver.getCapabilities().getBrowserName() + " " + driver.getCapabilities().getVersion() + " : " + "https://vm-105.element34.net/videos/" + driver.getSessionId() + ".mp4");
 	}
 
 	private void printLiveViewURL(RemoteWebDriver driver) {
