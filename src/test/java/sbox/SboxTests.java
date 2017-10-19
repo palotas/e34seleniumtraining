@@ -1,5 +1,6 @@
 package sbox;
 
+import com.element34.webdriver.DriverAutoLogAugmenter;
 import org.openqa.selenium.*;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxProfile;
@@ -15,6 +16,7 @@ import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
 
+import static elnadv.Helpers.sleepTight;
 import static sbox.Helpers.getDownloadedFileName;
 import static sbox.Helpers.getInternalSessionId;
 import static sbox.Helpers.screenshot;
@@ -159,8 +161,33 @@ public class SboxTests {
 	}
 
 
+	@Test
+	public void reportingTest() throws MalformedURLException {
+
+		DesiredCapabilities capability = new DesiredCapabilities();
+		capability.setCapability("video", true);
+		capability.setBrowserName("chrome");
+		WebDriver driver = new RemoteWebDriver(new URL(HUB + ":443/wd/hub"), capability);
+		driver = new DriverAutoLogAugmenter().augment(driver);
+
+		driver.get("http://the-internet.herokuapp.com/download");
+		sleepTight(1000);
+		driver.get("https://google.com");
+		sleepTight(1000);
+		driver.get("http://www.spiegel.de");
+		sleepTight(1000);
+		driver.get("https://bytesource.net/en/");
+		sleepTight(1000);
+		driver.get("https://oebb.at");
+		sleepTight(1000);
+
+		driver.quit();
+
+	}
+
+
 	private void printVideoURL(RemoteWebDriver driver) {
-		System.out.println("Video URL - " + driver.getCapabilities().getBrowserName() + " " + driver.getCapabilities().getVersion() + " : " + "https://vm-105.element34.net/videos/" + driver.getSessionId() + ".mp4");
+		System.out.println("Video URL - " + driver.getCapabilities().getBrowserName() + " " + driver.getCapabilities().getVersion() + " : " + "https://vm-106.element34.net/videos/" + driver.getSessionId() + ".mp4");
 	}
 
 	private void printLiveViewURL(RemoteWebDriver driver) {
@@ -168,7 +195,7 @@ public class SboxTests {
 	}
 
 
-	@Test
+	@Test(enabled = false)
 	public void ciscoTest() {
 			RemoteWebDriver driver = null;
 			String version = "47";
