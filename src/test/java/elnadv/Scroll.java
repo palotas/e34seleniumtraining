@@ -4,7 +4,7 @@
  * via any medium is strictly prohibited without explicit consent of Element34 Solutions GmbH.
  */
 
-package misc;
+package elnadv;
 
 
 import org.openqa.selenium.JavascriptExecutor;

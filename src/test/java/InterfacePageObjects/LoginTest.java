@@ -6,6 +6,7 @@
 
 package InterfacePageObjects;
 
+import elnadv.BaseTest;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.annotations.Test;
@@ -13,7 +14,7 @@ import org.testng.annotations.Test;
 /**
  * Created by gridfusion on 20/09/15.
  */
-public class LoginTest {
+public class LoginTest extends BaseTest {
 
     @Test
     public void loginTest1() {

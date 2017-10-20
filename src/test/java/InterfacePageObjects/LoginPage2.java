@@ -8,9 +8,6 @@ package InterfacePageObjects;
 
 import org.openqa.selenium.WebDriver;
 
-/**
- * Created by gridfusion on 20/09/15.
- */
 public class LoginPage2 extends LoginPageBase implements LoginPageInterface {
 
 
@@ -21,9 +18,10 @@ public class LoginPage2 extends LoginPageBase implements LoginPageInterface {
     @Override
     public void enterUserName(String username) {
 
-        userid.sendKeys("hello world");
+        userid.sendKeys(username);
         try {
             Thread.sleep(2000);
+            System.out.println("entering the username: " + username);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
