@@ -19,12 +19,7 @@ import static net.logstash.logback.argument.StructuredArguments.keyValue;
 
 
 /**
- * You can use you favorite log framework + testNG and still have good reports by
- * creating a testNG Appender.
- * See {@link TestNGAppender} : the code
- * See logback.xml : the wiring.
- *
- * Connecting Emelable report to see how the logs are displayed in a default testNG report.
+ * Connecting Emailable report to see how the logs are displayed in a default testNG report.
  */
 @Listeners(EmailableReporter2.class)
 public class LogTest {
