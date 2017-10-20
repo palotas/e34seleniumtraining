@@ -9,8 +9,13 @@ package elnadv;
 import org.openqa.selenium.*;
 import org.openqa.selenium.remote.RemoteWebDriver;
 
+import java.io.File;
+
+import static sbox.Settings.SCREENSHOT_DIRECTORY;
+
 public class Helpers {
 
+    public static final String SCREENSHOT_DIRECTORY = "C:\\Users\\mpalotas\\IdeaProjects\\e34seleniumtraining\\screenshots\\";
 
     public static boolean isElementPresent(WebDriver driver, By by) {
 
@@ -36,4 +41,10 @@ public class Helpers {
         jse.executeScript("arguments[0].style.border='2px solid red'", element);
     }
 
+    public static void screenshot(RemoteWebDriver driver) {
+        File tmp = driver.getScreenshotAs(OutputType.FILE);
+        File ss = new File(SCREENSHOT_DIRECTORY + System.currentTimeMillis() + ".png");
+        tmp.renameTo(ss);
+        System.out.println("Screenshot: " + ss.getAbsoluteFile());
+    }
 }

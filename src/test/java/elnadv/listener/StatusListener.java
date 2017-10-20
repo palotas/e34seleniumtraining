@@ -10,6 +10,8 @@ import org.testng.ITestContext;
 import org.testng.ITestListener;
 import org.testng.ITestResult;
 
+import static elnadv.Helpers.screenshot;
+
 public class StatusListener implements ITestListener {
 
 	public void onFinish(ITestContext arg0) {
@@ -25,7 +27,7 @@ public class StatusListener implements ITestListener {
 	}
 
 	public void onTestFailure(ITestResult result) {
-		System.out.println("[FAILED] - please analyze me");
+		System.out.println("[FAILED] - please analyze me.");
 			}
 
 	public void onTestSkipped(ITestResult arg0) {

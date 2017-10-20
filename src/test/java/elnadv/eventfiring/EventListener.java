@@ -105,7 +105,7 @@ public class EventListener implements WebDriverEventListener{
     public void beforeClickOn(WebElement webElement, WebDriver webDriver) {
 
         System.out.println("about to click on an element");
-        highlight(webDriver, webElement);
+        //highlight(webDriver, webElement);
     }
 
     @Override

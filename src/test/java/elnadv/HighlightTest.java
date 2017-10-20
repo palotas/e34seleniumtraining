@@ -21,7 +21,7 @@ import java.io.IOException;
 
 import static elnadv.Helpers.sleepTight;
 
-public class Highlight extends BaseTest {
+public class HighlightTest extends BaseTest {
 
 
 
