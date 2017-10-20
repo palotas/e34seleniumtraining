@@ -6,7 +6,9 @@
 
 package wait;
 
+import elnadv.BaseTest;
 import org.openqa.selenium.*;
+import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.support.ui.FluentWait;
@@ -22,7 +24,7 @@ import java.util.function.Function;
 
 import static java.util.concurrent.TimeUnit.SECONDS;
 
-public class CustomWait {
+public class CustomWait extends BaseTest {
 
 	
 	@Test(invocationCount=1)
@@ -74,8 +76,8 @@ public class CustomWait {
 	public void fluentWait() throws MalformedURLException {
 		DesiredCapabilities capability = new DesiredCapabilities();
 		capability.setBrowserName("chrome");
-		WebDriver driver = new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"), capability);
-
+//		WebDriver driver = new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"), capability);
+		WebDriver driver = new ChromeDriver();
 
 
 
@@ -84,7 +86,7 @@ public class CustomWait {
 		Wait<WebDriver> wait = new FluentWait<WebDriver>(driver)
 				.withTimeout(30, SECONDS)
 				.pollingEvery(5, SECONDS)
-				//.ignoring(NoSuchElementException.class);
+				.ignoring(NoSuchElementException.class)
 				.ignoring(StaleElementReferenceException.class);
 
 		WebElement reload = wait.until(new Function<WebDriver, WebElement>()
