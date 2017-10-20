@@ -105,9 +105,7 @@ public class EventListener implements WebDriverEventListener{
     public void beforeClickOn(WebElement webElement, WebDriver webDriver) {
 
         System.out.println("about to click on an element");
-        //JavascriptExecutor jse = (JavascriptExecutor)webDriver;
-        //jse.executeScript("arguments[0].style.border='2px solid red'", webElement);
-        //highlight(webDriver, webElement);
+        highlight(webDriver, webElement);
     }
 
     @Override

@@ -34,29 +34,17 @@ public class EventFiringTest extends BaseTest {
         EventListener eventListener = new EventListener(driver);
         firingDriver.register(eventListener);
 
-
         firingDriver.get("chrome://chrome-urls");
-        sleepTight(2000);
-        WebElement el = firingDriver.findElement(By.linkText("chrome://about"));
-        el.click();
-        firingDriver.quit();
-    }
+        sleepTight(1000);
+        firingDriver.findElement(By.linkText("chrome://about")).click();
+        sleepTight(1000);
+        firingDriver.findElement(By.linkText("chrome://accessibility")).click();
+        sleepTight(1000);
+        firingDriver.navigate().back();
+        sleepTight(1000);
+        firingDriver.findElement(By.linkText("chrome://apps")).click();
+        sleepTight(1000);
 
-    @Test
-    public void throwException() throws MalformedURLException {
-
-        DesiredCapabilities caps = DesiredCapabilities.chrome();
-        RemoteWebDriver driver = new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"), caps);
-
-        EventFiringWebDriver firingDriver = new EventFiringWebDriver(driver);
-        EventListener eventListener = new EventListener(driver);
-        firingDriver.register(eventListener);
-
-
-        firingDriver.get("chrome://chrome-urls");
-        sleepTight(2000);
-        WebElement el = firingDriver.findElement(By.linkText("chrome://about"));
-        el.click();
         firingDriver.quit();
     }
 }
