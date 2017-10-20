@@ -35,9 +35,9 @@ public class DragDrop extends BaseTest{
         try {
             driver.get("http://jqueryui.com/droppable/");
             wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt(By.cssSelector(".demo-frame")));
-            WebElement Sourcelocator = driver.findElement(By.cssSelector(".ui-draggable"));
-            WebElement Destinationlocator = driver.findElement(By.cssSelector(".ui-droppable"));
-            act.dragAndDrop(Sourcelocator, Destinationlocator).build().perform();
+            WebElement SourceLocator = driver.findElement(By.cssSelector(".ui-draggable"));
+            WebElement DestinationLocator = driver.findElement(By.cssSelector(".ui-droppable"));
+            act.dragAndDrop(SourceLocator, DestinationLocator).build().perform();
 
             sleepTight(3000);
             String actualText=driver.findElement(By.cssSelector("#droppable>p")).getText();
