@@ -45,7 +45,7 @@ public class Helpers {
         }
 
         if (versionList.contains(version)) {
-            throw new SkipException("unsupported Chrome Version for PKI ");
+            throw new SkipException("unsupported Chrome Version for this feature");
         }
     }
 
