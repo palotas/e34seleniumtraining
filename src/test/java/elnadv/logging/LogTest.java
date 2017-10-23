@@ -24,11 +24,6 @@ import static net.logstash.logback.argument.StructuredArguments.keyValue;
 @Listeners(EmailableReporter2.class)
 public class LogTest {
 
-
-  @BeforeSuite
-  public void setup(ITestContext context) {
-  }
-
   private final Logger logger = LoggerFactory.getLogger(this.getClass());
 
   @Test
