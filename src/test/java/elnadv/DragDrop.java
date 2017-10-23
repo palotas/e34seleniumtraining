@@ -39,6 +39,7 @@ public class DragDrop extends BaseTest{
             WebElement DestinationLocator = driver.findElement(By.cssSelector(".ui-droppable"));
             act.dragAndDrop(SourceLocator, DestinationLocator).build().perform();
 
+
             sleepTight(3000);
             String actualText=driver.findElement(By.cssSelector("#droppable>p")).getText();
             Assert.assertEquals(actualText, "Dropped!");

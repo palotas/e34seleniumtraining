@@ -22,7 +22,7 @@ import java.util.List;
  */
 public class SkippingTest extends BaseTest {
 
-    public final static String[] CHROME_SKIP_VERSIONS = {"58"};
+    public final static String[] CHROME_SKIP_VERSIONS = {"58", "61"};
 
 
     @DataProvider(name = "chromeVersions", parallel = false)
