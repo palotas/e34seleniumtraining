@@ -12,18 +12,19 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.annotations.Test;
 
+import java.io.FileNotFoundException;
 import java.io.IOException;
 
-public class Scroll extends BaseTest {
+public class Dimension extends BaseTest {
 
 	@Test
-	public void scroll() throws InterruptedException, IOException {
+	public void dimension() throws InterruptedException, IOException {
 
 		WebDriver driver = new FirefoxDriver();
+		driver.manage().window().setSize(new org.openqa.selenium.Dimension(300, 500));
 		JavascriptExecutor jse = (JavascriptExecutor)driver;
 		driver.get("http://www.element34.net");
-		jse.executeScript("window.scrollBy(0,1000)", "");
-		
+
 		Thread.sleep(5000);
 		driver.quit();
 	}
