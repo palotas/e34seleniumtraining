@@ -6,7 +6,7 @@
 
 package sbox;
 
-import com.element34.webdriver.DriverAutoLogAugmenter;
+//import com.element34.webdriver.DriverAutoLogAugmenter;
 import org.openqa.selenium.*;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxProfile;
@@ -167,29 +167,29 @@ public class SboxTests {
 	}
 
 
-	@Test
-	public void reportingTest() throws MalformedURLException {
-
-		DesiredCapabilities capability = new DesiredCapabilities();
-		capability.setCapability("video", true);
-		capability.setBrowserName("chrome");
-		WebDriver driver = new RemoteWebDriver(new URL(HUB + ":443/wd/hub"), capability);
-		driver = new DriverAutoLogAugmenter().augment(driver);
-
-		driver.get("http://the-internet.herokuapp.com/download");
-		sleepTight(1000);
-		driver.get("https://google.com");
-		sleepTight(1000);
-		driver.get("http://www.spiegel.de");
-		sleepTight(1000);
-		driver.get("https://bytesource.net/en/");
-		sleepTight(1000);
-		driver.get("https://oebb.at");
-		sleepTight(1000);
-
-		driver.quit();
-
-	}
+//	@Test
+//	public void reportingTest() throws MalformedURLException {
+//
+//		DesiredCapabilities capability = new DesiredCapabilities();
+//		capability.setCapability("video", true);
+//		capability.setBrowserName("chrome");
+//		WebDriver driver = new RemoteWebDriver(new URL(HUB + ":443/wd/hub"), capability);
+//		driver = new DriverAutoLogAugmenter().augment(driver);
+//
+//		driver.get("http://the-internet.herokuapp.com/download");
+//		sleepTight(1000);
+//		driver.get("https://google.com");
+//		sleepTight(1000);
+//		driver.get("http://www.spiegel.de");
+//		sleepTight(1000);
+//		driver.get("https://bytesource.net/en/");
+//		sleepTight(1000);
+//		driver.get("https://oebb.at");
+//		sleepTight(1000);
+//
+//		driver.quit();
+//
+//	}
 
 
 	private void printVideoURL(RemoteWebDriver driver) {
