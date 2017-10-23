@@ -27,7 +27,6 @@ public class LogTest {
 
   @BeforeSuite
   public void setup(ITestContext context) {
-    //context.getCurrentXmlTest().setParallel(ParallelMode.METHODS);
   }
 
   private final Logger logger = LoggerFactory.getLogger(this.getClass());

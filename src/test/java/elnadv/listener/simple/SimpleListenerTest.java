@@ -16,7 +16,7 @@ import org.testng.annotations.Test;
  * Created by e34 on 31.12.16.
  */
 
-@Listeners({StatusListener.class})
+@Listeners({SimpleStatusListener.class})
 public class SimpleListenerTest {
 
     @Test
