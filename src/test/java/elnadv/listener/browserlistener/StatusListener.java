@@ -4,8 +4,11 @@
  * via any medium is strictly prohibited without explicit consent of Element34 Solutions GmbH.
  */
 
-package elnadv.listener;
+package elnadv.listener.browserlistener;
 
+import elnadv.listener.browserlistener.BaseTestWithDriver;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.remote.RemoteWebDriver;
 import org.testng.ITestContext;
 import org.testng.ITestListener;
 import org.testng.ITestResult;
@@ -27,8 +30,16 @@ public class StatusListener implements ITestListener {
 	}
 
 	public void onTestFailure(ITestResult result) {
-		System.out.println("[FAILED] - please analyze me.");
-			}
+		Object currentClass = result.getInstance();
+		WebDriver webDriver = ((BaseTestWithDriver) currentClass).getDriver();
+
+		if (webDriver != null)
+		{
+			System.out.println("[FAILED] - TAKING SCREENSHOT");
+			screenshot((RemoteWebDriver) webDriver);
+		}
+
+		}
 
 	public void onTestSkipped(ITestResult arg0) {
 	}

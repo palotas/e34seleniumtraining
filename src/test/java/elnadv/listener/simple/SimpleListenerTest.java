@@ -4,9 +4,10 @@
  * via any medium is strictly prohibited without explicit consent of Element34 Solutions GmbH.
  */
 
-package elnadv.listener;
+package elnadv.listener.simple;
 
 
+import elnadv.listener.browserlistener.StatusListener;
 import org.testng.Assert;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
@@ -15,8 +16,8 @@ import org.testng.annotations.Test;
  * Created by e34 on 31.12.16.
  */
 
-//@Listeners({StatusListener.class})
-public class ListenerTestSimple {
+@Listeners({StatusListener.class})
+public class SimpleListenerTest {
 
     @Test
     public void simpleListenerTest() throws Exception {
