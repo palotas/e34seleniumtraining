@@ -17,7 +17,7 @@ public abstract class BaseTestWithDriver extends BaseTest {
 
     private WebDriver driver;
 
-    public WebDriver getDriver() {
+    public WebDriver webdriver() {
         return driver;
     }
 

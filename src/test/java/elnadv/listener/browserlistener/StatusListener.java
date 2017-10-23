@@ -6,7 +6,6 @@
 
 package elnadv.listener.browserlistener;
 
-import elnadv.listener.browserlistener.BaseTestWithDriver;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.testng.ITestContext;
@@ -31,7 +30,7 @@ public class StatusListener implements ITestListener {
 
 	public void onTestFailure(ITestResult result) {
 		Object currentClass = result.getInstance();
-		WebDriver webDriver = ((BaseTestWithDriver) currentClass).getDriver();
+		WebDriver webDriver = ((BaseTestWithDriver) currentClass).webdriver();
 
 		if (webDriver != null)
 		{

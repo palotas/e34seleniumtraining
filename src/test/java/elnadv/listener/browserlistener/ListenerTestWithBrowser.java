@@ -21,8 +21,8 @@ public class ListenerTestWithBrowser extends BaseTestWithDriver {
     @Test
     public void simpleListenerTest() throws Exception {
 
-        getDriver().get("https://google.com");
-        System.out.println(getDriver().getTitle());
+        webdriver().get("https://google.com");
+        System.out.println(webdriver().getTitle());
         Assert.assertTrue(true);
 
     }
