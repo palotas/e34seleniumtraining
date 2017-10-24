@@ -4,7 +4,7 @@
  * via any medium is strictly prohibited without explicit consent of Element34 Solutions GmbH.
  */
 
-package elnadv.pageObjects;
+package elnadv.pageObjects.standard;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
