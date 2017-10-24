@@ -59,10 +59,11 @@ public class NzzTestWithSections extends BaseTest {
 
         try {
             NzzLoginPageWithSections loginPage = new NzzLoginPageWithSections(driver);
+            loginPage.getLoginPage();
             loginPage.loginSection.enterLoginName("hello@world.ch");
             loginPage.loginSection.enterLoginPass();
             loginPage.loginSection.clickAnmeldenButton();
-            //Assert.assertTrue(isElementPresent(driver, By.className("message-password-mismatch")), "<<Element could not be found>>");
+            Assert.assertTrue(isElementPresent(driver, By.className("message-password-mismatch")), "<<Element could not be found>>");
         }
         finally {
             driver.quit();
