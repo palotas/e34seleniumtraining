@@ -42,9 +42,9 @@ public class LogTest {
 
   @Test
   public void test3() {
-     logger.debug("debug from test4");
-     logger.info("Hello from test4");
-     logger.warn("warn from test4 {} ",keyValue("result","bla"));
+     logger.debug("debug from test3");
+     logger.info("Hello from test3");
+     logger.warn("warn from test3 {} ",keyValue("result","bla"));
      logger.error("huge error happened");
   }
 }
