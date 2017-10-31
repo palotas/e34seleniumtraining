@@ -1,14 +1,14 @@
 IMPORTANT: even if prompted, please DO NOT run any updates (i.e. browsers) on the VM. 
 
 # Download the virtual machine
-- Download the virtual machine from: https://s3.amazonaws.com/e34/CAST-Nashville-Selenium-Workshop.ova 
+- Download the virtual machine from: 
 - Note: the file is 6GB large so depending on your internet connection it may take a while 
 
 # Install Virtual Box and import VM 
 -  Install Virtual Box on your laptop (Download from: https://www.virtualbox.org/wiki/Downloads) 
 -  Import downloaded VM (ova file) into Virtual Box( File -> Import Appliance )
 -  Adapt VM settings (i.e. RAM, CPU). If possible the VM should have 2+ GB in RAM and 2 CPU cores) 
--  Start VM in Virtual Box (password: 111111 if prompted)
+-  Start VM in Virtual Box (password: will be sent separately)
 -  After VM has started, open Firefox or Chrome and make sure that VM has connection to the internet 
 
 
@@ -29,7 +29,7 @@ IMPORTANT: even if prompted, please DO NOT run any updates (i.e. browsers) on th
 
 -  Open a terminal 
 -  type in "cd Downloads"
--  type in "java -jar selenium-server-standalone-3.4.0.jar"
+-  type in "java -jar selenium-server-standalone-x.y.z.jar"
 -  Selenium server should start 
 -  In the IntelliJ project go to src -> test -> java -> remoteWebdriver -> RemoteWebdriverTests.java
 -  Right-click on the method remoteWebdriverChromeTest() and select "Run remoteWebdriverChromeTest()"
