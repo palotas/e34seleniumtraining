@@ -7,6 +7,7 @@
 package elnadv;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -17,7 +18,7 @@ import org.testng.annotations.Test;
  */
 public class ExpectedException extends BaseTest {
 
-    @Test//(expectedExceptions = NoSuchElementException.class)
+    @Test(expectedExceptions = NoSuchElementException.class)
     public void checkThatElementNotOnPage() throws InterruptedException {
 
         WebDriver driver = new ChromeDriver();

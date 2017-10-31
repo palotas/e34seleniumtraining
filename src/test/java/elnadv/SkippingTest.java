@@ -39,11 +39,9 @@ public class SkippingTest extends BaseTest {
     @Test(dataProvider = "chromeVersions")
     public void skipTestForCertrainVersions(String version) {
 
-
-        checkChromeVersionToSkip(version);
         WebDriver driver = new ChromeDriver();
-
         try {
+            checkChromeVersionToSkip(version);
             driver.get("https://google.com");
         }
         finally {
