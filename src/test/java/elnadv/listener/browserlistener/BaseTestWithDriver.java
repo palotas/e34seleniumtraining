@@ -13,7 +13,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 
-public abstract class BaseTestWithDriver extends BaseTest {
+public class BaseTestWithDriver extends BaseTest {
 
     private WebDriver driver;
 
