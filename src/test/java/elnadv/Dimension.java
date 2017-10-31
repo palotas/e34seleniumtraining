@@ -9,6 +9,7 @@ package elnadv;
 
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.annotations.Test;
 
@@ -20,10 +21,9 @@ public class Dimension extends BaseTest {
 	@Test
 	public void dimension() throws InterruptedException, IOException {
 
-		WebDriver driver = new FirefoxDriver();
+		WebDriver driver = new ChromeDriver();
 		driver.manage().window().setSize(new org.openqa.selenium.Dimension(300, 500));
-		JavascriptExecutor jse = (JavascriptExecutor)driver;
-		driver.get("http://www.element34.net");
+		driver.get("https://element34.com");
 
 		Thread.sleep(5000);
 		driver.quit();
