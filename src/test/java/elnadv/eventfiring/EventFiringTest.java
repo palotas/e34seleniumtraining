@@ -8,7 +8,6 @@ package elnadv.eventfiring;
 
 import elnadv.BaseTest;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.support.events.EventFiringWebDriver;
@@ -31,8 +30,8 @@ public class EventFiringTest extends BaseTest {
         RemoteWebDriver driver = new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"), caps);
 
         EventFiringWebDriver firingDriver = new EventFiringWebDriver(driver);
-        EventListener eventListener = new EventListener(driver);
-        firingDriver.register(eventListener);
+        MyEventListener myEventListener = new MyEventListener(driver);
+        firingDriver.register(myEventListener);
 
         firingDriver.get("chrome://chrome-urls");
         sleepTight(1000);
