@@ -18,8 +18,8 @@ public class Playground {
         String OS = System.getProperty("os.name");
         switch (OS) {
             case "Linux":
-                System.setProperty("webdriver.gecko.driver","/home/e34/Downloads/geckodriver");
-                System.setProperty("webdriver.chrome.driver", "/home/e34/Downloads/chromedriver");
+                System.setProperty("webdriver.gecko.driver","/home/e34/workspace/seleniumtraining/resources/linux/geckodriver");
+                System.setProperty("webdriver.chrome.driver", "/home/e34/workspace/seleniumtraining/resources/linux/chromedriver");
                 break;
 
             case "Mac OS X":
