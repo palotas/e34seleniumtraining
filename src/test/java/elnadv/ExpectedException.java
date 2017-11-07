@@ -11,6 +11,7 @@ import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
 import org.testng.annotations.Test;
 
 /**
@@ -34,4 +35,22 @@ public class ExpectedException extends BaseTest {
         }
 
     }
+
+    @Test
+    public void checkThatElementNotOnPage2() throws InterruptedException {
+
+        WebDriver driver = new ChromeDriver();
+        WebDriverWait wait = new WebDriverWait(driver, 10);
+
+        try {
+
+            driver.get("https://google.com");
+            Assert.assertThrows(NoSuchElementException.class, ()->driver.findElement(By.id("abc")));
+        }
+        finally {
+            driver.quit();
+        }
+
+    }
+
 }
