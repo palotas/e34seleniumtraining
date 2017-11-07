@@ -23,8 +23,6 @@ public class ExpectedException extends BaseTest {
     public void checkThatElementNotOnPage() throws InterruptedException {
 
         WebDriver driver = new ChromeDriver();
-        WebDriverWait wait = new WebDriverWait(driver, 10);
-
         try {
 
             driver.get("https://google.com");
@@ -40,8 +38,6 @@ public class ExpectedException extends BaseTest {
     public void checkThatElementNotOnPage2() throws InterruptedException {
 
         WebDriver driver = new ChromeDriver();
-        WebDriverWait wait = new WebDriverWait(driver, 10);
-
         try {
 
             driver.get("https://google.com");
