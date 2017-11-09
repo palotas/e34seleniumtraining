@@ -16,6 +16,7 @@ import static sbox.Settings.SCREENSHOT_DIRECTORY;
 public class Helpers {
 
     public static final String SCREENSHOT_DIRECTORY = "C:\\Users\\mpalotas\\IdeaProjects\\e34seleniumtraining\\screenshots\\";
+    //public static final String SCREENSHOT_DIRECTORY = "/home/e34/workspace/seleniumtraining/screenshots/";
 
     public static boolean isElementPresent(WebDriver driver, By by) {
 
