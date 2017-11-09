@@ -23,7 +23,7 @@ public class Helpers {
             driver.findElement(by);
             return true;
         } catch (NoSuchElementException e) {
-            System.out.println("Element not found: " + by.toString());
+            System.out.println(e.getMessage());
             return false;
         }
     }
