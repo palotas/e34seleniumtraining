@@ -30,7 +30,7 @@ import static sbox.Settings.HUB;
 
 public class SboxTests {
 
-	@Test(dataProvider = "chromeVersions", dataProviderClass = TestData.class, invocationCount = 10, threadPoolSize = 20)
+	@Test(dataProvider = "chromeVersions", dataProviderClass = TestData.class, invocationCount = 1, threadPoolSize = 1)
 	public void chromeWithDifferentVersionsTest(String version) throws IOException, InterruptedException {
 
 		DesiredCapabilities capability = new DesiredCapabilities();
@@ -43,7 +43,7 @@ public class SboxTests {
 		System.out.println("Browser version: " + driver.getCapabilities().getBrowserName() + " " + driver.getCapabilities().getVersion());
 
 		//replace with company specific URL
-		driver.get("http://bytesource.net");
+		driver.get("https://www.bytesource.net/");
 		System.out.println("Video URL: " + HUB + "/videos/" + driver.getSessionId() + ".mp4");
 
 		//leave browser open for 5 seconds and close browser afterwards
@@ -72,12 +72,13 @@ public class SboxTests {
 	}
 
 
-	@Test
+	@Test(invocationCount = 1, threadPoolSize = 1)
 	public void singleTest() throws IOException, InterruptedException {
 
 		DesiredCapabilities capability = new DesiredCapabilities();
 		capability.setCapability("video", true);
 		capability.setBrowserName("chrome");
+//		capability.setVersion("62");
 		capability.setCapability("l_testName", "SBOX Demo Test");
 		RemoteWebDriver driver = new RemoteWebDriver(new URL(HUB + ":443/wd/hub"), capability);
 		printLiveViewURL(driver);
@@ -85,14 +86,14 @@ public class SboxTests {
 
 		driver.get("https://stackoverflow.com/questions/27241186/how-to-determine-when-document-has-loaded-after-loading-external-css");
 
-		for (int i = 0; i < 10; i++) {
+		for (int i = 0; i < 5; i++) {
 			driver.getTitle();
 			driver.getCurrentUrl();
 			driver.get("https://google.com");
 
 			JavascriptExecutor js = (JavascriptExecutor) driver;
 			System.out.println(js.executeScript("return document.readyState"));
-			Thread.sleep(250);
+			Thread.sleep(1000);
 			driver.get("https://stackoverflow.com/questions/27241186/how-to-determine-when-document-has-loaded-after-loading-external-css");
 		}
 

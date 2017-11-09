@@ -46,10 +46,10 @@ public class TestData {
 
 
         return new Object[][]{
-//                {chrome1},
-//                {chrome2},
-//                {chrome3},
-//                {internetExplorer},
+                {chrome1},
+                {chrome2},
+                {chrome3},
+                {internetExplorer},
                 {edge},
         };
     }
