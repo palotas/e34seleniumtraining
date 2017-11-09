@@ -48,6 +48,7 @@ public class NzzTestWithSections extends BaseTest {
     public void clickFAQLink() throws InterruptedException {
 
         WebDriver driver = new ChromeDriver();
+        driver.manage().window().maximize();
         WebDriverWait wait = new WebDriverWait(driver, 10);
 
         try {
