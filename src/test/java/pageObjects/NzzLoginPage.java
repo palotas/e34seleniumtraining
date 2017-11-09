@@ -30,8 +30,11 @@ public class NzzLoginPage {
 
 
     public NzzLoginPage(WebDriver driver) {
-        driver.get("https://login.nzz.ch/");
         PageFactory.initElements(driver, this);
+    }
+
+    public void loadPage(WebDriver driver) {
+        driver.get(("https://login.nzz.ch"));
     }
 
     public void enterLoginName(String name) {
