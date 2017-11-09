@@ -10,6 +10,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.testng.Assert;
@@ -27,13 +28,18 @@ public class NzzTestNoPageObject {
 
         switch (OS) {
             case "Linux":
-                System.setProperty("webdriver.gecko.driver","/home/e34/Downloads/geckodriver");
-                System.setProperty("webdriver.chrome.driver", "/home/e34/Downloads/chromedriver");
+                System.setProperty("webdriver.gecko.driver", "/home/e34/workspace/seleniumtraining/resources/linux/geckodriver");
+                System.setProperty("webdriver.chrome.driver", "/home/e34/workspace/seleniumtraining/resources/linux/chromedriver");
                 break;
 
             case "Mac OS X":
-                System.setProperty("webdriver.gecko.driver","/Users/gridfusion/Downloads/geckodriver");
+                System.setProperty("webdriver.gecko.driver", "/Users/gridfusion/Downloads/geckodriver");
                 System.setProperty("webdriver.chrome.driver", "/Users/gridfusion/Downloads/chromedriver");
+                break;
+
+            case "Windows 10":
+                System.setProperty("webdriver.gecko.driver", "C:\\Users\\mpalotas\\IdeaProjects\\e34seleniumtraining\\resources\\geckodriver.exe");
+                System.setProperty("webdriver.chrome.driver", "C:\\Users\\mpalotas\\IdeaProjects\\e34seleniumtraining\\resources\\chromedriver.exe");
                 break;
 
             default:
@@ -45,22 +51,16 @@ public class NzzTestNoPageObject {
     @Test
     public void loginTest() throws InterruptedException {
 
-        DesiredCapabilities capabilities = DesiredCapabilities.firefox();
-        WebDriver driver = new FirefoxDriver(capabilities);
+        WebDriver driver = new ChromeDriver();
+        driver.get("https://login.nzz.ch");
 
-        NzzLoginPage loginPage = new NzzLoginPage(driver);
-
-        WebElement login = driver.findElement(By.name("loginName"));
+        WebElement login = driver.findElement(By.name("login"));
         login.sendKeys("testuser1@test.ch");
 
-        WebElement password = driver.findElement(By.name("loginPass"));
+        WebElement password = driver.findElement(By.name("password"));
         password.sendKeys("testpassword");
 
         driver.findElement(By.className("btn")).click();
-
-
-        //Assert.assertTrue(isElementPresent(driver, "message-password-mismatch"));
-        Assert.assertTrue(isElementPresent(driver, By.className("message-password-mismatch")));
 
         driver.quit();
 
