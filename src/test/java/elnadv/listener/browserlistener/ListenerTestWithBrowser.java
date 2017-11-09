@@ -24,7 +24,5 @@ public class ListenerTestWithBrowser extends BaseTestWithDriver {
         webdriver().get("https://google.com");
         System.out.println(webdriver().getTitle());
         Assert.assertTrue(true);
-
     }
-
 }
