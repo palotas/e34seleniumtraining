@@ -41,6 +41,7 @@ public class SkippingTest extends BaseTest {
 
         WebDriver driver = new ChromeDriver();
         try {
+            System.out.println("Version: " + version);
             checkChromeVersionToSkip(version);
             driver.get("https://google.com");
         }
