@@ -8,6 +8,8 @@ package elnadv.eventfiring;
 
 import elnadv.BaseTest;
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.support.events.EventFiringWebDriver;
@@ -26,8 +28,7 @@ public class EventFiringTest extends BaseTest {
     @Test
     public void eventFiringDriver() throws MalformedURLException {
 
-        DesiredCapabilities caps = DesiredCapabilities.chrome();
-        RemoteWebDriver driver = new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"), caps);
+        RemoteWebDriver driver = new ChromeDriver();
 
         EventFiringWebDriver firingDriver = new EventFiringWebDriver(driver);
         MyEventListener myEventListener = new MyEventListener(driver);
