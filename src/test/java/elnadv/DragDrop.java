@@ -41,7 +41,7 @@ public class DragDrop extends BaseTest{
 
 
             sleepTight(3000);
-            String actualText=driver.findElement(By.cssSelector("#droppable>p")).getText();
+            String actualText=driver.findElement(By.cssSelector("#droppable > p")).getText();
             Assert.assertEquals(actualText, "Dropped!");
 
         }
