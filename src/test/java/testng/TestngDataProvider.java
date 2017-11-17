@@ -13,7 +13,7 @@ import org.testng.annotations.Test;
 public class TestngDataProvider {
 	
 	//data provider with one parameter
-	@DataProvider(name = "countryprovider")
+	@DataProvider(name = "countryprovider", parallel = true)
 	public Object[][] createData1() {
 	 return new Object[][] {
 	   {"Switzerland"},
@@ -35,13 +35,20 @@ public class TestngDataProvider {
 	
 	//use dataprovider1 and pass the value as String s
 	@Test(dataProvider="countryprovider")
-	public void mytest1(String s) {
-		System.out.println("now testing: "+ s);		
+	public void mytest1(String s) throws InterruptedException {
+		System.out.println("now testing: "+ s);
+		Thread.sleep(2000);
 	}
 	
 	//use dataprovider2 and pass two parameters as Strings site and s
 	@Test(dataProvider="urlprovider")
 	public void mytest2(String country, String s) {
 		System.out.println("URL of " + country + ": " + "http://www.element34" + s);
+	}
+
+	@Test(invocationCount = 5, threadPoolSize = 2)
+	public void parallel() throws InterruptedException {
+		System.out.println("hello world");
+		Thread.sleep(2000);
 	}
 }

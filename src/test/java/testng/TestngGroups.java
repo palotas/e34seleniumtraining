@@ -11,7 +11,7 @@ import org.testng.annotations.Test;
 
 public class TestngGroups {
 	
-	@Test(groups= {"regression", "nightly"})
+	@Test(groups= {"regression", "broken"})
 	public void mytest1() {
 		System.out.println("mytest1...");		
 	}

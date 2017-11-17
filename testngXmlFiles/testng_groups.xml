@@ -11,7 +11,7 @@
   <test name="Regression Test 1">
 	<groups>
 		<run>
-			<include name="nightly"/>
+			<exclude name="broken"/>
 		</run>
 	</groups>
 	
