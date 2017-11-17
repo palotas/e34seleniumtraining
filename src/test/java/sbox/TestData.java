@@ -40,6 +40,16 @@ public class TestData {
         DesiredCapabilities chrome3 = DesiredCapabilities.chrome();
         chrome3.setCapability("version", "56");
 
+        DesiredCapabilities ff1 = DesiredCapabilities.firefox();
+        ff1.setCapability("version", "54");
+
+        DesiredCapabilities ff2 = DesiredCapabilities.firefox();
+        ff1.setCapability("version", "55");
+
+        DesiredCapabilities ff3 = DesiredCapabilities.firefox();
+        ff1.setCapability("version", "56");
+
+
         DesiredCapabilities internetExplorer = DesiredCapabilities.internetExplorer();
 
         DesiredCapabilities edge = DesiredCapabilities.edge();
@@ -49,8 +59,11 @@ public class TestData {
                 {chrome1},
                 {chrome2},
                 {chrome3},
-                {internetExplorer},
-                {edge},
+                {ff1},
+                {ff2},
+                {ff3},
+                //{internetExplorer},
+                //{edge},
         };
     }
 

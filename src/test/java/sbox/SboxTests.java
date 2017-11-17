@@ -30,11 +30,45 @@ import static sbox.Settings.HUB;
 
 public class SboxTests {
 
+	@Test
+	public void ciscoDemo() throws IOException, InterruptedException {
+
+		DesiredCapabilities capability = DesiredCapabilities.chrome();
+		capability.setCapability("video", true);
+		capability.setCapability("e34_token", "2825c4dd");
+		capability.setCapability("e34_per_test_timeout_ms", 300000);
+
+//		capability.setVersion("n-1");
+
+		RemoteWebDriver driver = new RemoteWebDriver(new URL(HUB + ":443/wd/hub"), capability);
+		driver.manage().window().maximize();
+		printLiveViewURL(driver);
+		printVideoURL(driver);
+
+
+		for (int i=0; i<5; i++) {
+			driver.get("https://www.cisco.com");
+			driver.getTitle();
+			Thread.sleep(1000);
+
+			driver.get("https://google.com");
+			driver.getTitle();
+			Thread.sleep(1000);
+		}
+
+		driver.quit();
+	}
+
+
 	@Test(dataProvider = "chromeVersions", dataProviderClass = TestData.class, invocationCount = 1, threadPoolSize = 1)
 	public void chromeWithDifferentVersionsTest(String version) throws IOException, InterruptedException {
 
 		DesiredCapabilities capability = new DesiredCapabilities();
 		capability.setCapability("video", true);
+		capability.setCapability("e34_token", "2825c4dd");
+		capability.setCapability("e34_per_test_timeout_ms", 300000);
+
+
 		capability.setBrowserName("chrome");
 		capability.setVersion(version);
 
@@ -43,7 +77,7 @@ public class SboxTests {
 		System.out.println("Browser version: " + driver.getCapabilities().getBrowserName() + " " + driver.getCapabilities().getVersion());
 
 		//replace with company specific URL
-		driver.get("https://www.bytesource.net/");
+		driver.get("https://seleniumbox.com");
 		System.out.println("Video URL: " + HUB + "/videos/" + driver.getSessionId() + ".mp4");
 
 		//leave browser open for 5 seconds and close browser afterwards
@@ -51,19 +85,24 @@ public class SboxTests {
 		driver.quit();
 	}
 
-	@Test(dataProvider = "browserProvider", dataProviderClass = TestData.class, invocationCount = 1)
+	@Test(dataProvider = "browserProvider", dataProviderClass = TestData.class, invocationCount = 5, threadPoolSize = 5)
 	public void multiBrowserVersionTest(DesiredCapabilities caps) throws IOException, InterruptedException {
 
 		//enable video recording
 		caps.setCapability("video", true);
+		caps.setCapability("e34_token", "2825c4dd");
+		caps.setCapability("e34_per_test_timeout_ms", 300000);
+
+
 
 		//replace URL with company specific entry point
 		RemoteWebDriver driver = new RemoteWebDriver(new URL(HUB + ":443/wd/hub"), caps);
+		driver.manage().window().maximize();
 		System.out.println("Live View URL > " + HUB + ":443/ui/liveview?session=" + driver.getSessionId().toString());
 
 
 		//replace with company specific URL
-		driver.get("http://www.westpac.com.au");
+		driver.get("https://seleniumbox.com");
 		printVideoURL(driver);
 
 		//leave browser open for 5 seconds and close browser afterwards
@@ -75,12 +114,15 @@ public class SboxTests {
 	@Test(invocationCount = 1, threadPoolSize = 1)
 	public void singleTest() throws IOException, InterruptedException {
 
-		DesiredCapabilities capability = new DesiredCapabilities();
+
+		DesiredCapabilities capability = DesiredCapabilities.chrome();
 		capability.setCapability("video", true);
-		capability.setBrowserName("chrome");
-//		capability.setVersion("62");
+		capability.setCapability("e34_token", "2825c4dd");
+		capability.setCapability("e34_per_test_timeout_ms", 300000);
+//		capability.setVersion("n-1");
 		capability.setCapability("l_testName", "SBOX Demo Test");
 		RemoteWebDriver driver = new RemoteWebDriver(new URL(HUB + ":443/wd/hub"), capability);
+		driver.manage().window().maximize();
 		printLiveViewURL(driver);
 		printVideoURL(driver);
 
@@ -194,7 +236,7 @@ public class SboxTests {
 
 
 	private void printVideoURL(RemoteWebDriver driver) {
-		System.out.println("Video URL - " + driver.getCapabilities().getBrowserName() + " " + driver.getCapabilities().getVersion() + " : " + "https://vm-105.element34.net/videos/" + driver.getSessionId() + ".mp4");
+		System.out.println("Video URL - " + driver.getCapabilities().getBrowserName() + " " + driver.getCapabilities().getVersion() + " : " + "https://vm-106.element34.net/videos/" + driver.getSessionId() + ".mp4");
 	}
 
 	private void printLiveViewURL(RemoteWebDriver driver) {
