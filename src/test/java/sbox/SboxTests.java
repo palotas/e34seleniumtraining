@@ -31,7 +31,7 @@ import static sbox.Settings.HUB;
 public class SboxTests {
 
 	@Test
-	public void ciscoDemo() throws IOException, InterruptedException {
+	public void demo() throws IOException, InterruptedException {
 
 		DesiredCapabilities capability = DesiredCapabilities.chrome();
 		capability.setCapability("video", true);
@@ -103,6 +103,8 @@ public class SboxTests {
 
 		//replace with company specific URL
 		driver.get("https://seleniumbox.com");
+		Thread.sleep(15000);
+
 		printVideoURL(driver);
 
 		//leave browser open for 5 seconds and close browser afterwards
@@ -111,17 +113,21 @@ public class SboxTests {
 	}
 
 
-	@Test(invocationCount = 1, threadPoolSize = 1)
-	public void singleTest() throws IOException, InterruptedException {
+	@Test(dataProvider = "tokens", dataProviderClass = TestData.class, invocationCount = 1)
+	public void singleTest(String token) throws IOException, InterruptedException {
 
 
 		DesiredCapabilities capability = DesiredCapabilities.chrome();
+		//capability.setCapability("version", "56");
 		capability.setCapability("video", true);
-		capability.setCapability("e34_token", "2825c4dd");
-		capability.setCapability("e34_per_test_timeout_ms", 300000);
+		//capability.setCapability("e34_token", "2825c4dd");
+		//capability.setCapability("e34_token", token);
+		capability.setCapability("l_testName", "Hello World");
+		//capab	ility.setCapability("e34_per_test_timeout_ms", 300000);
 //		capability.setVersion("n-1");
-		capability.setCapability("l_testName", "SBOX Demo Test");
-		RemoteWebDriver driver = new RemoteWebDriver(new URL(HUB + ":443/wd/hub"), capability);
+		//capability.setCapability("l_testName", "SBOX Demo Test");
+		//RemoteWebDriver driver = new RemoteWebDriver(new URL(HUB + ":443/wd/hub"), capability);
+		RemoteWebDriver driver = new RemoteWebDriver(new URL("https://vm-106.element34.net/wd/hub"), capability);
 		driver.manage().window().maximize();
 		printLiveViewURL(driver);
 		printVideoURL(driver);
@@ -138,6 +144,33 @@ public class SboxTests {
 			Thread.sleep(1000);
 			driver.get("https://stackoverflow.com/questions/27241186/how-to-determine-when-document-has-loaded-after-loading-external-css");
 		}
+
+		driver.quit();
+	}
+
+
+	@Test(dataProvider = "testnames", dataProviderClass = TestData.class, invocationCount = 20, threadPoolSize = 100)
+	public void testnames(String testnames, String url) throws IOException, InterruptedException {
+
+
+		DesiredCapabilities capability = DesiredCapabilities.chrome();
+		//capability.setCapability("version", "56");
+		capability.setCapability("video", true);
+		//capability.setCapability("e34_token", "2825c4dd");
+		capability.setCapability("e34_token", "ba781108");
+		capability.setCapability("l_testName", testnames);
+		//capab	ility.setCapability("e34_per_test_timeout_ms", 300000);
+//		capability.setVersion("n-1");
+		//capability.setCapability("l_testName", "SBOX Demo Test");
+		//RemoteWebDriver driver = new RemoteWebDriver(new URL(HUB + ":443/wd/hub"), capability);
+		RemoteWebDriver driver = new RemoteWebDriver(new URL("https://vm-106.element34.net/wd/hub"), capability);
+		driver.manage().window().maximize();
+		printLiveViewURL(driver);
+		printVideoURL(driver);
+
+		driver.get(url);
+
+		Thread.sleep(30000);
 
 		driver.quit();
 	}

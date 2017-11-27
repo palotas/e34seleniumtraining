@@ -13,6 +13,36 @@ import static sbox.Helpers.getAllChromes;
 
 public class TestData {
 
+
+    @DataProvider(name = "testnames", parallel = true)
+    public Object[][] testnames() {
+        return new Object[][] {
+                {"DE Sign in test", "https://sbb.ch"},
+                {"US Sign in test", "https://google.com"},
+                {"FR Checkout test ", "https://ricardo.ch"},
+                {"CH Registration test ", "https://digitec.ch"},
+                {"DE Sign in test", "https://sbb.ch"},
+                {"US Sign in test", "https://google.com"},
+                {"FR Checkout test ", "https://ricardo.ch"},
+                {"CH Registration test ", "https://digitec.ch"},
+                {"DE Sign in test", "https://sbb.ch"},
+                {"US Sign in test", "https://google.com"},
+                {"FR Checkout test ", "https://ricardo.ch"},
+                {"CH Registration test ", "https://digitec.ch"},
+        };
+    }
+
+
+    @DataProvider(name = "tokens", parallel = true)
+    public Object[][] tokens() {
+        return new Object[][] {
+                {"e97152be"},
+                {"92a66ec5"},
+                {"2825c4dd"}
+        };
+    }
+
+
     @DataProvider(name = "chromeVersions", parallel = true)
     public Object[][] createVersions1() {
         return new Object[][] {
