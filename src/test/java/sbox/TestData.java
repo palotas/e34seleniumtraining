@@ -36,9 +36,9 @@ public class TestData {
     @DataProvider(name = "tokens", parallel = true)
     public Object[][] tokens() {
         return new Object[][] {
-                {"e97152be"},
-                {"92a66ec5"},
-                {"2825c4dd"}
+                {"57ffedec"},
+                {"636d9925"},
+                {"ce8a0923"}
         };
     }
 
@@ -46,10 +46,9 @@ public class TestData {
     @DataProvider(name = "chromeVersions", parallel = true)
     public Object[][] createVersions1() {
         return new Object[][] {
-                {""},
-                {"n-1"},
-                {"n-2"},
-                {"n-3"}
+                {"62"},
+                {"61"},
+                {"60"}
         };
     }
 
@@ -80,9 +79,9 @@ public class TestData {
         ff1.setCapability("version", "56");
 
 
-        DesiredCapabilities internetExplorer = DesiredCapabilities.internetExplorer();
+        //DesiredCapabilities internetExplorer = DesiredCapabilities.internetExplorer();
 
-        DesiredCapabilities edge = DesiredCapabilities.edge();
+        //DesiredCapabilities edge = DesiredCapabilities.edge();
 
 
         return new Object[][]{

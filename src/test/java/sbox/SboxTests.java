@@ -9,6 +9,7 @@ package sbox;
 //import com.element34.webdriver.DriverAutoLogAugmenter;
 import org.openqa.selenium.*;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.firefox.FirefoxProfile;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.remote.CapabilityType;
@@ -35,10 +36,9 @@ public class SboxTests {
 
 		DesiredCapabilities capability = DesiredCapabilities.chrome();
 		capability.setCapability("video", true);
-		capability.setCapability("e34_token", "2825c4dd");
+		capability.setCapability("e34_token", "57ffedec");
 		capability.setCapability("e34_per_test_timeout_ms", 300000);
 
-//		capability.setVersion("n-1");
 
 		RemoteWebDriver driver = new RemoteWebDriver(new URL(HUB + ":443/wd/hub"), capability);
 		driver.manage().window().maximize();
@@ -46,8 +46,8 @@ public class SboxTests {
 		printVideoURL(driver);
 
 
-		for (int i=0; i<5; i++) {
-			driver.get("https://www.cisco.com");
+		for (int i=0; i<1; i++) {
+			driver.get("https://www.raiffeisen.at");
 			driver.getTitle();
 			Thread.sleep(1000);
 
@@ -65,7 +65,7 @@ public class SboxTests {
 
 		DesiredCapabilities capability = new DesiredCapabilities();
 		capability.setCapability("video", true);
-		capability.setCapability("e34_token", "2825c4dd");
+		capability.setCapability("e34:token", "57ffedec");
 		capability.setCapability("e34_per_test_timeout_ms", 300000);
 
 
@@ -73,6 +73,7 @@ public class SboxTests {
 		capability.setVersion(version);
 
 		RemoteWebDriver driver = new RemoteWebDriver(new URL(HUB + ":443/wd/hub"), capability);
+		driver.manage().window().fullscreen();
 
 		System.out.println("Browser version: " + driver.getCapabilities().getBrowserName() + " " + driver.getCapabilities().getVersion());
 
@@ -85,12 +86,12 @@ public class SboxTests {
 		driver.quit();
 	}
 
-	@Test(dataProvider = "browserProvider", dataProviderClass = TestData.class, invocationCount = 5, threadPoolSize = 5)
+	@Test(dataProvider = "browserProvider", dataProviderClass = TestData.class, invocationCount = 1, threadPoolSize = 5)
 	public void multiBrowserVersionTest(DesiredCapabilities caps) throws IOException, InterruptedException {
 
 		//enable video recording
 		caps.setCapability("video", true);
-		caps.setCapability("e34_token", "2825c4dd");
+		caps.setCapability("e34:token", "57ffedec");
 		caps.setCapability("e34_per_test_timeout_ms", 300000);
 
 
@@ -102,8 +103,7 @@ public class SboxTests {
 
 
 		//replace with company specific URL
-		driver.get("https://seleniumbox.com");
-		Thread.sleep(15000);
+		driver.get("https://sbb.ch");
 
 		printVideoURL(driver);
 
@@ -113,16 +113,16 @@ public class SboxTests {
 	}
 
 
-	@Test(dataProvider = "tokens", dataProviderClass = TestData.class, invocationCount = 1)
-	public void singleTest(String token) throws IOException, InterruptedException {
+	@Test(invocationCount = 5, threadPoolSize = 5)//(dataProvider = "tokens", dataProviderClass = TestData.class, invocationCount = 1)
+	public void singleTest(/*String token*/) throws IOException, InterruptedException {
 
 
 		DesiredCapabilities capability = DesiredCapabilities.chrome();
 		//capability.setCapability("version", "56");
-		capability.setCapability("video", true);
-		//capability.setCapability("e34_token", "2825c4dd");
+		capability.setCapability("e34:video", true);
+		capability.setCapability("e34:token", "57ffedec");
 		//capability.setCapability("e34_token", token);
-		capability.setCapability("l_testName", "Hello World");
+		capability.setCapability("e34:l_testName", "mpalotas");
 		//capab	ility.setCapability("e34_per_test_timeout_ms", 300000);
 //		capability.setVersion("n-1");
 		//capability.setCapability("l_testName", "SBOX Demo Test");
@@ -132,45 +132,59 @@ public class SboxTests {
 		printLiveViewURL(driver);
 		printVideoURL(driver);
 
-		driver.get("https://stackoverflow.com/questions/27241186/how-to-determine-when-document-has-loaded-after-loading-external-css");
-
-		for (int i = 0; i < 5; i++) {
+		for(int i = 0; i < 1; i++) {
+			driver.get("https://infoq.com");
 			driver.getTitle();
-			driver.getCurrentUrl();
-			driver.get("https://google.com");
+			driver.getCapabilities();
+			driver.getPageSource();
+			Thread.sleep(1500);
+			driver.get("https://sbb.ch");
+			driver.getTitle();
+			driver.getCapabilities();
+			driver.getPageSource();
+			Thread.sleep(10000);
 
-			JavascriptExecutor js = (JavascriptExecutor) driver;
-			System.out.println(js.executeScript("return document.readyState"));
-			Thread.sleep(1000);
-			driver.get("https://stackoverflow.com/questions/27241186/how-to-determine-when-document-has-loaded-after-loading-external-css");
 		}
+
+//		driver.get("https://stackoverflow.com/questions/27241186/how-to-determine-when-document-has-loaded-after-loading-external-css");
+//
+//		for (int i = 0; i < 5; i++) {
+//			driver.getTitle();
+//			driver.getCurrentUrl();
+//			driver.get("https://google.com");
+//
+//			JavascriptExecutor js = (JavascriptExecutor) driver;
+//			System.out.println(js.executeScript("return document.readyState"));
+//			Thread.sleep(1000);
+//			driver.get("https://stackoverflow.com/questions/27241186/how-to-determine-when-document-has-loaded-after-loading-external-css");
+//		}
 
 		driver.quit();
 	}
 
 
-	@Test(dataProvider = "testnames", dataProviderClass = TestData.class, invocationCount = 20, threadPoolSize = 100)
-	public void testnames(String testnames, String url) throws IOException, InterruptedException {
+	@Test(dataProvider = "tokens", dataProviderClass = TestData.class, invocationCount = 1, threadPoolSize = 100)
+	public void testnames(String token) throws IOException, InterruptedException {
 
 
 		DesiredCapabilities capability = DesiredCapabilities.chrome();
 		//capability.setCapability("version", "56");
 		capability.setCapability("video", true);
 		//capability.setCapability("e34_token", "2825c4dd");
-		capability.setCapability("e34_token", "ba781108");
-		capability.setCapability("l_testName", testnames);
+		capability.setCapability("e34_token",  token);
+		capability.setCapability("e34:l_testName", "my test");
 		//capab	ility.setCapability("e34_per_test_timeout_ms", 300000);
 //		capability.setVersion("n-1");
 		//capability.setCapability("l_testName", "SBOX Demo Test");
 		//RemoteWebDriver driver = new RemoteWebDriver(new URL(HUB + ":443/wd/hub"), capability);
-		RemoteWebDriver driver = new RemoteWebDriver(new URL("https://vm-106.element34.net/wd/hub"), capability);
+		RemoteWebDriver driver = new RemoteWebDriver(new URL("https://vm-105.element34.net/wd/hub"), capability);
 		driver.manage().window().maximize();
 		printLiveViewURL(driver);
 		printVideoURL(driver);
 
-		driver.get(url);
+		driver.get("https://sbb.ch");
 
-		Thread.sleep(30000);
+		Thread.sleep(20000);
 
 		driver.quit();
 	}
@@ -277,18 +291,25 @@ public class SboxTests {
 	}
 
 
-	@Test(enabled = false)
+	@Test(enabled = true)
 	public void ciscoTest() {
+		MutableCapabilities options = new FirefoxOptions();
+		//options.setCapability("e34:geckodriver", "0.19.0");
+		options.setCapability("browserName", "firefox");
+		options.setCapability("version", "52");
+		options.setCapability("e34:token","57ffedec");
+		options.setCapability("e34:video", true);
+
+
 			RemoteWebDriver driver = null;
-			String version = "47";
 			DesiredCapabilities dc = new DesiredCapabilities();
-			dc.setCapability("browserName", "chrome");
-			//dc.setCapability("version", "49");
-			//dc.setCapability("auth","token");
-			dc.setCapability("video", true);
+			dc.setCapability("browserName", "firefox");
+			dc.setCapability("version", "52");
+			dc.setCapability("e34:token","57ffedec");
+			dc.setCapability("e34:video", true);
 			try {
 				//driver = new RemoteWebDriver(new URL("http://seleniumbox.cisco.com/wd/hub"), dc);
-				driver = new RemoteWebDriver(new URL(HUB + "/wd/hub"), dc);
+				driver = new RemoteWebDriver(new URL(HUB + "/wd/hub"), options);
 			}
 			catch (MalformedURLException e) {
 				System.out.println(e);
