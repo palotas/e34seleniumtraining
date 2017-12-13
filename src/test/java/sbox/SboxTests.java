@@ -36,7 +36,7 @@ public class SboxTests {
 
 		DesiredCapabilities capability = DesiredCapabilities.chrome();
 		capability.setCapability("video", true);
-		capability.setCapability("e34_token", "57ffedec");
+		capability.setCapability("e34_token", "c985c260");
 		capability.setCapability("e34_per_test_timeout_ms", 300000);
 
 
@@ -65,7 +65,7 @@ public class SboxTests {
 
 		DesiredCapabilities capability = new DesiredCapabilities();
 		capability.setCapability("video", true);
-		capability.setCapability("e34:token", "57ffedec");
+		capability.setCapability("e34:token", "c985c260");
 		capability.setCapability("e34_per_test_timeout_ms", 300000);
 
 
@@ -78,7 +78,7 @@ public class SboxTests {
 		System.out.println("Browser version: " + driver.getCapabilities().getBrowserName() + " " + driver.getCapabilities().getVersion());
 
 		//replace with company specific URL
-		driver.get("https://seleniumbox.com");
+		driver.get("https://bytesource.net");
 		System.out.println("Video URL: " + HUB + "/videos/" + driver.getSessionId() + ".mp4");
 
 		//leave browser open for 5 seconds and close browser afterwards
