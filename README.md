@@ -9,3 +9,6 @@ docker run -d -p 4444:4444 -p 5901:5900 --name firefox-debug selenium/standalone
 sudo apt-get install xtightvncviewer
 
 vncviewer localhost:5900
+
+https://michael-palotas-nsr6.squarespace.com/testpage
+
