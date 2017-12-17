@@ -10,6 +10,7 @@ import com.fasterxml.jackson.databind.ser.Serializers;
 import elnadv.BaseTest;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.firefox.FirefoxProfile;
 import org.testng.annotations.Test;
 
@@ -17,19 +18,26 @@ import java.io.File;
 
 public class Geolocation extends BaseTest {
 
-//    @Test
-//    public void setGelocation() {
-//
-//        String fileName = "C:\\Users\\mpalotas\\IdeaProjects\\e34seleniumtraining\\src\\test\\java\\elnadv\\geolocation\\geoLocation.json";
-//        WebDriver driver;
-//        FirefoxProfile profile = new FirefoxProfile();
-//        profile.setPreference("geo.enabled", true);
-//        profile.setPreference("geo.prompt.testing", true);
-//        profile.setPreference("geo.prompt.testing.allow", true);
-//        //profile.setPreference("geo.provider.use_corelocation", true);
-//        profile.setPreference("geo.wifi.uri", new File(fileName).toURI().toString());
-//        driver = new FirefoxDriver(profile);
-//        driver.get("http://html5demos.com/geo");
+    @Test
+    public void setGelocation() {
+
+        String fileName = "C:\\Users\\mpalotas\\IdeaProjects\\e34seleniumtraining\\src\\test\\java\\elnadv\\geolocation\\geoLocation.json";
+
+
+        FirefoxProfile profile = new FirefoxProfile();
+        profile.setPreference("geo.enabled", true);
+        profile.setPreference("geo.prompt.testing", true);
+        profile.setPreference("geo.prompt.testing.allow", true);
+        profile.setPreference("geo.provider.use_corelocation", true);
+        profile.setPreference("geo.wifi.uri", new File(fileName).toURI().toString());
+        FirefoxOptions opt = new FirefoxOptions();
+        opt.setProfile(profile);
+        WebDriver driver = new FirefoxDriver(opt);
+
+
+        driver.get("http://html5demos.com/geo");
+
 
     }
+}
 
