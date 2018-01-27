@@ -8,7 +8,8 @@ IMPORTANT: even if prompted, please DO NOT run any updates (i.e. browsers) on th
 -  Install Virtual Box on your laptop (Download from: https://www.virtualbox.org/wiki/Downloads) 
 -  Import downloaded VM (ova file) into Virtual Box( File -> Import Appliance )
 -  Adapt VM settings (i.e. RAM, CPU). If possible the VM should have 2+ GB in RAM and 2 CPU cores) 
--  Start VM in Virtual Box (password: will be sent separately)
+-  Start VM in Virtual Box 
+-  Log in with user: e34 password: 11 
 -  After VM has started, open Firefox or Chrome and make sure that VM has connection to the internet 
 
 
@@ -17,7 +18,6 @@ IMPORTANT: even if prompted, please DO NOT run any updates (i.e. browsers) on th
 - type in: cd workspace/seleniumtraining
 - type in: 'git pull'
 - you should either have pulled the latest code or received a message that everything is already up to date 
-( a few days before the workshop we will ask you to pull the latest code again as we are still doing some modifications to it )
 
 
 # Run sample tests to ensure functionality 
@@ -29,7 +29,7 @@ IMPORTANT: even if prompted, please DO NOT run any updates (i.e. browsers) on th
 
 -  Open a terminal 
 -  type in "cd Downloads"
--  type in "java -jar selenium-server-standalone-x.y.z.jar"
+-  type in "java -jar selenium-server-standalone-3.8.0.jar"
 -  Selenium server should start 
 -  In the IntelliJ project go to src -> test -> java -> remoteWebdriver -> RemoteWebdriverTests.java
 -  Right-click on the method remoteWebdriverChromeTest() and select "Run remoteWebdriverChromeTest()"
