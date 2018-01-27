@@ -7,10 +7,11 @@
 package reporting;
 
 
+import elnadv.report.EmailReport;
 import org.testng.Assert;
 import org.testng.Reporter;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
-
 
 public class ReportingTest {
 
@@ -23,7 +24,7 @@ public class ReportingTest {
 		c = a + b;
 		Assert.assertTrue(c==3);	
 	}
-	
+
 	
 	@Test
 	public void reportingTestWithMessage() {

@@ -46,6 +46,8 @@ public class TestData {
     @DataProvider(name = "chromeVersions", parallel = true)
     public Object[][] createVersions1() {
         return new Object[][] {
+                {"64"},
+                {"63"},
                 {"62"},
                 {"61"},
                 {"60"}
@@ -61,27 +63,27 @@ public class TestData {
     public Object[][] getDrivers() {
 
         DesiredCapabilities chrome1 = DesiredCapabilities.chrome();
-        chrome1.setCapability("version", "58");
+        chrome1.setCapability("version", "64");
 
         DesiredCapabilities chrome2 = DesiredCapabilities.chrome();
-        chrome2.setCapability("version", "57");
+        chrome2.setCapability("version", "63");
 
         DesiredCapabilities chrome3 = DesiredCapabilities.chrome();
-        chrome3.setCapability("version", "56");
+        chrome3.setCapability("version", "62");
 
         DesiredCapabilities ff1 = DesiredCapabilities.firefox();
-        ff1.setCapability("version", "54");
+        ff1.setCapability("version", "58");
 
         DesiredCapabilities ff2 = DesiredCapabilities.firefox();
-        ff1.setCapability("version", "55");
+        ff1.setCapability("version", "57");
 
         DesiredCapabilities ff3 = DesiredCapabilities.firefox();
         ff1.setCapability("version", "56");
 
 
-        //DesiredCapabilities internetExplorer = DesiredCapabilities.internetExplorer();
+        DesiredCapabilities internetExplorer = DesiredCapabilities.internetExplorer();
 
-        //DesiredCapabilities edge = DesiredCapabilities.edge();
+        DesiredCapabilities edge = DesiredCapabilities.edge();
 
 
         return new Object[][]{
@@ -91,8 +93,8 @@ public class TestData {
                 {ff1},
                 {ff2},
                 {ff3},
-                //{internetExplorer},
-                //{edge},
+                {internetExplorer},
+                {edge},
         };
     }
 
