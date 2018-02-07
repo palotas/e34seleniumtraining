@@ -32,6 +32,14 @@ public class TestData {
         };
     }
 
+    @DataProvider(name = "urls", parallel = true)
+    public Object[][] urls() {
+        return new Object[][] {
+                {"https://element34.com/testpage"},
+                {"http://static.element34.net/e34"},
+                {"http://static.element34.net/the-internet"}
+        };
+    }
 
     @DataProvider(name = "tokens", parallel = true)
     public Object[][] tokens() {
