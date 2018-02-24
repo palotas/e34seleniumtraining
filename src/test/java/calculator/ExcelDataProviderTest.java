@@ -4,7 +4,7 @@
  * via any medium is strictly prohibited without explicit consent of Element34 Solutions GmbH.
  */
 
-package testng;
+package calculator;
 
 import elnadv.BaseTest;
 import org.openqa.selenium.By;
@@ -12,7 +12,6 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.Select;
-import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 

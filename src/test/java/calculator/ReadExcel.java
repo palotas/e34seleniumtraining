@@ -1,4 +1,10 @@
-package testng;
+/*
+ * Copyright (c) 2014 - 2018.  Element34 Solutions - All Rights Reserved
+ * Unauthorized copying and redistribution of this file or parts thereof,
+ * via any medium is strictly prohibited without explicit consent of Element34 Solutions GmbH.
+ */
+
+package calculator;
 
 import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
 import org.apache.poi.ss.usermodel.*;
@@ -9,7 +15,7 @@ import java.io.IOException;
 
 public class ReadExcel {
 
-	@DataProvider (name = "data")
+	@DataProvider (name = "data", parallel = false)
 	public Object[][] getExcelData() throws InvalidFormatException, IOException{
 		ReadExcel read = new ReadExcel();
 		return read.getCellData("C:\\Users\\mpalotas\\tmp\\axadata.xlsx", "Sheet1");
