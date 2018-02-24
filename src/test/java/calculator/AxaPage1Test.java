@@ -11,16 +11,24 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.annotations.Test;
+
+import java.net.MalformedURLException;
+import java.net.URL;
 
 
 public class AxaPage1Test extends BaseTest {
 	
 	@Test(dataProvider="data", dataProviderClass = ReadExcel.class)
-	public void mytest1(String data_year, String data_month, String data_marke, String data_model, String data_schaltung, String data_treibstoff, String data_ps, String specificModel) throws InterruptedException {
+	public void mytest1(String data_year, String data_month, String data_marke, String data_model, String data_schaltung, String data_treibstoff, String data_ps, String specificModel, String data_zusatzausruestung, String data_besKontrollschild, String data_leasing, String data_kilometer, String data_kaufjahr, String data_parkschaden, String data_notbrems) throws InterruptedException, MalformedURLException {
 
-		WebDriver driver = new ChromeDriver();
+		DesiredCapabilities capability = DesiredCapabilities.chrome();
+		capability.setCapability("e34:token", "72aa4d82");
+		capability.setCapability("e34:l_testName", "Selenium Test");
+		RemoteWebDriver driver = new RemoteWebDriver(new URL("https://vm-106.element34.net/wd/hub"), capability);
 
 		AxaPage1 page1 = new AxaPage1(driver);
 		page1.loadPage(driver);
@@ -35,8 +43,16 @@ public class AxaPage1Test extends BaseTest {
 
 		page1.selectSpecificModel(driver, specificModel);
 
+		AxaPage2 page2 = new AxaPage2(driver);
+		page2.setZubehoer(data_zusatzausruestung);
+		page2.setKontrollschild(data_besKontrollschild);
+		page2.setLeasing(data_leasing);
+		page2.enterKilometer(data_kilometer);
+		page2.selectPurchaseYear(data_kaufjahr);
+		page2.setParkschaden(data_parkschaden);
+		page2.setNotbremsassistent(data_notbrems);
 		//Thread.sleep(3000);
-		//driver.quit();
+		driver.quit();
 	}
 
 }
