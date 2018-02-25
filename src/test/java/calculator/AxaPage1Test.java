@@ -7,6 +7,7 @@
 package calculator;
 
 import elnadv.BaseTest;
+import io.qameta.allure.*;
 import org.omg.CORBA.TIMEOUT;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -15,6 +16,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.support.ui.Select;
+import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import java.net.MalformedURLException;
@@ -22,9 +24,32 @@ import java.net.URL;
 import java.util.concurrent.TimeUnit;
 
 
+@Test
 public class AxaPage1Test extends BaseTest {
-	
-	@Test(dataProvider="data", dataProviderClass = ReadExcel.class)
+
+
+	@Test
+	@Description("my first allure test")
+	@TmsLink("axa-test-3")
+	public void test1() {
+		Assert.assertTrue(true);
+	}
+
+
+
+
+	@Test
+	@Description("my second allure test")
+	@Severity(SeverityLevel.CRITICAL)
+	@TmsLink("axa-test-2")
+	public void test2() {
+		Assert.assertTrue(false);
+	}
+
+	@Test(dataProvider="data", dataProviderClass = ReadExcel.class, enabled = true)
+	@Description("axa rechner test")
+	@Severity(SeverityLevel.CRITICAL)
+	@TmsLink("axa-test-1")
 	public void mytest1(String data_year, String data_month, String data_marke, String data_model,
                         String data_schaltung, String data_treibstoff, String data_ps, String specificModel,
                         String data_zusatzausruestung, String data_besKontrollschild, String data_leasing,
@@ -35,7 +60,8 @@ public class AxaPage1Test extends BaseTest {
 
 		DesiredCapabilities capability = DesiredCapabilities.chrome();
 		capability.setCapability("e34:token", "72aa4d82");
-		capability.setCapability("e34:l_testName", "Selenium Test");
+        capability.setCapability("e34:l_testName", "Selenium Test");
+        capability.setCapability("video", true);
         RemoteWebDriver driver = new RemoteWebDriver(new URL("https://vm-106.element34.net/wd/hub"), capability);
         //RemoteWebDriver driver = new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"), capability);
 
@@ -73,6 +99,8 @@ public class AxaPage1Test extends BaseTest {
 		page2.setSchaden(data_schaden5Jahre);
 		page2.clickWeiter();
 		Thread.sleep(3000);
+        System.out.println("Video URL - http://vm-106.element34.net/videos/" + driver.getSessionId() + ".mp4");
+
 		driver.quit();
 	}
 

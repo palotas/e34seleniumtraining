@@ -18,7 +18,7 @@ public class ReadExcel {
 	@DataProvider (name = "data", parallel = false)
 	public Object[][] getExcelData() throws InvalidFormatException, IOException{
 		ReadExcel read = new ReadExcel();
-		return read.getCellData("C:\\Users\\mpalotas\\tmp\\axadata.xlsx", "Sheet1");
+		return read.getCellData("C:\\Users\\mpalotas\\tmp\\axadata-single.xlsx", "Sheet1");
 	}
 
 
