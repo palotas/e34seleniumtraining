@@ -39,8 +39,10 @@ public class AxaPage1Test extends BaseTest {
         RemoteWebDriver driver = new RemoteWebDriver(new URL("https://vm-106.element34.net/wd/hub"), capability);
         //RemoteWebDriver driver = new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"), capability);
 
+        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 
-		AxaPage1 page1 = new AxaPage1(driver);
+
+        AxaPage1 page1 = new AxaPage1(driver);
 		page1.loadPage(driver);
 		page1.selectYear(data_year);
 		page1.selectMonth(data_month);

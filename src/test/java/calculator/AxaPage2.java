@@ -106,7 +106,6 @@ public class AxaPage2 {
     }
 
     public void setKontrollschild(String data_kontrollschild) throws InterruptedException {
-        Thread.sleep(1000);
         switch (data_kontrollschild) {
             case "JA" :
                 besKontrollschildJa.click();
@@ -122,7 +121,6 @@ public class AxaPage2 {
     }
 
     public void setLeasing(String data_leasing) throws InterruptedException {
-        Thread.sleep(1000);
         switch (data_leasing) {
             case "JA" :
                 leasingJa.click();
@@ -144,13 +142,11 @@ public class AxaPage2 {
 
     public void selectPurchaseYear(String data_Year) throws InterruptedException {
 
-        Thread.sleep(500);
         Select realSelect = new Select(kaufjahr);
         realSelect.selectByVisibleText(data_Year);
     }
 
     public void setParkschaden(String data_parkschaden) throws InterruptedException {
-        Thread.sleep(2000);
         switch (data_parkschaden) {
             case "JA" :
                 parkschadenJa.click();
@@ -166,7 +162,6 @@ public class AxaPage2 {
     }
 
     public void setNotbremsassistent(String data_notbrems) throws InterruptedException {
-        Thread.sleep(1000);
         switch (data_notbrems) {
             case "JA" :
                 notbremsassistentJa.click();
@@ -187,18 +182,15 @@ public class AxaPage2 {
 
     public void selectNationality(String data_nationality) throws InterruptedException {
 
-        Thread.sleep(1000);
         Select realSelect = new Select(nationalitaet);
         realSelect.selectByVisibleText(data_nationality);
     }
 
     public void enterPLZ(String data_plz) throws InterruptedException {
-        Thread.sleep(1000);
         plz.sendKeys(data_plz);
     }
 
     public void setGeschlecht(String data_geschlecht) throws InterruptedException {
-        Thread.sleep(1000);
         switch (data_geschlecht) {
             case "Mann" :
                 geschlechtMann.click();
@@ -215,7 +207,6 @@ public class AxaPage2 {
 
     public void setEntzug(String data_entzug) throws InterruptedException {
 
-        Thread.sleep(1000);
         switch (data_entzug) {
             case "ja" :
                 entzugJa.click();
@@ -233,7 +224,6 @@ public class AxaPage2 {
 
     public void setBisherigerVersicherer(String data_bisherigerVersicherer, String data_versicherer) throws InterruptedException {
 
-        Thread.sleep(1000);
         switch (data_bisherigerVersicherer) {
             case "ja" :
                 bisherigerVersichererJa.click();
@@ -254,7 +244,6 @@ public class AxaPage2 {
 
     public void setKuendigung(String data_kuendigung) throws InterruptedException {
 
-        Thread.sleep(2000);
         switch (data_kuendigung) {
             case "ja" :
                 kuendigungJa.click();
@@ -271,7 +260,6 @@ public class AxaPage2 {
 
     public void setSchaden(String data_schaden) throws InterruptedException {
 
-        Thread.sleep(1000);
         switch (data_schaden) {
             case "ja" :
                 schadenJa.click();

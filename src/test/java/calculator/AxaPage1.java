@@ -70,31 +70,31 @@ public class AxaPage1 {
 
     public void selectYear(String dataYear) throws InterruptedException {
 
-        Thread.sleep(500);
+        //Thread.sleep(500);
         Select realSelect = new Select(year);
         realSelect.selectByVisibleText(dataYear);
     }
 
     public void selectMonth(String dataMonth) throws InterruptedException {
 
-        Thread.sleep(500);
+        //Thread.sleep(500);
         Select realSelect = new Select(month);
         realSelect.selectByVisibleText(dataMonth);
     }
 
     public void selectMarke(String dataMarke) throws InterruptedException {
 
-        Thread.sleep(500);
+        //Thread.sleep(500);
         Select realSelect = new Select(marke);
         realSelect.selectByVisibleText(dataMarke);
-        Thread.sleep(500);
+        //Thread.sleep(500);
     }
 
 
-    public int returnIndex(WebDriver driver, String value) {
+    public int returnIndex(WebDriver driver, String value) throws InterruptedException {
         List<WebElement> optionElements = driver.findElement(By.id("fl_model")).findElements(By.tagName("option"));
         String optionIndex = "";
-
+        //Thread.sleep(5000);
         for (WebElement optionElement : optionElements) {
             if (optionElement.getText().contains(value)) {
                 optionIndex = optionElement.getAttribute("index");
@@ -183,7 +183,7 @@ public class AxaPage1 {
 
     public void selectSpecificModel(WebDriver driver, String specificModel) throws InterruptedException {
 
-        Thread.sleep(2000);
+        //Thread.sleep(2000);
         List<WebElement> list = driver.findElements(By.className("table__item__info__content"));
         System.out.println(list.size() + " items found");
 
