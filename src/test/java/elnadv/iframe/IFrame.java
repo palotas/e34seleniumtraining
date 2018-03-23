@@ -4,7 +4,7 @@
  * via any medium is strictly prohibited without explicit consent of Element34 Solutions GmbH.
  */
 
-package elnadv.hover;
+package elnadv.iframe;
 
 import elnadv.BaseTest;
 import org.openqa.selenium.By;
