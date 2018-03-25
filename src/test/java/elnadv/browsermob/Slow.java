@@ -10,28 +10,24 @@ import elnadv.BaseTest;
 import net.lightbody.bmp.BrowserMobProxy;
 import net.lightbody.bmp.BrowserMobProxyServer;
 import net.lightbody.bmp.client.ClientUtil;
-import net.lightbody.bmp.core.har.Har;
 import net.lightbody.bmp.proxy.CaptureType;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.remote.CapabilityType;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.testng.annotations.Test;
 
-import java.io.File;
-import java.io.FileOutputStream;
 import java.io.IOException;
 
-public class Proxy extends BaseTest{
+public class Slow extends BaseTest{
 
     @Test
-    public void proxyTest() throws IOException {
+    public void slowExternal() throws IOException {
 
         // start the proxy
         BrowserMobProxy proxy = new BrowserMobProxyServer();
         proxy.start(0);
-        //proxy.setReadBandwidthLimit(12000);
+        proxy.blacklistRequests("http://the-internet.herokuapp.com/slow_external", 404);
 
         // get the Selenium proxy object
         org.openqa.selenium.Proxy seleniumProxy = ClientUtil.createSeleniumProxy(proxy);
@@ -46,13 +42,12 @@ public class Proxy extends BaseTest{
         // enable more detailed HAR capture, if desired (see CaptureType for the complete list)
         proxy.enableHarCaptureTypes(CaptureType.REQUEST_CONTENT, CaptureType.RESPONSE_CONTENT);
 
-        driver.get("https://google.com");
+        driver.get("http://the-internet.herokuapp.com/slow");
         proxy.stop();
 
-        driver.quit();
+        //driver.quit();
 
     }
-
 
 
 }
