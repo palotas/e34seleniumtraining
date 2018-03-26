@@ -31,6 +31,7 @@ public class Proxy extends BaseTest{
         // start the proxy
         BrowserMobProxy proxy = new BrowserMobProxyServer();
         proxy.start(0);
+        proxy.newHar();
         //proxy.setReadBandwidthLimit(12000);
 
         // get the Selenium proxy object
@@ -47,9 +48,23 @@ public class Proxy extends BaseTest{
         proxy.enableHarCaptureTypes(CaptureType.REQUEST_CONTENT, CaptureType.RESPONSE_CONTENT);
 
         driver.get("https://google.com");
-        proxy.stop();
 
-        driver.quit();
+        // get the HAR data
+        Har har = proxy.getHar();
+
+        // Write HAR Data in a File
+        File harFile = new File("harfile.har");
+        try {
+            har.writeTo(harFile);
+        } catch (IOException ex) {
+            System.out.println (ex.toString());
+            System.out.println("Could not find file " + "harfile.har");
+        }
+
+        if (driver != null) {
+            proxy.stop();
+            driver.quit();
+        }
 
     }
 
