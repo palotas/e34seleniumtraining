@@ -35,8 +35,7 @@ public class CiTests {
         WebDriverWait wait =  new WebDriverWait(driver, 10);
         driver.manage().window().maximize();
 
-        Reporter.log("starting the test now");
-        Reporter.log("https://element34.com");
+        Reporter.log("Video: " + printVideoURL(driver));
 
         driver.get("https://www.newyorkfed.org/");
         WebElement searchbox = driver.findElement(By.id("searchbox"));
@@ -65,5 +64,9 @@ public class CiTests {
         Thread.sleep((long)(Math.random() * 20000));
 
         driver.quit();
+    }
+
+    private String printVideoURL(RemoteWebDriver driver) {
+        return (driver.getCapabilities().getBrowserName() + " " + driver.getCapabilities().getVersion() + " : " + "https://vm-105.element34.net/videos/" + driver.getSessionId() + ".mp4");
     }
 }
