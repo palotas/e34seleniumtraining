@@ -6,6 +6,7 @@
 
 package sbox;
 
+import elnadv.listener.browserlistener.StatusListener;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
@@ -17,6 +18,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.Reporter;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
 import java.io.IOException;
@@ -24,6 +26,7 @@ import java.net.URL;
 
 import static sbox.Settings.HUB;
 
+@Listeners(StatusListener.class)
 public class CiTests {
 
     @Test
