@@ -68,6 +68,6 @@ public class CiTests {
     }
 
     private String printVideoURL(RemoteWebDriver driver) {
-        return (driver.getCapabilities().getBrowserName() + " " + driver.getCapabilities().getVersion() + " : " + "https://vm-105.element34.net/videos/" + driver.getSessionId() + ".mp4");
+        return ("https://vm-105.element34.net/videos/" + driver.getSessionId() + ".mp4");
     }
 }
