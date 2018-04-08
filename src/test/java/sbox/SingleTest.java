@@ -8,6 +8,7 @@ package sbox;
 
 import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.remote.RemoteWebDriver;
+import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import java.io.IOException;
@@ -26,8 +27,8 @@ public class SingleTest {
 
         RemoteWebDriver driver = new RemoteWebDriver(new URL(HUB + "/wd/hub"), options);
 //		RemoteWebDriver driver = new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"), options);
-        driver.get("about:support");
-        driver.getTitle();
+        driver.get("https://www.google.com");
+        Assert.assertEquals(driver.getTitle(), "Google");
         Thread.sleep(5000);
 
         driver.quit();
