@@ -30,6 +30,7 @@ public class CiTests {
 
 
         DesiredCapabilities capability = DesiredCapabilities.chrome();
+        capability.setCapability("video", true);
 
         RemoteWebDriver driver = new RemoteWebDriver(new URL(HUB + "/wd/hub"), capability);
         WebDriverWait wait =  new WebDriverWait(driver, 10);
