@@ -8,6 +8,7 @@ package elnadv;
 
 import org.openqa.selenium.*;
 import org.openqa.selenium.remote.RemoteWebDriver;
+import org.testng.Reporter;
 
 import java.io.File;
 
@@ -47,5 +48,7 @@ public class Helpers {
         File ss = new File(SCREENSHOT_DIRECTORY + System.currentTimeMillis() + ".png");
         tmp.renameTo(ss);
         System.out.println("Screenshot: " + ss.getAbsoluteFile());
+        Reporter.log("<a href='"+ ss.getAbsolutePath() + "'> <img src='"+ ss.getAbsolutePath() + "' height='100' width='100'/> </a>");
+
     }
 }
