@@ -36,7 +36,7 @@ public class CiTests {
         WebDriverWait wait =  new WebDriverWait(driver, 10);
         driver.manage().window().maximize();
 
-        Reporter.log("Video: " + printVideoURL(driver));
+        Reporter.log("Video: " + "<a href=" + printVideoURL(driver) + ">Video");
 
         driver.get("https://www.newyorkfed.org/");
         WebElement searchbox = driver.findElement(By.id("searchbox"));
