@@ -47,4 +47,20 @@ public class CiTests {
         Thread.sleep(5000);
         driver.quit();
     }
+
+    @Test(dataProvider = "urls", dataProviderClass = TestData.class, invocationCount = 5, threadPoolSize = 100)
+    public void loadTest(String url) throws IOException, InterruptedException {
+
+
+        DesiredCapabilities capability = DesiredCapabilities.chrome();
+        capability.setCapability("version", "65");
+
+        RemoteWebDriver driver = new RemoteWebDriver(new URL("https://vm-105.element34.net/wd/hub"), capability);
+        driver.manage().window().maximize();
+        driver.get(url);
+        System.out.println(driver.getTitle());
+        Thread.sleep((long)(Math.random() * 20000));
+
+        driver.quit();
+    }
 }
