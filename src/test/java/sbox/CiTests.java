@@ -15,6 +15,7 @@ import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
+import org.testng.Reporter;
 import org.testng.annotations.Test;
 
 import java.io.IOException;
@@ -34,6 +35,8 @@ public class CiTests {
         WebDriverWait wait =  new WebDriverWait(driver, 10);
         driver.manage().window().maximize();
 
+        Reporter.log("starting the test now");
+        Reporter.log("https://element34.com");
 
         driver.get("https://www.newyorkfed.org/");
         WebElement searchbox = driver.findElement(By.id("searchbox"));
