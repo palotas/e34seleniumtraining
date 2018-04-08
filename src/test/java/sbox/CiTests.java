@@ -67,6 +67,35 @@ public class CiTests {
         driver.quit();
     }
 
+
+    @Test
+    public void failedTest() throws IOException, InterruptedException {
+
+
+        DesiredCapabilities capability = DesiredCapabilities.chrome();
+        capability.setCapability("video", true);
+
+        RemoteWebDriver driver = new RemoteWebDriver(new URL(HUB + "/wd/hub"), capability);
+        WebDriverWait wait =  new WebDriverWait(driver, 10);
+        driver.manage().window().maximize();
+
+        Reporter.log("<a href=" + printVideoURL(driver) + ">Click here for a video of this test</a>");
+
+        driver.get("https://www.newyorkfed.org/");
+        WebElement searchbox = driver.findElement(By.id("searchbox"));
+        searchbox.clear();
+        searchbox.sendKeys("interest rates");
+        searchbox.sendKeys(Keys.ENTER);
+
+        wait.until(ExpectedConditions.titleIs("Search - FEDERAL RESERVE BANK of NEW YORK"));
+        Assert.assertEquals(driver.getCurrentUrl(), "Google" );
+
+        Thread.sleep(5000);
+        driver.quit();
+    }
+
+
+
     private String printVideoURL(RemoteWebDriver driver) {
         return ("https://vm-105.element34.net/videos/" + driver.getSessionId() + ".mp4");
     }
