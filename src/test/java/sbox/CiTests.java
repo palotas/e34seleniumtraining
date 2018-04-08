@@ -8,6 +8,7 @@ package sbox;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.remote.DesiredCapabilities;
@@ -36,19 +37,23 @@ public class CiTests {
         WebDriverWait wait =  new WebDriverWait(driver, 10);
         driver.manage().window().maximize();
 
-        Reporter.log("<a href=" + printVideoURL(driver) + ">Click here for a video of this test</a>");
+        try {
+            driver.get("https://www.newyorkfed.org/");
+            WebElement searchbox = driver.findElement(By.id("searchbox"));
+            searchbox.clear();
+            searchbox.sendKeys("interest rates");
+            searchbox.sendKeys(Keys.ENTER);
 
-        driver.get("https://www.newyorkfed.org/");
-        WebElement searchbox = driver.findElement(By.id("searchbox"));
-        searchbox.clear();
-        searchbox.sendKeys("interest rates");
-        searchbox.sendKeys(Keys.ENTER);
+            wait.until(ExpectedConditions.titleIs("Search - FEDERAL RESERVE BANK of NEW YORK"));
+            Assert.assertEquals(driver.getCurrentUrl(), "https://www.newyorkfed.org/search?text=interest+rates&application=ny_pub&sources=ny_pub" );
+        }
+        finally {
+            logVideoUrl(driver);
+            Thread.sleep(5000);
+            driver.quit();
+        }
 
-        wait.until(ExpectedConditions.titleIs("Search - FEDERAL RESERVE BANK of NEW YORK"));
-        Assert.assertEquals(driver.getCurrentUrl(), "https://www.newyorkfed.org/search?text=interest+rates&application=ny_pub&sources=ny_pub" );
 
-        Thread.sleep(5000);
-        driver.quit();
     }
 
     @Test(dataProvider = "urls", dataProviderClass = TestData.class, invocationCount = 5, threadPoolSize = 100)
@@ -71,7 +76,6 @@ public class CiTests {
     @Test
     public void failedTest() throws IOException, InterruptedException {
 
-
         DesiredCapabilities capability = DesiredCapabilities.chrome();
         capability.setCapability("video", true);
 
@@ -79,24 +83,32 @@ public class CiTests {
         WebDriverWait wait =  new WebDriverWait(driver, 10);
         driver.manage().window().maximize();
 
-        Reporter.log("<a href=" + printVideoURL(driver) + ">Click here for a video of this test</a>");
+        try {
+            driver.get("https://www.newyorkfed.org/");
+            WebElement searchbox = driver.findElement(By.id("searchbox"));
+            searchbox.clear();
+            searchbox.sendKeys("interest rates");
+            searchbox.sendKeys(Keys.ENTER);
 
-        driver.get("https://www.newyorkfed.org/");
-        WebElement searchbox = driver.findElement(By.id("searchbox"));
-        searchbox.clear();
-        searchbox.sendKeys("interest rates");
-        searchbox.sendKeys(Keys.ENTER);
+            wait.until(ExpectedConditions.titleIs("Search - FEDERAL RESERVE BANK of NEW YORK"));
+            Assert.assertEquals(driver.getCurrentUrl(), "Google" );
+        }
+        finally {
+            logVideoUrl(driver);
+            Thread.sleep(5000);
+            driver.quit();
+        }
 
-        wait.until(ExpectedConditions.titleIs("Search - FEDERAL RESERVE BANK of NEW YORK"));
-        Assert.assertEquals(driver.getCurrentUrl(), "Google" );
-
-        Thread.sleep(5000);
-        driver.quit();
     }
 
 
 
     private String printVideoURL(RemoteWebDriver driver) {
         return ("https://vm-105.element34.net/videos/" + driver.getSessionId() + ".mp4");
+    }
+
+    private void logVideoUrl(RemoteWebDriver driver) {
+        Reporter.log("<a href=" + printVideoURL(driver) + ">Click here for a video of this test</a>");
+
     }
 }
