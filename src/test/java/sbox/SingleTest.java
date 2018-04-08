@@ -28,6 +28,7 @@ public class SingleTest {
 //		RemoteWebDriver driver = new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"), options);
         driver.get("about:support");
         driver.getTitle();
+        Thread.sleep(5000);
 
         driver.quit();
     }
