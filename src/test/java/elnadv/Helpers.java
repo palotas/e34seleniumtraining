@@ -16,7 +16,7 @@ import static sbox.Settings.SCREENSHOT_DIRECTORY;
 
 public class Helpers {
 
-    public static final String SCREENSHOT_DIRECTORY = "C:\\Users\\mpalotas\\IdeaProjects\\e34seleniumtraining\\screenshots\\";
+    //public static final String SCREENSHOT_DIRECTORY = "C:\\Users\\mpalotas\\IdeaProjects\\e34seleniumtraining\\screenshots\\";
     //public static final String SCREENSHOT_DIRECTORY = "/home/e34/workspace/seleniumtraining/screenshots/";
 
     public static boolean isElementPresent(WebDriver driver, By by) {
@@ -45,7 +45,8 @@ public class Helpers {
 
     public static void screenshot(RemoteWebDriver driver) {
         File tmp = driver.getScreenshotAs(OutputType.FILE);
-        File ss = new File(SCREENSHOT_DIRECTORY + System.currentTimeMillis() + ".png");
+//        File ss = new File(SCREENSHOT_DIRECTORY + System.currentTimeMillis() + ".png");
+        File ss = new File(System.currentTimeMillis() + ".png");
         tmp.renameTo(ss);
         System.out.println("Screenshot: " + ss.getAbsoluteFile());
         Reporter.log("<a href='"+ ss.getAbsolutePath() + "'> <img src='"+ ss.getAbsolutePath() + "' height='100' width='100'/> </a>");
