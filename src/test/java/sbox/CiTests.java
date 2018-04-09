@@ -6,6 +6,7 @@
 
 package sbox;
 
+import elnadv.listener.browserlistener.BaseTestWithDriver;
 import elnadv.listener.browserlistener.StatusListener;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
@@ -26,17 +27,14 @@ import java.net.URL;
 
 import static sbox.Settings.HUB;
 
-@Listeners(StatusListener.class)
-public class CiTests {
+@Listeners(StatusListenerSbox.class)
+public class CiTests extends TestBaseThreadSafe {
 
     @Test
     public void ciDemo() throws IOException, InterruptedException {
 
 
-        DesiredCapabilities capability = DesiredCapabilities.chrome();
-        capability.setCapability("video", true);
-
-        RemoteWebDriver driver = new RemoteWebDriver(new URL(HUB + "/wd/hub"), capability);
+        WebDriver driver = getDriver();
         WebDriverWait wait =  new WebDriverWait(driver, 10);
         driver.manage().window().maximize();
 
@@ -51,7 +49,7 @@ public class CiTests {
             Assert.assertEquals(driver.getCurrentUrl(), "https://www.newyorkfed.org/search?text=interest+rates&application=ny_pub&sources=ny_pub" );
         }
         finally {
-            logVideoUrl(driver);
+            logVideoUrl((RemoteWebDriver) driver);
             Thread.sleep(5000);
             driver.quit();
         }
@@ -79,12 +77,12 @@ public class CiTests {
     @Test
     public void failedTest() throws IOException, InterruptedException {
 
-        DesiredCapabilities capability = DesiredCapabilities.chrome();
-        capability.setCapability("video", true);
 
-        RemoteWebDriver driver = new RemoteWebDriver(new URL(HUB + "/wd/hub"), capability);
-        WebDriverWait wait =  new WebDriverWait(driver, 10);
-        driver.manage().window().maximize();
+        RemoteWebDriver driver = (RemoteWebDriver) getDriver();
+        WebDriverWait wait =  new WebDriverWait(getDriver(), 10);
+        getDriver().manage().window().maximize();
+        logVideoUrl(driver);
+
 
         try {
             driver.get("https://www.newyorkfed.org/");
@@ -93,13 +91,13 @@ public class CiTests {
             searchbox.sendKeys("interest rates");
             searchbox.sendKeys(Keys.ENTER);
 
-            wait.until(ExpectedConditions.titleIs("Search - FEDERAL RESERVE BANK of NEW YORK"));
-            Assert.assertEquals(driver.getCurrentUrl(), "Google" );
+            Assert.assertTrue(false);
+            //wait.until(ExpectedConditions.titleIs("Search - FEDERAL RESERVE BANK of NEW YORK"));
+            //Assert.assertEquals(driver.getCurrentUrl(), "Google" );
         }
         finally {
             logVideoUrl(driver);
             Thread.sleep(5000);
-            driver.quit();
         }
 
     }
