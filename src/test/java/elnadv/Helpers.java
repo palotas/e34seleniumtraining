@@ -49,7 +49,7 @@ public class Helpers {
         File ss = new File(System.currentTimeMillis() + ".png");
         tmp.renameTo(ss);
         System.out.println("Screenshot: " + ss.getAbsoluteFile());
-        Reporter.log("<a href='"+ ss.getAbsolutePath() + "'> <img src='"+ "./screenshots/" +ss.getAbsolutePath() + "' height='100' width='100'/> </a>");
+        Reporter.log("<a href='"+ ss.getAbsolutePath() + "'> <img src='"+ ss.getAbsolutePath() + "' height='100' width='100'/> </a>");
 
     }
 }
