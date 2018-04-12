@@ -9,10 +9,7 @@ package sbox;
 import elnadv.listener.browserlistener.BaseTestWithDriver;
 import elnadv.listener.browserlistener.StatusListener;
 import io.qameta.allure.*;
-import org.openqa.selenium.By;
-import org.openqa.selenium.Keys;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
@@ -23,6 +20,7 @@ import org.testng.Reporter;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
+import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 
@@ -51,6 +49,7 @@ public class CiTests extends TestBaseThreadSafe {
             searchbox.sendKeys(Keys.ENTER);
 
             wait.until(ExpectedConditions.titleIs("Search - FEDERAL RESERVE BANK of NEW YORK"));
+            screenshot((RemoteWebDriver) driver);
             Assert.assertEquals(driver.getCurrentUrl(), "https://www.newyorkfed.org/search?text=interest+rates&application=ny_pub&sources=ny_pub" );
         }
         finally {
@@ -126,5 +125,24 @@ public class CiTests extends TestBaseThreadSafe {
     private void logVideoUrl(RemoteWebDriver driver) {
         Reporter.log("<a href=" + printVideoURL(driver) + ">Click here for a video of this test</a>");
 
+    }
+
+    @Attachment(value = "Page screenshot", type = "image/png")
+    public byte[] saveScreenshot(byte[] screenShot) {
+        return screenShot;
+    }
+
+
+    @Attachment(value = "Page screenshot", type = "image/png")
+    public byte[] saveScreenshot(RemoteWebDriver driver) {
+        System.out.println("calling allure screenshot");
+        return driver.getScreenshotAs(OutputType.BYTES);
+    }
+
+    public void screenshot(RemoteWebDriver driver) {
+        File tmp = driver.getScreenshotAs(OutputType.FILE);
+        File ss = new File("" + System.currentTimeMillis() + ".png");
+        tmp.renameTo(ss);
+        System.out.println("Screenshot: " + ss.getAbsoluteFile());
     }
 }
