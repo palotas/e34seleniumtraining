@@ -8,9 +8,7 @@ package sbox;
 
 import elnadv.listener.browserlistener.BaseTestWithDriver;
 import elnadv.listener.browserlistener.StatusListener;
-import io.qameta.allure.Epic;
-import io.qameta.allure.Feature;
-import io.qameta.allure.Story;
+import io.qameta.allure.*;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
@@ -36,6 +34,7 @@ public class CiTests extends TestBaseThreadSafe {
     @Epic("FRBNY Demo")
     @Story("Allure reporting")
     @Feature("positive test")
+    @Severity(SeverityLevel.MINOR)
     @Test
     public void ciDemo() throws IOException, InterruptedException {
 
@@ -68,6 +67,7 @@ public class CiTests extends TestBaseThreadSafe {
     @Epic("FRBNY Demo")
     @Story("multi threaded test")
     @Feature("open a browser in full screen")
+    @Severity(SeverityLevel.BLOCKER)
     @Test(dataProvider = "urls", dataProviderClass = TestData.class, invocationCount = 5, threadPoolSize = 100)
     public void loadTest(String url) throws IOException, InterruptedException {
 
@@ -88,6 +88,7 @@ public class CiTests extends TestBaseThreadSafe {
     @Epic("FRBNY Demo")
     @Story("Allure reporting")
     @Feature("failing a test")
+    @Severity(SeverityLevel.CRITICAL)
     @Test
     public void failedTest() throws IOException, InterruptedException {
 
