@@ -49,7 +49,7 @@ public class CiTests extends TestBaseThreadSafe {
             searchbox.sendKeys(Keys.ENTER);
 
             wait.until(ExpectedConditions.titleIs("Search - FEDERAL RESERVE BANK of NEW YORK"));
-            screenshot((RemoteWebDriver) driver);
+            Allure.addAttachment("Video link", "https://myvideo");
             Assert.assertEquals(driver.getCurrentUrl(), "https://www.newyorkfed.org/search?text=interest+rates&application=ny_pub&sources=ny_pub" );
         }
         finally {
@@ -145,4 +145,5 @@ public class CiTests extends TestBaseThreadSafe {
         tmp.renameTo(ss);
         System.out.println("Screenshot: " + ss.getAbsoluteFile());
     }
+
 }
