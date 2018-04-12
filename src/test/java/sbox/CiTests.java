@@ -50,8 +50,7 @@ public class CiTests extends TestBaseThreadSafe {
 
             wait.until(ExpectedConditions.titleIs("Search - FEDERAL RESERVE BANK of NEW YORK"));
             Allure.addAttachment("Video link", HUB + "/videos/" + driver.getSessionId() + ".mp4", "application/javascript");
-            Allure.addAttachment("Video link", HUB + "/videos/" + driver.getSessionId() + ".mp4", "text/uri");
-            Allure.addAttachment("Video link", HUB + "/videos/" + driver.getSessionId() + ".mp4", "text/css");
+            Allure.addAttachment("Video link", HUB + "/videos/" + driver.getSessionId() + ".mp4", "text/uri-list");
             Assert.assertEquals(driver.getCurrentUrl(), "https://www.newyorkfed.org/search?text=interest+rates&application=ny_pub&sources=ny_pub" );
         }
         finally {
