@@ -92,7 +92,7 @@ public class CiTests extends TestBaseThreadSafe {
             searchbox.sendKeys(Keys.ENTER);
 
             Assert.assertTrue(false);
-            //wait.until(ExpectedConditions.titleIs("Search - FEDERAL RESERVE BANK of NEW YORK"));
+            wait.until(ExpectedConditions.titleIs("Search - FEDERAL RESERVE BANK of NEW YORK"));
             //Assert.assertEquals(driver.getCurrentUrl(), "Google" );
         }
         finally {
