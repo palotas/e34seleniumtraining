@@ -50,6 +50,7 @@ public class CiTests extends TestBaseThreadSafe {
 
             wait.until(ExpectedConditions.titleIs("Search - FEDERAL RESERVE BANK of NEW YORK"));
             Allure.addAttachment("Video link", HUB + "/videos/" + driver.getSessionId() + ".mp4");
+            printVideoLink(driver);
             Assert.assertEquals(driver.getCurrentUrl(), "https://www.newyorkfed.org/search?text=interest+rates&application=ny_pub&sources=ny_pub" );
         }
         finally {
@@ -146,4 +147,9 @@ public class CiTests extends TestBaseThreadSafe {
         System.out.println("Screenshot: " + ss.getAbsoluteFile());
     }
 
+
+    @Attachment(value = "Video link", type = "text/css")
+    public String printVideoLink(RemoteWebDriver driver) {
+        return HUB + "/videos/" + driver.getSessionId() + ".mp4";
+    }
 }
