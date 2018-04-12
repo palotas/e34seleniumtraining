@@ -8,6 +8,9 @@ package sbox;
 
 import elnadv.listener.browserlistener.BaseTestWithDriver;
 import elnadv.listener.browserlistener.StatusListener;
+import io.qameta.allure.Epic;
+import io.qameta.allure.Feature;
+import io.qameta.allure.Story;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
@@ -30,50 +33,61 @@ import static sbox.Settings.HUB;
 @Listeners(StatusListenerSbox.class)
 public class CiTests extends TestBaseThreadSafe {
 
-//    @Test
-//    public void ciDemo() throws IOException, InterruptedException {
-//
-//
-//        WebDriver driver = getDriver();
-//        WebDriverWait wait =  new WebDriverWait(driver, 10);
-//        driver.manage().window().maximize();
-//
-//        try {
-//            driver.get("https://www.newyorkfed.org/");
-//            WebElement searchbox = driver.findElement(By.id("searchbox"));
-//            searchbox.clear();
-//            searchbox.sendKeys("interest rates");
-//            searchbox.sendKeys(Keys.ENTER);
-//
-//            wait.until(ExpectedConditions.titleIs("Search - FEDERAL RESERVE BANK of NEW YORK"));
-//            Assert.assertEquals(driver.getCurrentUrl(), "https://www.newyorkfed.org/search?text=interest+rates&application=ny_pub&sources=ny_pub" );
-//        }
-//        finally {
-//            logVideoUrl((RemoteWebDriver) driver);
-//            Thread.sleep(5000);
-//            driver.quit();
-//        }
-//
-//
-//    }
-//
-//    @Test(dataProvider = "urls", dataProviderClass = TestData.class, invocationCount = 5, threadPoolSize = 100)
-//    public void loadTest(String url) throws IOException, InterruptedException {
-//
-//
-//        DesiredCapabilities capability = DesiredCapabilities.chrome();
-//        capability.setCapability("version", "65");
-//
-//        RemoteWebDriver driver = new RemoteWebDriver(new URL("https://vm-105.element34.net/wd/hub"), capability);
-//        driver.manage().window().maximize();
-//        driver.get(url);
-//        System.out.println(driver.getTitle());
-//        Thread.sleep((long)(Math.random() * 20000));
-//
-//        driver.quit();
-//    }
+    @Epic("FRBNY Demo")
+    @Story("Allure reporting")
+    @Feature("positive test")
+    @Test
+    public void ciDemo() throws IOException, InterruptedException {
 
 
+        WebDriver driver = getDriver();
+        WebDriverWait wait =  new WebDriverWait(driver, 10);
+        driver.manage().window().maximize();
+
+        try {
+            driver.get("https://www.newyorkfed.org/");
+            WebElement searchbox = driver.findElement(By.id("searchbox"));
+            searchbox.clear();
+            searchbox.sendKeys("interest rates");
+            searchbox.sendKeys(Keys.ENTER);
+
+            wait.until(ExpectedConditions.titleIs("Search - FEDERAL RESERVE BANK of NEW YORK"));
+            Assert.assertEquals(driver.getCurrentUrl(), "https://www.newyorkfed.org/search?text=interest+rates&application=ny_pub&sources=ny_pub" );
+        }
+        finally {
+            logVideoUrl((RemoteWebDriver) driver);
+            Thread.sleep(5000);
+            driver.quit();
+        }
+
+
+    }
+
+
+
+    @Epic("FRBNY Demo")
+    @Story("multi threaded test")
+    @Feature("open a browser in full screen")
+    @Test(dataProvider = "urls", dataProviderClass = TestData.class, invocationCount = 5, threadPoolSize = 100)
+    public void loadTest(String url) throws IOException, InterruptedException {
+
+
+        DesiredCapabilities capability = DesiredCapabilities.chrome();
+        capability.setCapability("version", "65");
+
+        RemoteWebDriver driver = new RemoteWebDriver(new URL("https://vm-105.element34.net/wd/hub"), capability);
+        driver.manage().window().maximize();
+        driver.get(url);
+        System.out.println(driver.getTitle());
+        Thread.sleep((long)(Math.random() * 20000));
+
+        driver.quit();
+    }
+
+
+    @Epic("FRBNY Demo")
+    @Story("Allure reporting")
+    @Feature("failing a test")
     @Test
     public void failedTest() throws IOException, InterruptedException {
 
