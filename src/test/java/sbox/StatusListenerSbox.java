@@ -47,10 +47,15 @@ public class StatusListenerSbox implements ITestListener {
 	}
 
 	public void onTestStart(ITestResult result) {
-		System.out.println("[STARTING] " + result.getName());
 		Object currentClass = result.getInstance();
 		RemoteWebDriver webDriver = (RemoteWebDriver) ((TestBaseThreadSafe) currentClass).getDriver();
-		Allure.addAttachment("Video link fom listener", "text/uri-list", HUB + "/videos/" + webDriver.getSessionId() + ".mp4");
+
+		if (webDriver != null)
+		{
+			screenshot((RemoteWebDriver) webDriver);
+			Allure.addAttachment("Video link STARTING test", "text/uri-list", HUB + "/videos/" + webDriver.getSessionId() + ".mp4");
+
+		}
 
 	}
 
