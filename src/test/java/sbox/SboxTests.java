@@ -6,7 +6,10 @@
 
 package sbox;
 
-import org.openqa.selenium.*;
+import org.openqa.selenium.By;
+import org.openqa.selenium.Dimension;
+import org.openqa.selenium.MutableCapabilities;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
@@ -16,27 +19,23 @@ import org.openqa.selenium.remote.CapabilityType;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
 import org.testng.annotations.Test;
 
-import java.io.File;
 import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
-import java.util.Set;
 
-import static elnadv.Helpers.sleepTight;
-import static sbox.Helpers.getDownloadedFileName;
-import static sbox.Helpers.getInternalSessionId;
-import static sbox.Helpers.screenshot;
+import static sbox.Helpers.*;
 import static sbox.Settings.HUB;
 
 public class SboxTests {
 
 
-	@Test
+	@Test(invocationCount = 100, threadPoolSize = 100)
 	public void chromeHeadless() throws MalformedURLException {
 		DesiredCapabilities caps = new DesiredCapabilities();
-		Dimension dimension = new Dimension(800, 600);
+		Dimension dimension = new Dimension(1920, 1080);
 
 		ChromeOptions opts = new ChromeOptions();
 		opts.addArguments("--headless");
@@ -44,14 +43,11 @@ public class SboxTests {
 		caps.setCapability(ChromeOptions.CAPABILITY, opts);
 		RemoteWebDriver driver = new RemoteWebDriver(new URL(HUB + "/wd/hub"), opts);
 		driver.manage().window().setSize(dimension);
-		driver.get("https://www.google.com");
+		driver.get("http://static.element34.net/the-internet");
 		screenshot(driver);
 		System.out.println(driver.getTitle());
 
 		driver.quit();
-
-
-
 	}
 
 	@Test
@@ -113,7 +109,7 @@ public class SboxTests {
 	@Test
 	public void demo() throws IOException, InterruptedException {
 
-		DesiredCapabilities capability = DesiredCapabilities.internetExplorer();
+		DesiredCapabilities capability = DesiredCapabilities.chrome();
 		capability.setCapability("video", true);
 		capability.setCapability("e34:token", "76ae8ff5-26a1-4c");
 		capability.setCapability("e34_per_test_timeout_ms", 300000);
@@ -126,8 +122,13 @@ public class SboxTests {
 
 		printVideoURL(driver);
 
-		driver.get("https://banking.westpac.com.au/wbc/banking/handler?TAM_OP=login&segment=personal&logout=false");
-		driver.findElement(By.id("fakeusername")).sendKeys("hello");
+		driver.get("https://www.swisscom.com");
+		driver.findElement(By.cssSelector("#scs-pageheader-toolsnav > li:nth-child(3) > a > div")).click();
+		Assert.assertEquals(driver.getTitle(), "Swisscom Login");
+
+		driver.findElement(By.id("username")).sendKeys("fakeuser");
+		driver.findElement(By.id("anmelden")).click();
+
 
 		Thread.sleep(5000);
 		driver.quit();
@@ -146,7 +147,7 @@ public class SboxTests {
 
 		RemoteWebDriver driver = new RemoteWebDriver(new URL(HUB + "/wd/hub"), caps);
 
-		driver.get("https://www.westpac.com.au");
+		driver.get("https://www.swisscom.com");
 		printVideoURL(driver);
 		Thread.sleep(5000);
 
