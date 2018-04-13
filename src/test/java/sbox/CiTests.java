@@ -20,53 +20,57 @@ import org.testng.Reporter;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
-import java.io.File;
 import java.io.IOException;
 import java.net.URL;
+import java.util.List;
 
 import static sbox.Settings.HUB;
 
 @Listeners(StatusListenerSbox.class)
 public class CiTests extends TestBaseThreadSafe {
 
-    @Epic("FRBNY Demo")
-    @Story("Allure reporting")
+
+    @Epic("Simple test")
+    @Story("Reporter logs should be visible in Allure report")
     @Feature("positive test")
     @Severity(SeverityLevel.MINOR)
     @Test
-    public void ciDemo() throws IOException, InterruptedException {
+    public void simpleTest() throws IOException, InterruptedException {
 
-
-        RemoteWebDriver driver = (RemoteWebDriver) getDriver();
-        WebDriverWait wait =  new WebDriverWait(driver, 10);
-        driver.manage().window().maximize();
-
-        try {
-            driver.get("https://www.newyorkfed.org/");
-            WebElement searchbox = driver.findElement(By.id("searchbox"));
-            searchbox.clear();
-            searchbox.sendKeys("interest rates");
-            searchbox.sendKeys(Keys.ENTER);
-
-            wait.until(ExpectedConditions.titleIs("Search - FEDERAL RESERVE BANK of NEW YORK"));
-            //Allure.addAttachment("Text URI List", "text/uri-list", HUB + "/videos/" + driver.getSessionId() + ".mp4");
-
-            Assert.assertEquals(driver.getCurrentUrl(), "https://www.newyorkfed.org/search?text=interest+rates&application=ny_pub&sources=ny_pub" );
-        }
-        finally {
-            logVideoUrl((RemoteWebDriver) driver);
-            Thread.sleep(5000);
-            driver.quit();
-        }
-
-
+        Reporter.log("hello world");
+        Assert.assertEquals(1, 1);
     }
 
 
 
     @Epic("FRBNY Demo")
-    @Story("multi threaded test")
-    @Feature("open a browser in full screen")
+    @Story("Page title should be FED like")
+    @Feature("positive test")
+    @Severity(SeverityLevel.MINOR)
+    @Test
+    public void ciDemo() throws IOException, InterruptedException {
+
+        RemoteWebDriver driver = (RemoteWebDriver) getDriver();
+        WebDriverWait wait =  new WebDriverWait(driver, 10);
+        driver.manage().window().maximize();
+
+        driver.get("https://www.newyorkfed.org/");
+        WebElement searchbox = driver.findElement(By.id("searchbox"));
+        searchbox.clear();
+        searchbox.sendKeys("interest rates");
+        searchbox.sendKeys(Keys.ENTER);
+
+        screen(driver);
+
+        wait.until(ExpectedConditions.titleIs("Search - FEDERAL RESERVE BANK of NEW YORK"));
+        Assert.assertEquals(driver.getCurrentUrl(), "https://www.newyorkfed.org/search?text=interest+rates&application=ny_pub&sources=ny_pub" );
+        Thread.sleep(5000);
+    }
+
+
+    @Epic("FRBNY Demo")
+    @Story("Dataprovider test")
+    @Feature("different URLs can be opened")
     @Severity(SeverityLevel.BLOCKER)
     @Test(dataProvider = "urls", dataProviderClass = TestData.class, invocationCount = 1, threadPoolSize = 100)
     public void loadTest(String url) throws IOException, InterruptedException {
@@ -80,13 +84,11 @@ public class CiTests extends TestBaseThreadSafe {
         driver.get(url);
         System.out.println(driver.getTitle());
         Thread.sleep((long)(Math.random() * 20000));
-
-        driver.quit();
     }
 
 
     @Epic("FRBNY Demo")
-    @Story("Allure reporting")
+    @Story("Tests should be able to fail")
     @Feature("failing a test")
     @Severity(SeverityLevel.CRITICAL)
     @Test
@@ -137,11 +139,15 @@ public class CiTests extends TestBaseThreadSafe {
         return driver.getScreenshotAs(OutputType.BYTES);
     }
 
-    public void screenshot(RemoteWebDriver driver) {
-        File tmp = driver.getScreenshotAs(OutputType.FILE);
-        File ss = new File("" + System.currentTimeMillis() + ".png");
-        tmp.renameTo(ss);
-        System.out.println("Screenshot: " + ss.getAbsoluteFile());
+//    public void screenshot(RemoteWebDriver driver) {
+//        File tmp = driver.getScreenshotAs(OutputType.FILE);
+//        File ss = new File("" + System.currentTimeMillis() + ".png");
+//        tmp.renameTo(ss);
+//        System.out.println("Screenshot: " + ss.getAbsoluteFile());
+//    }
+
+    private void screen(RemoteWebDriver driver) {
+        saveScreenshot((driver).getScreenshotAs(OutputType.BYTES));
     }
 
 
@@ -149,4 +155,14 @@ public class CiTests extends TestBaseThreadSafe {
     public String printVideoLink(RemoteWebDriver driver) {
         return HUB + "/videos/" + driver.getSessionId() + ".mp4";
     }
+
+
+    @Attachment
+    public static String logOutput(List<String> outputList) {
+        String output = "";
+        for (String o : outputList)
+            output += o + " ";
+        return output;
+    }
+
 }
