@@ -8,9 +8,9 @@ package remoteWebdriver;
 
 
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
-import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
 import java.io.IOException;
@@ -35,6 +35,19 @@ public class RemoteWebdriverTests {
 		System.out.println(driver.getTitle());
 		driver.quit();
 	}
+
+	@Test
+	public void chromeOptions() throws IOException, InterruptedException {
+
+		ChromeOptions options = new ChromeOptions();
+		options.setCapability("somecapability", "somevalue");
+		WebDriver driver = new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"), options);
+
+		driver.get("http://www.google.com");
+		System.out.println(driver.getTitle());
+		driver.quit();
+	}
+
 
 /*	@WebTest(video = true, browsers = Browsers.TIER1)
 	@Test
