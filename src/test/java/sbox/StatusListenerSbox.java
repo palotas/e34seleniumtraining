@@ -36,7 +36,7 @@ public class StatusListenerSbox implements ITestListener {
 		{
 			//System.out.println("[FAILED] - TAKING SCREENSHOT");
 			screenshot((RemoteWebDriver) webDriver);
-			Allure.addAttachment("Video link", "text/uri-list", HUB + "/videos/" + webDriver.getSessionId() + ".mp4");
+			Allure.addAttachment("Video link failed test", "text/uri-list", HUB + "/videos/" + webDriver.getSessionId() + ".mp4");
 
 		}
 
@@ -50,7 +50,7 @@ public class StatusListenerSbox implements ITestListener {
 		System.out.println("[STARTING] " + result.getName());
 		Object currentClass = result.getInstance();
 		RemoteWebDriver webDriver = (RemoteWebDriver) ((TestBaseThreadSafe) currentClass).getDriver();
-		Allure.addAttachment("Video link", "text/uri-list", HUB + "/videos/" + webDriver.getSessionId() + ".mp4");
+		Allure.addAttachment("Video link fom listener", "text/uri-list", HUB + "/videos/" + webDriver.getSessionId() + ".mp4");
 
 	}
 
