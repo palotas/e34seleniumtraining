@@ -83,11 +83,7 @@ public class TestData {
         ff1.setCapability("version", "58");
 
         DesiredCapabilities ff2 = DesiredCapabilities.firefox();
-        ff1.setCapability("version", "57");
-
-        DesiredCapabilities ff3 = DesiredCapabilities.firefox();
-        ff1.setCapability("version", "56");
-
+        ff2.setCapability("version", "57");
 
         DesiredCapabilities internetExplorer = DesiredCapabilities.internetExplorer();
 
@@ -100,9 +96,8 @@ public class TestData {
                 {chrome3},
                 {ff1},
                 {ff2},
-                {ff3},
-                {internetExplorer},
-                {edge},
+//                {internetExplorer},
+//                {edge},
         };
     }
 
