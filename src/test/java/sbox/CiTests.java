@@ -96,8 +96,6 @@ public class CiTests extends TestBaseThreadSafe {
         RemoteWebDriver driver = (RemoteWebDriver) getDriver();
         WebDriverWait wait =  new WebDriverWait(getDriver(), 10);
         getDriver().manage().window().maximize();
-        logVideoUrl(driver);
-
 
         try {
             driver.get("https://www.newyorkfed.org/");
@@ -111,8 +109,6 @@ public class CiTests extends TestBaseThreadSafe {
           Assert.assertEquals(driver.getCurrentUrl(), "Google" );
         }
         finally {
-            logVideoUrl(driver);
-            Allure.addAttachment("Text URI List", "text/uri-list", HUB + "/videos/" + driver.getSessionId() + ".mp4");
             Thread.sleep(5000);
         }
 
