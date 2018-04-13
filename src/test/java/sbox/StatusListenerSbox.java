@@ -48,14 +48,14 @@ public class StatusListenerSbox implements ITestListener {
 
 	public void onTestStart(ITestResult result) {
 		System.out.println("[STARTING] " + result.getName());
+		Object currentClass = result.getInstance();
+		RemoteWebDriver webDriver = (RemoteWebDriver) ((TestBaseThreadSafe) currentClass).getDriver();
+		Allure.addAttachment("Video link", "text/uri-list", HUB + "/videos/" + webDriver.getSessionId() + ".mp4");
+
 	}
 
 	public void onTestSuccess(ITestResult result) {
-		Object currentClass = result.getInstance();
-		RemoteWebDriver webDriver = (RemoteWebDriver) ((TestBaseThreadSafe) currentClass).getDriver();
-
 		System.out.println("PASSED: " + result.getName());
 		System.out.println("Duration " + result.getName() +": "  + (result.getEndMillis() - result.getStartMillis()) + " ms");
-		Allure.addAttachment("Video link", "text/uri-list", HUB + "/videos/" + webDriver.getSessionId() + ".mp4");
 	}
 }
