@@ -8,12 +8,10 @@ package seleniumbasics;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
-import java.io.FileNotFoundException;
 import java.io.IOException;
 
 public class BasicTests {
@@ -51,12 +49,12 @@ public class BasicTests {
 
 
 	@Test
-	public void firstChromeTest() throws IOException {
+	public void firstChromeTest() {
 
 		WebDriver driver = new ChromeDriver();
 
 		// navigate to the URL
-		driver.get("http://www.element34.net");
+		driver.get("http://www.element34.com");
 
 		// close the Browser
 		driver.quit();
