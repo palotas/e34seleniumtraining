@@ -6,11 +6,11 @@
 
 package sbox;
 
-import elnadv.listener.browserlistener.BaseTestWithDriver;
-import elnadv.listener.browserlistener.StatusListener;
 import io.qameta.allure.*;
-import org.openqa.selenium.*;
-import org.openqa.selenium.firefox.FirefoxOptions;
+import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -106,9 +106,9 @@ public class CiTests extends TestBaseThreadSafe {
             searchbox.sendKeys("interest rates");
             searchbox.sendKeys(Keys.ENTER);
 
-            Assert.assertTrue(false);
-//            wait.until(ExpectedConditions.titleIs("Search - FEDERAL RESERVE BANK of NEW YORK"));
-            //Assert.assertEquals(driver.getCurrentUrl(), "Google" );
+
+          wait.until(ExpectedConditions.titleIs("Search - FEDERAL RESERVE BANK of NEW YORK"));
+          Assert.assertEquals(driver.getCurrentUrl(), "Google" );
         }
         finally {
             logVideoUrl(driver);
