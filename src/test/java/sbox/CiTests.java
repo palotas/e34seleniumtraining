@@ -49,7 +49,6 @@ public class CiTests extends TestBaseThreadSafe {
             searchbox.sendKeys(Keys.ENTER);
 
             wait.until(ExpectedConditions.titleIs("Search - FEDERAL RESERVE BANK of NEW YORK"));
-            Allure.addAttachment("Video link", "application/javascript", HUB + "/videos/" + driver.getSessionId() + ".mp4");
             Allure.addAttachment("Text URI List", "text/uri-list", HUB + "/videos/" + driver.getSessionId() + ".mp4");
 
             Assert.assertEquals(driver.getCurrentUrl(), "https://www.newyorkfed.org/search?text=interest+rates&application=ny_pub&sources=ny_pub" );
@@ -69,7 +68,7 @@ public class CiTests extends TestBaseThreadSafe {
     @Story("multi threaded test")
     @Feature("open a browser in full screen")
     @Severity(SeverityLevel.BLOCKER)
-    @Test(dataProvider = "urls", dataProviderClass = TestData.class, invocationCount = 5, threadPoolSize = 100)
+    @Test(dataProvider = "urls", dataProviderClass = TestData.class, invocationCount = 1, threadPoolSize = 100)
     public void loadTest(String url) throws IOException, InterruptedException {
 
 
@@ -107,7 +106,7 @@ public class CiTests extends TestBaseThreadSafe {
             searchbox.sendKeys("interest rates");
             searchbox.sendKeys(Keys.ENTER);
 
-            Assert.assertTrue(true);
+            Assert.assertTrue(false);
 //            wait.until(ExpectedConditions.titleIs("Search - FEDERAL RESERVE BANK of NEW YORK"));
             //Assert.assertEquals(driver.getCurrentUrl(), "Google" );
         }
