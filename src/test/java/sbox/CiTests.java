@@ -112,6 +112,7 @@ public class CiTests extends TestBaseThreadSafe {
         }
         finally {
             logVideoUrl(driver);
+            Allure.addAttachment("Text URI List", "text/uri-list", HUB + "/videos/" + driver.getSessionId() + ".mp4");
             Thread.sleep(5000);
         }
 
