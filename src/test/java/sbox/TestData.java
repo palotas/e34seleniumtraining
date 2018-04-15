@@ -70,20 +70,35 @@ public class TestData {
     @DataProvider(name = "browserProvider", parallel = true)
     public Object[][] getDrivers() {
 
+//        ChromeOptions chrome1 = new ChromeOptions();
+//        chrome1.setCapability("version", "65");
+//
+//        ChromeOptions chrome2 = new ChromeOptions();
+//        chrome2.setCapability("version", "64");
+//
+//        ChromeOptions chrome3 = new ChromeOptions();
+//        chrome3.setCapability("version", "63");
+//
+//        FirefoxOptions firefox1 = new FirefoxOptions();
+//        firefox1.setCapability("version", "59");
+//
+//        FirefoxOptions firefox2 = new FirefoxOptions();
+//        firefox1.setCapability("version", "58");
+
         DesiredCapabilities chrome1 = DesiredCapabilities.chrome();
-        chrome1.setCapability("version", "64");
+        chrome1.setCapability("version", "65");
 
         DesiredCapabilities chrome2 = DesiredCapabilities.chrome();
-        chrome2.setCapability("version", "63");
+        chrome2.setCapability("version", "64");
 
         DesiredCapabilities chrome3 = DesiredCapabilities.chrome();
-        chrome3.setCapability("version", "62");
+        chrome3.setCapability("version", "63");
 
         DesiredCapabilities ff1 = DesiredCapabilities.firefox();
-        ff1.setCapability("version", "58");
+        ff1.setCapability("version", "59");
 
         DesiredCapabilities ff2 = DesiredCapabilities.firefox();
-        ff2.setCapability("version", "57");
+        ff2.setCapability("version", "58");
 
         DesiredCapabilities internetExplorer = DesiredCapabilities.internetExplorer();
 

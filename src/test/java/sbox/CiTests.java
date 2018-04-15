@@ -11,7 +11,6 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -21,7 +20,6 @@ import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
 import java.io.IOException;
-import java.net.URL;
 import java.util.List;
 
 import static sbox.Settings.HUB;
@@ -29,28 +27,29 @@ import static sbox.Settings.HUB;
 @Listeners(StatusListenerSbox.class)
 public class CiTests extends TestBaseThreadSafe {
 
-
     @Epic("Simple test")
-    @Story("Reporter logs should be visible in Allure report")
     @Feature("positive test")
+    @Story("Reporter logs should be visible in Allure report")
     @Severity(SeverityLevel.MINOR)
     @Test
     public void simpleTest() throws IOException, InterruptedException {
 
+        RemoteWebDriver driver = (RemoteWebDriver) getDriver();
+        addVideoLink(driver);
         Reporter.log("hello world");
         Assert.assertEquals(1, 1);
     }
 
 
-
     @Epic("FRBNY Demo")
-    @Story("Page title should be FED like")
     @Feature("positive test")
+    @Story("Page title should be FED like")
     @Severity(SeverityLevel.MINOR)
     @Test
     public void ciDemo() throws IOException, InterruptedException {
 
         RemoteWebDriver driver = (RemoteWebDriver) getDriver();
+        addVideoLink(driver);
         WebDriverWait wait =  new WebDriverWait(driver, 10);
         driver.manage().window().maximize();
 
@@ -69,17 +68,15 @@ public class CiTests extends TestBaseThreadSafe {
 
 
     @Epic("FRBNY Demo")
-    @Story("Dataprovider test")
     @Feature("different URLs can be opened")
+    @Story("Dataprovider test")
     @Severity(SeverityLevel.BLOCKER)
     @Test(dataProvider = "urls", dataProviderClass = TestData.class, invocationCount = 1, threadPoolSize = 100)
     public void loadTest(String url) throws IOException, InterruptedException {
 
+        RemoteWebDriver driver = (RemoteWebDriver) getDriver();
+        addVideoLink(driver);
 
-        DesiredCapabilities capability = DesiredCapabilities.chrome();
-        capability.setCapability("version", "65");
-
-        RemoteWebDriver driver = new RemoteWebDriver(new URL("https://vm-105.element34.net/wd/hub"), capability);
         driver.manage().window().maximize();
         driver.get(url);
         System.out.println(driver.getTitle());
@@ -88,31 +85,31 @@ public class CiTests extends TestBaseThreadSafe {
 
 
     @Epic("FRBNY Demo")
-    @Story("Tests should be able to fail")
     @Feature("failing a test")
+    @Story("Tests should be able to fail")
     @Severity(SeverityLevel.CRITICAL)
     @Test
     public void failedTest() throws IOException, InterruptedException {
 
 
         RemoteWebDriver driver = (RemoteWebDriver) getDriver();
+        addVideoLink(driver);
         WebDriverWait wait =  new WebDriverWait(getDriver(), 10);
         getDriver().manage().window().maximize();
 
-        try {
-            driver.get("https://www.newyorkfed.org/");
-            WebElement searchbox = driver.findElement(By.id("searchbox"));
-            searchbox.clear();
-            searchbox.sendKeys("interest rates");
-            searchbox.sendKeys(Keys.ENTER);
+
+        driver.get("https://www.newyorkfed.org/");
+        WebElement searchbox = driver.findElement(By.id("searchbox"));
+        searchbox.clear();
+        searchbox.sendKeys("interest rates");
+        searchbox.sendKeys(Keys.ENTER);
 
 
-          wait.until(ExpectedConditions.titleIs("Search - FEDERAL RESERVE BANK of NEW YORK"));
-          Assert.assertEquals(driver.getCurrentUrl(), "Google" );
-        }
-        finally {
-            Thread.sleep(5000);
-        }
+        wait.until(ExpectedConditions.titleIs("Search - FEDERAL RESERVE BANK of NEW YORK"));
+        Assert.assertEquals(driver.getCurrentUrl(), "Google" );
+
+
+        Thread.sleep(5000);
 
     }
 
@@ -164,5 +161,13 @@ public class CiTests extends TestBaseThreadSafe {
             output += o + " ";
         return output;
     }
+
+    private void addVideoLink(RemoteWebDriver driver) {
+        io.qameta.allure.model.Link link = new io.qameta.allure.model.Link();
+        link.setName("VIDEO URL");
+        link.setUrl(HUB + "/videos/" + driver.getSessionId() + ".mp4");
+        Allure.addLinks(link);
+    }
+
 
 }

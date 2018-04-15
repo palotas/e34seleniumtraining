@@ -63,15 +63,15 @@ public class TestBaseThreadSafe {
         else {
             capability.setCapability("browserName", browser);
         }
-        capability.setCapability("e34:token", "72aa4d82");
-        capability.setCapability("e34:l_testName", "Selenium Test");
+        capability.setCapability("e34:token", "9c6b40c0-1aa2-46");
+        capability.setCapability("e34:l_testName", "CI Jenkins Test");
         capability.setCapability("video", true);
         capability.setCapability("e34_timeout_per_test_ms", 60000);
 
 
         //Set Browser to ThreadLocalMap
         //driver.set(new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"), capability));
-        driver.set(new RemoteWebDriver(new URL("https://vm-105.element34.net/wd/hub"), capability));
+        driver.set(new RemoteWebDriver(new URL("https://vm-106.element34.net/wd/hub"), capability));
         driver.get().manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 
         //firingWebDriver.set(new EventFiringWebDriver(driver.get()));

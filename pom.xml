@@ -4,11 +4,11 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <parent>
-        <groupId>ru.yandex.qatools.allure</groupId>
-        <artifactId>allure-examples-parent</artifactId>
-        <version>1.0</version>
-    </parent>
+    <!--<parent>-->
+        <!--<groupId>ru.yandex.qatools.allure</groupId>-->
+        <!--<artifactId>allure-examples-parent</artifactId>-->
+        <!--<version>1.0</version>-->
+    <!--</parent>-->
 
     <groupId>com.element34</groupId>
     <artifactId>e34seleniumtraining</artifactId>
@@ -19,8 +19,8 @@
         <aspectj.version>1.8.10</aspectj.version>
     </properties>
 
-    <name>AXA Allure TestNG Skeleton</name>
-    <description>AXA Allure TestNG Skeleton</description>
+    <name>Element34 Selenium Training</name>
+    <description>Element34 Selenium Training</description>
 
     <dependencies>
 

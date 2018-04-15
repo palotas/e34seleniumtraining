@@ -19,11 +19,9 @@ import static sbox.Settings.HUB;
 public class StatusListenerSbox implements ITestListener {
 
 	public void onFinish(ITestContext arg0) {
-		System.out.println("[FINISHED]");
 	}
 
 	public void onStart(ITestContext ctx) {
-		System.out.println("[STARTING EVERYTHING]");
 	}
 
 	public void onTestFailedButWithinSuccessPercentage(ITestResult arg0) {
@@ -37,7 +35,6 @@ public class StatusListenerSbox implements ITestListener {
 		{
 			screenshot((RemoteWebDriver) webDriver);
 			Allure.addAttachment("Video link failed test", "text/uri-list", HUB + "/videos/" + webDriver.getSessionId() + ".mp4");
-
 		}
 
 
@@ -53,9 +50,14 @@ public class StatusListenerSbox implements ITestListener {
 
 		if (webDriver != null)
 		{
-			//screenshot((RemoteWebDriver) webDriver);
-			Allure.addAttachment("Video link STARTING test", "text/uri-list", HUB + "/videos/" + webDriver.getSessionId() + ".mp4");
-
+//			io.qameta.allure.model.Link link = new io.qameta.allure.model.Link();
+//			link.withName("VIDEO URL");
+//			link.withUrl(HUB + "/videos/" + webDriver.getSessionId() + ".mp4");
+//			link.withType("default");
+//
+//			Allure.addLinks(link);
+			//Allure.addLinks();
+//			Allure.addAttachment("Video link STARTING test", "text/uri-list", HUB + "/videos/" + webDriver.getSessionId() + ".mp4");
 		}
 
 	}
