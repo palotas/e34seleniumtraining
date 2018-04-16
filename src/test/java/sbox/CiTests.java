@@ -107,6 +107,8 @@ public class CiTests extends TestBaseThreadSafe {
 
         wait.until(ExpectedConditions.titleIs("Search - FEDERAL RESERVE BANK of NEW YORK"));
         Assert.assertEquals(driver.getCurrentUrl(), "Google" );
+//        Assert.assertEquals(driver.getCurrentUrl(), "https://www.newyorkfed.org/search?text=interest+rates&application=ny_pub&sources=ny_pub" );
+
 
 
         Thread.sleep(5000);
