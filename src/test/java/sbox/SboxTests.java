@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2014 - 2017.  Element34 Solutions - All Rights Reserved
+ * Copyright (c) 2014 - 2018.  Element34 Solutions - All Rights Reserved
  * Unauthorized copying and redistribution of this file or parts thereof,
  * via any medium is strictly prohibited without explicit consent of Element34 Solutions GmbH.
  */
@@ -19,7 +19,6 @@ import org.openqa.selenium.remote.CapabilityType;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import java.io.IOException;
@@ -100,74 +99,6 @@ public class SboxTests {
 
 		driver.get("http://element34.com/testpage/");
 		driver.getTitle();
-
-		driver.quit();
-	}
-
-
-
-	@Test
-	public void demo() throws IOException, InterruptedException {
-
-		DesiredCapabilities capability = DesiredCapabilities.chrome();
-		capability.setCapability("video", true);
-		capability.setCapability("e34:token", "76ae8ff5-26a1-4c");
-		capability.setCapability("e34_per_test_timeout_ms", 300000);
-
-		RemoteWebDriver driver = new RemoteWebDriver(new URL(HUB + "/wd/hub"), capability);
-		//RemoteWebDriver driver = new RemoteWebDriver(new URL("https://789b1ea7eca8.element34.net/wd/hub"), capability);
-		//RemoteWebDriver driver = new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"), capability);
-
-		driver.manage().window().maximize();
-
-		printVideoURL(driver);
-
-		driver.get("https://www.swisscom.com");
-		driver.findElement(By.cssSelector("#scs-pageheader-toolsnav > li:nth-child(3) > a > div")).click();
-		Assert.assertEquals(driver.getTitle(), "Swisscom Login");
-
-		driver.findElement(By.id("username")).sendKeys("fakeuser");
-		driver.findElement(By.id("anmelden")).click();
-
-
-		Thread.sleep(5000);
-		driver.quit();
-	}
-
-
-
-
-	@Test(dataProvider = "browserProvider", dataProviderClass = TestData.class, invocationCount = 1, threadPoolSize = 10)
-	public void multiBrowserVersionTest(DesiredCapabilities caps) throws IOException, InterruptedException {
-
-		caps.setCapability("video", true);
-		caps.setCapability("e34_token", "72aa4d82");
-		caps.setCapability("e34_per_test_timeout_ms", 300000);
-		caps.setCapability("e34:l_testName", caps.getBrowserName() + "  " + caps.getVersion());
-
-		RemoteWebDriver driver = new RemoteWebDriver(new URL(HUB + "/wd/hub"), caps);
-
-		driver.get("https://www.swisscom.com");
-		printVideoURL(driver);
-		Thread.sleep(5000);
-
-		driver.quit();
-	}
-
-	@Test(dataProvider = "urls", dataProviderClass = TestData.class, invocationCount = 10, threadPoolSize = 100)
-	public void loadTest(String url) throws IOException, InterruptedException {
-
-
-		DesiredCapabilities capability = DesiredCapabilities.chrome();
-		capability.setCapability("e34_token", "a423174f");
-		capability.setCapability("e34:l_testName", "Selenium Test");
-		capability.setCapability("version", "65");
-
-		RemoteWebDriver driver = new RemoteWebDriver(new URL("https://vm-105.element34.net/wd/hub"), capability);
-		driver.manage().window().maximize();
-		driver.get(url);
-		System.out.println(driver.getTitle());
-		Thread.sleep((long)(Math.random() * 20000));
 
 		driver.quit();
 	}

@@ -7,56 +7,89 @@
 package sbox;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import java.io.IOException;
+import java.net.MalformedURLException;
 import java.net.URL;
+
+import static sbox.Settings.HUB;
 
 public class SboxDemo {
 
-	@Test(dataProvider = "urls", dataProviderClass = TestData.class, invocationCount = 10, threadPoolSize = 100)
-	public void loadTest(String url) throws IOException, InterruptedException {
+
+	@Test
+	public void demo() throws IOException, InterruptedException {
 
 
-		DesiredCapabilities capability = DesiredCapabilities.chrome();
-		capability.setCapability("e34:l_testName", "Selenium Test");
-        RemoteWebDriver driver = new RemoteWebDriver(new URL("https://vm-105.element34.net/wd/hub"), capability);
+		ChromeOptions options = new ChromeOptions();
+		options.setCapability("e34:token" , "ba3570a3-220a-48"); //michael, Angular
+		options.setCapability("e34:video" , true);
+		options.setCapability("e34:l_testName", "SBOX demo test");
+		RemoteWebDriver driver = new RemoteWebDriver(new URL(HUB + "/wd/hub"), options);
+		WebDriverWait wait =  new WebDriverWait(driver, 10);
 		driver.manage().window().maximize();
 
-		driver.get(url);
-		System.out.println(driver.getTitle());
-		Thread.sleep((long)(Math.random() * 20000));
+
+
+		for (int i= 0; i < 5; i++) {
+			driver.get("https://www.newyorkfed.org/");
+			Thread.sleep(2000);
+			WebElement searchbox = driver.findElement(By.id("searchbox"));
+			searchbox.clear();
+			searchbox.sendKeys("interest rates");
+			searchbox.sendKeys(Keys.ENTER);
+			Thread.sleep(2000);
+		}
+
+
+		wait.until(ExpectedConditions.titleIs("Search - FEDERAL RESERVE BANK of NEW YORK"));
+		Assert.assertEquals(driver.getCurrentUrl(), "https://www.newyorkfed.org/search?text=interest+rates&application=ny_pub&sources=ny_pub" );
+		Thread.sleep(5000);
+		driver.quit();
+	}
+
+
+
+	@Test(dataProvider = "browserProvider", dataProviderClass = TestData.class)
+	public void multiBrowserVersionTest(DesiredCapabilities caps) throws MalformedURLException, InterruptedException {
+
+		caps.setCapability("video", true);
+		caps.setCapability("e34:token" , "ba3570a3-220a-48"); //michael, Angular
+		caps.setCapability("e34_per_test_timeout_ms", 300000);
+		caps.setCapability("e34:l_testName", caps.getBrowserName() + "  " + caps.getVersion());
+		RemoteWebDriver driver = new RemoteWebDriver(new URL(HUB + "/wd/hub"), caps);
+
+
+
+		driver.get("https://www.newyorkfed.org");
+		Thread.sleep(5000);
 
 		driver.quit();
 	}
 
-	@Test(invocationCount = 1, threadPoolSize = 5)
-	public void demo() throws IOException, InterruptedException {
+	@Test(dataProvider = "urls", dataProviderClass = TestData.class, invocationCount = 3, threadPoolSize = 100)
+	public void loadTest(String url) throws IOException, InterruptedException {
 
-		DesiredCapabilities capability = DesiredCapabilities.chrome();
-//		capability.setCapability("e34:token" , "ff03bc41-1662-44");//secretguy
-		//capability.setCapability("e34:token" , "693c4d9d-e3dc-41"); //mpalotas, Angular4
-//		capability.setCapability("e34:token" , "0aea6291-ccd7-4a"); //mpalotas, HP redesign
-		capability.setCapability("e34:token" , "ff03bc41-1662-44"); //secretguy, secret project
-		capability.setCapability("e34:video" , true);
-//		capability.setCapability("e34:l_testName" , "Angular4 test with a super long tets name");
-//		RemoteWebDriver driver = new RemoteWebDriver(new URL(HUB + "/wd/hub"), capability);
-		RemoteWebDriver driver = new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"), capability);
+
+		ChromeOptions options = new ChromeOptions();
+		options.setCapability("e34:token" , "ba3570a3-220a-48"); //michael, Angular
+		options.setCapability("e34:l_testName", "load test");
+		RemoteWebDriver driver = new RemoteWebDriver(new URL(HUB + "/wd/hub"), options);
 		driver.manage().window().maximize();
 
-		for (int i=0; i<2; i++) {
-//			driver.get("http://static.element34.net/e34");
-			driver.get("https://www.google.com");
-			driver.findElement(By.id("lst-ib")).sendKeys("hello world");
-			Thread.sleep(1000);
 
-
-			driver.get("http://static.element34.net/the-internet");
-			driver.getTitle();
-			Thread.sleep(1000);
-		}
+		driver.get(url);
+		System.out.println(driver.getTitle());
+		Thread.sleep((long)(Math.random() * 20000));
 
 		driver.quit();
 	}
