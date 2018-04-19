@@ -31,7 +31,7 @@ public class SboxDemo {
 
 
 		ChromeOptions options = new ChromeOptions();
-		options.setCapability("e34:token" , "ba3570a3-220a-48"); //michael, Angular
+		options.setCapability("e34:token" , "22678a2e-e778-48"); //michael, Homepage redesign
 		options.setCapability("e34:video" , true);
 		options.setCapability("e34:l_testName", "SBOX demo test");
 		RemoteWebDriver driver = new RemoteWebDriver(new URL(HUB + "/wd/hub"), options);
@@ -63,7 +63,7 @@ public class SboxDemo {
 	public void multiBrowserVersionTest(DesiredCapabilities caps) throws MalformedURLException, InterruptedException {
 
 		caps.setCapability("video", true);
-		caps.setCapability("e34:token" , "ba3570a3-220a-48"); //michael, Angular
+		caps.setCapability("e34:token" , "22678a2e-e778-48"); //michael, Homepage redesign
 		caps.setCapability("e34_per_test_timeout_ms", 300000);
 		caps.setCapability("e34:l_testName", caps.getBrowserName() + "  " + caps.getVersion());
 		RemoteWebDriver driver = new RemoteWebDriver(new URL(HUB + "/wd/hub"), caps);
@@ -71,17 +71,17 @@ public class SboxDemo {
 
 
 		driver.get("https://www.newyorkfed.org");
-		Thread.sleep(5000);
+		Thread.sleep(10000);
 
 		driver.quit();
 	}
 
-	@Test(dataProvider = "urls", dataProviderClass = TestData.class, invocationCount = 3, threadPoolSize = 100)
+	@Test(dataProvider = "urls", dataProviderClass = TestData.class, invocationCount = 50, threadPoolSize = 150)
 	public void loadTest(String url) throws IOException, InterruptedException {
 
 
 		ChromeOptions options = new ChromeOptions();
-		options.setCapability("e34:token" , "ba3570a3-220a-48"); //michael, Angular
+		options.setCapability("e34:token" , "22678a2e-e778-48"); //michael, Homepage redesign
 		options.setCapability("e34:l_testName", "load test");
 		RemoteWebDriver driver = new RemoteWebDriver(new URL(HUB + "/wd/hub"), options);
 		driver.manage().window().maximize();
