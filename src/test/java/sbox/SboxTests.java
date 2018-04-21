@@ -1,13 +1,16 @@
 /*
- * Copyright (c) 2014 - 2017.  Element34 Solutions - All Rights Reserved
+ * Copyright (c) 2014 - 2018.  Element34 Solutions - All Rights Reserved
  * Unauthorized copying and redistribution of this file or parts thereof,
  * via any medium is strictly prohibited without explicit consent of Element34 Solutions GmbH.
  */
 
 package sbox;
 
-//import com.element34.webdriver.DriverAutoLogAugmenter;
-import org.openqa.selenium.*;
+import org.openqa.selenium.By;
+import org.openqa.selenium.Dimension;
+import org.openqa.selenium.MutableCapabilities;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.firefox.FirefoxProfile;
@@ -18,150 +21,116 @@ import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.Test;
 
-import java.io.File;
 import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
 
-import static elnadv.Helpers.sleepTight;
-import static sbox.Helpers.getDownloadedFileName;
-import static sbox.Helpers.getInternalSessionId;
-import static sbox.Helpers.screenshot;
+import static sbox.Helpers.*;
 import static sbox.Settings.HUB;
 
 public class SboxTests {
 
+
+	@Test(invocationCount = 100, threadPoolSize = 100)
+	public void chromeHeadless() throws MalformedURLException {
+		DesiredCapabilities caps = new DesiredCapabilities();
+		Dimension dimension = new Dimension(1920, 1080);
+
+		ChromeOptions opts = new ChromeOptions();
+		opts.addArguments("--headless");
+
+		caps.setCapability(ChromeOptions.CAPABILITY, opts);
+		RemoteWebDriver driver = new RemoteWebDriver(new URL(HUB + "/wd/hub"), opts);
+		driver.manage().window().setSize(dimension);
+		driver.get("http://static.element34.net/the-internet");
+		screenshot(driver);
+		System.out.println(driver.getTitle());
+
+		driver.quit();
+	}
+
 	@Test
-	public void demo() throws IOException, InterruptedException {
-
-		DesiredCapabilities capability = DesiredCapabilities.chrome();
-		capability.setCapability("video", true);
-		capability.setCapability("e34_token", "c985c260");
-		capability.setCapability("e34_per_test_timeout_ms", 300000);
+	public void linkOpensInNewTab() throws IOException, InterruptedException {
 
 
-		RemoteWebDriver driver = new RemoteWebDriver(new URL(HUB + ":443/wd/hub"), capability);
-		driver.manage().window().maximize();
-		printLiveViewURL(driver);
-		printVideoURL(driver);
+		FirefoxOptions options = new FirefoxOptions();
+		options.addPreference("browser.link.open_newwindow", 3);
 
-
-		for (int i=0; i<1; i++) {
-			driver.get("https://www.raiffeisen.at");
-			driver.getTitle();
-			Thread.sleep(1000);
-
-			driver.get("https://google.com");
-			driver.getTitle();
-			Thread.sleep(1000);
-		}
+		RemoteWebDriver driver = new RemoteWebDriver(new URL(HUB + "/wd/hub"), options);
+//		RemoteWebDriver driver = new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"), options);
+		driver.get("about:support");
+		driver.getTitle();
 
 		driver.quit();
 	}
 
 
-	@Test(dataProvider = "chromeVersions", dataProviderClass = TestData.class, invocationCount = 1, threadPoolSize = 1)
+	@Test(invocationCount = 1, threadPoolSize = 50)
+	public void maximize() throws IOException, InterruptedException {
+
+//		FirefoxOptions options = new FirefoxOptions().addPreference("browser.link.open_newwindow", 3);
+//		FirefoxDriver driver = new FirefoxDriver(options);
+
+		FirefoxProfile profile = new FirefoxProfile();
+		//profile.setPreference("pdfjs.disabled", true);
+		//profile.setPreference("browser.helperApps.neverAsk.saveToDisk","application/pdf");
+		//profile.setPreference("plugin.disable_full_page_plugin_for_types", "application/pdf");
+		//profile.setPreference("pdfjs.enabledCache.initialized", false);
+		//profile.setPreference("pdfjs.migrationVersion", 2);
+		//profile.setPreference("pdfjs.previousHandler.alwaysAskBeforeHandling", true);
+		//profile.setPreference("pdfjs.previousHandler.preferredAction", 4);
+
+		profile.setPreference("pdfjs.enabledCache.state", false);
+
+		FirefoxOptions options = new FirefoxOptions().setProfile(profile);
+		options.addPreference("browser.link.open_newwindow", 3);
+
+
+		DesiredCapabilities capability = DesiredCapabilities.firefox();
+		capability.setCapability("video", true);
+		capability.setCapability("e34_token", "a423174f");
+		capability.setCapability("e34_per_test_timeout_ms", 600000);
+		capability.setCapability("version", "59");
+		capability.setCapability(FirefoxDriver.PROFILE, profile);
+		capability.setCapability(FirefoxOptions.FIREFOX_OPTIONS, options);
+
+//		RemoteWebDriver driver = new RemoteWebDriver(new URL(HUB + "/wd/hub"), capability);
+		RemoteWebDriver driver = new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"), capability);
+
+		driver.get("http://element34.com/testpage/");
+		driver.getTitle();
+
+		driver.quit();
+	}
+
+
+
+
+
+	@Test(dataProvider = "chromeVersions", dataProviderClass = TestData.class, invocationCount = 1, threadPoolSize = 100)
 	public void chromeWithDifferentVersionsTest(String version) throws IOException, InterruptedException {
 
 		DesiredCapabilities capability = new DesiredCapabilities();
 		capability.setCapability("video", true);
-		capability.setCapability("e34:token", "c985c260");
+		capability.setCapability("e34_token", "50f70065");
+
 		capability.setCapability("e34_per_test_timeout_ms", 300000);
 
 
 		capability.setBrowserName("chrome");
 		capability.setVersion(version);
 
-		RemoteWebDriver driver = new RemoteWebDriver(new URL(HUB + ":443/wd/hub"), capability);
+		RemoteWebDriver driver = new RemoteWebDriver(new URL(HUB + "/wd/hub"), capability);
 		driver.manage().window().fullscreen();
 
 		System.out.println("Browser version: " + driver.getCapabilities().getBrowserName() + " " + driver.getCapabilities().getVersion());
 
-		//replace with company specific URL
-		driver.get("https://bytesource.net");
+		driver.get("http://static.element34.net/e34");
 		System.out.println("Video URL: " + HUB + "/videos/" + driver.getSessionId() + ".mp4");
 
-		//leave browser open for 5 seconds and close browser afterwards
 		Thread.sleep(5000);
 		driver.quit();
 	}
-
-	@Test(dataProvider = "browserProvider", dataProviderClass = TestData.class, invocationCount = 1, threadPoolSize = 5)
-	public void multiBrowserVersionTest(DesiredCapabilities caps) throws IOException, InterruptedException {
-
-		//enable video recording
-		caps.setCapability("video", true);
-		caps.setCapability("e34:token", "57ffedec");
-		caps.setCapability("e34_per_test_timeout_ms", 300000);
-
-
-
-		//replace URL with company specific entry point
-		RemoteWebDriver driver = new RemoteWebDriver(new URL(HUB + ":443/wd/hub"), caps);
-		driver.manage().window().maximize();
-		System.out.println("Live View URL > " + HUB + ":443/ui/liveview?session=" + driver.getSessionId().toString());
-
-
-		//replace with company specific URL
-		driver.get("https://sbb.ch");
-
-		printVideoURL(driver);
-
-		//leave browser open for 5 seconds and close browser afterwards
-		Thread.sleep(5000);
-		driver.quit();
-	}
-
-
-	@Test(invocationCount = 5, threadPoolSize = 5)//(dataProvider = "tokens", dataProviderClass = TestData.class, invocationCount = 1)
-	public void singleTest(/*String token*/) throws IOException, InterruptedException {
-
-
-		DesiredCapabilities capability = DesiredCapabilities.chrome();
-		//capability.setCapability("version", "56");
-		capability.setCapability("e34:video", true);
-		capability.setCapability("e34:token", "57ffedec");
-		//capability.setCapability("e34_token", token);
-		capability.setCapability("e34:l_testName", "mpalotas");
-		//capab	ility.setCapability("e34_per_test_timeout_ms", 300000);
-//		capability.setVersion("n-1");
-		//capability.setCapability("l_testName", "SBOX Demo Test");
-		//RemoteWebDriver driver = new RemoteWebDriver(new URL(HUB + ":443/wd/hub"), capability);
-		RemoteWebDriver driver = new RemoteWebDriver(new URL("https://vm-106.element34.net/wd/hub"), capability);
-		driver.manage().window().maximize();
-		printLiveViewURL(driver);
-		printVideoURL(driver);
-
-		for(int i = 0; i < 1; i++) {
-			driver.get("https://infoq.com");
-			driver.getTitle();
-			driver.getCapabilities();
-			driver.getPageSource();
-			Thread.sleep(1500);
-			driver.get("https://sbb.ch");
-			driver.getTitle();
-			driver.getCapabilities();
-			driver.getPageSource();
-			Thread.sleep(10000);
-
-		}
-
-//		driver.get("https://stackoverflow.com/questions/27241186/how-to-determine-when-document-has-loaded-after-loading-external-css");
-//
-//		for (int i = 0; i < 5; i++) {
-//			driver.getTitle();
-//			driver.getCurrentUrl();
-//			driver.get("https://google.com");
-//
-//			JavascriptExecutor js = (JavascriptExecutor) driver;
-//			System.out.println(js.executeScript("return document.readyState"));
-//			Thread.sleep(1000);
-//			driver.get("https://stackoverflow.com/questions/27241186/how-to-determine-when-document-has-loaded-after-loading-external-css");
-//		}
-
-		driver.quit();
-	}
-
 
 	@Test(dataProvider = "tokens", dataProviderClass = TestData.class, invocationCount = 1, threadPoolSize = 100)
 	public void testnames(String token) throws IOException, InterruptedException {
@@ -170,14 +139,14 @@ public class SboxTests {
 		DesiredCapabilities capability = DesiredCapabilities.chrome();
 		//capability.setCapability("version", "56");
 		capability.setCapability("video", true);
-		//capability.setCapability("e34_token", "2825c4dd");
-		capability.setCapability("e34_token",  token);
+		capability.setCapability("e34_token", "c985c260");
+		//capability.setCapability("e34_token",  token);
 		capability.setCapability("e34:l_testName", "my test");
 		//capab	ility.setCapability("e34_per_test_timeout_ms", 300000);
 //		capability.setVersion("n-1");
 		//capability.setCapability("l_testName", "SBOX Demo Test");
 		//RemoteWebDriver driver = new RemoteWebDriver(new URL(HUB + ":443/wd/hub"), capability);
-		RemoteWebDriver driver = new RemoteWebDriver(new URL("https://vm-105.element34.net/wd/hub"), capability);
+		RemoteWebDriver driver = new RemoteWebDriver(new URL("https://vm-106.element34.net/wd/hub"), capability);
 		driver.manage().window().maximize();
 		printLiveViewURL(driver);
 		printVideoURL(driver);
@@ -190,7 +159,38 @@ public class SboxTests {
 	}
 
 
+	@Test
+	public void cisco() throws IOException, InterruptedException {
 
+		FirefoxOptions opt = new FirefoxOptions();
+
+		opt.addPreference("browser.link.open_newwindow", 3);
+		DesiredCapabilities capability = DesiredCapabilities.firefox();
+
+		capability.setCapability("moz:firefoxOptions", opt);
+		capability.setCapability("video", true);
+		capability.setCapability("e34_token", "50f70065");
+		capability.setCapability("e34:l_testName", "Selenium Test" );
+
+
+//		RemoteWebDriver driver = new RemoteWebDriver(new URL(HUB + "/wd/hub"), capability);
+		RemoteWebDriver driver = new RemoteWebDriver(new URL("https://789b1ea7eca8.element34.net/wd/hub"), capability);
+		driver.manage().window().maximize();
+
+		printVideoURL(driver);
+
+		System.out.println(driver.getCapabilities());
+		driver.get("https://element34.com/testpage");
+		driver.findElement(By.id("link")).click();
+		Thread.sleep(3000);
+
+		for (String handle : driver.getWindowHandles()) {
+			System.out.println(handle);
+			driver.switchTo().window(handle);
+		}
+
+		driver.quit();
+	}
 	@Test
 	public void fileDownload() throws IOException, InterruptedException {
 
@@ -283,7 +283,7 @@ public class SboxTests {
 
 
 	private void printVideoURL(RemoteWebDriver driver) {
-		System.out.println("Video URL - " + driver.getCapabilities().getBrowserName() + " " + driver.getCapabilities().getVersion() + " : " + "https://vm-106.element34.net/videos/" + driver.getSessionId() + ".mp4");
+		System.out.println("Video URL - " + driver.getCapabilities().getBrowserName() + " " + driver.getCapabilities().getVersion() + " : " + "https://vm-105.element34.net/videos/" + driver.getSessionId() + ".mp4");
 	}
 
 	private void printLiveViewURL(RemoteWebDriver driver) {

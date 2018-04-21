@@ -48,9 +48,9 @@ public class IFrame extends BaseTest {
         Actions act = new Actions(driver);
 
         try {
-            driver.switchTo().frame(driver.findElement(By.id("mce_0_ifr")));
-            driver.findElement(By.id("tinymce")).sendKeys("Hello World");
-            Thread.sleep(5000);
+//            driver.switchTo().frame(driver.findElement(By.id("mce_0_ifr")));
+//            driver.findElement(By.id("tinymce")).sendKeys("Hello World");
+//            Thread.sleep(5000);
 
 
         }
