@@ -11,4 +11,3 @@ sudo apt-get install xtightvncviewer
 vncviewer localhost:5900
 
 https://michael-palotas-nsr6.squarespace.com/testpage
-
