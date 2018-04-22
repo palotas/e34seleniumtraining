@@ -14,6 +14,8 @@ import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.Test;
 
+import java.util.concurrent.TimeUnit;
+
 public class IFrame extends BaseTest {
 
     @Test
@@ -44,13 +46,14 @@ public class IFrame extends BaseTest {
     public void iFrameWithSwitch() throws InterruptedException {
 
         WebDriver driver = new ChromeDriver();
-        WebDriverWait wait = new WebDriverWait(driver, 10);
+//        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         Actions act = new Actions(driver);
 
         try {
-//            driver.switchTo().frame(driver.findElement(By.id("mce_0_ifr")));
-//            driver.findElement(By.id("tinymce")).sendKeys("Hello World");
-//            Thread.sleep(5000);
+            driver.get("http://the-internet.herokuapp.com/iframe");
+            driver.switchTo().frame(driver.findElement(By.id("mce_0_ifr")));
+            driver.findElement(By.id("tinymce")).sendKeys("Hello World");
+            Thread.sleep(5000);
 
 
         }
