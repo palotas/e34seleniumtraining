@@ -46,7 +46,6 @@ public class CiTests extends TestBaseThreadSafe {
     @Feature("positive test")
     @Story("Page title should be UBS")
     @Severity(SeverityLevel.MINOR)
-
     @Test
     public void ciDemo() throws IOException, InterruptedException {
 
