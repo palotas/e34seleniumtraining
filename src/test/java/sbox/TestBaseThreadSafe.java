@@ -71,7 +71,7 @@ public class TestBaseThreadSafe {
 
         //Set Browser to ThreadLocalMap
         //driver.set(new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"), capability));
-        driver.set(new RemoteWebDriver(new URL("https://vm-106.element34.net/wd/hub"), capability));
+        driver.set(new RemoteWebDriver(new URL("https://vm-105.element34.net/wd/hub"), capability));
         driver.get().manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 
         //firingWebDriver.set(new EventFiringWebDriver(driver.get()));
