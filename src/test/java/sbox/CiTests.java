@@ -27,6 +27,7 @@ import static sbox.Settings.HUB;
 @Listeners(StatusListenerSbox.class)
 public class CiTests extends TestBaseThreadSafe {
 
+
     @Epic("Simple test")
     @Feature("positive test")
     @Story("Reporter logs should be visible in Allure report")
@@ -41,10 +42,11 @@ public class CiTests extends TestBaseThreadSafe {
     }
 
 
-    @Epic("FRBNY Demo")
+    @Epic("UBS Demo")
     @Feature("positive test")
-    @Story("Page title should be FED like")
+    @Story("Page title should be UBS")
     @Severity(SeverityLevel.MINOR)
+
     @Test
     public void ciDemo() throws IOException, InterruptedException {
 
@@ -53,21 +55,26 @@ public class CiTests extends TestBaseThreadSafe {
         WebDriverWait wait =  new WebDriverWait(driver, 10);
         driver.manage().window().maximize();
 
-        driver.get("https://www.newyorkfed.org/");
-        WebElement searchbox = driver.findElement(By.id("searchbox"));
-        searchbox.clear();
-        searchbox.sendKeys("interest rates");
-        searchbox.sendKeys(Keys.ENTER);
 
+        for (int i= 0; i < 5; i++) {
+            driver.get("https://www.ubs.com/us/en.html");
+            Thread.sleep(2000);
+            WebElement searchbox = driver.findElement(By.id("globalSearch"));
+            searchbox.clear();
+            searchbox.sendKeys("interest rates");
+            searchbox.sendKeys(Keys.ENTER);
+            Thread.sleep(2000);
+        }
+
+
+        wait.until(ExpectedConditions.titleIs("UBS Search | UBS United States"));
+        Assert.assertEquals(driver.getCurrentUrl(), "https://www.ubs.com/search/en.us.html" );
         screen(driver);
-
-        wait.until(ExpectedConditions.titleIs("Search - FEDERAL RESERVE BANK of NEW YORK"));
-        Assert.assertEquals(driver.getCurrentUrl(), "https://www.newyorkfed.org/search?text=interest+rates&application=ny_pub&sources=ny_pub" );
         Thread.sleep(5000);
     }
 
 
-    @Epic("FRBNY Demo")
+    @Epic("UBS Demo")
     @Feature("different URLs can be opened")
     @Story("Dataprovider test")
     @Severity(SeverityLevel.BLOCKER)
@@ -84,7 +91,7 @@ public class CiTests extends TestBaseThreadSafe {
     }
 
 
-    @Epic("FRBNY Demo")
+    @Epic("UBS Demo")
     @Feature("failing a test")
     @Story("Tests should be able to fail")
     @Severity(SeverityLevel.CRITICAL)
@@ -98,19 +105,8 @@ public class CiTests extends TestBaseThreadSafe {
         getDriver().manage().window().maximize();
 
 
-        driver.get("https://www.newyorkfed.org/");
-        WebElement searchbox = driver.findElement(By.id("searchbox"));
-        searchbox.clear();
-        searchbox.sendKeys("interest rates");
-        searchbox.sendKeys(Keys.ENTER);
-
-
-        wait.until(ExpectedConditions.titleIs("Search - FEDERAL RESERVE BANK of NEW YORK"));
-        Assert.assertEquals(driver.getCurrentUrl(), "Google" );
-//        Assert.assertEquals(driver.getCurrentUrl(), "https://www.newyorkfed.org/search?text=interest+rates&application=ny_pub&sources=ny_pub" );
-
-
-
+        driver.get("https://www.ubs.com/us/en.html");
+        Assert.assertEquals(driver.getCurrentUrl(), "NASA" );
         Thread.sleep(5000);
 
     }
