@@ -86,13 +86,13 @@ public class TestData {
 //        firefox1.setCapability("version", "58");
 
         DesiredCapabilities chrome1 = DesiredCapabilities.chrome();
-        chrome1.setCapability("version", "65");
+        chrome1.setCapability("version", "66");
 
         DesiredCapabilities chrome2 = DesiredCapabilities.chrome();
-        chrome2.setCapability("version", "64");
+        chrome2.setCapability("version", "65");
 
         DesiredCapabilities chrome3 = DesiredCapabilities.chrome();
-        chrome3.setCapability("version", "63");
+        chrome3.setCapability("version", "64");
 
         DesiredCapabilities ff1 = DesiredCapabilities.firefox();
         ff1.setCapability("version", "59");

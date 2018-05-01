@@ -67,8 +67,6 @@ public class SboxDemo {
 		caps.setCapability("e34:l_testName", caps.getBrowserName() + "  " + caps.getVersion());
 		RemoteWebDriver driver = new RemoteWebDriver(new URL(HUB + "/wd/hub"), caps);
 
-
-
 		driver.get("https://www.ubs.com/us/en.html");
 		Thread.sleep(10000);
 
@@ -83,8 +81,6 @@ public class SboxDemo {
 		options.setCapability("e34:token" , "1be47d5b-19e7-4a");
 		options.setCapability("e34:l_testName", "load test");
 		RemoteWebDriver driver = new RemoteWebDriver(new URL(HUB + "/wd/hub"), options);
-		driver.manage().window().maximize();
-
 
 		driver.get(url);
 		System.out.println(driver.getTitle());
