@@ -65,7 +65,6 @@ public class CiTests extends TestBaseThreadSafe {
             Thread.sleep(2000);
         }
 
-
         wait.until(ExpectedConditions.titleIs("UBS Search | UBS United States"));
         Assert.assertEquals(driver.getCurrentUrl(), "https://www.ubs.com/search/en.us.html" );
         screen(driver);
