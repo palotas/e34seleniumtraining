@@ -53,7 +53,11 @@ public class CiTests extends TestBaseThreadSafe {
 
         for (int i= 0; i < 5; i++) {
             driver.get("https://t-mobile.com");
-            Thread.sleep(2000);
+            Thread.sleep(1000);
+            driver.get("https://google.com");
+            Thread.sleep(1000);
+
+
         }
 
         Assert.assertEquals(driver.getTitle(), "Cell Phones | 4G Phones | iPhone and Android Phones | T-Mobile" );
@@ -92,7 +96,7 @@ public class CiTests extends TestBaseThreadSafe {
         getDriver().manage().window().maximize();
 
 
-        driver.get("https://www.ubs.com/us/en.html");
+        driver.get("https://t-mobile.com");
         Assert.assertEquals(driver.getCurrentUrl(), "NASA" );
         Thread.sleep(5000);
 
