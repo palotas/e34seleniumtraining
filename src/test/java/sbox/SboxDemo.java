@@ -6,15 +6,10 @@
 
 package sbox;
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.Keys;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
-import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import java.io.IOException;
@@ -32,28 +27,19 @@ public class SboxDemo {
 
 		ChromeOptions options = new ChromeOptions();
 		options.setCapability("e34:token" , "19705d15-03b8-4f"); //babbage / adoring edison
-		//options.setCapability("e34:token" , "3cff2a64-14ba-43"); //austin / adoring edison
 		options.setCapability("e34:video" , true);
-		options.setCapability("e34:l_testName", "sbox demo test");
+		options.setCapability("e34:l_testName", "t-mobile demo test");
 		RemoteWebDriver driver = new RemoteWebDriver(new URL(HUB + "/wd/hub"), options);
 		WebDriverWait wait =  new WebDriverWait(driver, 10);
-		driver.manage().window().maximize();
+		//driver.manage().window().maximize();
 
 
 		for (int i= 0; i < 5; i++) {
-			driver.get("https://www.ubs.com/us/en.html");
+			driver.get("https://t-mobile.com");
 			Thread.sleep(2000);
-			WebElement searchbox = driver.findElement(By.id("globalSearch"));
-			searchbox.clear();
-			searchbox.sendKeys("interest rates");
-			searchbox.sendKeys(Keys.ENTER);
+			driver.get("https://google.com");
 			Thread.sleep(2000);
 		}
-
-
-		wait.until(ExpectedConditions.titleIs("UBS Search | UBS United States"));
-		Assert.assertEquals(driver.getCurrentUrl(), "https://www.ubs.com/search/en.us.html" );
-		Thread.sleep(5000);
 		driver.quit();
 	}
 
@@ -63,12 +49,12 @@ public class SboxDemo {
 	public void multiBrowserVersionTest(DesiredCapabilities caps) throws MalformedURLException, InterruptedException {
 
 		caps.setCapability("video", true);
-		caps.setCapability("e34:token" , "1be47d5b-19e7-4a");
+		caps.setCapability("e34:token" , "19705d15-03b8-4f"); //babbage / adoring edison
 		caps.setCapability("e34_per_test_timeout_ms", 300000);
 		caps.setCapability("e34:l_testName", caps.getBrowserName() + "  " + caps.getVersion());
 		RemoteWebDriver driver = new RemoteWebDriver(new URL(HUB + "/wd/hub"), caps);
 
-		driver.get("https://www.ubs.com/us/en.html");
+		driver.get("https://t-mobile.com");
 		Thread.sleep(10000);
 
 		driver.quit();
@@ -79,7 +65,7 @@ public class SboxDemo {
 
 
 		ChromeOptions options = new ChromeOptions();
-		options.setCapability("e34:token" , "1be47d5b-19e7-4a");
+		options.setCapability("e34:token" , "19705d15-03b8-4f"); //babbage / adoring edison
 		options.setCapability("e34:l_testName", "load test");
 		RemoteWebDriver driver = new RemoteWebDriver(new URL(HUB + "/wd/hub"), options);
 

@@ -7,12 +7,8 @@
 package sbox;
 
 import io.qameta.allure.*;
-import org.openqa.selenium.By;
-import org.openqa.selenium.Keys;
 import org.openqa.selenium.OutputType;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.remote.RemoteWebDriver;
-import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.Reporter;
@@ -42,9 +38,9 @@ public class CiTests extends TestBaseThreadSafe {
     }
 
 
-    @Epic("UBS Demo")
+    @Epic("T-Mobile Demo")
     @Feature("positive test")
-    @Story("Page title should be UBS")
+    @Story("Page title should be T-Mobile")
     @Severity(SeverityLevel.MINOR)
     @Test
     public void ciDemo() throws IOException, InterruptedException {
@@ -56,23 +52,16 @@ public class CiTests extends TestBaseThreadSafe {
 
 
         for (int i= 0; i < 5; i++) {
-            driver.get("https://www.ubs.com/us/en.html");
-            Thread.sleep(2000);
-            WebElement searchbox = driver.findElement(By.id("globalSearch"));
-            searchbox.clear();
-            searchbox.sendKeys("interest rates");
-            searchbox.sendKeys(Keys.ENTER);
+            driver.get("https://t-mobile.com");
             Thread.sleep(2000);
         }
 
-        wait.until(ExpectedConditions.titleIs("UBS Search | UBS United States"));
-        Assert.assertEquals(driver.getCurrentUrl(), "https://www.ubs.com/search/en.us.html" );
+        Assert.assertEquals(driver.getTitle(), "Cell Phones | 4G Phones | iPhone and Android Phones | T-Mobile" );
         screen(driver);
-        Thread.sleep(5000);
     }
 
 
-    @Epic("UBS Demo")
+    @Epic("T-Mobile Demo")
     @Feature("different URLs can be opened")
     @Story("Dataprovider test")
     @Severity(SeverityLevel.BLOCKER)
@@ -89,7 +78,7 @@ public class CiTests extends TestBaseThreadSafe {
     }
 
 
-    @Epic("UBS Demo")
+    @Epic("T-Mobile Demo")
     @Feature("failing a test")
     @Story("Tests should be able to fail")
     @Severity(SeverityLevel.CRITICAL)
