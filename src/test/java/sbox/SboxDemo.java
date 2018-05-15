@@ -31,7 +31,8 @@ public class SboxDemo {
 
 
 		ChromeOptions options = new ChromeOptions();
-		options.setCapability("e34:token" , "1be47d5b-19e7-4a"); //jack, angular conversiob
+		options.setCapability("e34:token" , "19705d15-03b8-4f"); //babbage / adoring edison
+		//options.setCapability("e34:token" , "3cff2a64-14ba-43"); //austin / adoring edison
 		options.setCapability("e34:video" , true);
 		options.setCapability("e34:l_testName", "sbox demo test");
 		RemoteWebDriver driver = new RemoteWebDriver(new URL(HUB + "/wd/hub"), options);

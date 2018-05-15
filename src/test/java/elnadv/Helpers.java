@@ -12,8 +12,6 @@ import org.testng.Reporter;
 
 import java.io.File;
 
-import static sbox.Settings.SCREENSHOT_DIRECTORY;
-
 public class Helpers {
 
     //public static final String SCREENSHOT_DIRECTORY = "C:\\Users\\mpalotas\\IdeaProjects\\e34seleniumtraining\\screenshots\\";
@@ -38,9 +36,10 @@ public class Helpers {
         }
     }
 
-    public static void highlight(WebDriver driver, WebElement element) {
+    public static void highlight(WebDriver driver, WebElement element) throws InterruptedException {
         JavascriptExecutor jse = (JavascriptExecutor)driver;
         jse.executeScript("arguments[0].style.border='2px solid red'", element);
+        Thread.sleep(1000);
     }
 
     public static void screenshot(RemoteWebDriver driver) {

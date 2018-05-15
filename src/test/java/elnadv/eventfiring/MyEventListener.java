@@ -12,8 +12,6 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.support.events.WebDriverEventListener;
 
-import java.sql.Time;
-
 import static elnadv.Helpers.highlight;
 
 /**
@@ -105,7 +103,11 @@ public class MyEventListener implements WebDriverEventListener{
     public void beforeClickOn(WebElement webElement, WebDriver webDriver) {
 
         System.out.println("about to click on an element");
-        highlight(webDriver, webElement);
+        try {
+            highlight(webDriver, webElement);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
     }
 
     @Override

@@ -9,6 +9,7 @@ package seleniumbasics;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.testng.annotations.BeforeTest;
@@ -75,25 +76,19 @@ public class FindElement {
 		driver.quit();
 	}
 
-	
+
 	@Test
 	public void findByClassName() throws InterruptedException, IOException {
 
-		// create the driver and open Firefox
-		DesiredCapabilities capabilities = DesiredCapabilities.firefox();
-		WebDriver driver = new FirefoxDriver(capabilities);
+		WebDriver driver = new ChromeDriver();
 
-		// navigate to the URL 
 		driver.get("https://www.google.ch");
 		WebElement searchField=driver.findElement(By.className("gbqfif"));
 		searchField.sendKeys("selenium");
-		
-		Thread.sleep(5000);
-		// close the Browser
 		driver.quit();
 	}
-	
-	
+
+
 	@Test
 	public void findByXpath() throws InterruptedException, IOException {
 

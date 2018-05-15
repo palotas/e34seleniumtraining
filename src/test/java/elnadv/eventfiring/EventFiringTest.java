@@ -8,15 +8,12 @@ package elnadv.eventfiring;
 
 import elnadv.BaseTest;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.support.events.EventFiringWebDriver;
 import org.testng.annotations.Test;
 
 import java.net.MalformedURLException;
-import java.net.URL;
 
 import static elnadv.Helpers.sleepTight;
 
@@ -34,15 +31,12 @@ public class EventFiringTest extends BaseTest {
         MyEventListener myEventListener = new MyEventListener(driver);
         firingDriver.register(myEventListener);
 
-        firingDriver.get("chrome://chrome-urls");
+        firingDriver.get("https://element34.com/testpage");
+        firingDriver.findElement(By.linkText("Home")).click();
         sleepTight(1000);
-        firingDriver.findElement(By.linkText("chrome://about")).click();
+        firingDriver.findElement(By.linkText("Consulting")).click();
         sleepTight(1000);
-        firingDriver.findElement(By.linkText("chrome://accessibility")).click();
-        sleepTight(1000);
-        firingDriver.navigate().back();
-        sleepTight(1000);
-        firingDriver.findElement(By.linkText("chrome://apps")).click();
+        firingDriver.findElement(By.linkText("Training")).click();
         sleepTight(1000);
 
         firingDriver.quit();
