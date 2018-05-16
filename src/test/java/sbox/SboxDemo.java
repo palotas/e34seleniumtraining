@@ -15,6 +15,7 @@ import org.testng.annotations.Test;
 import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.util.concurrent.TimeUnit;
 
 import static sbox.Settings.HUB;
 
@@ -32,9 +33,10 @@ public class SboxDemo {
 		RemoteWebDriver driver = new RemoteWebDriver(new URL(HUB + "/wd/hub"), options);
 		WebDriverWait wait =  new WebDriverWait(driver, 10);
 		//driver.manage().window().maximize();
+		driver.manage().timeouts().pageLoadTimeout(30, TimeUnit.SECONDS);
 
 
-		for (int i= 0; i < 5; i++) {
+		for (int i= 0; i < 2; i++) {
 			driver.get("https://t-mobile.com");
 			Thread.sleep(2000);
 			driver.get("https://google.com");
