@@ -63,7 +63,7 @@ public class SboxDemo {
 	public void multiBrowserVersionTest(DesiredCapabilities caps) throws MalformedURLException, InterruptedException {
 
 		caps.setCapability("video", true);
-		caps.setCapability("e34:token" , "1be47d5b-19e7-4a");
+		caps.setCapability("e34:token" , "19705d15-03b8-4f");
 		caps.setCapability("e34_per_test_timeout_ms", 300000);
 		caps.setCapability("e34:l_testName", caps.getBrowserName() + "  " + caps.getVersion());
 		RemoteWebDriver driver = new RemoteWebDriver(new URL(HUB + "/wd/hub"), caps);
@@ -79,7 +79,7 @@ public class SboxDemo {
 
 
 		ChromeOptions options = new ChromeOptions();
-		options.setCapability("e34:token" , "1be47d5b-19e7-4a");
+		options.setCapability("e34:token" , "19705d15-03b8-4f");
 		options.setCapability("e34:l_testName", "load test");
 		RemoteWebDriver driver = new RemoteWebDriver(new URL(HUB + "/wd/hub"), options);
 
