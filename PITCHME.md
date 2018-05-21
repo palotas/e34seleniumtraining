@@ -13,6 +13,9 @@
 <br>
 @fa[arrows gp-tip] here goes a tooltip
 
+- first entry 
+- second entry 
+
 ---
 
 Test automation is software development
