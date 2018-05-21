@@ -74,7 +74,7 @@ public class SboxDemo {
 		driver.quit();
 	}
 
-	@Test(dataProvider = "urls", dataProviderClass = TestData.class, invocationCount = 50, threadPoolSize = 150)
+	@Test(dataProvider = "urls", dataProviderClass = TestData.class, invocationCount = 40, threadPoolSize = 120)
 	public void loadTest(String url) throws IOException, InterruptedException {
 
 
