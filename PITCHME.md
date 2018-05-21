@@ -22,8 +22,13 @@ Test automation is software development
 
 --- 
 
-What is selenium ? 
-* a library? 
-* a framework? 
-  * something else? 
-  * or not 
+package main
+
+import "fmt"
+
+func main() {
+    fmt.Println("Hello, world!")
+}
+@[1]
+@[3]
+@[5-7]
