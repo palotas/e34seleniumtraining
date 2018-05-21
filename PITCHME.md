@@ -22,6 +22,7 @@ Test automation is software development
 
 --- 
 
+@[fragment-range]
 package main
 
 import "fmt"
