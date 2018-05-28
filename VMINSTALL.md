@@ -15,7 +15,7 @@ IMPORTANT: even if prompted, please DO NOT run any updates (i.e. browsers) on th
 
 # Get latest code
 - In the VM, open a terminal 
-- type in: cd workspace/e34seleniumtraining
+- type in: cd workspace/tmp/e34seleniumtraining
 - type in: 'git pull'
 - you should either have pulled the latest code or received a message that everything is already up to date 
 
