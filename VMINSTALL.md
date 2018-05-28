@@ -1,8 +1,8 @@
 IMPORTANT: even if prompted, please DO NOT run any updates (i.e. browsers) on the VM. 
 
 # Download the virtual machine
-- Download the virtual machine from: 
-- Note: the file is 6GB large so depending on your internet connection it may take a while 
+- Download the virtual machine from: https://element34.com/public/Training-Ubuntu18.04.ova 
+- Note: the file is 12GB large so depending on your internet connection it may take a while 
 
 # Install Virtual Box and import VM 
 -  Install Virtual Box (5.2.x) on your laptop (Download from: https://www.virtualbox.org/wiki/Downloads) 
@@ -15,7 +15,7 @@ IMPORTANT: even if prompted, please DO NOT run any updates (i.e. browsers) on th
 
 # Get latest code
 - In the VM, open a terminal 
-- type in: cd workspace/seleniumtraining
+- type in: cd workspace/e34seleniumtraining
 - type in: 'git pull'
 - you should either have pulled the latest code or received a message that everything is already up to date 
 
