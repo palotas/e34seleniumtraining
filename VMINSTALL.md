@@ -7,7 +7,7 @@ IMPORTANT: even if prompted, please DO NOT run any updates (i.e. browsers) on th
 # Install Virtual Box and import VM 
 -  Install Virtual Box (5.2.x) on your laptop (Download from: https://www.virtualbox.org/wiki/Downloads) 
 -  Import downloaded VM (ova file) into Virtual Box( File -> Import Appliance )
--  Adapt VM settings (i.e. RAM, CPU). If possible the VM should have 2+ GB in RAM and 2 CPU cores) 
+-  Adapt VM settings (i.e. RAM, CPU). If possible the VM should have 4+ GB in RAM and 2 CPU cores) 
 -  Start VM in Virtual Box 
 -  Log in with user: e34 password: 11 
 -  After VM has started, open Firefox or Chrome and make sure that VM has connection to the internet 
