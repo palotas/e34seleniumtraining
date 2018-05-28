@@ -25,7 +25,7 @@ IMPORTANT: even if prompted, please DO NOT run any updates (i.e. browsers) on th
 -  The project "Seleniumtraining" should automatically be loaded 
 -  Go to src -> test -> java -> seleniumbasics -> BasicTests.java 
 -  Right-Click on the method firstChromeTest and select "Run firstChromeTest()"
--  A Chrome browser with the Element34 should be opened. The browser should close automatically. 
+-  A Chrome browser with the Element34 homepage should be opened. The browser should close automatically. 
 
   
  You’re all set if those steps worked for you! 
