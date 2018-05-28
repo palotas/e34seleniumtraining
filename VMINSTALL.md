@@ -5,7 +5,7 @@ IMPORTANT: even if prompted, please DO NOT run any updates (i.e. browsers) on th
 - Note: the file is 6GB large so depending on your internet connection it may take a while 
 
 # Install Virtual Box and import VM 
--  Install Virtual Box on your laptop (Download from: https://www.virtualbox.org/wiki/Downloads) 
+-  Install Virtual Box (5.2.x) on your laptop (Download from: https://www.virtualbox.org/wiki/Downloads) 
 -  Import downloaded VM (ova file) into Virtual Box( File -> Import Appliance )
 -  Adapt VM settings (i.e. RAM, CPU). If possible the VM should have 2+ GB in RAM and 2 CPU cores) 
 -  Start VM in Virtual Box 
@@ -29,7 +29,7 @@ IMPORTANT: even if prompted, please DO NOT run any updates (i.e. browsers) on th
 
 -  Open a terminal 
 -  type in "cd Downloads"
--  type in "java -jar selenium-server-standalone-3.8.0.jar"
+-  type in "java -jar selenium-server-standalone-3.12.jar"
 -  Selenium server should start 
 -  In the IntelliJ project go to src -> test -> java -> remoteWebdriver -> RemoteWebdriverTests.java
 -  Right-click on the method remoteWebdriverChromeTest() and select "Run remoteWebdriverChromeTest()"
