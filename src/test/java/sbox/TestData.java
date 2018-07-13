@@ -111,8 +111,8 @@ public class TestData {
                 {chrome3},
                 {ff1},
                 {ff2},
-//                {internetExplorer},
-//                {edge},
+                {internetExplorer},
+                {edge},
         };
     }
 

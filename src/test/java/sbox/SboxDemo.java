@@ -6,10 +6,11 @@
 
 package sbox;
 
+import io.appium.java_client.remote.MobileCapabilityType;
 import org.openqa.selenium.By;
-import org.openqa.selenium.Keys;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.remote.BrowserType;
+import org.openqa.selenium.remote.CapabilityType;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -27,12 +28,35 @@ public class SboxDemo {
 
 
 	@Test
-	public void demo() throws IOException, InterruptedException {
+	public void mobile() throws MalformedURLException, InterruptedException {
+		DesiredCapabilities caps = DesiredCapabilities.android();
+		caps.setCapability(MobileCapabilityType.PLATFORM_VERSION, "8.1");
+		caps.setCapability(CapabilityType.BROWSER_NAME, BrowserType.CHROME);
+		caps.setCapability(CapabilityType.VERSION, "67");
+		caps.setCapability(MobileCapabilityType.DEVICE_NAME, "Nexus 5X GPS");
+
+		caps.setCapability("e34:token" , "19705d15-03b8-4f"); //babbage / adoring edison
+		caps.setCapability("e34:video" , true);
+
+		RemoteWebDriver driver = new RemoteWebDriver(new URL(HUB + "/wd/hub"), caps);
+		driver.get("https://element34.com");
+		Thread.sleep(2000);
+		driver.get("https://google.com");
+		Thread.sleep(2000);
+		driver.get("https://element34.com");
+		Thread.sleep(2000);
+		driver.get("https://google.com");
+		Thread.sleep(2000);
+		driver.quit();
+	}
+
+
+	@Test
+	public void demoSbox() throws IOException, InterruptedException {
 
 
 		ChromeOptions options = new ChromeOptions();
 		options.setCapability("e34:token" , "19705d15-03b8-4f"); //babbage / adoring edison
-		//options.setCapability("e34:token" , "3cff2a64-14ba-43"); //austin / adoring edison
 		options.setCapability("e34:video" , true);
 		options.setCapability("e34:l_testName", "sbox demo test");
 		RemoteWebDriver driver = new RemoteWebDriver(new URL(HUB + "/wd/hub"), options);
@@ -40,26 +64,60 @@ public class SboxDemo {
 		driver.manage().window().maximize();
 
 
-		for (int i= 0; i < 5; i++) {
-			driver.get("https://www.ubs.com/us/en.html");
+		for (int i= 0; i < 2; i++) {
+			driver.get("https://element34.com");
 			Thread.sleep(2000);
-			WebElement searchbox = driver.findElement(By.id("globalSearch"));
-			searchbox.clear();
-			searchbox.sendKeys("interest rates");
-			searchbox.sendKeys(Keys.ENTER);
+			driver.findElement(By.linkText("Consulting")).click();
 			Thread.sleep(2000);
+			driver.findElement(By.linkText("Training")).click();
+
+		}
+		driver.quit();
+	}
+
+
+
+	@Test(invocationCount = 30)
+	public void demo() throws IOException, InterruptedException {
+
+
+		ChromeOptions options = new ChromeOptions();
+		options.setCapability("e34:token" , "19705d15-03b8-4f"); //babbage / adoring edison
+		//options.setCapability("e34:token" , "3cff2a64-14ba-43"); //austin / adoring edison
+		options.setCapability("e34:video" , true);
+		options.setCapability("e34:l_testName", "bmw with wait");
+		RemoteWebDriver driver = new RemoteWebDriver(new URL(HUB + "/wd/hub"), options);
+//		Thread.sleep(1000);
+		WebDriverWait wait =  new WebDriverWait(driver, 10);
+		driver.manage().window().maximize();
+		System.out.println(driver.getSessionId());
+
+
+		for (int i= 0; i < 2; i++) {
+//			driver.get("http://static.element34.net/e34");
+//			driver.getTitle();
+//			driver.get("http://static.element34.net/the-internet");
+//			driver.getTitle();
+
+
+			driver.get("http://www.bmw-brilliance.cn/cn/en/index.html");
+			Thread.sleep(2000);
+ 			driver.findElement(By.linkText("Company Information")).click();
+			Thread.sleep(2000);
+			driver.findElement(By.linkText("Careers")).click();
+
 		}
 
 
-		wait.until(ExpectedConditions.titleIs("UBS Search | UBS United States"));
-		Assert.assertEquals(driver.getCurrentUrl(), "https://www.ubs.com/search/en.us.html" );
+		wait.until(ExpectedConditions.titleIs("BMW Brilliance：Working in BMW Brilliance"));
+		Assert.assertEquals(driver.getCurrentUrl(), "http://www.bmw-brilliance.cn/cn/en/hr/index.html" );
 		Thread.sleep(5000);
 		driver.quit();
 	}
 
 
 
-	@Test(dataProvider = "browserProvider", dataProviderClass = TestData.class)
+	@Test(dataProvider = "browserProvider", dataProviderClass = TestData.class, invocationCount = 50)
 	public void multiBrowserVersionTest(DesiredCapabilities caps) throws MalformedURLException, InterruptedException {
 
 		caps.setCapability("video", true);
@@ -68,9 +126,12 @@ public class SboxDemo {
 		caps.setCapability("e34:l_testName", caps.getBrowserName() + "  " + caps.getVersion());
 		RemoteWebDriver driver = new RemoteWebDriver(new URL(HUB + "/wd/hub"), caps);
 
-		driver.get("https://www.ubs.com/us/en.html");
-		Thread.sleep(10000);
-
+		for (int i=0; i<5; i++) {
+			driver.get("https://element34.com");
+			Thread.sleep(2000);
+			driver.get("https://google.com");
+			Thread.sleep(2500);
+		}
 		driver.quit();
 	}
 
