@@ -1,13 +1,13 @@
 IMPORTANT: even if prompted, please DO NOT run any updates (i.e. browsers) on the VM. 
 
 # Download the virtual machine
-- Download the virtual machine from: 
-- Note: the file is 6GB large so depending on your internet connection it may take a while 
+- Download the virtual machine from: https://element34.com/public/Training-Ubuntu18.04.ova 
+- Note: the file is 12GB large so depending on your internet connection it may take a while 
 
 # Install Virtual Box and import VM 
--  Install Virtual Box on your laptop (Download from: https://www.virtualbox.org/wiki/Downloads) 
+-  Install Virtual Box (5.2.x) on your laptop (Download from: https://www.virtualbox.org/wiki/Downloads) 
 -  Import downloaded VM (ova file) into Virtual Box( File -> Import Appliance )
--  Adapt VM settings (i.e. RAM, CPU). If possible the VM should have 2+ GB in RAM and 2 CPU cores) 
+-  Adapt VM settings (i.e. RAM, CPU). If possible the VM should have 4+ GB in RAM and 2 CPU cores) 
 -  Start VM in Virtual Box 
 -  Log in with user: e34 password: 11 
 -  After VM has started, open Firefox or Chrome and make sure that VM has connection to the internet 
@@ -15,7 +15,7 @@ IMPORTANT: even if prompted, please DO NOT run any updates (i.e. browsers) on th
 
 # Get latest code
 - In the VM, open a terminal 
-- type in: cd workspace/seleniumtraining
+- type in: cd workspace/tmp/e34seleniumtraining
 - type in: 'git pull'
 - you should either have pulled the latest code or received a message that everything is already up to date 
 
@@ -25,15 +25,7 @@ IMPORTANT: even if prompted, please DO NOT run any updates (i.e. browsers) on th
 -  The project "Seleniumtraining" should automatically be loaded 
 -  Go to src -> test -> java -> seleniumbasics -> BasicTests.java 
 -  Right-Click on the method firstChromeTest and select "Run firstChromeTest()"
--  A Chrome browser with the Google website should be opened
-
--  Open a terminal 
--  type in "cd Downloads"
--  type in "java -jar selenium-server-standalone-3.8.0.jar"
--  Selenium server should start 
--  In the IntelliJ project go to src -> test -> java -> remoteWebdriver -> RemoteWebdriverTests.java
--  Right-click on the method remoteWebdriverChromeTest() and select "Run remoteWebdriverChromeTest()"
--  Chrome should start and open the Google homepage
+-  A Chrome browser with the Element34 homepage should be opened. The browser should close automatically. 
 
   
  You’re all set if those steps worked for you! 
