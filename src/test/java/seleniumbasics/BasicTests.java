@@ -9,6 +9,7 @@ package seleniumbasics;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
+import org.testng.Assert;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
@@ -21,8 +22,8 @@ public class BasicTests {
 		String OS = System.getProperty("os.name");
 		switch (OS) {
 			case "Linux":
-				System.setProperty("webdriver.gecko.driver","/home/e34/workspace/seleniumtraining/resources/linux/geckodriver");
-				System.setProperty("webdriver.chrome.driver", "/home/e34/workspace/seleniumtraining/resources/linux/chromedriver");
+				System.setProperty("webdriver.gecko.driver","/home/e34/workspace/e34seleniumtraining/resources/linux/geckodriver");
+				System.setProperty("webdriver.chrome.driver", "/home/e34/workspace/e34seleniumtraining/resources/linux/chromedriver");
 				break;
 
 			case "Mac OS X":
@@ -55,23 +56,11 @@ public class BasicTests {
 
 		// navigate to the URL
 		driver.get("http://www.element34.com");
+		Assert.assertEquals(driver.getTitle(), "Element34 Solutions - we created Selenium Grid");
 
 		// close the Browser
 		driver.quit();
 	}
 
-	@Test
-	public void pageTitleTest() throws InterruptedException, IOException {
-
-		DesiredCapabilities capabilities = DesiredCapabilities.chrome();
-		WebDriver driver = new ChromeDriver(capabilities);
-
-		driver.get("http://www.element34.net");
-		String pageTitle = driver.getTitle();
-		System.out.println("Page Title: " + pageTitle);
-		
-		Thread.sleep(2000);
-		driver.quit();
-	}
 }
 

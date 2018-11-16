@@ -19,16 +19,13 @@ import java.net.URL;
 
 public class RemoteWebdriverTests {
 
-	//@BeforeTest
-	//public void setup() {
-	//	Settings.setHubUrl("https://vm-106.element34.net");
-	//}
-
 	@Test
 	public void remoteWebdriverChromeTest() throws IOException, InterruptedException {
 
 		DesiredCapabilities capability = new DesiredCapabilities();
 		capability.setBrowserName("chrome");
+
+
 		WebDriver driver = new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"), capability);
 
 		driver.get("http://www.google.com");
@@ -48,15 +45,4 @@ public class RemoteWebdriverTests {
 		driver.quit();
 	}
 
-
-/*	@WebTest(video = true, browsers = Browsers.TIER1)
-	@Test
-	public void sboxTest() throws IOException, InterruptedException {
-
-		DesiredCapabilities capability = new DesiredCapabilities();
-
-		webdriver().get("http://www.google.com");
-		System.out.println(webdriver().getTitle());
-		webdriver().quit();
-	}*/
 }
