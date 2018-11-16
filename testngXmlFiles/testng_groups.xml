@@ -11,12 +11,13 @@
   <test name="Regression Test 1">
 	<groups>
 		<run>
-			<exclude name="broken"/>
+			<include name="regression"/>
 		</run>
 	</groups>
-	
-	<classes>
-	      <class name="testng.TestngGroups"/>
-	</classes>
+
+	  <classes>
+		  <class name="testng.TestngGroups"/>
+	  </classes>
+
   </test>
 </suite>
