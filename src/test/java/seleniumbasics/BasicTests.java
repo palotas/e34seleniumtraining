@@ -56,7 +56,6 @@ public class BasicTests {
 
 		// navigate to the URL
 		driver.get("http://www.element34.com");
-		Assert.assertEquals(driver.getTitle(), "Element34 Solutions - we created Selenium Grid");
 
 		// close the Browser
 		driver.quit();
