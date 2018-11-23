@@ -6,12 +6,43 @@
 
 package sbox;
 
+import org.openqa.selenium.Platform;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.testng.annotations.DataProvider;
+
+import java.net.MalformedURLException;
 
 import static sbox.Helpers.getAllChromes;
 
 public class TestData {
+
+    @DataProvider(name = "sBoxBrowsersProvider", parallel=true)
+    public Object[][] getRemoteDrivers() throws MalformedURLException {
+
+        // Return Firefox capabilities object
+        DesiredCapabilities firefoxCapabs = DesiredCapabilities.firefox();
+
+        //firefoxCapabs.setPlatform(Platform.LINUX);
+        //firefoxCapabs.setCapability("e34:auth", "sjej35po2vgxd7yg");
+        //firefoxCapabs.setCapability("e34:video", true);
+        //firefoxCapabs.setCapability("acceptInsecureCerts", true);
+
+
+        // Return Chrome capabilities object
+        DesiredCapabilities chromeCaps = DesiredCapabilities.chrome();
+
+        chromeCaps.setPlatform(Platform.LINUX);
+        chromeCaps.setCapability("e34:auth", "sjej35po2vgxd7yg");
+        chromeCaps.setCapability("e34:video", true);
+        chromeCaps.setCapability("acceptInsecureCerts", true);
+
+
+        return new Object[][]{
+                {firefoxCapabs},
+                //{chromeCaps}
+        };
+
+    }
 
 
     @DataProvider(name = "testnames", parallel = true)
@@ -70,53 +101,55 @@ public class TestData {
     @DataProvider(name = "browserProvider", parallel = true)
     public Object[][] getDrivers() {
 
-//        ChromeOptions chrome1 = new ChromeOptions();
-//        chrome1.setCapability("version", "65");
-//
-//        ChromeOptions chrome2 = new ChromeOptions();
-//        chrome2.setCapability("version", "64");
-//
-//        ChromeOptions chrome3 = new ChromeOptions();
-//        chrome3.setCapability("version", "63");
-//
-//        FirefoxOptions firefox1 = new FirefoxOptions();
-//        firefox1.setCapability("version", "59");
-//
-//        FirefoxOptions firefox2 = new FirefoxOptions();
-//        firefox1.setCapability("version", "58");
-
         DesiredCapabilities chrome1 = DesiredCapabilities.chrome();
-        chrome1.setCapability("version", "66");
+        chrome1.setCapability("version", "70");
 
         DesiredCapabilities chrome2 = DesiredCapabilities.chrome();
-        chrome2.setCapability("version", "65");
+        chrome2.setCapability("version", "69");
 
         DesiredCapabilities chrome3 = DesiredCapabilities.chrome();
-        chrome3.setCapability("version", "64");
+        chrome3.setCapability("version", "68");
 
         DesiredCapabilities ff1 = DesiredCapabilities.firefox();
-        ff1.setCapability("version", "59");
+        ff1.setCapability("version", "63");
 
         DesiredCapabilities ff2 = DesiredCapabilities.firefox();
-        ff2.setCapability("version", "58");
+        ff2.setCapability("version", "62");
+
+        DesiredCapabilities ff3 = DesiredCapabilities.firefox();
+        ff2.setCapability("version", "63");
 
         DesiredCapabilities internetExplorer = DesiredCapabilities.internetExplorer();
 
         DesiredCapabilities edge = DesiredCapabilities.edge();
 
+        DesiredCapabilities safari = DesiredCapabilities.safari();
+
 
         return new Object[][]{
                 {chrome1},
                 {chrome2},
-                {chrome3},
+//                {chrome3},
                 {ff1},
                 {ff2},
+//                {ff3},
                 {internetExplorer},
                 {edge},
+                //{safari}
         };
     }
 
-    //no hardcoded versions. Sliding window depending on what is configured on SBOX as LATEST
+    @DataProvider(name="mobileprovider", parallel = true)
+    public Object[][] getMobiles() {
+        return new Object[][]{
+                {"iPhone 7 Plus"},
+                {"iPad Air"},
+
+        };
+    }
+
+
+        //no hardcoded versions. Sliding window depending on what is configured on SBOX as LATEST
     @DataProvider(name = "browserProviderWithoutVersions", parallel = true)
     public Object[][] getDriversWithoutVersion() {
 
@@ -145,6 +178,32 @@ public class TestData {
                 {chrome1},
                 {chrome2},
                 {chrome3},
+        };
+    }
+
+    @DataProvider(name = "users", parallel = true)
+    public Object[][] users() {
+
+        //babbage
+        DesiredCapabilities firefoxBabbage = DesiredCapabilities.firefox();
+        firefoxBabbage.setCapability("e34:token", "19705d15-03b8-4f");
+
+        //austin
+        DesiredCapabilities firefoxAustin = DesiredCapabilities.firefox();
+        firefoxAustin.setCapability("e34:token", "3cff2a64-14ba-43");
+
+
+        //archimedes
+        DesiredCapabilities chromeArchimedes = DesiredCapabilities.chrome();
+        chromeArchimedes.setCapability("e34:token", "6fadf63e-f884-44");
+
+        return new Object[][]{
+                {firefoxBabbage},
+                {firefoxAustin},
+//                {firefoxAustin},
+//                {firefoxAustin},
+//                {firefoxAustin},
+                {chromeArchimedes}
         };
     }
 }
