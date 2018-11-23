@@ -63,7 +63,7 @@ public class TestBaseThreadSafe {
         else {
             capability.setCapability("browserName", browser);
         }
-        capability.setCapability("e34:token", "19705d15-03b8-4f\t");
+        capability.setCapability("e34:token", "19705d15-03b8-4f");
         capability.setCapability("e34:l_testName", "CI Jenkins Test");
         capability.setCapability("video", true);
         capability.setCapability("e34_timeout_per_test_ms", 60000);
