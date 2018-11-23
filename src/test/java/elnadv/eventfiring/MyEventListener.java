@@ -7,6 +7,7 @@
 package elnadv.eventfiring;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.OutputType;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.remote.RemoteWebDriver;
@@ -136,7 +137,37 @@ public class MyEventListener implements WebDriverEventListener{
     }
 
     @Override
+    public void beforeSwitchToWindow(String windowName, WebDriver driver) {
+
+    }
+
+    @Override
+    public void afterSwitchToWindow(String windowName, WebDriver driver) {
+
+    }
+
+    @Override
     public void onException(Throwable throwable, WebDriver webDriver) {
         System.out.println("something went wrong. exception caught: " + throwable.getMessage());
+    }
+
+    @Override
+    public <X> void beforeGetScreenshotAs(OutputType<X> target) {
+
+    }
+
+    @Override
+    public <X> void afterGetScreenshotAs(OutputType<X> target, X screenshot) {
+
+    }
+
+    @Override
+    public void beforeGetText(WebElement element, WebDriver driver) {
+
+    }
+
+    @Override
+    public void afterGetText(WebElement element, WebDriver driver, String text) {
+
     }
 }
