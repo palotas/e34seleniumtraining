@@ -37,8 +37,8 @@ public class BasicTests {
 				break;
 
 			case "Windows 10":
-				System.setProperty("webdriver.gecko.driver","C:\\Users\\mpalotas\\IdeaProjects\\e34seleniumtraining\\resources\\geckodriver.exe");
-				System.setProperty("webdriver.chrome.driver", "C:\\Users\\mpalotas\\IdeaProjects\\e34seleniumtraining\\resources\\chromedriver.exe");
+				System.setProperty("webdriver.gecko.driver","C:\\Users\\x051717\\IdeaProjects\\e34seleniumtraining\\resources\\geckodriver.exe");
+				System.setProperty("webdriver.chrome.driver", "C:\\Users\\x051717\\IdeaProjects\\e34seleniumtraining\\resources\\chromedriver.exe");
 				break;
 
 			default:

@@ -37,7 +37,7 @@ public class RemoteWebdriverTests {
 	public void chromeOptions() throws IOException, InterruptedException {
 
 		ChromeOptions options = new ChromeOptions();
-		options.setCapability("somecapability", "somevalue");
+		options.setExperimentalOption("useAutomationExtension", false);
 		WebDriver driver = new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"), options);
 
 		driver.get("http://www.google.com");
