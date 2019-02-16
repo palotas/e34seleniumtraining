@@ -54,7 +54,6 @@ public class BasicTests {
 
 		WebDriver driver = new ChromeDriver();
 
-		// navigate to the URL
 		driver.get("http://www.element34.com");
 
 		driver.quit();
