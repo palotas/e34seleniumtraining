@@ -57,7 +57,6 @@ public class BasicTests {
 		// navigate to the URL
 		driver.get("http://www.element34.com");
 
-		// close the Browser
 		driver.quit();
 	}
 
