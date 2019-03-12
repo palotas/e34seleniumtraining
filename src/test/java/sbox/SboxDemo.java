@@ -69,7 +69,11 @@ public class SboxDemo {
 	}
 
 
-	@Test(invocationCount = 10, threadPoolSize = 10)
+	@Epic("Lloyds Mobile Tests")
+	@Feature("Open Lloyds mobile website ")
+	@Story("Users should be able to see the mobile versiob of the Lloyds website")
+	@Severity(SeverityLevel.NORMAL)
+	@Test(invocationCount = 1, threadPoolSize = 10)
 	public void mobileWebTest() throws MalformedURLException, InterruptedException {
 		DesiredCapabilities caps = new DesiredCapabilities();
 		caps.setCapability(CapabilityType.PLATFORM_NAME, Platform.ANDROID);
@@ -94,6 +98,10 @@ public class SboxDemo {
 		driver.quit();
 	}
 
+	@Epic("Lloyds Mobile Tests")
+	@Feature("Open Lloyds mobile website ")
+	@Story("Users should be able to see the mobile version of the Lloyds website on multiple devices")
+	@Severity(SeverityLevel.NORMAL)
 	@Test(invocationCount = 1, threadPoolSize = 10, dataProvider = "mobileDataProvider", dataProviderClass = TestData.class)
 	public void mobileWebTestWithDataProvider(DesiredCapabilities caps) throws MalformedURLException, InterruptedException {
 
@@ -116,7 +124,7 @@ public class SboxDemo {
 
 
 
-	@Test(invocationCount = 1, threadPoolSize = 10)
+	@Test(invocationCount = 1, threadPoolSize = 10,enabled = false)
 	public void nativeAppTest() throws IOException, InterruptedException {
 		String appLocation = "http://static.element34.net/mobile/demo_apks/ApiDemos-debug.apk";
 		mobileNativeTest(appLocation);
@@ -186,7 +194,7 @@ public class SboxDemo {
 
 
 
-	@Test(dataProvider = "urls", dataProviderClass = TestData.class, invocationCount = 40, threadPoolSize = 40)
+	@Test(enabled = false, dataProvider = "urls", dataProviderClass = TestData.class, invocationCount = 40, threadPoolSize = 40)
 	public void loadTest(String url) throws IOException, InterruptedException {
 
 		ChromeOptions options = new ChromeOptions();
