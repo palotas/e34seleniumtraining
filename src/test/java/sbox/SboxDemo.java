@@ -22,7 +22,6 @@ import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.support.ui.FluentWait;
 import org.openqa.selenium.support.ui.Wait;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
 import java.io.IOException;
@@ -32,14 +31,13 @@ import java.time.Duration;
 
 import static sbox.Settings.HUB;
 
-@Listeners(StatusListenerSbox.class)
 public class SboxDemo {
 
 	String ourGroup = "#main-navigation > nav > ul > li:nth-child(1) > a";
 	String retail = "#mega-nav-panel > ul > li.col-xs-12.col-sm-9.col-md-9 > ul > li:nth-child(1) > ul > li:nth-child(2) > a";
 
 
-	@Epic("Lloyds Demo Tests")
+	@Epic("Lloyds Web Tests")
 	@Feature("Open Lloyds website ")
 	@Story("Users should be able to click on the Lloyds website")
 	@Severity(SeverityLevel.MINOR)
@@ -95,6 +93,7 @@ public class SboxDemo {
 		driver.get("https://www.lloydsbankinggroup.com/");
 		Thread.sleep(2000);
 		driver.get("https://element34.com");
+		addVideoLink(driver);
 		driver.quit();
 	}
 
@@ -117,6 +116,7 @@ public class SboxDemo {
 		driver.get("https://www.lloydsbankinggroup.com/");
 		Thread.sleep(2000);
 		driver.get("https://element34.com");
+		addVideoLink(driver);
 		driver.quit();
 	}
 
@@ -186,6 +186,7 @@ public class SboxDemo {
 				Thread.sleep(sleep);
 			}
 		} finally {
+			addVideoLink(driver);
 			driver.quit();
 		}
 	}
