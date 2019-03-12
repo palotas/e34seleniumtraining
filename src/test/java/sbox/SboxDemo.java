@@ -9,6 +9,7 @@ package sbox;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.remote.MobileCapabilityType;
+import io.qameta.allure.*;
 import org.openqa.selenium.By;
 import org.openqa.selenium.NotFoundException;
 import org.openqa.selenium.Platform;
@@ -21,6 +22,7 @@ import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.support.ui.FluentWait;
 import org.openqa.selenium.support.ui.Wait;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
 import java.io.IOException;
@@ -30,11 +32,17 @@ import java.time.Duration;
 
 import static sbox.Settings.HUB;
 
+@Listeners(StatusListenerSbox.class)
 public class SboxDemo {
 
 	String ourGroup = "#main-navigation > nav > ul > li:nth-child(1) > a";
 	String retail = "#mega-nav-panel > ul > li.col-xs-12.col-sm-9.col-md-9 > ul > li:nth-child(1) > ul > li:nth-child(2) > a";
 
+
+	@Epic("Lyolds Demo Tests")
+	@Feature("open Lloyds website ")
+	@Story("Users should be able to click on the Lloyds website")
+	@Severity(SeverityLevel.MINOR)
 	@Test(invocationCount = 1, threadPoolSize = 9)
 	public void webtest() throws IOException, InterruptedException {
 
