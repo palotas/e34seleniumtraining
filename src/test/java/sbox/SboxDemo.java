@@ -6,13 +6,18 @@
 
 package sbox;
 
-import com.google.common.base.Stopwatch;
 import io.appium.java_client.MobileElement;
-import io.appium.java_client.ios.IOSDriver;
+import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.remote.MobileCapabilityType;
-import org.openqa.selenium.*;
+import org.openqa.selenium.By;
+import org.openqa.selenium.NotFoundException;
+import org.openqa.selenium.Platform;
+import org.openqa.selenium.WebDriverException;
 import org.openqa.selenium.chrome.ChromeOptions;
-import org.openqa.selenium.remote.*;
+import org.openqa.selenium.remote.BrowserType;
+import org.openqa.selenium.remote.CapabilityType;
+import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.support.ui.FluentWait;
 import org.openqa.selenium.support.ui.Wait;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -21,356 +26,152 @@ import org.testng.annotations.Test;
 import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
-import java.util.List;
-import java.util.concurrent.TimeUnit;
+import java.time.Duration;
 
-import static java.util.concurrent.TimeUnit.SECONDS;
 import static sbox.Settings.HUB;
 
 public class SboxDemo {
 
+	String ourGroup = "#main-navigation > nav > ul > li:nth-child(1) > a";
+	String retail = "#mega-nav-panel > ul > li.col-xs-12.col-sm-9.col-md-9 > ul > li:nth-child(1) > ul > li:nth-child(2) > a";
 
-	@Test
-	public void differentUsers() throws IOException, InterruptedException {
+	@Test(invocationCount = 1, threadPoolSize = 9)
+	public void webtest() throws IOException, InterruptedException {
 
-		DesiredCapabilities caps = DesiredCapabilities.firefox();
-		caps.setCapability("e34:token", "19705d15-03b8-4f");
+		DesiredCapabilities caps = new DesiredCapabilities();
+		caps.setCapability("browserName", "chrome");
+		caps.setCapability("e34:token", "617a27e4-c74c-46");
+		caps.setCapability("e34:video",true);
+		caps.setCapability("e34:l_testName", "Lloyds demo test");
 
-		RemoteWebDriver driver = new RemoteWebDriver(new URL(HUB + "/wd/hub"), caps);
-		//WebDriverWait wait =  new WebDriverWait(driver, 10);
-		//driver.manage().window().maximize();
-
+		RemoteWebDriver driver = new RemoteWebDriver(new URL("http://vm-106.element34.net/wd/hub"), caps);
+		WebDriverWait wait =  new WebDriverWait(driver, 10);
+		driver.manage().window().maximize();
 
 		for (int i= 0; i < 2; i++) {
-			driver.get("https://element34.com");
+			driver.get("https://www.lloydsbankinggroup.com/");
 			Thread.sleep(2000);
-			driver.findElement(By.linkText("Consulting")).click();
+			driver.findElement(By.cssSelector(ourGroup)).click();
 			Thread.sleep(2000);
-			driver.get("https://element34.com");
-			driver.findElement(By.linkText("Training")).click();
+			driver.findElement(By.cssSelector(retail)).click();
 			Thread.sleep(2000);
-
-
 		}
 		driver.quit();
 	}
+
+
+	@Test(invocationCount = 10, threadPoolSize = 10)
+	public void mobileWebTest() throws MalformedURLException, InterruptedException {
+		DesiredCapabilities caps = new DesiredCapabilities();
+		caps.setCapability(CapabilityType.PLATFORM_NAME, Platform.ANDROID);
+		caps.setCapability("e34:token", "617a27e4-c74c-46");
+		// caps.setCapability("e34:video", true);
+		caps.setCapability(MobileCapabilityType.DEVICE_NAME, "Nexus 5X");
+		caps.setCapability(CapabilityType.BROWSER_NAME, BrowserType.CHROME);
+		caps.setCapability(MobileCapabilityType.PLATFORM_VERSION, "8.0");
+		caps.setCapability("e34:l_testName", "mobileWeb  - " + caps.getCapability(MobileCapabilityType.DEVICE_NAME));
+
+
+		RemoteWebDriver driver = new RemoteWebDriver(new URL(HUB + "/wd/hub"), caps);
+		driver.get("https://www.lloydsbankinggroup.com/");
+		Thread.sleep(2000);
+		driver.get("https://google.com");
+		Thread.sleep(2000);
+		driver.get("https://element34.com");
+		Thread.sleep(2000);
+		driver.get("https://www.lloydsbankinggroup.com/");
+		Thread.sleep(2000);
+		driver.get("https://element34.com");
+		driver.quit();
+	}
+
+	@Test(invocationCount = 1, threadPoolSize = 10, dataProvider = "mobileDataProvider", dataProviderClass = TestData.class)
+	public void mobileWebTestWithDataProvider(DesiredCapabilities caps) throws MalformedURLException, InterruptedException {
+
+		caps.setCapability("e34:l_testName", "mobileWeb  - " + caps.getCapability(MobileCapabilityType.DEVICE_NAME) + " Android " + caps.getCapability(MobileCapabilityType.PLATFORM_VERSION));
+
+		RemoteWebDriver driver = new RemoteWebDriver(new URL(HUB + "/wd/hub"), caps);
+		driver.get("https://www.lloydsbankinggroup.com/");
+		Thread.sleep(2000);
+		driver.get("https://google.com");
+		Thread.sleep(2000);
+		driver.get("https://element34.com");
+		Thread.sleep(2000);
+		driver.get("https://www.lloydsbankinggroup.com/");
+		Thread.sleep(2000);
+		driver.get("https://element34.com");
+		driver.quit();
+	}
+
+
+
 
 
 	@Test(invocationCount = 1, threadPoolSize = 10)
-	public void mobileWebTest() throws MalformedURLException, InterruptedException {
+	public void nativeAppTest() throws IOException, InterruptedException {
+		String appLocation = "http://static.element34.net/mobile/demo_apks/ApiDemos-debug.apk";
+		mobileNativeTest(appLocation);
+	}
+
+	private void mobileNativeTest(String appLocation) throws MalformedURLException, InterruptedException {
 		String threadInfo = String.format("%s - %s", Thread.currentThread().getId(), Thread.currentThread().getName());
 		DesiredCapabilities caps = new DesiredCapabilities();
 		caps.setCapability(CapabilityType.PLATFORM_NAME, Platform.ANDROID);
-		caps.setCapability("e34:token", "19705d15-03b8-4f");
-		// caps.setCapability("e34:video", true);
-		caps.setCapability("e34:l_testName", "mobileWeb " + threadInfo);
-		caps.setCapability(MobileCapabilityType.DEVICE_NAME, "Nexus 5X");
-		caps.setCapability(CapabilityType.BROWSER_NAME, BrowserType.CHROME);
-
-		RemoteWebDriver driver = new RemoteWebDriver(new URL(HUB + "/wd/hub"), caps);
-		driver.get("https://element34.com");
-		Thread.sleep(2000);
-		driver.get("https://google.com");
-		Thread.sleep(2000);
-		driver.get("https://element34.com");
-		Thread.sleep(2000);
-		driver.get("https://google.com");
-		Thread.sleep(25000);
-		driver.quit();	}
-
-
-	@Test
-	public void mobile() throws MalformedURLException, InterruptedException {
-		DesiredCapabilities caps = DesiredCapabilities.android();
 		caps.setCapability(MobileCapabilityType.PLATFORM_VERSION, "8.1");
-		caps.setCapability(CapabilityType.BROWSER_NAME, BrowserType.CHROME);
-		caps.setCapability(CapabilityType.VERSION, "67");
-		caps.setCapability(MobileCapabilityType.DEVICE_NAME, "Nexus 5X GPS");
+		caps.setCapability("e34:token", "617a27e4-c74c-46");
 
-		caps.setCapability("e34:token" , "19705d15-03b8-4f"); //babbage / adoring edison
-		caps.setCapability("e34:video" , true);
+		caps.setCapability("e34:app", appLocation);
+		caps.setCapability("e34:video", true);
+		caps.setCapability("e34:l_testName", "nativeApp " + threadInfo);
+		caps.setCapability(MobileCapabilityType.DEVICE_NAME, "Nexus 5X");
 
-		RemoteWebDriver driver = new RemoteWebDriver(new URL(HUB + "/wd/hub"), caps);
-		driver.get("https://element34.com");
-		Thread.sleep(2000);
-		driver.get("https://google.com");
-		Thread.sleep(2000);
-		driver.get("https://element34.com");
-		Thread.sleep(2000);
-		driver.get("https://google.com");
-		Thread.sleep(2000);
-		driver.quit();
-	}
-
-
-	@Test
-	public void demoSbox() throws IOException, InterruptedException {
-
-
-		ChromeOptions options = new ChromeOptions();
-		options.setCapability("e34:token" , "19705d15-03b8-4f"); //babbage / adoring edison
-		options.setCapability("e34:video" , true);
-		options.setCapability("e34:l_testName", "sbox demo test");
-		RemoteWebDriver driver = new RemoteWebDriver(new URL(HUB + "/wd/hub"), options);
-		WebDriverWait wait =  new WebDriverWait(driver, 10);
-		driver.manage().window().maximize();
-
-
-		for (int i= 0; i < 2; i++) {
-			driver.get("https://www.commbank.com.au/banking.html?ei=mv_banking");
-			Thread.sleep(2000);
-			driver.findElement(By.className("log-on-text")).click();
-			Thread.sleep(2000);
-			WebElement iFrame = driver.findElement(By.className("netbank-login"));
-			driver.switchTo().frame(iFrame);
-			driver.findElement(By.id("txtMyClientNumber_field")).sendKeys("123456");
-			Thread.sleep(2000);
-			driver.findElement(By.id("txtMyPassword_field")).sendKeys("12345");
-			Thread.sleep(2000);
-
-		}
-		driver.quit();
-	}
-
-	@Test(dataProvider = "mobileprovider", dataProviderClass = TestData.class, invocationCount = 1, threadPoolSize = 4/*, dataProvider = "ports"*/)
-	public void readingListNativeAppTest(String device/*int portAppium, int portWebDriverAgent, String device, String webUrl*/) throws IOException, InterruptedException {
-
-
-		String threadInfo = String.format("%s - %s", Thread.currentThread().getId(), Thread.currentThread().getName());
-
-		DesiredCapabilities caps = new DesiredCapabilities();
-		caps.setCapability(CapabilityType.PLATFORM_NAME, Platform.IOS);
-		caps.setCapability("e34:l_testName", "Reading List " + threadInfo);
-		caps.setCapability(MobileCapabilityType.APP, "/Users/e34/ReadingList.app.zip");
-		caps.setCapability("e34:token", "19705d15-03b8-4f");
-		caps.setCapability(MobileCapabilityType.DEVICE_NAME, device);
-		caps.setCapability(MobileCapabilityType.AUTOMATION_NAME, "XCUITest");
-
-		Stopwatch watch = Stopwatch.createStarted();
-		System.out.println("Starting");
-		IOSDriver driver = new IOSDriver(new URL(HUB + "/wd/hub"), caps);
-		driver.manage().timeouts().implicitlyWait(0, TimeUnit.SECONDS);
-
-		long start = System.currentTimeMillis();
+		AndroidDriver driver = new AndroidDriver(new URL("http://vm-106.element34.net/wd/hub"), caps);
+		Wait<AndroidDriver> wait = new FluentWait<>(driver)
+				.withTimeout(Duration.ofSeconds(30))
+				.ignoring(NotFoundException.class)
+				.ignoring(WebDriverException.class);
 		try {
-			System.out.println("Started in: " + watch.elapsed(TimeUnit.SECONDS));
-			SessionId id = driver.getSessionId();
-			System.out.println(String.format("Session ID: %s", id.toString()));
-			Wait<IOSDriver> wait = new FluentWait<>(driver)
-					.withTimeout(10,SECONDS)
-					.ignoring(NotFoundException.class);
-
-			MobileElement addBook = (MobileElement) wait.until(webDriver -> driver.findElementByAccessibilityId("Add"));
-			addBook.click();
-
-			MobileElement searchOnline = (MobileElement) wait.until(webDriver -> driver.findElementByAccessibilityId("Search Online"));
-			searchOnline.click();
-
-			MobileElement searchField = (MobileElement) wait.until(webDriver -> driver.findElementByAccessibilityId("Search"));
-			searchField.sendKeys("Selenium");
-			searchField.sendKeys(Keys.ENTER);
-
-			WebElement element = null;
-			for (int i = 0; i < 2; i++) {
-				System.out.println(threadInfo + "A");
-				element = wait.until(d -> d.findElement(By.className("XCUIElementTypeCell")));
-				System.out.println(threadInfo + "B");
-				Thread.sleep(1000);
+			// For demos, change cycles and sleep so the test takes longer and more containers can be seen in the live view.
+			int cycles = 3;
+			long sleep = 2000;
+			for (int i = 0; i < cycles; i++) {
+				MobileElement accessibility = (MobileElement) wait.until(androidDriver -> driver.findElementByAccessibilityId("Accessibility"));
+				Thread.sleep(sleep);
+				accessibility.click();
+				Thread.sleep(sleep);
+				MobileElement accessibilityService = (MobileElement) wait.until(androidDriver -> driver.findElementByAccessibilityId("Accessibility Service"));
+				Thread.sleep(sleep);
+				accessibilityService.click();
+				Thread.sleep(sleep);
+				wait.until(androidDriver -> driver.findElementById("io.appium.android.apis:id/button"));
+				Thread.sleep(sleep);
+				driver.navigate().back();
+				Thread.sleep(sleep);
+				wait.until(androidDriver -> driver.findElementByAccessibilityId("Accessibility Service"));
+				Thread.sleep(sleep);
+				driver.navigate().back();
+				Thread.sleep(sleep);
+				MobileElement app = (MobileElement) wait.until(androidDriver -> driver.findElementByAccessibilityId("App"));
+				Thread.sleep(sleep);
+				app.click();
+				Thread.sleep(sleep);
+				MobileElement alertDialogs = (MobileElement) wait.until(androidDriver -> driver.findElementByAccessibilityId("Alert Dialogs"));
+				Thread.sleep(sleep);
+				alertDialogs.click();
+				Thread.sleep(sleep);
+				wait.until(androidDriver -> driver.findElementByAccessibilityId("List dialog"));
+				Thread.sleep(sleep);
+				driver.navigate().back();
+				Thread.sleep(sleep);
+				wait.until(androidDriver -> driver.findElementByAccessibilityId("Alert Dialogs"));
+				Thread.sleep(sleep);
+				driver.navigate().back();
+				Thread.sleep(sleep);
 			}
-			element.click();
-			System.out.println(threadInfo + "C");
-
-			System.out.println(threadInfo + " Before clicking done");
-			MobileElement doneAdding = (MobileElement) wait.until(webDriver -> driver.findElementByAccessibilityId("Done"));
-			doneAdding.click();
-			System.out.println(threadInfo + " After clicking done");
-
-			wait.until(webDriver -> driver.findElements(By.className("XCUIElementTypeCell")).size() == 1);
-			List<MobileElement> readingList = wait.until(webDriver -> driver.findElements(By.className("XCUIElementTypeCell")));
-			readingList.get(0).click();
-			System.out.println(threadInfo + " Clicking on the first one from my list");
-
-			MobileElement startBook = (MobileElement) wait.until(webDriver -> driver.findElementByAccessibilityId("START"));
-			startBook.click();
-			System.out.println(threadInfo + " Starting book");
-
-			MobileElement finishBook = (MobileElement) wait.until(webDriver -> driver.findElementByAccessibilityId("FINISH"));
-			finishBook.click();
-			System.out.println(threadInfo + " Finishing book");
-
-			driver.navigate().back();
-			System.out.println(threadInfo + " Going back");
-
-			MobileElement finishedBooks = (MobileElement) wait.until(webDriver -> driver.findElementByAccessibilityId("Finished"));
-			finishedBooks.click();
-			System.out.println(threadInfo + " Listing finished books");
 		} finally {
-			System.out.println("Total elapsed time: " + watch.elapsed(SECONDS));
-			System.out.println("Duration: " + ((System.currentTimeMillis() - start) / 1000));
-			driver.quit();
-		}
-
-	}
-
-	@Test(invocationCount = 1)
-	public void safariDemo() throws IOException, InterruptedException {
-
-
-		DesiredCapabilities caps = DesiredCapabilities.safari();
-		caps.setCapability("e34:token", "19705d15-03b8-4f");
-		caps.setCapability("e34:video" , true);
-		caps.setCapability("e34:l_testName", "safari test");
-		RemoteWebDriver driver = new RemoteWebDriver(new URL(HUB + "/wd/hub"), caps);
-		WebDriverWait wait =  new WebDriverWait(driver, 10);
-		driver.manage().window().maximize();
-		System.out.println(driver.getSessionId());
-
-
-		try {
-			for (int i= 0; i < 2; i++) {
-				Thread.sleep(1000);
-				driver.get("https://www.zkb.ch");
-				driver.getTitle();
-				Thread.sleep(2000);
-				driver.findElement(By.id("standortLink")).click();
-				Thread.sleep(2000);
-				driver.findElement(By.linkText("Jobs")).click();
-				Thread.sleep(2000);
-				driver.findElement(By.id("field-globalsearch")).sendKeys("Gold\n");
-				Thread.sleep(5000);
-
-
-//			driver.get("http://static.element34.net/the-internet");
-//			driver.getTitle();
-//
-//
-//			driver.get("http://www.bmw-brilliance.cn/cn/en/index.html");
-//			Thread.sleep(2000);
-//			driver.findElement(By.linkText("Company Information")).click();
-//			Thread.sleep(2000);
-//			driver.findElement(By.linkText("Careers")).click();
-//
-//		}
-//
-//
-//		wait.until(ExpectedConditions.titleIs("BMW Brilliance：Working in BMW Brilliance"));
-//		Assert.assertEquals(driver.getCurrentUrl(), "http://www.bmw-brilliance.cn/cn/en/hr/index.html" );
-//		Thread.sleep(5000);
-			}
-
-		}
-
-		finally {
-			driver.quit();
-
-		}
-
-	}
-
-
-
-
-
-
-
-
-	@Test
-	public void demoChrome() throws IOException, InterruptedException {
-
-		ChromeOptions options = new ChromeOptions();
-		options.setCapability("e34:token" , "19705d15-03b8-4f");
-		options.setCapability("e34:video" , true);
-		options.setCapability("e34:l_testName", "ZKB Chrome");
-		RemoteWebDriver driver = new RemoteWebDriver(new URL(HUB + "/wd/hub"), options);
-		WebDriverWait wait =  new WebDriverWait(driver, 10);
-		driver.manage().window().maximize();
-		System.out.println(driver.getSessionId());
-
-		try {
-
-		for (int i=0; i<3; i++) {
-
-				Thread.sleep(1000);
-
-				//first driver.get() after starting the browser
-				driver.get("YOUR-URL");
-				while (driver.getPageSource().contains("ERR_NETWORK_CHANGED")) {
-					Thread.sleep(1000);
-					System.out.println("ERR_NETWORK_CHANGED encountered - retrying...");
-					driver.get("YOUR-URL");
-				}
-
-				driver.getTitle();
-				Thread.sleep(2000);
-				driver.findElement(By.id("standortLink")).click();
-				Thread.sleep(2000);
-				driver.findElement(By.linkText("Jobs")).click();
-				Thread.sleep(2000);
-				driver.findElement(By.id("field-globalsearch")).sendKeys("Gold");
-				driver.findElement(By.id("field-globalsearch-btn")).click();
-			}
-		}
-
-		finally {
-			Thread.sleep(5000);
 			driver.quit();
 		}
 	}
-
-
-
-
-
-
-
-
-	@Test(dataProvider = "sBoxBrowsersProvider", dataProviderClass = TestData.class)
-	//@Severity(SeverityLevel.CRITICAL)
-	public void test03(DesiredCapabilities capability) throws IOException, InterruptedException {
-
-		RemoteWebDriver driver = new RemoteWebDriver(new URL(HUB + "/wd/hub"), capability);
-
-		//logger.info("Test running on SeleniumBox. Browser: "+capability.getBrowserName().toUpperCase()
-		//		+" Version: "+driver.getCapabilities().getVersion());
-
-		String seleniumBoxSessionID = driver.getSessionId().toString();
-		//logger.info("Test Video URL: "+seleniumBoxUrl+"videos/"+seleniumBoxSessionID+".mp4");
-
-		driver.get("https://www.bmw-brilliance.com");
-		Thread.sleep(20000);
-		System.out.println(("Page Title: " + driver.getTitle()));
-
-		driver.quit();
-	}
-
-
-	@Test(dataProvider = "browserProvider", dataProviderClass = TestData.class, invocationCount = 150, threadPoolSize = 20)
-	public void multiBrowserVersionTest(DesiredCapabilities caps) throws MalformedURLException, InterruptedException {
-
-		caps.setCapability("video", true);
-		caps.setCapability("e34:token", "19705d15-03b8-4f");
-		caps.setCapability("e34:l_testName", "CBA - " + caps.getBrowserName() + "  " + caps.getVersion());
-		RemoteWebDriver driver = new RemoteWebDriver(new URL(HUB + "/wd/hub"), caps);
-		driver.manage().window().maximize();
-
-		driver.get("https://element34.com");
-
-//		for (int i= 0; i < 5; i++) {
-//			driver.get("https://www.commbank.com.au/banking.html?ei=mv_banking");
-//			Thread.sleep(2000);
-//			driver.findElement(By.className("log-on-text")).click();
-//			Thread.sleep(2000);
-//			WebElement iFrame = driver.findElement(By.className("netbank-login"));
-//			driver.switchTo().frame(iFrame);
-//			driver.findElement(By.id("txtMyClientNumber_field")).sendKeys("123456");
-//			Thread.sleep(2000);
-//			driver.findElement(By.id("txtMyPassword_field")).sendKeys("12345");
-//			Thread.sleep(6000);
-//
-//		}
-		driver.quit();
-	}
-
 
 
 
@@ -379,10 +180,8 @@ public class SboxDemo {
 	@Test(dataProvider = "urls", dataProviderClass = TestData.class, invocationCount = 40, threadPoolSize = 40)
 	public void loadTest(String url) throws IOException, InterruptedException {
 
-
-		//FirefoxOptions options = new FirefoxOptions();
 		ChromeOptions options = new ChromeOptions();
-		options.setCapability("e34:token" , "19705d15-03b8-4f");
+		options.setCapability("e34:token" , "617a27e4-c74c-46");
 		options.setCapability("e34:l_testName", "load test");
 		RemoteWebDriver driver = new RemoteWebDriver(new URL(HUB + "/wd/hub"), options);
 
