@@ -39,8 +39,8 @@ public class SboxDemo {
 	String retail = "#mega-nav-panel > ul > li.col-xs-12.col-sm-9.col-md-9 > ul > li:nth-child(1) > ul > li:nth-child(2) > a";
 
 
-	@Epic("Lyolds Demo Tests")
-	@Feature("open Lloyds website ")
+	@Epic("Lloyds Demo Tests")
+	@Feature("Open Lloyds website ")
 	@Story("Users should be able to click on the Lloyds website")
 	@Severity(SeverityLevel.MINOR)
 	@Test(invocationCount = 1, threadPoolSize = 9)
@@ -64,6 +64,7 @@ public class SboxDemo {
 			driver.findElement(By.cssSelector(retail)).click();
 			Thread.sleep(2000);
 		}
+		addVideoLink(driver);
 		driver.quit();
 	}
 
@@ -198,6 +199,14 @@ public class SboxDemo {
 		Thread.sleep((long)(Math.random() * 20000));
 
 		driver.quit();
+	}
+
+
+	private void addVideoLink(RemoteWebDriver driver) {
+		io.qameta.allure.model.Link link = new io.qameta.allure.model.Link();
+		link.setName("VIDEO URL");
+		link.setUrl(HUB + "/videos/" + driver.getSessionId() + ".mp4");
+		Allure.addLinks(link);
 	}
 
 }
