@@ -30,8 +30,7 @@ import java.net.URL;
 import java.time.Duration;
 
 import static sbox.Settings.HUB;
-import static sbox.TestData.ourGroup;
-import static sbox.TestData.retail;
+import static sbox.TestData.*;
 
 public class SboxDemo {
 
