@@ -19,6 +19,9 @@ import static sbox.Helpers.getAllChromes;
 
 public class TestData {
 
+    public static String ourGroup = "#main-navigation > nav > ul > li:nth-child(1) > a";
+    public static String retail = "#mega-nav-panel > ul > li.col-xs-12.col-sm-9.col-md-9 > ul > li:nth-child(1) > ul > li:nth-child(2) > a";
+
     @DataProvider(name = "sBoxBrowsersProvider", parallel=true)
     public Object[][] getRemoteDrivers() throws MalformedURLException {
 
