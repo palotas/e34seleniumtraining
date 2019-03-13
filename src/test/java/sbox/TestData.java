@@ -140,8 +140,8 @@ public class TestData {
                 {ff1},
                 {ff2},
                 {ff3},
-                {internetExplorer},
-                {edge},
+                //{internetExplorer},
+                //{edge},
                 //{safari}
         };
     }
