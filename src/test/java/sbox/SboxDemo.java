@@ -54,7 +54,7 @@ public class SboxDemo {
 		WebDriverWait wait =  new WebDriverWait(driver, 10);
 		driver.manage().window().maximize();
 
-		for (int i= 0; i < 20; i++) {
+		for (int i= 0; i < 1; i++) {
 			driver.get("https://www.lloydsbankinggroup.com/");
 			Thread.sleep(1000);
 			driver.findElement(By.cssSelector(ourGroup)).click();
@@ -72,7 +72,7 @@ public class SboxDemo {
 
 		caps.setCapability("e34:token", "617a27e4-c74c-46");
 		caps.setCapability("e34:video",true);
-		caps.setCapability("e34:l_testName", "Lloyds demo test");
+		caps.setCapability("e34:l_testName", "Lloyds website test");
 
 		RemoteWebDriver driver = new RemoteWebDriver(new URL("http://vm-106.element34.net/wd/hub"), caps);
 		WebDriverWait wait =  new WebDriverWait(driver, 10);
@@ -92,14 +92,11 @@ public class SboxDemo {
 
 
 
-
-
-
 	@Epic("Lloyds Mobile Tests")
 	@Feature("Open Lloyds mobile website ")
 	@Story("Users should be able to see the mobile version of the Lloyds website")
 	@Severity(SeverityLevel.NORMAL)
-	@Test(invocationCount = 1, threadPoolSize = 10)
+	@Test(invocationCount = 10, threadPoolSize = 10)
 	public void mobileWebTest() throws MalformedURLException, InterruptedException {
 		DesiredCapabilities caps = new DesiredCapabilities();
 		caps.setCapability(CapabilityType.PLATFORM_NAME, Platform.ANDROID);
@@ -135,7 +132,7 @@ public class SboxDemo {
 	@Feature("Open Lloyds mobile website ")
 	@Story("Users should be able to see the mobile version of the Lloyds website on multiple devices")
 	@Severity(SeverityLevel.NORMAL)
-	@Test(invocationCount = 1, threadPoolSize = 10, dataProvider = "mobileDataProvider", dataProviderClass = TestData.class)
+	@Test(invocationCount = 10, threadPoolSize = 10, dataProvider = "mobileDataProvider", dataProviderClass = TestData.class)
 	public void mobileWebTestWithDataProvider(DesiredCapabilities caps) throws MalformedURLException, InterruptedException {
 
 		caps.setCapability("e34:video", true);
@@ -230,7 +227,7 @@ public class SboxDemo {
 
 
 
-	@Test(enabled = false, dataProvider = "urls", dataProviderClass = TestData.class, invocationCount = 40, threadPoolSize = 40)
+	@Test(enabled = true, dataProvider = "urls", dataProviderClass = TestData.class, invocationCount = 200, threadPoolSize = 250)
 	public void loadTest(String url) throws IOException, InterruptedException {
 
 		ChromeOptions options = new ChromeOptions();
@@ -240,10 +237,34 @@ public class SboxDemo {
 
 		driver.get(url);
 		System.out.println(driver.getTitle());
-		Thread.sleep((long)(Math.random() * 20000));
+		Thread.sleep((long)(Math.random() * 30000));
 
 		driver.quit();
 	}
+
+	@Test(enabled = true, dataProvider = "tokenProvider", dataProviderClass = TestData.class, invocationCount = 1, threadPoolSize = 250)
+	public void userfiltering(ChromeOptions options) throws IOException, InterruptedException {
+
+		options.setCapability("e34:l_testName", "user filtering test");
+		RemoteWebDriver driver = new RemoteWebDriver(new URL(HUB + "/wd/hub"), options);
+
+		driver.get("http://static.element34.net/e34");
+		System.out.println(driver.getTitle());
+		Thread.sleep(30000);
+
+		driver.quit();
+	}
+
+
+
+
+
+
+
+
+
+
+
 
 
 	private void addVideoLink(RemoteWebDriver driver) {

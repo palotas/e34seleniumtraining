@@ -8,6 +8,7 @@ package sbox;
 
 import io.appium.java_client.remote.MobileCapabilityType;
 import org.openqa.selenium.Platform;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.remote.BrowserType;
 import org.openqa.selenium.remote.CapabilityType;
 import org.openqa.selenium.remote.DesiredCapabilities;
@@ -293,6 +294,63 @@ public class TestData {
                 {galaxyS8},
                 {pixel2},
                 {nexus6P},
+        };
+    }
+
+    @DataProvider(name = "tokenProvider", parallel = true)
+    public Object[][]  tokenprovider() {
+
+        ChromeOptions opt1 = new ChromeOptions();
+        opt1.setCapability("e34:token" , "617a27e4-c74c-46");
+
+        ChromeOptions opt2 = new ChromeOptions();
+        opt2.setCapability("e34:token" , "6e0ad6de-9916-4f");
+
+        ChromeOptions opt3 = new ChromeOptions();
+        opt3.setCapability("e34:token" , "29188c85-9770-41");
+
+        ChromeOptions opt4 = new ChromeOptions();
+        opt4.setCapability("e34:token" , "5e2bfbf4-9d71-41");
+
+        ChromeOptions opt5 = new ChromeOptions();
+        opt5.setCapability("e34:token" , "5e2bfbf4-9d71-41");
+
+        ChromeOptions opt6 = new ChromeOptions();
+        opt6.setCapability("e34:token" , "57344ca4-f124-49");
+
+        ChromeOptions opt7 = new ChromeOptions();
+        opt7.setCapability("e34:token" , "57344ca4-f124-49");
+
+        ChromeOptions opt8 = new ChromeOptions();
+        opt8.setCapability("e34:token" , "57344ca4-f124-49");
+
+        ChromeOptions opt9 = new ChromeOptions();
+        opt9.setCapability("e34:token" , "57344ca4-f124-49");
+
+        ChromeOptions opt10 = new ChromeOptions();
+        opt10.setCapability("e34:token" , "9e557640-a617-4c");
+
+        ChromeOptions opt11 = new ChromeOptions();
+        opt11.setCapability("e34:token" , "9e557640-a617-4c");
+
+        ChromeOptions opt12 = new ChromeOptions();
+        opt12.setCapability("e34:token" , "9e557640-a617-4c");
+
+
+
+        return new Object[][]{
+                {opt1},
+                {opt2},
+                {opt3},
+                {opt4},
+                {opt5},
+                {opt6},
+                {opt7},
+                {opt8},
+                {opt9},
+                {opt10},
+                {opt11},
+                {opt12},
         };
     }
 
