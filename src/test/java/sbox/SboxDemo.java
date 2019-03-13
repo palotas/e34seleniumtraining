@@ -96,7 +96,7 @@ public class SboxDemo {
 	@Feature("Open Lloyds mobile website ")
 	@Story("Users should be able to see the mobile version of the Lloyds website")
 	@Severity(SeverityLevel.NORMAL)
-	@Test(invocationCount = 10, threadPoolSize = 10)
+	@Test(invocationCount = 1, threadPoolSize = 10)
 	public void mobileWebTest() throws MalformedURLException, InterruptedException {
 		DesiredCapabilities caps = new DesiredCapabilities();
 		caps.setCapability(CapabilityType.PLATFORM_NAME, Platform.ANDROID);
@@ -132,7 +132,7 @@ public class SboxDemo {
 	@Feature("Open Lloyds mobile website ")
 	@Story("Users should be able to see the mobile version of the Lloyds website on multiple devices")
 	@Severity(SeverityLevel.NORMAL)
-	@Test(invocationCount = 10, threadPoolSize = 10, dataProvider = "mobileDataProvider", dataProviderClass = TestData.class)
+	@Test(invocationCount = 1, threadPoolSize = 10, dataProvider = "mobileDataProvider", dataProviderClass = TestData.class)
 	public void mobileWebTestWithDataProvider(DesiredCapabilities caps) throws MalformedURLException, InterruptedException {
 
 		caps.setCapability("e34:video", true);
@@ -227,7 +227,7 @@ public class SboxDemo {
 
 
 
-	@Test(enabled = true, dataProvider = "urls", dataProviderClass = TestData.class, invocationCount = 200, threadPoolSize = 250)
+	@Test(enabled = false, dataProvider = "urls", dataProviderClass = TestData.class, invocationCount = 200, threadPoolSize = 250)
 	public void loadTest(String url) throws IOException, InterruptedException {
 
 		ChromeOptions options = new ChromeOptions();
@@ -242,7 +242,7 @@ public class SboxDemo {
 		driver.quit();
 	}
 
-	@Test(enabled = true, dataProvider = "tokenProvider", dataProviderClass = TestData.class, invocationCount = 1, threadPoolSize = 250)
+	@Test(enabled = false, dataProvider = "tokenProvider", dataProviderClass = TestData.class, invocationCount = 1, threadPoolSize = 250)
 	public void userfiltering(ChromeOptions options) throws IOException, InterruptedException {
 
 		options.setCapability("e34:l_testName", "user filtering test");
