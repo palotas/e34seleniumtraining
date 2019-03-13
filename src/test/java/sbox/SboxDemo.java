@@ -67,7 +67,7 @@ public class SboxDemo {
 	}
 
 
-	@Test(dataProvider = "browserProvider", dataProviderClass = TestData.class)
+	@Test(enabled = false, dataProvider = "browserProvider", dataProviderClass = TestData.class)
 	public void webTestWithMultipleBrowsers(DesiredCapabilities caps) throws IOException, InterruptedException {
 
 		caps.setCapability("e34:token", "617a27e4-c74c-46");
