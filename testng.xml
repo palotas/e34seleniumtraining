@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Suite" parallel="methods">
+    <test name="Perfecto Test">
+        <parameter name="environment" value="perfecto" />
+        <parameter name="device" value="AD061703BC98E5024B" /> <!-- S7 -->
+        <classes>
+            <class name="sbox.Perfecto"/>
+        </classes>
+    </test> <!-- Test -->
+
+    <test name="SBOX S8">
+        <parameter name="environment" value="sbox" />
+        <parameter name="device" value="Galaxy S8" />
+        <classes>
+            <class name="sbox.Perfecto"/>
+        </classes>
+    </test> <!-- Test -->
+
+    <test name="SBOX S9">
+        <parameter name="environment" value="sbox" />
+        <parameter name="device" value="Galaxy S9" />
+        <classes>
+            <class name="sbox.Perfecto"/>
+        </classes>
+    </test> <!-- Test -->
+
+</suite> <!-- Suite -->
