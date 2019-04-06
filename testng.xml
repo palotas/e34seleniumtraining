@@ -6,7 +6,7 @@
         <parameter name="environment" value="perfecto" />
         <parameter name="device" value="AD061703BC98E5024B" /> <!-- S7 -->
         <classes>
-            <class name="sbox.Perfecto"/>
+            <class name="mobile.SboxPerfectoSequential"/>
         </classes>
     </test> <!-- Test -->
 
@@ -14,7 +14,7 @@
         <parameter name="environment" value="sbox" />
         <parameter name="device" value="Galaxy S8" />
         <classes>
-            <class name="sbox.Perfecto"/>
+            <class name="mobile.SboxPerfectoSequential"/>
         </classes>
     </test> <!-- Test -->
 
@@ -22,7 +22,7 @@
         <parameter name="environment" value="sbox" />
         <parameter name="device" value="Galaxy S9" />
         <classes>
-            <class name="sbox.Perfecto"/>
+            <class name="mobile.SboxPerfectoSequential"/>
         </classes>
     </test> <!-- Test -->
 
