@@ -19,9 +19,11 @@ import org.openqa.selenium.remote.RemoteWebDriver;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
+import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.net.MalformedURLException;
+import java.io.InputStream;
 import java.net.URL;
+import java.util.Properties;
 
 public class SboxPerfectoSequential {
 
@@ -44,8 +46,19 @@ public class SboxPerfectoSequential {
 
 
 
-	private DesiredCapabilities buildCapabilities(String environment, String device) {
+	private DesiredCapabilities buildCapabilities(String environment, String device) throws IOException {
 		DesiredCapabilities caps = new DesiredCapabilities();
+
+		InputStream inputStream;
+		Properties prop = new Properties();
+		String propFileName = "perfectoCredentials.properties";
+		inputStream = getClass().getClassLoader().getResourceAsStream(propFileName);
+
+		if (inputStream != null) {
+			prop.load(inputStream);
+		} else {
+			throw new FileNotFoundException("property file '" + propFileName + "' not found in the classpath");
+		}
 
 		switch (environment) {
 			case "sbox":
@@ -58,8 +71,8 @@ public class SboxPerfectoSequential {
 				break;
 
 			case "perfecto":
-				caps.setCapability("user", "dario.lorenzon@axa-winterthur.ch");
-				caps.setCapability("password", "SeleniumMobile!2019");
+				caps.setCapability("user", prop.getProperty("username"));
+				caps.setCapability("password", prop.getProperty("password"));
 				caps.setCapability("deviceName", device); //from testngMobileSequential.xml
 	//			caps.setCapability("deviceName", "CE021712B948B4170C"); //Galaxy S8
 				caps.setCapability("browserName", "mobileChrome");
@@ -68,7 +81,7 @@ public class SboxPerfectoSequential {
 		return caps;
 	}
 
-	private RemoteWebDriver buildDriver(String environment, String device) throws MalformedURLException {
+	private RemoteWebDriver buildDriver(String environment, String device) throws IOException {
 		RemoteWebDriver driver = null;
 
 		switch (environment) {
