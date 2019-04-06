@@ -60,7 +60,7 @@ public class SboxPerfectoSequential {
 			case "perfecto":
 				caps.setCapability("user", "dario.lorenzon@axa-winterthur.ch");
 				caps.setCapability("password", "SeleniumMobile!2019");
-				caps.setCapability("deviceName", device); //from testng.xml
+				caps.setCapability("deviceName", device); //from testngMobileSequential.xml
 	//			caps.setCapability("deviceName", "CE021712B948B4170C"); //Galaxy S8
 				caps.setCapability("browserName", "mobileChrome");
 				break;

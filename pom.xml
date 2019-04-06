@@ -172,7 +172,7 @@
                            -javaagent:"${settings.localRepository}/org/aspectj/aspectjweaver/${aspectj.version}/aspectjweaver-${aspectj.version}.jar"
                     </argLine>
                     <suiteXmlFiles>
-                        <suiteXmlFile>${suiteXmlFile}</suiteXmlFile>
+                        <suiteXmlFile>./testngXmlFiles/${suiteXmlFile}</suiteXmlFile>
                     </suiteXmlFiles>
                     <parallel>all</parallel>
                     <useUnlimitedThreads>true</useUnlimitedThreads>
