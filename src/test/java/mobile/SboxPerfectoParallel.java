@@ -4,35 +4,41 @@
  * via any medium is strictly prohibited without explicit consent of Element34 Solutions GmbH.
  */
 
-package sbox;
+package mobile;
 
-import com.google.gson.JsonObject;
 import io.appium.java_client.remote.MobileCapabilityType;
-import io.restassured.RestAssured;
-import io.restassured.response.Response;
-import io.restassured.specification.RequestSpecification;
 import org.openqa.selenium.Platform;
 import org.openqa.selenium.remote.BrowserType;
 import org.openqa.selenium.remote.CapabilityType;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
-import org.testng.annotations.Parameters;
+import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
 
-public class Perfecto {
+public class SboxPerfectoParallel {
 
 
 	private final String perfectoHub = "https://atc.perfectomobile.com/nexperience/perfectomobile/wd/hub";
 	private final String sboxHub = "http://vm-106.element34.net/wd/hub";
 
 
-	@Parameters({"environment", "device"})
-	@Test(enabled = true)
-	public void perfecto(String environment, String device) throws IOException, InterruptedException {
+	@DataProvider(name = "devices", parallel = true)
+	public Object[][] getParameters() {
+		return new Object[][] {
+				{"sbox", "Galaxy S8"},
+				{"sbox", "Galaxy S9"},
+				{"perfecto", "AD061703BC98E5024B"}, //S7
+				//{"perfecto", "CE021712B948B4170C"}, //S8
+				{"perfecto", "2B92E5C711027ECE"} //S9
+		};
+	}
+
+	@Test(dataProvider = "devices")
+	public void runOnSboxAndPerfectoParallel(String environment, String device) throws IOException, InterruptedException {
 		RemoteWebDriver driver = buildDriver(environment, device);
 
 		//		driver.get("https://uls-ent.wgrintra.net/schadenwv/servlet/main");
@@ -60,8 +66,7 @@ public class Perfecto {
 			case "perfecto":
 				caps.setCapability("user", "dario.lorenzon@axa-winterthur.ch");
 				caps.setCapability("password", "SeleniumMobile!2019");
-				caps.setCapability("deviceName", device); //from testng.xml
-	//			caps.setCapability("deviceName", "CE021712B948B4170C"); //Galaxy S8
+				caps.setCapability("deviceName", device);
 				caps.setCapability("browserName", "mobileChrome");
 				break;
 		}
@@ -83,25 +88,6 @@ public class Perfecto {
 		}
 
 		return driver;
-	}
-
-
-	@Test(enabled = false)
-	public void restassured() {
-		// Create new JSON Object
-		JsonObject loginCredentials = new JsonObject();
-		loginCredentials.addProperty("email", "test9@test.com");
-		loginCredentials.addProperty("password", "123");
-
-		RestAssured.baseURI = "http://ip.jsontest.com";
-		RequestSpecification httpRequest = RestAssured.given();
-		httpRequest.header("Content-Type", "application/json");
-		//httpRequest.body(loginCredentials.toString());
-
-		Response response = httpRequest.get("/");
-		System.out.println(response.getStatusCode());
-		System.out.println(response.getBody().prettyPrint());
-
 	}
 
 
