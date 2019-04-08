@@ -19,6 +19,7 @@ public class Api {
         // Create new JSON Object
         JsonObject loginCredentials = new JsonObject();
 
+
         loginCredentials.addProperty("type", "hourly");
         loginCredentials.addProperty("model", "Galaxa S7");
         loginCredentials.addProperty("date", "-1");
