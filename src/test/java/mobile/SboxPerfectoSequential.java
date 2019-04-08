@@ -6,11 +6,7 @@
 
 package mobile;
 
-import com.google.gson.JsonObject;
 import io.appium.java_client.remote.MobileCapabilityType;
-import io.restassured.RestAssured;
-import io.restassured.response.Response;
-import io.restassured.specification.RequestSpecification;
 import org.openqa.selenium.Platform;
 import org.openqa.selenium.remote.BrowserType;
 import org.openqa.selenium.remote.CapabilityType;
@@ -99,23 +95,7 @@ public class SboxPerfectoSequential {
 	}
 
 
-	@Test(enabled = false)
-	public void restassured() {
-		// Create new JSON Object
-		JsonObject loginCredentials = new JsonObject();
-		loginCredentials.addProperty("email", "test9@test.com");
-		loginCredentials.addProperty("password", "123");
 
-		RestAssured.baseURI = "http://ip.jsontest.com";
-		RequestSpecification httpRequest = RestAssured.given();
-		httpRequest.header("Content-Type", "application/json");
-		//httpRequest.body(loginCredentials.toString());
-
-		Response response = httpRequest.get("/");
-		System.out.println(response.getStatusCode());
-		System.out.println(response.getBody().prettyPrint());
-
-	}
 
 
 
