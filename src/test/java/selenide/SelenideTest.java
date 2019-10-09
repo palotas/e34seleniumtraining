@@ -7,6 +7,7 @@
 package selenide;
 
 import com.codeborne.selenide.Condition;
+import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.WebDriverRunner;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -63,6 +64,21 @@ public class SelenideTest {
         $(By.name("checkUserAccount")).click();
         //Thread.sleep(2000);
         $("#c1-password-field").should(Condition.exist);
+        driver.quit();
+
+    }
+
+    @Test
+    public void loadDynamicPage() throws MalformedURLException, InterruptedException {
+
+        Configuration.timeout=10000;
+        WebDriver driver = new ChromeDriver();
+
+        WebDriverRunner.setWebDriver(driver);
+        open("https://the-internet.herokuapp.com/dynamic_loading/2");
+        $("button").click();
+        //$(By.id("finish")).shouldBe(Condition.appear);
+        $(By.id("finish")).shouldHave(Condition.text(("Hello World!")));
         driver.quit();
 
     }
