@@ -6,10 +6,10 @@
   -->
 
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="Lloyds Demo Suite" parallel="true">
+<suite name="Testim Suite" parallel="true">
     <test name="Test">
-        <classes>
-            <class name="sbox.SboxDemo"/>
-        </classes>
+        <packages>
+            <package name="remoteWebdriver"/>
+        </packages>
     </test> <!-- Test -->
 </suite> <!-- Suite -->

@@ -34,7 +34,7 @@ public class BrowserWithOptions {
 		options.setCapability("e34:token", "baddd26e-690f-4d");
 
 		RemoteWebDriver driver = new RemoteWebDriver(new URL(sboxUrl), options);
-		driver.get("https://element34.com");
+		driver.get("https://testim.io");
 		Thread.sleep(5000);
 		driver.quit();
 	}
@@ -50,7 +50,7 @@ public class BrowserWithOptions {
 
 
 		RemoteWebDriver driver = new RemoteWebDriver(new URL(sboxUrl), options);
-		driver.get("https://element34.com");
+		driver.get("https://testim.io");
 		Thread.sleep(5000);
 		driver.quit();
 	}
@@ -65,7 +65,7 @@ public class BrowserWithOptions {
 
 
 		RemoteWebDriver driver = new RemoteWebDriver(new URL(sboxUrl), options);
-		driver.get("https://element34.com");
+		driver.get("https://testim.io");
 		Thread.sleep(5000);
 		driver.quit();
 	}
@@ -80,7 +80,7 @@ public class BrowserWithOptions {
 
 
 		RemoteWebDriver driver = new RemoteWebDriver(new URL(sboxUrl), options);
-		driver.get("https://element34.com");
+		driver.get("https://testim.io");
 		Thread.sleep(5000);
 		driver.quit();
 	}
