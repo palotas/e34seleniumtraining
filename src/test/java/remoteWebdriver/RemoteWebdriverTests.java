@@ -19,7 +19,7 @@ import java.net.URL;
 
 public class RemoteWebdriverTests {
 
-	@Test
+	@Test(enabled = false)
 	public void remoteWebdriverChromeTest() throws IOException, InterruptedException {
 
 		DesiredCapabilities capability = new DesiredCapabilities();
@@ -33,7 +33,7 @@ public class RemoteWebdriverTests {
 		driver.quit();
 	}
 
-	@Test
+	@Test(enabled = false)
 	public void chromeOptions() throws IOException, InterruptedException {
 
 		ChromeOptions options = new ChromeOptions();
