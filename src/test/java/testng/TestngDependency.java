@@ -19,7 +19,7 @@ public class TestngDependency {
 		int c;
 		c=a + b;
 		System.out.println("mytest1...");		
-		Assert.assertTrue(c==2);
+		Assert.assertTrue(c==3);
 
 	}
 	

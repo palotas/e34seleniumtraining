@@ -33,17 +33,17 @@ public class TestngBeforeAfter {
 			
 	//actual tests
 	@Test
-	public void mytest1() {
-		System.out.println("mytest1...");
+	public void test1() {
+		System.out.println("test1...");
 	}
 	
 	@Test
-	public void mytest2() {
-		System.out.println("mytest2...");		
+	public void test2() {
+		System.out.println("test2...");
 	}	
 
 	@Test
-	public void mytest3() {
-		System.out.println("mytest3...");	
+	public void test3() {
+		System.out.println("test3...");
 	}	
 }
