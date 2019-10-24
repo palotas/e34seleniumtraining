@@ -18,6 +18,7 @@ import org.testng.annotations.Test;
 import java.net.MalformedURLException;
 
 import static com.codeborne.selenide.Selenide.$;
+import static com.codeborne.selenide.Selenide.$$;
 import static com.codeborne.selenide.Selenide.open;
 
 public class SelenideTest {
@@ -79,6 +80,44 @@ public class SelenideTest {
         $("button").click();
         //$(By.id("finish")).shouldBe(Condition.appear);
         $(By.id("finish")).shouldHave(Condition.text(("Hello World!")));
+        driver.quit();
+
+    }
+
+    @Test
+    public void testpage() {
+        Configuration.timeout=10000;
+        WebDriver driver = new ChromeDriver();
+        WebDriverRunner.setWebDriver(driver);
+
+        open("https://element34.com/testpage");
+        $(By.id("male")).click();
+        $(By.id("male")).shouldHave(Condition.selected);
+
+        driver.quit();
+
+    }
+
+    @Test
+    public void countRadioButtonsWithSelenide() {
+        Configuration.timeout=10000;
+        WebDriver driver = new ChromeDriver();
+        WebDriverRunner.setWebDriver(driver);
+
+        open("https://element34.com/testpage");
+        System.out.println($$(By.cssSelector("input[type='checkbox']")).size());
+
+        driver.quit();
+
+    }
+
+    @Test
+    public void countRadioPlainSelenium() {
+        WebDriver driver = new ChromeDriver();
+
+        driver.get("https://element34.com/testpage");
+        System.out.println(driver.findElements(By.cssSelector("input[type='checkbox']")).size());
+
         driver.quit();
 
     }
