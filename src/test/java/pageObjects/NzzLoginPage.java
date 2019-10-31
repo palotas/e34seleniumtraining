@@ -8,25 +8,18 @@ package pageObjects;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.CacheLookup;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-/**
- * Created by gridfusion on 07/05/16.
- */
 public class NzzLoginPage {
 
-    @FindBy(name="login")
-    private WebElement loginName;
 
-    @FindBy(name="password")
-    private WebElement loginPass;
+    @FindBy(id="c2-login-field")
+    private WebElement emailAddress;
 
-    @FindBy(className="btn")
-    private WebElement button;
-
-    @FindBy(name = "remember_me")
-    private WebElement rememberCheckbox;
+    @FindBy(name = "checkUserAccount")
+    private WebElement weiterButton;
 
 
     public NzzLoginPage(WebDriver driver) {
@@ -37,22 +30,24 @@ public class NzzLoginPage {
         driver.get(("https://login.nzz.ch"));
     }
 
-    public void enterLoginName(String name) {
-        loginName.clear();
-        loginName.sendKeys(name);
+    public void enterEmailAddress(String email) {
+        emailAddress.clear();
+        emailAddress.sendKeys(email);
     }
 
-    public void enterLoginPass() {
-        loginPass.sendKeys("testpassword");
+    public void clickWeiterButton() {
+        weiterButton.click();
     }
 
-    public void clickAnmeldenButton() {
-        button.click();
+
+    public void login(String email) {
+        enterEmailAddress(email);
+        clickWeiterButton();
     }
 
-    public void clickRememberMe() {
-        rememberCheckbox.click();
-    }
+
+
+
 
 
 

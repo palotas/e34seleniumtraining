@@ -63,31 +63,11 @@ public class NzzTest extends BaseTest {
 
         NzzLoginPage loginPage = new NzzLoginPage(driver);
         loginPage.loadPage(driver);
+        loginPage.login("test@test.com");
 
-        loginPage.enterLoginName("me@myself.com");
-        loginPage.enterLoginPass();
-        loginPage.clickRememberMe();
-        Thread.sleep(5000);
-        loginPage.clickAnmeldenButton();
-
-        //Assert.assertTrue(isElementPresent(driver, By.className("message-password-mismatch")));
-
+        Thread.sleep(3000);
         driver.quit();
 
+
     }
-
-    public boolean isElementPresent(WebDriver driver, String className) {
-        return driver.findElements(By.className(className)).size() != 0;
-    }
-
-    public boolean isElementPresent(WebDriver driver, By by) {
-
-        try {
-            driver.findElement(by);
-            return true;
-        } catch (NoSuchElementException e) {
-            return false;
-        }
-    }
-
 }
