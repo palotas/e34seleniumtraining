@@ -61,6 +61,24 @@ public class CustomWait extends BaseTest {
 	}
 
 
+	@Test(invocationCount=1)
+	public void withThreadSleep() throws InterruptedException, IOException {
+
+		WebDriver driver = new ChromeDriver();
+
+
+		try {
+			driver.get("http://the-internet.herokuapp.com/dynamic_loading/2");
+			driver.findElement(By.cssSelector("#start > button")).click();
+			Assert.assertEquals(driver.findElement(By.cssSelector("#finish")).getText(), "Hello World!");
+
+		}
+		finally {
+			driver.quit();
+		}
+	}
+
+
 
 	@Test(invocationCount=1)
 	public void implicitWaitHeroku() throws InterruptedException, IOException {
@@ -75,7 +93,6 @@ public class CustomWait extends BaseTest {
 
 			driver.findElement(By.cssSelector("#start > button")).click();
 			Assert.assertEquals(driver.findElement(By.cssSelector("#finish")).getText(), "Hello World!");
-			System.out.println(driver.findElement(By.cssSelector("#finish")).getText());			
 		}
 		finally {
 			driver.quit();
@@ -96,8 +113,6 @@ public class CustomWait extends BaseTest {
 			driver.get("http://the-internet.herokuapp.com/dynamic_loading/2");
 			
 			driver.findElement(By.cssSelector("#start > button")).click();
-
-			Thread.sleep(3000);
 
 			//first try without explicit wait
 			wait.until((ExpectedConditions.visibilityOfElementLocated(By.cssSelector("#finish"))));
