@@ -6,15 +6,20 @@
 
 package elnadv.geolocation;
 
-import com.fasterxml.jackson.databind.ser.Serializers;
 import elnadv.BaseTest;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.firefox.FirefoxProfile;
+import org.openqa.selenium.html5.Location;
+import org.openqa.selenium.html5.LocationContext;
 import org.testng.annotations.Test;
 
 import java.io.File;
+import java.util.HashMap;
+import java.util.Map;
 
 public class Geolocation extends BaseTest {
 
@@ -37,6 +42,22 @@ public class Geolocation extends BaseTest {
 
         driver.get("http://html5demos.com/geo");
 
+
+    }
+
+
+    @Test
+    public void geoLocationChrome() {
+        Map prefs = new HashMap<String, Object>();
+        prefs.put("profile.default_content_setting_values.geolocation", 1); // 1:allow 2:block
+
+        ChromeOptions options = new ChromeOptions();
+        options.setExperimentalOption("prefs", prefs);
+
+        ChromeDriver driver = new ChromeDriver(options);
+
+        ((LocationContext)driver).setLocation(new Location(37.774929, -122.419416, 0));
+        driver.get("https://html5demos.com/geo/");
 
     }
 }

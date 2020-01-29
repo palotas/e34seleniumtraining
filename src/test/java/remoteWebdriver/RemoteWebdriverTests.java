@@ -8,9 +8,10 @@ package remoteWebdriver;
 
 
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
+import org.testng.Assert;
+import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 import java.io.IOException;
@@ -19,29 +20,33 @@ import java.net.URL;
 
 public class RemoteWebdriverTests {
 
-	@Test(enabled = false)
-	public void remoteWebdriverChromeTest() throws IOException, InterruptedException {
-
-		DesiredCapabilities capability = new DesiredCapabilities();
-		capability.setBrowserName("chrome");
-
-
-		WebDriver driver = new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"), capability);
-
-		driver.get("http://www.google.com");
-		System.out.println(driver.getTitle());
-		driver.quit();
+	@DataProvider(name = "capsProvider", parallel = true)
+	public Object[][] caps() {
+		return new Object[][] {
+				{DesiredCapabilities.chrome()},
+				//{DesiredCapabilities.firefox()},
+				//{DesiredCapabilities.internetExplorer()},
+				//{DesiredCapabilities.edge()}
+		};
 	}
 
-	@Test(enabled = false)
-	public void chromeOptions() throws IOException, InterruptedException {
 
-		ChromeOptions options = new ChromeOptions();
-		options.setExperimentalOption("useAutomationExtension", false);
-		WebDriver driver = new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"), options);
+	@Test(dataProvider = "capsProvider", invocationCount = 1, threadPoolSize = 5)
+	public void remoteWebdriverChromeTest(DesiredCapabilities caps) throws IOException, InterruptedException {
 
-		driver.get("http://www.google.com");
-		System.out.println(driver.getTitle());
+		caps.setCapability("e34:token", "c24c543b-9059-40");
+		caps.setCapability("e34:video", true);
+		caps.setCapability("e34:l_testName", "BT Demo Test");
+		WebDriver driver = new RemoteWebDriver(new URL("https://vm-105.element34.net/wd/hub"), caps);
+
+		driver.get("https://bt.com");
+		Assert.assertEquals(driver.getTitle(), "Fibre Broadband, TV Packages, BT Sport & Mobile Deals | BT");
+
+		Thread.sleep(5000);
+		driver.get("https://google.com");
+		Thread.sleep(5000);
+
+
 		driver.quit();
 	}
 

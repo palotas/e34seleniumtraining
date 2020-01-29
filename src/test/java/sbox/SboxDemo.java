@@ -269,7 +269,7 @@ public class SboxDemo {
 	@Feature("Open website ")
 	@Story("Users should be able to click on the website")
 	@Severity(SeverityLevel.MINOR)
-	@Test(invocationCount = 10, threadPoolSize = 10)
+	@Test(invocationCount = 1, threadPoolSize = 10)
 	public void webtest() throws IOException, InterruptedException {
 
 		DesiredCapabilities caps = DesiredCapabilities.chrome();
@@ -292,6 +292,7 @@ public class SboxDemo {
 			Thread.sleep(2000);
 		}
 
+		System.out.println("session ID: " + driver.getSessionId());
 		addVideoLink(driver);
 		driver.quit();
 	}
