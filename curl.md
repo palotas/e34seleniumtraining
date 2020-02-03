@@ -10,4 +10,3 @@ curl http://localhost:9515/session/$sessionId/url -d '{"url":"https://www.bmw.de
 ## Close browser
 curl -XDELETE http://localhost:9515/session/$sessionId
 
-should go to commit channel
