@@ -15,9 +15,9 @@
 		</run>
 	</groups>
 
-	  <classes>
-		  <class name="testng.TestngGroups"/>
-	  </classes>
+	<classes>
+		<class name="testng.TestngGroups"/>
+	</classes>
 
   </test>
 </suite>
