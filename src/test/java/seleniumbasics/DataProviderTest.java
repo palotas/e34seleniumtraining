@@ -24,8 +24,8 @@ public class DataProviderTest {
 
 		switch (OS) {
 			case "Linux":
-				System.setProperty("webdriver.gecko.driver","/home/e34/Downloads/geckodriver");
-				System.setProperty("webdriver.chrome.driver", "/home/e34/Downloads/chromedriver");
+				System.setProperty("webdriver.gecko.driver","/home/e34/workspace/e34seleniumtraining/resources/linux/geckodriver");
+				System.setProperty("webdriver.chrome.driver", "/home/e34/workspace/e34seleniumtraining/resources/linux/chromedriver");
 				break;
 
 			case "Mac OS X":
@@ -39,12 +39,12 @@ public class DataProviderTest {
 		}
 	}
 
-	@DataProvider(name = "urlprovider", parallel=true)
+	@DataProvider(name = "urlprovider", parallel=false)
 	public Object[][] createData2() {
 	 return new Object[][] {
-	   {"1", "de", "Cloud Logistik Software für Transport Management"},
-	   {"2", "en", "Cloud Logistics Software for Transportation Management"},
-	   {"3", "fr", "TRANSPOREON - TMS Leader en Europe - La plateforme de communication logistique entre chargeurs et transporteurs"}
+	   {"1", "de", "Plattform für Transport Management | Transporeon"},
+	   {"2", "en", "Cloud Logistics for Transport Management"},
+	   {"3", "fr", "Logistique Cloud pour la gestion du transport | Transporeon"}
 	 };
 	}
 
