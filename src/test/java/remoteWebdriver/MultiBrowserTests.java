@@ -19,7 +19,7 @@ import java.io.IOException;
 import java.net.URL;
 
 
-public class RemoteWebdriverTests {
+public class MultiBrowserTests {
 
 	int LOOPS = 5;
 
@@ -27,11 +27,11 @@ public class RemoteWebdriverTests {
 	public Object[][] caps() {
 		return new Object[][] {
 				{DesiredCapabilities.chrome(), "79"},
-				{DesiredCapabilities.chrome(), "78"},
-				{DesiredCapabilities.chrome(), "77"},
-				{DesiredCapabilities.firefox(), ""},
-				{DesiredCapabilities.internetExplorer(), ""},
-				{DesiredCapabilities.edge(), ""}
+//				{DesiredCapabilities.chrome(), "78"},
+//				{DesiredCapabilities.chrome(), "77"},
+//				{DesiredCapabilities.firefox(), ""},
+//				{DesiredCapabilities.internetExplorer(), ""},
+//				{DesiredCapabilities.edge(), ""}
 		};
 	}
 
