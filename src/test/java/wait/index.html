@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+
+
+<head>
+<script>
+var done = false;
+
+function calculate() {
+	    done = false;
+		console.log("button clicked");
+		console.log('Done = ' + done);
+		//set variable
+		function sleep(milliseconds) {
+			const date = Date.now();
+			let currentDate = null;
+				do {
+    				currentDate = Date.now();
+					} while (currentDate - date < milliseconds);
+		}
+
+		sleep(2000);
+		done = true;
+		console.log('Done = ' + done);
+	}
+</script>
+</head>
+
+<body>
+
+<h1>Selenium Training Testpage</h1>
+
+<div id=checkboxes>
+    <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike">
+    <label for="vehicle1"> I have a bike</label><br>
+    <input type="checkbox" id="vehicle2" name="vehicle2" value="Car">
+    <label for="vehicle2"> I have a car</label><br>
+    <input type="checkbox" id="vehicle3" name="vehicle3" value="Boat" checked>
+    <label for="vehicle3"> I have a boat</label><br>
+</div>
+<br>
+
+<div id=radiobuttons>
+    <input type="radio" id="male" name="gender" value="male">
+    <label for="male">Male</label><br>
+    <input type="radio" id="female" name="gender" value="female">
+    <label for="female">Female</label><br>
+</div>
+<br>
+
+<label for="cars">Choose a car:</label>
+<select id="cars">
+    <option value="chrysler">Chrysler</option>
+    <option value="bmw">BMW</option>
+    <option value="ford">Ford</option>
+    <option value="toyota">Toyota</option>
+    <option value="toyota">Mazda</option>
+</select>
+
+<div id=buttondiv>
+    <button id="calculateButton" type="button" onclick="calculate()">Calculate</button>
+</div>
+</body>
+</html>
