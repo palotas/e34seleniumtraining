@@ -17,9 +17,13 @@ public class AnnotationTransformerImpl implements IAnnotationTransformer {
     @Override
     public void transform(ITestAnnotation annotation, Class testClass, Constructor testConstructor, Method testMethod) {
         String parallel = System.getenv("parallel");
+        String dataProvider = System.getProperty("dataprovider");
 
         annotation.setInvocationCount(Integer.valueOf(parallel));
-        annotation.setThreadPoolSize(200);
+        annotation.setThreadPoolSize(1000);
+
+        annotation.setDataProvider(dataProvider);
+
     }
 
 }
