@@ -29,7 +29,7 @@ public class demo {
 
 	//https://aut.element34.net:8443/spnego/debug
 
-	@Test()
+	@Test
 	public void demoChrome() throws IOException, InterruptedException {
 
 		String loopsString = "";
@@ -87,7 +87,7 @@ public class demo {
 	}
 
 
-	@Test(dataProvider = "capsProvider")
+	@Test
 	public void demoScriptworks(DesiredCapabilities caps, String version) throws IOException, InterruptedException {
 
 		String loopsString = "";

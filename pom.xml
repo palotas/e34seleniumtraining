@@ -189,6 +189,11 @@
                             <value>20</value>
                         </property>
                     </properties>
+                    <environmentVariables>
+                        <parallel>${parallel}</parallel>
+                        <loops>${loops}</loops>
+                        <dataprovider>${dataprovider}</dataprovider>
+                    </environmentVariables>
                 </configuration>
 
                 <dependencies>
