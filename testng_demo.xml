@@ -10,7 +10,7 @@
     <test name="Regression1">
         <groups>
             <run>
-                <include name="demo"  />
+                <include name="demoChrome"  />
             </run>
         </groups>
 
