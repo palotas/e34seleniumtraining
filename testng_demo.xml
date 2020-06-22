@@ -10,14 +10,14 @@
     <test name="Regression1">
         <groups>
             <run>
-                <include name="demoChrome"  />
+                <include name="demo"  />
             </run>
         </groups>
 
         <classes>
             <class name="remoteWebdriver.demo">
                 <methods>
-                    <include name="demo100" />
+                    <include name="demoChrome" />
                 </methods>
             </class>
         </classes>
