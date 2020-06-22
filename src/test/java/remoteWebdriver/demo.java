@@ -29,7 +29,7 @@ public class demo {
 
 	//https://aut.element34.net:8443/spnego/debug
 
-	int LOOPS = 10;
+	int LOOPS = 1;
 
 	@Test()
 	public void demo100() throws IOException, InterruptedException {
