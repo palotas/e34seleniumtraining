@@ -32,13 +32,20 @@ public class demo {
 	@Test()
 	public void demoChrome() throws IOException, InterruptedException {
 
+		String loopsString = "";
+		int loops = 0;
+		loopsString = System.getenv("loops");
+		loops = Integer.valueOf(loopsString);
+
 		DesiredCapabilities caps = DesiredCapabilities.chrome();
 		caps.setCapability("e34:token", "214a2db6-0a65-47");
 		caps.setCapability("e34:l_testName",  "Checkout " + caps.getBrowserName());
 
 		WebDriver driver = new RemoteWebDriver(new URL("https://vm-105.element34.net/wd/hub"), caps);
 
-		for (int i=0; i<Integer.valueOf("loops"); i++) {
+
+
+		for (int i = 0; i<loops; i++) {
 			driver.get("http://static.element34.net");
 			Thread.sleep(2000);
 		}
