@@ -93,4 +93,18 @@ public class RegistrationPage2 {
         return new SuccessPage(driver);
     }
 
+    public SuccessPage fillRegistrationPage2(WebDriver driver) throws InterruptedException {
+         enterAddress();
+         enterLocality();
+         enterRegion();
+         enterCountry();
+         enterPostalCode();
+         enterHomePhone();
+         enterMobilePhone();
+         enterWorkPhone();
+         clickAgreeTerms();
+         return clickRegisterButton(driver);
+
+    }
+
 }

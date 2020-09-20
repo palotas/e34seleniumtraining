@@ -83,6 +83,21 @@ public class RegistrationTests {
     }
 
     @Test
+    public void registerJoeSmithShortForm() throws InterruptedException {
+        WebDriver driver = new ChromeDriver();
+
+        RegistrationPage1 regPage1 = new RegistrationPage1(driver);
+        RegistrationPage2 regPage2 = new RegistrationPage2(driver);
+        SuccessPage successPage = new SuccessPage(driver);
+
+        regPage1.fillRegistrationPage1(driver);
+        successPage = regPage2.fillRegistrationPage2(driver);
+
+        Assert.assertEquals(successPage.getMessage(), "Registration Successful. Please Login.");
+        driver.quit();
+    }
+
+    @Test
     public void registerJoeSmithWhereUserAlreadyExists() throws InterruptedException {
 
         Util util = new Util();
@@ -107,6 +122,8 @@ public class RegistrationTests {
 
         driver.quit();
     }
+
+
 
 
     @AfterTest

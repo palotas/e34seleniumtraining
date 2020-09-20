@@ -110,4 +110,19 @@ public class RegistrationPage1 {
         return errorMessage.getText();
     }
 
+    public void fillRegistrationPage1(WebDriver driver) throws InterruptedException {
+        loadRegistrationPage1(driver);
+        clickSignUpHereLink();
+        selectTitle(driver);
+        enterFirstName();
+        enterLastName();
+        selectGender();
+        enterDob();
+        enterSsn();
+        enterEmailAddress();
+        enterPassword();
+        enterConfirmPassword();
+        clickNext();
+    }
+
 }
