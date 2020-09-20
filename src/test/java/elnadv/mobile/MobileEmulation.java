@@ -10,7 +10,9 @@ import elnadv.BaseTest;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
+import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 import java.net.MalformedURLException;
@@ -21,6 +23,16 @@ import java.util.Map;
 import static sbox.Settings.HUB;
 
 public class MobileEmulation extends BaseTest {
+
+    @DataProvider(name = "devices", parallel = true)
+    public Object[][] devices() {
+        return new Object[][] {
+                {"iPhone 8"},
+                {"iPad Pro"},
+                {"Galaxy S5"},
+                {"Nexus 10"},
+        };
+    }
 
     @Test
     public void mobile() throws InterruptedException {
@@ -36,21 +48,21 @@ public class MobileEmulation extends BaseTest {
         driver.quit();
     }
 
-    @Test
-    public void mobileSBOX() throws InterruptedException, MalformedURLException {
+    @Test(dataProvider = "devices")
+    public void mobileSBOX(String device) throws InterruptedException, MalformedURLException {
 
         Map<String, String> mobileEmulation = new HashMap<>();
-        //mobileEmulation.put("deviceName", "iPhone 8");
-        mobileEmulation.put("deviceName", "iPad Pro");
+        mobileEmulation.put("deviceName", device);
 
         ChromeOptions chromeOptions = new ChromeOptions();
-        chromeOptions.setCapability("e34:token" , "19705d15-03b8-4f"); //babbage / adoring edison
-        chromeOptions.setCapability("e34:video" , true);
-        chromeOptions.setCapability("e34:l_testName", "SBOX Mobile Emulation - iPhone 8");
         chromeOptions.setExperimentalOption("mobileEmulation", mobileEmulation);
+
+        chromeOptions.setCapability("e34:token" , "b280dc6d-0d25-45");
+        chromeOptions.setCapability("e34:video" , true);
+        chromeOptions.setCapability("e34:l_testName", "SBOX Mobile Emulation - " + device);
         RemoteWebDriver driver = new RemoteWebDriver(new URL(HUB + "/wd/hub"), chromeOptions);
-        driver.get("https://anaplan.com");
-        Thread.sleep(3000);
+        driver.get("https://rbinternational.com");
+        Thread.sleep(15000);
         driver.quit();
     }
 }

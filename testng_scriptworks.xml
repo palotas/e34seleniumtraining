@@ -1,0 +1,20 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+
+<suite name="Selenium Grid Test Suite" verbose="1" >
+    <listeners>
+        <listener
+                class-name="remoteWebdriver.AnnotationTransformerImpl"/>
+    </listeners>
+
+
+    <test name="Regression1">
+        <classes>
+            <class name="remoteWebdriver.demo">
+                <methods>
+                    <include name="demoScriptworks" />
+                </methods>
+            </class>
+        </classes>
+    </test>
+
+</suite>

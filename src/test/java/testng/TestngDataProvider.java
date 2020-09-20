@@ -13,23 +13,22 @@ import org.testng.annotations.Test;
 public class TestngDataProvider {
 	
 	//data provider with one parameter
-	@DataProvider(name = "countryprovider", parallel = true)
+	@DataProvider(name = "countryprovider", parallel = false)
 	public Object[][] createData1() {
 	 return new Object[][] {
-	   {"Switzerland"},
-	   {"United States"},
+	   {"user1@axa.ch"},
+	   {"user2"},
 	   {"China"},
 	   {"Germany"}
 	 };
 	}
 
 	//data provider with two parameters
-	@DataProvider(name = "urlprovider")
+	@DataProvider(name = "urlprovider", parallel = true)
 	public Object[][] createData2() {
 	 return new Object[][] {
-	   {"Switzerland", ".ch"},
-	   {"United States", ".com"},
-	   {"China", ".cn"}
+	   {"user1", "pw1"},
+	   {"user2", "pw2"}
 	 };
 	}
 	
@@ -42,9 +41,30 @@ public class TestngDataProvider {
 	
 	//use dataprovider2 and pass two parameters as Strings site and s
 	@Test(dataProvider="urlprovider")
-	public void mytest2(String country, String s) {
-		System.out.println("URL of " + country + ": " + "http://www.element34" + s);
+	public void mytest2(String user, String pw) throws InterruptedException {
+		method1();
+		method2();
+		method3();
+		System.out.println("User " + user + "  PW:" + pw);
+		Thread.sleep(2000);
 	}
+
+	public void method1() {
+		System.out.println("method1");
+	}
+
+	public void method2() {
+		System.out.println("method2");
+	}
+
+	public void method3() {
+		System.out.println("method3");
+	}
+
+
+
+
+
 
 	@Test(invocationCount = 5, threadPoolSize = 2)
 	public void parallel() throws InterruptedException {
