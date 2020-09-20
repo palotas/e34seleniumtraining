@@ -47,7 +47,7 @@ public class RegistrationTests {
     }
 
     @Test
-    public void registerJoeSmith() throws InterruptedException {
+    public void registerJoeSmithWhereUserDoesNotExistYet() throws InterruptedException {
         WebDriver driver = new ChromeDriver();
 
         RegistrationPage1 regPage1 = new RegistrationPage1(driver);
@@ -64,7 +64,6 @@ public class RegistrationTests {
         regPage1.enterConfirmPassword();
         regPage1.clickNext();
         Thread.sleep(1000);
-        //Assert.assertEquals(regPage1.getErrorMessage(), "An account is already registered with the Social Security Number provided. Login with the existing account or provide another social security number.");
 
         RegistrationPage2 regPage2 = new RegistrationPage2(driver);
         regPage2.enterAddress();
@@ -82,6 +81,33 @@ public class RegistrationTests {
 
         driver.quit();
     }
+
+    @Test
+    public void registerJoeSmithWhereUserAlreadyExists() throws InterruptedException {
+
+        Util util = new Util();
+        util.createUser("joesmith@test.com");
+
+        WebDriver driver = new ChromeDriver();
+        RegistrationPage1 regPage1 = new RegistrationPage1(driver);
+        regPage1.loadRegistrationPage1(driver);
+        regPage1.clickSignUpHereLink();
+        regPage1.selectTitle(driver);
+        regPage1.enterFirstName();
+        regPage1.enterLastName();
+        regPage1.selectGender();
+        regPage1.enterDob();
+        regPage1.enterSsn();
+        regPage1.enterEmailAddress();
+        regPage1.enterPassword();
+        regPage1.enterConfirmPassword();
+        regPage1.clickNext();
+        Thread.sleep(1000);
+        Assert.assertEquals(regPage1.getErrorMessage(), "An account is already registered with the email address provided. Login with the existing account or provide another email address.");
+
+        driver.quit();
+    }
+
 
     @AfterTest
     public void cleanup() {
