@@ -10,6 +10,7 @@ import digitalbank.Util;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
+import org.testng.annotations.AfterMethod;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
@@ -82,7 +83,7 @@ public class RegistrationTests {
         driver.quit();
     }
 
-    @Test
+    @Test(invocationCount = 5)
     public void registerJoeSmithShortForm() throws InterruptedException {
         WebDriver driver = new ChromeDriver();
 
@@ -126,9 +127,10 @@ public class RegistrationTests {
 
 
 
-    @AfterTest
-    public void cleanup() {
+    @AfterMethod
+    public void cleanup() throws InterruptedException {
         Util util = new Util();
         util.deleteUser("joesmith@test.com");
+        System.out.println("cleanup done");
     }
 }
