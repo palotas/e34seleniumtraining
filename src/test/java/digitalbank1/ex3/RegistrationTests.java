@@ -4,14 +4,13 @@
  * via any medium is strictly prohibited without explicit consent of Element34 Solutions GmbH.
  */
 
-package digitalbank1.pageObjects;
+package digitalbank1.ex3;
 
 import digitalbank1.Util;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
-import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
@@ -83,7 +82,7 @@ public class RegistrationTests {
         driver.quit();
     }
 
-    @Test(invocationCount = 5)
+    @Test(invocationCount = 1)
     public void registerJoeSmithShortForm() throws InterruptedException {
         WebDriver driver = new ChromeDriver();
 

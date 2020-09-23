@@ -4,7 +4,7 @@
  * via any medium is strictly prohibited without explicit consent of Element34 Solutions GmbH.
  */
 
-package digitalbank1.pageObjects;
+package digitalbank1.ex3;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
