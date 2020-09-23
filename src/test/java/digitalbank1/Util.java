@@ -179,9 +179,9 @@ public class Util {
     @Test
     public void utils() {
         //createUser("joesmith@test.com");
-        deleteUser("joesmith@test.com");
-        //deleteUser("rbi1@test.com");
-        //createAccountAndMake10KInitialDeposit();
+        //deleteUser("joesmith@test.com");
+        deleteUser("rbi1@test.com");
+        createAccountAndMake10KInitialDeposit();
         //getCheckingAccountsAndVerify5KBalance();
 
 
