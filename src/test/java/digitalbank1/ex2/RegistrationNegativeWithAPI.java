@@ -4,16 +4,18 @@
  * via any medium is strictly prohibited without explicit consent of Element34 Solutions GmbH.
  */
 
-package digitalbank;
+package digitalbank1.ex2;
 
+import digitalbank1.Util;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.Select;
+import org.testng.Assert;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
-public class Registration {
+public class RegistrationNegativeWithAPI {
 
     @BeforeTest
     public void setup() {
@@ -46,9 +48,13 @@ public class Registration {
     }
 
     @Test
-    public void registerNewUser() throws InterruptedException {
+    public void registerNewUserThatAlreadyExists() throws InterruptedException {
 
         WebDriver driver = null;
+
+        //create user via API
+        Util util = new Util();
+        util.createUser("joesmith@test.com");
 
         try {
             driver = new ChromeDriver();
@@ -72,21 +78,12 @@ public class Registration {
 
             //next page
             Thread.sleep(3000);
-            driver.findElement(By.id("address")).sendKeys("Teichweg 8, 8853 Lachen");
-            driver.findElement(By.id("locality")).sendKeys("space");
-            driver.findElement(By.id("region")).sendKeys("ZH");
-            driver.findElement(By.id("country")).sendKeys("Switzerland");
-            driver.findElement(By.id("postalCode")).sendKeys("8853");
-            driver.findElement(By.id("homePhone")).sendKeys("0796690708");
-            driver.findElement(By.id("mobilePhone")).sendKeys("0796690708");
-            driver.findElement(By.id("workPhone")).sendKeys("0796690708");
-            driver.findElement(By.id("agree-terms")).click();
-            driver.findElement(By.xpath("/html/body/div[1]/div/div/div[2]/form/button")).click();
-
-            Thread.sleep(2000);
+            Assert.assertEquals(driver.findElement(By.xpath("/html/body/div[1]/div/div/div[2]/div/div/span[2]")).getText(), "An account is already registered with the email address provided. Login with the existing account or provide another email address.");
 
         }
         finally {
+            util.deleteUser("joesmith@test.com");
+
             if(driver!=null) {
                 driver.quit();
             }

@@ -1,5 +1,14 @@
-1. 
-- create account via UI without page objects
+## EX1
+- register new user via UI without page objects
+--> works only once because user will be already registered 
+- delete user with UTIL API call
+
+## EX2
+- register user that already exists 
+- check error message 
+--> discuss how this can be reproducible test (e.g. create user via API before running test)
+
+
 
 1. 
 - create API call to delete a specific user
