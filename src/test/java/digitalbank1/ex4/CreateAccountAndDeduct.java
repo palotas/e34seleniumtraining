@@ -7,6 +7,7 @@
 package digitalbank1.ex4;
 
 import digitalbank1.Util;
+import digitalbank1.listeners.TestListener;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -15,39 +16,11 @@ import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.BeforeTest;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
+@Listeners({TestListener.class})
 public class CreateAccountAndDeduct {
-
-    @BeforeTest
-    public void setup() {
-        String OS = System.getProperty("os.name");
-        switch (OS) {
-            case "Linux":
-                System.setProperty("webdriver.gecko.driver","/home/e34/workspace/e34seleniumtraining/resources/linux/geckodriver");
-                System.setProperty("webdriver.chrome.driver", "/home/e34/workspace/e34seleniumtraining/resources/linux/chromedriver");
-                break;
-
-            case "Mac OS X":
-                System.setProperty("webdriver.gecko.driver","/Users/gridfusion/Downloads/geckodriver");
-                System.setProperty("webdriver.chrome.driver", "/Users/gridfusion/Downloads/chromedriver");
-                break;
-
-            case "Windows 7":
-                System.setProperty("webdriver.gecko.driver","C:\\Users\\mpalotas\\Downloads\\geckodriver");
-                System.setProperty("webdriver.chrome.driver", "C:\\Users\\mpalotas\\Downloads\\chromedriver.exe");
-                break;
-
-            case "Windows 10":
-                System.setProperty("webdriver.gecko.driver","C:\\Users\\IdeaProjects\\e34seleniumtraining\\resources\\win10\\geckodriver.exe");
-                System.setProperty("webdriver.chrome.driver", "C:\\Users\\micha\\IdeaProjects\\e34seleniumtraining\\resources\\win10\\chromedriver.exe");
-                break;
-
-            default:
-                System.out.println(System.getProperty("os.name") + " is not supported ");
-                break;
-        }
-    }
 
     @Test(invocationCount = 1)
     public void createCheckingAccountAndDeposit5K() throws InterruptedException {
