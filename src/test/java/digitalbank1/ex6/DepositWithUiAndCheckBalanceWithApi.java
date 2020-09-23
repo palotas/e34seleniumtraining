@@ -4,21 +4,19 @@
  * via any medium is strictly prohibited without explicit consent of Element34 Solutions GmbH.
  */
 
-package digitalbank1.ex5;
+package digitalbank1.ex6;
 
 import digitalbank1.Util;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
-public class CreateAccountAndDeductWithAPI {
+public class DepositWithUiAndCheckBalanceWithApi {
 
     @BeforeTest
     public void setup() {
@@ -56,11 +54,10 @@ public class CreateAccountAndDeductWithAPI {
         Util util = new Util();
         util.createUser("rbi1@test.com");
         util.createAccountAndMake10KInitialDeposit();
-
     }
 
     @Test()
-    public void withdraw1kFromCheckingAccountandCheck4KBalance() throws InterruptedException {
+    public void withdraw5kFromCheckingAccountandCheck5KBalanceWithAPI() throws InterruptedException {
 
         WebDriver driver = new ChromeDriver();
         try {
@@ -76,12 +73,11 @@ public class CreateAccountAndDeductWithAPI {
             Select accountSelector = new Select(driver.findElement(By.id("selectedAccount")));
             accountSelector.selectByVisibleText("main checking account (Standard Checking)");
 
-            driver.findElement(By.id("amount")).sendKeys("1000");
+            driver.findElement(By.id("amount")).sendKeys("5000");
             driver.findElement(By.xpath("//*[@id=\"right-panel\"]/div[2]/div/div/div/div/form/div[2]/button[1]")).click();
 
             //verify balance
-            Thread.sleep(3000); //wait for element to be visible
-            Assert.assertEquals(driver.findElement(By.xpath("//*[@id=\"firstRow\"]/div/div/form/div/div[7]")).getText(), "Balance: $9000.00");
+            new Util().getCheckingAccountsAndVerify5KBalance();
         }
 
 
