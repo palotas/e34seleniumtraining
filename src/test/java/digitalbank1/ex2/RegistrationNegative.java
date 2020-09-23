@@ -7,6 +7,7 @@
 package digitalbank1.ex2;
 
 import digitalbank1.Util;
+import digitalbank1.ex1.RegistrationPositive;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -50,7 +51,7 @@ public class RegistrationNegative {
     @Test
     public void registerNewUserThatAlreadyExists() throws InterruptedException {
 
-        //run RegistrationPositive first
+        //need to run RegistrationPositive first
 
         WebDriver driver = null;
 
