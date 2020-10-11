@@ -32,7 +32,7 @@ public class CreateAccountWithApiAndDeductWithUi {
     }
 
     @Test()
-    public void withdraw1kFromCheckingAccountandCheck4KBalance() throws InterruptedException {
+    public void withdraw1kFromCheckingAccountandCheck9KBalance() throws InterruptedException {
 
         WebDriver driver = new ChromeDriver();
         try {
